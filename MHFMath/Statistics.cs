@@ -9,9 +9,21 @@ namespace MHFMath
 {
     public static class Statistics
     {
-        public static double[] FitPolynomialToLeastSquares(double[] x, double[] y, int order)
+        public static double[] FitPolynomialToLeastSquares(double[] x, double[] y, int degree)
         {
-            return Fit.Polynomial(x, y, order);
+            //TODO better wording on x and y
+
+            try
+            {
+                return Fit.Polynomial(x, y, degree);
+            }
+            catch
+            {
+                //TODO add specific error handling
+                throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
+            }
         }
+
     }
+
 }
