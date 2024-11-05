@@ -1,19 +1,19 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MHFMath;
+using MathLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MHFMath.Tests
+namespace MathLib.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using MHFMath;
+    using MathLib;
     using MathNet.Numerics;
 
-    namespace MHFMath.Tests
+    namespace MathLib.Tests
     {
         [TestClass]
         public class StatisticsTests

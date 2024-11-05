@@ -5,9 +5,9 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CertGenSandbox", "CertGenSandbox\CertGenSandbox.csproj", "{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MHFMath", "MHFMath\MHFMath.csproj", "{6E614742-7830-4C65-BC94-851FCB19D5C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLib", "MathLib\MathLib.csproj", "{78801653-2B94-4745-84EB-298BF80B9F63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MHFMathTests", "MHFMathTests\MHFMathTests.csproj", "{F257D1B1-0547-426F-8647-1B1C877430F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibTests", "MathLibTests\MathLibTests.csproj", "{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E614742-7830-4C65-BC94-851FCB19D5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E614742-7830-4C65-BC94-851FCB19D5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E614742-7830-4C65-BC94-851FCB19D5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E614742-7830-4C65-BC94-851FCB19D5C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F257D1B1-0547-426F-8647-1B1C877430F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F257D1B1-0547-426F-8647-1B1C877430F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F257D1B1-0547-426F-8647-1B1C877430F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F257D1B1-0547-426F-8647-1B1C877430F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78801653-2B94-4745-84EB-298BF80B9F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78801653-2B94-4745-84EB-298BF80B9F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78801653-2B94-4745-84EB-298BF80B9F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78801653-2B94-4745-84EB-298BF80B9F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

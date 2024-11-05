@@ -1,7 +1,10 @@
 ﻿
-using MHFMath;
+
+using MathLib;
 
 Console.WriteLine("Start");
+
+// note that provided test data values are post zero reduction
 
 double[] appliedForce = [2, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
@@ -53,7 +56,7 @@ double[] xData = appliedForce.Concat(appliedForce).Concat(appliedForce).ToArray(
 double[] yData = run1.Concat(run2).Concat(run3).ToArray();
 
 // Fit a 4th order polynomial
-var coefficients = MHFMath.Statistics.FitPolynomialToLeastSquares(xData, yData, 4);
+var coefficients = MathLib.Statistics.FitPolynomialToLeastSquares(xData, yData, 4);
 
 // Display the coefficients
 Console.WriteLine("Coefficients of the 4th order polynomial:");

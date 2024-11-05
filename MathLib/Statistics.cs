@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MHFMath
+namespace MathLib
 {
     public static class Statistics
     {
@@ -23,7 +23,6 @@ namespace MHFMath
                 throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
             }
         }
-
     }
 
 }
