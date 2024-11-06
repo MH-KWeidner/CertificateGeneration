@@ -23,6 +23,19 @@ namespace MathLib
                 throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
             }
         }
+        
+        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int seriesPositionOfForceReading)
+        {
+            //TODO non-force specific naming
+            try
+            {
+                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (seriesPositionOfForceReading - 1) / (numberOfNonZeroForcePoints - 1)));
+            }
+            catch
+            {
+                //TODO add specific error handling
+                throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
+            }
+        }
     }
-
 }
