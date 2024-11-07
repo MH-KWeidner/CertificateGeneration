@@ -1,50 +1,34 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using Models;
 using Interpolation;
 
 namespace InterpolationTests
 {
-
-    namespace Transform.Tests
+    [TestClass]
+    public class NISTInterpolatedZeroReductionTests
     {
-        //[TestClass]
-        //public class NISTInterpolatedZeroReductionTests
-        //{
-        //    [TestMethod]
-        //    public void Transform_ValidInput_ReturnsTransformedData()
-        //    {
-        //        // Arrange
-        //        var nistInterpolatedZeroReduction = new NISTInterpolatedZeroReduction();
-        //        double[] xApplied = { 0.0, 10.0, 20.0 };
-        //        double[] fxData = { 0.2, 0.4, 0.6 };
-
-        //        // Act
-        //        double[] result = nistInterpolatedZeroReduction.Transform(xApplied, fxData);
-
-        //        // Assert
-        //        double[] expected = {  };
-        //        CollectionAssert.AreEqual(expected, result);
-        //    }
-        //}
-
-        [TestClass]
-        public class NISTInterpolatedZeroReductionTests
+        [TestMethod]
+        public void interpolateSeriesList_ValidInput_ReturnsExpectedInterpolatedValues()
         {
-            [TestMethod]
-            public void Transform_ValidInput_ReturnsTransformedData()
+            // Arrange
+            double[] appliedForce = TestData1.GetAppliedForce();
+            var seriesList = new List<Series>
             {
-                //// Arrange
-                //double[] xApplied = {0.0, 10.0, 20.0, 0.0};
-                //double[] fxData = {0.2, 0.4, 0.6, 0.1};
+                TestData1.GetSeries1()
+            };
 
-                //// Act
-                //double[] result = NISTInterpolatedZeroReduction.Calculate(xApplied, fxData);
+            // Act
+            NISTInterpolatedZeroReduction.InterpolateSeriesList(appliedForce, seriesList);
 
-                //// Assert
-                //double[] expected = {0.4, 0.6};
-                //CollectionAssert.AreEqual(expected, result);
-            }
+            // Assert
+            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(0));
+            Assert.AreEqual(1.0, seriesList[0].GetInterpolatedValue(1));
+            Assert.AreEqual(2.0, seriesList[0].GetInterpolatedValue(2));
+            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(3));
+            Assert.AreEqual(3.0, seriesList[0].GetInterpolatedValue(4));
+            Assert.AreEqual(4.0, seriesList[0].GetInterpolatedValue(5));
+            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(6));
         }
     }
-
 }

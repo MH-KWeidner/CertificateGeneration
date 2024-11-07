@@ -12,7 +12,9 @@ namespace Interpolation
 {
     public static class NISTInterpolatedZeroReduction
     {
-        public static void Calculate(double[] appliedForce,  List<Series> seriesData)
+        // TODO consider better naming for the class and method 
+
+        public static void InterpolateSeriesList(double[] appliedForce, List<Series> seriesList)
         {
             const double DOUBLE_ZERO = 0.0;
             
@@ -29,40 +31,43 @@ namespace Interpolation
                 zeroStartElement = zeroValuedElements[i];
                 zeroEndElement = zeroValuedElements[i + 1];
 
-                // 2 consecutive zero values can not be used for interpolation
-                if (zeroEndElement.Index - 1 == zeroStartElement.Index)
+                // 2 consecutive zero values can not be used to calculate interpolation
+                if (zeroEndElement.ArrayPosition - 1 == zeroStartElement.ArrayPosition)
                     continue;
 
-                foreach (var series in seriesData)
-                {
-                    CalculateNISInterpolatedValues(zeroStartElement, zeroEndElement, series.DataPoints);
-                }
+                foreach (var series in seriesList)
+                    InterpolateSeries(zeroStartElement, zeroEndElement, series);
             }
         }
 
-        public static void CalculateNISInterpolatedValues(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, List<DataPoint> dataPoints)
+        public static void InterpolateSeries(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
         {
-            //TODO maybe not modify the collections and objects passed as parameters
+            //int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition -1;
 
-            int numberOfNonZeroForcePoints = zeroEndElement.Index - zeroStartElement.Index + 1;
+            int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition - 1;
 
-            for (int j = zeroStartElement.Index + 1; j < zeroEndElement.Index; j++)
+            numberOfNonZeroForcePoints = 11;
+
+            for (int i = zeroStartElement.ArrayPosition + 1; i < zeroEndElement.ArrayPosition; i++)
             {
-                var x = CalculateNISInterpolatedValue(
-                     startZeroValue: dataPoints[zeroStartElement.Index].Raw,
-                     endZeroValue: dataPoints[zeroEndElement.Index].Raw,
+                var interpolatedValue = CalculateNISInterpolatedValue(
+                     startZeroValue: series.GetRawValue(zeroStartElement.ArrayPosition),
+                     endZeroValue: series.GetRawValue(zeroEndElement.ArrayPosition),
                      numberOfNonZeroForcePoints: numberOfNonZeroForcePoints,
-                     forceReading: dataPoints[j].Raw,
-                     seriesPositionOfForceReading: j);
+                     forceReading: series.GetRawValue(i),
+                     OneBasedSeriesPositionOfForceReading: i + 1);
+
+                series.SetInterpolatedValue(i, interpolatedValue);
             }
         }
 
-        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int seriesPositionOfForceReading)
+        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionOfForceReading)
         {
-            //TODO beter naming
+            //TODO better naming
+            
             try
             {
-                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (seriesPositionOfForceReading - 1) / (numberOfNonZeroForcePoints - 1)));
+                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (OneBasedSeriesPositionOfForceReading - 1) / (numberOfNonZeroForcePoints - 1)));
             }
             catch
             {

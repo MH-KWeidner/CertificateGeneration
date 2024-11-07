@@ -8,8 +8,8 @@ namespace Helpers.Models
 {
     public class DoubleValueArrayElement
     {
-        public int Index { get; }
+        public int ArrayPosition { get; }
         public double Value { get; }
-        public DoubleValueArrayElement(int index, double value) => (Index, Value) = (index, value);
+        public DoubleValueArrayElement(int arrayPosition, double value) => (ArrayPosition, Value) = (arrayPosition, value);
     }
 }

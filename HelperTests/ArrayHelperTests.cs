@@ -21,7 +21,7 @@ namespace Helpers.Tests
 
             // Assert
             Assert.AreEqual(1, result.Length);
-            Assert.AreEqual(1, result[0].Index);
+            Assert.AreEqual(1, result[0].ArrayPosition);
             Assert.AreEqual(0.0, result[0].Value);
         }
 
@@ -37,9 +37,9 @@ namespace Helpers.Tests
 
             // Assert
             Assert.AreEqual(2, result.Length);
-            Assert.AreEqual(0, result[0].Index);
+            Assert.AreEqual(0, result[0].ArrayPosition);
             Assert.AreEqual(0.0, result[0].Value);
-            Assert.AreEqual(1, result[1].Index);
+            Assert.AreEqual(1, result[1].ArrayPosition);
             Assert.AreEqual(0.0, result[0].Value);
         }
 
