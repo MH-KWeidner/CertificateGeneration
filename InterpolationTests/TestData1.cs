@@ -10,29 +10,29 @@ namespace InterpolationTests
 {
     //TODO remove this class when no longer needed
 
+    // Test data from https://mhforce.com/interpolated-zero-reduction-methods/
+
     public static class TestData1
     {
-        private static int SeriesSize = 15;
-
         public static double[] GetAppliedForce()
         {
-           var appliedForce = new double[SeriesSize];
+            int SeriesSize = 13;
+            var appliedForce = new double[SeriesSize];
+            
             appliedForce[0] = 0;
-            appliedForce[1] = 10;
-            appliedForce[2] = 20;
-            appliedForce[3] = 30;
-            appliedForce[4] = 40;
-            appliedForce[5] = 50;
-            appliedForce[6] = 60;
-            appliedForce[7] = 70;
-            appliedForce[8] = 80;
-            appliedForce[9] = 90;
-            appliedForce[10] = 100;
-            appliedForce[11] = 0;
+            appliedForce[1] = 500;
+            appliedForce[2] = 2500;
+            appliedForce[3] = 5000;
+            appliedForce[4] = 7500;
+            appliedForce[5] = 10000;
+            appliedForce[6] = 12500;
+            appliedForce[7] = 15000;
+            appliedForce[8] = 17500;
+            appliedForce[9] = 20000;
+            appliedForce[10] = 22500;
+            appliedForce[11] = 25000;
             appliedForce[12] = 0;
-            appliedForce[13] = 2;
-            appliedForce[14] = 0;
-           
+            
             return appliedForce;
         }
             
@@ -40,47 +40,21 @@ namespace InterpolationTests
         {
             var series = new Series(1);
 
-            series.AddNewSeriesValue(0.00000);
-            series.AddNewSeriesValue(-0.21162);
-            series.AddNewSeriesValue(-0.42326);
-            series.AddNewSeriesValue(-0.63491);
-            series.AddNewSeriesValue(-0.84657);
-            series.AddNewSeriesValue(-1.05826);
-            series.AddNewSeriesValue(-1.26996);
-            series.AddNewSeriesValue(-1.48167);
-            series.AddNewSeriesValue(-1.69339);
-            series.AddNewSeriesValue(-1.90509);
-            series.AddNewSeriesValue(-2.11680);
-            series.AddNewSeriesValue(-0.00018);
-            series.AddNewSeriesValue(0.00000);
-            series.AddNewSeriesValue(-0.04234);
-            series.AddNewSeriesValue(0.00000);
+            series.AddNewSeriesValue(0.00002);
+            series.AddNewSeriesValue(-0.08191);
+            series.AddNewSeriesValue(-0.40848);
+            series.AddNewSeriesValue(-0.81670);
+            series.AddNewSeriesValue(-1.22496);
+            series.AddNewSeriesValue(-1.63328);
+            series.AddNewSeriesValue(-2.04170);
+            series.AddNewSeriesValue(-2.45015);
+            series.AddNewSeriesValue(-2.85863);
+            series.AddNewSeriesValue(-3.26713);
+            series.AddNewSeriesValue(-3.67564);
+            series.AddNewSeriesValue(-4.08417);
+            series.AddNewSeriesValue(0.00012);
 
             return series;
         }
-
-        public static Series GetSeries2()
-        {
-            var series = new Series(2);
-
-            series.AddNewSeriesValue(-0.00002);
-            series.AddNewSeriesValue(-0.21163);
-            series.AddNewSeriesValue(-0.42326);
-            series.AddNewSeriesValue(-0.63490);
-            series.AddNewSeriesValue(-0.84655);
-            series.AddNewSeriesValue(-1.05824);
-            series.AddNewSeriesValue(-1.26992);
-            series.AddNewSeriesValue(-1.48161);
-            series.AddNewSeriesValue(-1.69334);
-            series.AddNewSeriesValue(-1.90505);
-            series.AddNewSeriesValue(-2.11674);
-            series.AddNewSeriesValue(-0.00015);
-            series.AddNewSeriesValue(-0.00001);
-            series.AddNewSeriesValue(-0.04231);
-            series.AddNewSeriesValue(-0.00001);
-
-            return series;
-        }
-
     }
 }

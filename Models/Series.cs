@@ -11,7 +11,7 @@ namespace Models
         private int id;
         private readonly List<SeriesValue> seriesValues;
 
-       public Series(int seriesId)
+        public Series(int seriesId)
         {
             id = seriesId;
             seriesValues = [];
@@ -30,7 +30,7 @@ namespace Models
         {
             // TODO add validation for positionInSeries
             //TODO add error handling
-            
+
             return seriesValues[PositionInSeries].RawValue;
         }
 
@@ -38,7 +38,7 @@ namespace Models
         {
             // TODO add validation for positionInSeries
             //TODO add error handling
-            
+
             seriesValues[positionInSeries].InterpolatedValue = value;
         }
 
@@ -51,6 +51,13 @@ namespace Models
                 return seriesValues[PositionInSeries].InterpolatedValue.Value;
 
             throw new Exception("Raw value is null");
+        }
+
+        public int CountInterpolatedValues()
+        {
+            //TODO add error handling
+
+            return seriesValues.Count(sv => sv.InterpolatedValue.HasValue);
         }
     }
 }

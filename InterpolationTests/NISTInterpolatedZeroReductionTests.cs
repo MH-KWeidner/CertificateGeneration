@@ -12,23 +12,44 @@ namespace InterpolationTests
         public void interpolateSeriesList_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = TestData1.GetAppliedForce();
+            double[] appliedForce = TestData2.GetAppliedForce();
             var seriesList = new List<Series>
             {
-                TestData1.GetSeries1()
+                TestData2.GetSeries1(),
+                TestData2.GetSeries2(),
+                TestData2.GetSeries3()
             };
 
             // Act
             NISTInterpolatedZeroReduction.InterpolateSeriesList(appliedForce, seriesList);
 
             // Assert
-            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(0));
-            Assert.AreEqual(1.0, seriesList[0].GetInterpolatedValue(1));
-            Assert.AreEqual(2.0, seriesList[0].GetInterpolatedValue(2));
-            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(3));
-            Assert.AreEqual(3.0, seriesList[0].GetInterpolatedValue(4));
-            Assert.AreEqual(4.0, seriesList[0].GetInterpolatedValue(5));
-            Assert.AreEqual(0.0, seriesList[0].GetInterpolatedValue(6));
+            Assert.AreEqual(-0.08193, seriesList[0].GetInterpolatedValue(1));
+            Assert.AreEqual(-0.40851, seriesList[0].GetInterpolatedValue(2));
+        }
+
+        [TestMethod]
+        public void calculateNISInterpolatedValue_ValidOutput_ReturnsExpectedInterpolatedValue()
+        {
+            // Arrange
+            double startZeroValue = 0.00002;
+            double endZeroValue = 0.00012;
+            int numberOfNonZeroForcePoints = 11;
+            double forceReading = -0.08191;
+            int OneBasedSeriesPositionOfForceReading = 1;
+
+            // Act
+            var interpolatedValue = NISTInterpolatedZeroReduction.CalculateNISInterpolatedValue
+                (
+                     startZeroValue: startZeroValue,
+                     endZeroValue: endZeroValue,
+                     numberOfNonZeroForcePoints: numberOfNonZeroForcePoints,
+                     forceReading: forceReading,
+                     OneBasedSeriesPositionForNonZeroForce: OneBasedSeriesPositionOfForceReading
+                );
+
+// Assert
+            Assert.AreEqual(0.0, interpolatedValue);
         }
     }
 }

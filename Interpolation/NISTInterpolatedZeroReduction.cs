@@ -17,7 +17,6 @@ namespace Interpolation
         public static void InterpolateSeriesList(double[] appliedForce, List<Series> seriesList)
         {
             const double DOUBLE_ZERO = 0.0;
-            
             var zeroValuedElements = ArrayHelper.GetElementsByValue(DOUBLE_ZERO, appliedForce);
 
             DoubleValueArrayElement zeroStartElement;
@@ -42,32 +41,62 @@ namespace Interpolation
 
         public static void InterpolateSeries(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
         {
-            //int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition -1;
-
             int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition - 1;
 
-            numberOfNonZeroForcePoints = 11;
+            int seriesIndexingStart = zeroStartElement.ArrayPosition + 1;         
+            int seriesIndexingEnd = zeroEndElement.ArrayPosition;
 
-            for (int i = zeroStartElement.ArrayPosition + 1; i < zeroEndElement.ArrayPosition; i++)
+            if(numberOfNonZeroForcePoints == 1)
+            {
+                var interpolatedValue = InterpolateByZeroForceAverage(
+                    startZeroValue: series.GetRawValue(zeroStartElement.ArrayPosition),
+                    endZeroValue: series.GetRawValue(zeroEndElement.ArrayPosition),
+                    forceReading: series.GetRawValue(seriesIndexingStart));
+                    
+                series.SetInterpolatedValue(seriesIndexingStart, interpolatedValue);
+                
+                return;
+            }
+
+            int OneBasedSeriesPositionForNonZeroForce = 1;
+
+            for (int i = seriesIndexingStart; i < seriesIndexingEnd; i++)
             {
                 var interpolatedValue = CalculateNISInterpolatedValue(
                      startZeroValue: series.GetRawValue(zeroStartElement.ArrayPosition),
                      endZeroValue: series.GetRawValue(zeroEndElement.ArrayPosition),
                      numberOfNonZeroForcePoints: numberOfNonZeroForcePoints,
                      forceReading: series.GetRawValue(i),
-                     OneBasedSeriesPositionOfForceReading: i + 1);
+                     OneBasedSeriesPositionForNonZeroForce: OneBasedSeriesPositionForNonZeroForce);
 
                 series.SetInterpolatedValue(i, interpolatedValue);
+
+                OneBasedSeriesPositionForNonZeroForce++;
             }
         }
 
-        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionOfForceReading)
+        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionForNonZeroForce)
         {
             //TODO better naming
             
             try
             {
-                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (OneBasedSeriesPositionOfForceReading - 1) / (numberOfNonZeroForcePoints - 1)));
+                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1)));
+            }
+            catch
+            {
+                //TODO add specific error handling
+                throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
+            }
+        }
+
+        public static double InterpolateByZeroForceAverage(double startZeroValue, double endZeroValue, double forceReading)
+        {
+            //TODO better naming
+
+            try
+            {
+                return forceReading - ((endZeroValue + startZeroValue)/2);
             }
             catch
             {
