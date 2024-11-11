@@ -12,9 +12,9 @@ namespace Interpolation
 {
     public static class NISTInterpolatedZeroReduction
     {
-        // TODO consider better naming for the class and method 
+        // TODO consider better naming for the class, methods, parameter names 
 
-        public static void InterpolateSeriesList(double[] appliedForce, List<Series> seriesList)
+        public static void InterpolateSeries(double[] appliedForce, List<Series> series)
         {
             const double DOUBLE_ZERO = 0.0;
             var zeroValuedElements = ArrayHelper.GetElementsByValue(DOUBLE_ZERO, appliedForce);
@@ -34,12 +34,12 @@ namespace Interpolation
                 if (zeroEndElement.ArrayPosition - 1 == zeroStartElement.ArrayPosition)
                     continue;
 
-                foreach (var series in seriesList)
-                    InterpolateSeries(zeroStartElement, zeroEndElement, series);
+                foreach (var oneSeries in series)
+                    InterpolateOneSeries(zeroStartElement, zeroEndElement, oneSeries);
             }
         }
 
-        public static void InterpolateSeries(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
+        public static void InterpolateOneSeries(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
         {
             int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition - 1;
 

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CertGenSandbox", "CertGenSandbox\CertGenSandbox.csproj", "{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLib", "MathLib\MathLib.csproj", "{78801653-2B94-4745-84EB-298BF80B9F63}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibTests", "MathLibTests\MathLibTests.csproj", "{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CEB1B23-BE46-4634-AA1F-8F3B7F4FCD14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78801653-2B94-4745-84EB-298BF80B9F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78801653-2B94-4745-84EB-298BF80B9F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78801653-2B94-4745-84EB-298BF80B9F63}.Release|Any CPU.ActiveCfg = Release|Any CPU

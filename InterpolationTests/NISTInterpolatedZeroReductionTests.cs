@@ -21,7 +21,7 @@ namespace InterpolationTests
             };
 
             // Act
-            NISTInterpolatedZeroReduction.InterpolateSeriesList(appliedForce, seriesList);
+            NISTInterpolatedZeroReduction.InterpolateSeries(appliedForce, seriesList);
 
             // Assert
             Assert.AreEqual(-0.08193, seriesList[0].GetInterpolatedValue(1));
