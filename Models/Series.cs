@@ -8,20 +8,19 @@ namespace Models
 {
     public class Series
     {
-        private int id;
-        private readonly List<SeriesValue> seriesValues;
+        private readonly int id;
+        private List<SeriesValue> seriesValues;
 
-        public Series(int seriesId)
+        private Series(int seriesId, double[] appliedForce, double[] rawValue)
         {
             id = seriesId;
+
             seriesValues = [];
-        }
 
-        public void AddNewSeriesValue(double rawValue)
-        {
-            //TODO add error handling
-
-            seriesValues.Add(new SeriesValue(seriesValues.Count, rawValue));
+            for (int i = 0; i < appliedForce.Length; i++)
+            {
+                seriesValues.Add(new SeriesValue(i, appliedForce[i], rawValue[i]));
+            }
         }
 
         public int Id => id;
@@ -53,11 +52,20 @@ namespace Models
             throw new Exception("Raw value is null");
         }
 
-        public int CountInterpolatedValues()
+        public void ZeroReduceAndSortByAppliedForceAscending()
         {
-            //TODO add error handling
+            //TODO consider if this is the best way to order theses values
 
-            return seriesValues.Count(sv => sv.InterpolatedValue.HasValue);
+            //TODO how to test this method
+
+            //change this to use IoC passing in modifier objects
+
+            seriesValues = seriesValues.OrderBy(sv => sv.AppliedForce).Where(sv => sv.AppliedForce > 0).ToList();
+        }
+
+        public static Series CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
+        {
+            return new Series(seriesId, appliedForces, rawValues);
         }
     }
 }

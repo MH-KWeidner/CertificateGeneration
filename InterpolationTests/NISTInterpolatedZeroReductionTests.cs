@@ -12,16 +12,20 @@ namespace InterpolationTests
         public void interpolateSeriesList_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = TestData2.GetAppliedForce();
+            double[] appliedForce = TestData4.GetAppliedForce();
             var seriesList = new List<Series>
             {
-                TestData2.GetSeries1(),
-                TestData2.GetSeries2(),
-                TestData2.GetSeries3()
+                Series.CreateSeries(1, appliedForce, TestData4.GetRawDataSeries1()),
+                Series.CreateSeries(2, appliedForce, TestData4.GetRawDataSeries2()),
+                Series.CreateSeries(3, appliedForce, TestData4.GetRawDataSeries3()),
             };
 
             // Act
             NISTInterpolatedZeroReduction.InterpolateSeries(appliedForce, seriesList);
+
+            seriesList[0].ZeroReduceAndSortByAppliedForceAscending();
+            seriesList[1].ZeroReduceAndSortByAppliedForceAscending();
+            seriesList[2].ZeroReduceAndSortByAppliedForceAscending();
 
             // Assert
             Assert.AreEqual(-0.08193, seriesList[0].GetInterpolatedValue(1));

@@ -9,94 +9,119 @@ namespace InterpolationTests
 {
     internal class TestData3
     {
-        //CALIBRATION & ISSUE DATE: 11/06/2024
-        //REPORT NO.: 226367AK0624
+        //TODO remove this class when no longer needed
+
+        // CALIBRATION & ISSUE DATE: 11/06/2024
+        // REPORT NO.: 070221K0624
 
         public static double[] GetAppliedForce()
         {
             return
             [
                 0,
-                200,
-                1000,
-                2000,
-                3000,
-                4000,
-                5000,
-                6000,
-                7000,
-                8000,
+                45000,
+                90000,
+                135000,
+                180000,
+                225000,
+                270000,
+                315000,
+                360000,
+                405000,
+                450000,
+                0,
+                0,
                 9000,
-                10000,
-                4000,
                 0
-            ];   
+            ];
         }
 
-        public static Series GetSeries1()
+        public static double[] GetRawDataSeries1()
         {
-            var series = new Series(1);
-
-            series.AddNewSeriesValue(-0.012945);
-            series.AddNewSeriesValue(-0.094522);
-            series.AddNewSeriesValue(-0.421162);
-            series.AddNewSeriesValue(-0.82959);
-            series.AddNewSeriesValue(-1.238096);
-            series.AddNewSeriesValue(-1.646677);
-            series.AddNewSeriesValue(-2.055324);
-            series.AddNewSeriesValue(-2.464048);
-            series.AddNewSeriesValue(-2.872841);
-            series.AddNewSeriesValue(-3.281682);
-            series.AddNewSeriesValue(-3.690589);
-            series.AddNewSeriesValue(-4.099538);
-            series.AddNewSeriesValue(-1.647374);
-            series.AddNewSeriesValue(-0.013032);
-
-            return series;
+            return
+            [
+                -0.00001,
+                -0.20998,
+                -0.41991,
+                -0.62971,
+                -0.83948,
+                -1.04903,
+                -1.25851,
+                -1.46776,
+                -1.67692,
+                -1.8858,
+                -2.09457,
+                0.00061,
+                -0.00001,
+                -0.04203,
+                0.0001
+            ];
         }
 
-        public static Series GetSeries2()
+        public static double[] GetRawDataSeries2()
         {
-            var series = new Series(2);
-
-            series.AddNewSeriesValue(-0.012863);
-            series.AddNewSeriesValue(-0.094495);
-            series.AddNewSeriesValue(-0.421204);
-            series.AddNewSeriesValue(-0.829649);
-            series.AddNewSeriesValue(-1.238159);
-            series.AddNewSeriesValue(-1.646742);
-            series.AddNewSeriesValue(-2.055398);
-            series.AddNewSeriesValue(-2.464131);
-            series.AddNewSeriesValue(-2.872932);
-            series.AddNewSeriesValue(-3.281777);
-            series.AddNewSeriesValue(-3.690693);
-            series.AddNewSeriesValue(-4.099652);
-            series.AddNewSeriesValue(-1.647437);
-            series.AddNewSeriesValue(-0.012988);
-
-            return series;
+            return 
+            [
+                -0.00005,
+                -0.21024,
+                -0.42026,
+                -0.63014,
+                -0.83996,
+                -1.04954,
+                -1.25905,
+                -1.46834,
+                -1.67753,
+                -1.88645,
+                -2.09526,
+                0.00032,
+                0,
+                -0.04221,
+                0.0001
+            ];
         }
 
-        public static Series GetSeries3()
+        public static double[] GetRawDataSeries3()
         {
-            var series = new Series(3);
+            return
+            [
+                -0.00003,
+                -0.21018,
+                -0.4202,
+                -0.63003,
+                -0.83983,
+                -1.04941,
+                -1.2589,
+                -1.46817,
+                -1.67735,
+                -1.88624,
+                -2.09501,
+                0.00049,
+                0,
+                -0.04215,
+                0.00011
+            ];
+        }
 
-            series.AddNewSeriesValue(-0.012889);
-            series.AddNewSeriesValue(-0.094517);
-            series.AddNewSeriesValue(-0.421216);
-            series.AddNewSeriesValue(-0.82966);
-            series.AddNewSeriesValue(-1.238174);
-            series.AddNewSeriesValue(-1.646763);
-            series.AddNewSeriesValue(-2.055435);
-            series.AddNewSeriesValue(-2.46416);
-            series.AddNewSeriesValue(-2.872961);
-            series.AddNewSeriesValue(-3.281814);
-            series.AddNewSeriesValue(-3.690713);
-            series.AddNewSeriesValue(-4.099662);
-            series.AddNewSeriesValue(-1.647477);
-            series.AddNewSeriesValue(-0.013017);
-
-            return series;
+        public static double[] GetRawDataSeries4()
+        {
+            return
+            [
+                0,
+                -0.20998,
+                -0.41993,
+                -0.62972,
+                -0.83949,
+                -1.04904,
+                -1.25852,
+                -1.46778,
+                -1.67693,
+                -1.88581,
+                -2.09457,
+                0.00066,
+                0,
+                -0.04202,
+                0.00009
+            ];
         }
     }
 }
