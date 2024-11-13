@@ -10,13 +10,11 @@ namespace Models
     {
         //TODO make as private internal class
 
-        public int PositionInSeries { get; set; }
+        public int Index { get; set; }
         public double AppliedForce { get; set; }
         public double RawValue { get; set; }
-        public double? InterpolatedValue { get; set; } = null;
+        public double? Value { get; set; } = null;
 
-        public SeriesValue(int positionInSeries, double rawValue) => (PositionInSeries, RawValue) = (positionInSeries, rawValue);
-
-        public SeriesValue(int positionInSeries, double appliedForce, double rawValue) => (PositionInSeries, AppliedForce, RawValue) = (positionInSeries, appliedForce, rawValue);
+        public SeriesValue(int seriesPosition, double appliedForce, double rawValue) => (Index, AppliedForce, RawValue) = (seriesPosition, appliedForce, rawValue);
     }
 }

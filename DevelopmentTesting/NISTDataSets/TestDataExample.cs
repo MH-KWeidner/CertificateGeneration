@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 
-
-namespace InterpolationTests
+namespace DevelopmentTesting.NISTDataSets
 {
     public static class TestDataExample
     {

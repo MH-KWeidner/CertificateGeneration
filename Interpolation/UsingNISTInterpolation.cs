@@ -10,12 +10,14 @@ using Models;
 
 namespace Interpolation
 {
-    public static class NISTInterpolatedZeroReduction
+    public static class UsingNISTInterpolation
     {
         // TODO consider better naming for the class, methods, parameter names 
 
         public static void InterpolateSeries(double[] appliedForce, List<Series> series)
         {
+            // TODO refactor to remove "double[] appliedForce"
+
             const double DOUBLE_ZERO = 0.0;
             var zeroValuedElements = ArrayHelper.GetElementsByValue(DOUBLE_ZERO, appliedForce);
 
@@ -34,12 +36,12 @@ namespace Interpolation
                 if (zeroEndElement.ArrayPosition - 1 == zeroStartElement.ArrayPosition)
                     continue;
 
-                foreach (var oneSeries in series)
-                    InterpolateOneSeries(zeroStartElement, zeroEndElement, oneSeries);
+                foreach (var seriesInstance in series)
+                    InterpolateSeriesInstance(zeroStartElement, zeroEndElement, seriesInstance);
             }
         }
 
-        public static void InterpolateOneSeries(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
+        public static void InterpolateSeriesInstance(DoubleValueArrayElement zeroStartElement, DoubleValueArrayElement zeroEndElement, Series series)
         {
             int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition - 1;
 
@@ -53,7 +55,7 @@ namespace Interpolation
                     endZeroValue: series.GetRawValue(zeroEndElement.ArrayPosition),
                     forceReading: series.GetRawValue(seriesIndexingStart));
                     
-                series.SetInterpolatedValue(seriesIndexingStart, interpolatedValue);
+                series.SetValue(seriesIndexingStart, interpolatedValue);
                 
                 return;
             }
@@ -69,7 +71,7 @@ namespace Interpolation
                      forceReading: series.GetRawValue(i),
                      OneBasedSeriesPositionForNonZeroForce: OneBasedSeriesPositionForNonZeroForce);
 
-                series.SetInterpolatedValue(i, interpolatedValue);
+                series.SetValue(i, interpolatedValue);
 
                 OneBasedSeriesPositionForNonZeroForce++;
             }

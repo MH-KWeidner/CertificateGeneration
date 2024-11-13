@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InterpolationTests
+namespace DevelopmentTesting.NISTDataSets
 {
-    
     internal class TestData1
     {
         //TODO remove this class when no longer needed
