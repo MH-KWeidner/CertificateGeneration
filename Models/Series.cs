@@ -13,7 +13,7 @@ namespace Models
         private readonly int id;
 
         // TODO remove if not needed.
-        // retain original values
+        // retain original raw values
         private readonly List<SeriesValue> originalValuesCache;
         
         private List<SeriesValue> seriesValues;
