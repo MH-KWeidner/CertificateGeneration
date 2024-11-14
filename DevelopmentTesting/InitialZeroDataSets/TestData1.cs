@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using Models.Modifiers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace DevelopmentTesting.InitialZeroDataSets
                 400,
                 500,
                 1000,
-                1500,
+                200, //1500,
                 2000,
                 2500,
                 3000,

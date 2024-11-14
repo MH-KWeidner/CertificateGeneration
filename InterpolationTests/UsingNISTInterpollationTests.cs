@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Models;
+using Models.Modifiers;
 using Interpolation;
 
 namespace DevelopmentTesting.NISTDataSets

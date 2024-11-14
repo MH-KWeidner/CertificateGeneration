@@ -1,4 +1,5 @@
 ﻿using MathNet.Numerics;
+using MathNet.Numerics.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +24,24 @@ namespace MathLib
                 throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
             }
         }
-        
-        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int seriesPositionOfForceReading)
+
+        public static double GetMean(double[] values)
         {
-            //TODO non-force specific naming
+            //TODO better error handling
+
             try
             {
-                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (seriesPositionOfForceReading - 1) / (numberOfNonZeroForcePoints - 1)));
+                double mean = values.Mean();
+                
+                if(double.IsNaN(mean))
+                    throw new Exception("Error in Statistics.GetMean has NaN value.");
+                
+                return mean;
             }
             catch
             {
                 //TODO add specific error handling
-                throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
+                throw new Exception("Error in Statistics.GetMean");
             }
         }
     }

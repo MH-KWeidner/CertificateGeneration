@@ -23,9 +23,9 @@ namespace DevelopmentTesting
             // Act
             UsingNISTInterpolation.InterpolateSeries(appliedForce, seriesList);
 
-            seriesList[0].ZeroReduceAndSortByAppliedForceAscending();
-            seriesList[1].ZeroReduceAndSortByAppliedForceAscending();
-            seriesList[2].ZeroReduceAndSortByAppliedForceAscending();
+            //seriesList[0].ZeroReduceAndSortByAppliedForceAscending();
+            //seriesList[1].ZeroReduceAndSortByAppliedForceAscending();
+            //seriesList[2].ZeroReduceAndSortByAppliedForceAscending();
 
             // Assert
             Assert.AreEqual(-0.08193, seriesList[0].GetValue(1));

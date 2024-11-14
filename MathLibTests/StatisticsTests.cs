@@ -40,6 +40,38 @@
                 var exception = Assert.ThrowsException<Exception>(() => Statistics.FitPolynomialToLeastSquares(x, y, degree));
                 Assert.AreEqual("Error in Statistics.FitPolynomialToLeastSquares", exception.Message);
             }
+
+            [TestMethod]
+            public void GetMean_ValidInput_ReturnsExpectedValue()
+            {
+                // Arrange
+                double[] x = { 10, 20, 30};
+                
+                // Act
+                double result = Statistics.GetMean(x);
+
+                // Assert
+                Assert.AreEqual(20, result);
+            }
+
+            [Ignore]
+            [TestMethod]
+            public void GetMean_ValidInput_ThrowsException()
+            {
+                //TODO build custom exception for NaN value;
+
+                // Arrange
+                double[] x = { double.NaN, 20, 30 };
+
+                // Act
+                double result = Statistics.GetMean(x);
+
+                // Assert
+                Assert.ThrowsException<Exception>(() => Statistics.GetMean(x));
+
+                var exception = Assert.ThrowsException<Exception>(() => Statistics.GetMean(x));
+                Assert.AreEqual("Error in Statistics.GetMean has NaN value.", exception.Message);
+            }
         }
     }
 }

@@ -1,21 +1,17 @@
-﻿using System;
+﻿using Helpers.Models;
+using Helpers;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
-using Models.Modifiers;
-using Helpers.Models;
-using Helpers;
 
 namespace Interpolation
 {
-    public static class UsingNISTInterpolation
+    internal class UsingNISTInterpolationNew
     {
-        // TODO consider better naming for the class, methods, parameter names 
-
-        public static void InterpolateSeries(double[] appliedForce, List<Series> series)
+        public static void InterpolateSeries(List<Series> series)
         {
             // TODO refactor to remove "double[] appliedForce"
 
@@ -46,18 +42,18 @@ namespace Interpolation
         {
             int numberOfNonZeroForcePoints = zeroEndElement.ArrayPosition - zeroStartElement.ArrayPosition - 1;
 
-            int seriesIndexingStart = zeroStartElement.ArrayPosition + 1;         
+            int seriesIndexingStart = zeroStartElement.ArrayPosition + 1;
             int seriesIndexingEnd = zeroEndElement.ArrayPosition;
 
-            if(numberOfNonZeroForcePoints == 1)
+            if (numberOfNonZeroForcePoints == 1)
             {
                 var interpolatedValue = InterpolateByZeroForceAverage(
                     startZeroValue: series.GetRawValue(zeroStartElement.ArrayPosition),
                     endZeroValue: series.GetRawValue(zeroEndElement.ArrayPosition),
                     forceReading: series.GetRawValue(seriesIndexingStart));
-                    
+
                 series.SetValue(seriesIndexingStart, interpolatedValue);
-                
+
                 return;
             }
 
@@ -81,7 +77,7 @@ namespace Interpolation
         public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionForNonZeroForce)
         {
             //TODO better naming
-            
+
             try
             {
                 return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1)));
@@ -99,7 +95,7 @@ namespace Interpolation
 
             try
             {
-                return forceReading - ((endZeroValue + startZeroValue)/2);
+                return forceReading - ((endZeroValue + startZeroValue) / 2);
             }
             catch
             {

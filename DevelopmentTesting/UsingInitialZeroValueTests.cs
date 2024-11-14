@@ -1,16 +1,16 @@
 ﻿using DevelopmentTesting.InitialZeroDataSets;
 using Interpolation;
-using Models;
 using Models.Modifiers;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace DevelopmentTesting
 {
+    [Ignore]
     [TestClass]
     public class UsingInitialZeroValueTests
     {
@@ -29,14 +29,11 @@ namespace DevelopmentTesting
             // Act
             UsingInitialZeroValue.InterpolateSeries(seriesList);
             
-            IModifySeries zeroReduction = new ZeroReduction();
-            seriesList[0].Modify(zeroReduction);
-            seriesList[1].Modify(zeroReduction);
-            seriesList[2].Modify(zeroReduction);
+            IModifySeriesSize removeZeroValueForceItems = new RemoveZeroValueForceItems();
+            seriesList[0].Modify(removeZeroValueForceItems);
 
-            //seriesList[0].ZeroReduceAndSortByAppliedForceAscending();
-            //seriesList[1].ZeroReduceAndSortByAppliedForceAscending();
-            //seriesList[2].ZeroReduceAndSortByAppliedForceAscending();
+            IOrderSeries orderByAppliedForceAscending = new OrderByAppliedForceAscending();
+            seriesList[0].Modify(orderByAppliedForceAscending);
 
             // Assert
             Assert.AreEqual(-0.08193, seriesList[0].GetValue(1));

@@ -8,13 +8,18 @@ namespace Models
 {
     public class SeriesValue
     {
-        //TODO make as private internal class
+        //TODO consider making as a private internal class
 
-        public int Index { get; set; }
+        //TODO consider chaning index property to id property
+
+        //TODO consider removing nullabe from Value property
+
+        public int CacheIndex { get; private set; }
+        //public int Id { get; private set; }
         public double AppliedForce { get; set; }
         public double RawValue { get; set; }
-        public double? Value { get; set; } = null;
+        public double Value { get; set; }
 
-        public SeriesValue(int seriesPosition, double appliedForce, double rawValue) => (Index, AppliedForce, RawValue) = (seriesPosition, appliedForce, rawValue);
+        public SeriesValue(int index, double appliedForce, double rawValue) => (CacheIndex, Id, AppliedForce, RawValue, Value) = (index, index, appliedForce, rawValue, rawValue);
     }
 }

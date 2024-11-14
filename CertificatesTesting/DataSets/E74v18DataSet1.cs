@@ -1,13 +1,12 @@
-﻿using Models.Modifiers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace CertificatesTesting.DataSets
 {
-    internal class TestData1
+    internal class E74v18DataSet1
     {
         //TODO remove this class when no longer needed
 
@@ -75,12 +74,11 @@ namespace DevelopmentTesting.NISTDataSets
                 -1.63283,
                 -0.00003
             ];
-
         }
 
         public static double[] GetRawDataSeries3()
         {
-            return 
+            return
             [
                 -0.00001,
                 -0.08158,
