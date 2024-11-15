@@ -3,25 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Helpers.Models;
-using Helpers;
+using Models.Interpolation;
 using Models;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Interpolation
 {
-    public static class UsingInitialZeroValue
+    public class InitialZeroValueInterpolator : IInterpolate
     {
-        public static void InterpolateSeries(IList<Series> series)
+        public void Interpolate(Series series)
         {
-            foreach(Series seriesInstance in series)
-                InterpolateSeriesInstance(seriesInstance);
-        }
-
-        public static void InterpolateSeriesInstance(Series series)
-        {
-            //TODO consider how to test this
-            
             const double DOUBLE_ZERO = 0.0;
 
             double? currentZeroValue = null;

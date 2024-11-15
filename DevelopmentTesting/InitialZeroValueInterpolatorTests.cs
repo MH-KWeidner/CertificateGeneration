@@ -12,32 +12,28 @@ namespace DevelopmentTesting
 {
     [Ignore]
     [TestClass]
-    public class UsingInitialZeroValueTests
+    public class InitialZeroValueInterpolatorTests
     {
         [TestMethod]
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
             double[] appliedForce = TestData1.GetAppliedForce();
-            var seriesList = new List<Series>
-            {
-                Series.CreateSeries(1, appliedForce, TestData1.GetRawDataSeries1()),
-                Series.CreateSeries(2, appliedForce, TestData1.GetRawDataSeries2()),
-                Series.CreateSeries(3, appliedForce, TestData1.GetRawDataSeries3()),
-            };
+            Series series = Series.CreateSeries(1, appliedForce, TestData1.GetRawDataSeries1());
 
             // Act
-            UsingInitialZeroValue.InterpolateSeries(seriesList);
+            InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();
+            interoplater.Interpolate(series);
             
             IModifySeriesSize removeZeroValueForceItems = new RemoveZeroValueForceItems();
-            seriesList[0].Modify(removeZeroValueForceItems);
+            series.Modify(removeZeroValueForceItems);
 
             IOrderSeries orderByAppliedForceAscending = new OrderByAppliedForceAscending();
-            seriesList[0].Modify(orderByAppliedForceAscending);
+            series.Modify(orderByAppliedForceAscending);
 
             // Assert
-            Assert.AreEqual(-0.08193, seriesList[0].GetValue(1));
-            Assert.AreEqual(-0.40851, seriesList[0].GetValue(2));
+            Assert.AreEqual(-0.08193, series.GetValue(1));
+            Assert.AreEqual(-0.40851, series.GetValue(2));
         }
     }
 }

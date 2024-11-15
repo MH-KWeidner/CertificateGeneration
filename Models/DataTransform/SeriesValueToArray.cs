@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Models.DataTransform
 {
-    public class SeriesValueToArray : ITransformSeriesArray
+    public class SeriesValueToArray : ITransformToDoubleArray
     {
+        //TODO consider if this transform is needed.
+
         public double[] ToArray(List<SeriesValue>? seriesValues)
         {
             ArgumentNullException.ThrowIfNull(seriesValues);

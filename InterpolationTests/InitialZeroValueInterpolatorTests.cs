@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace InterpolationTests
 {
     [TestClass]
-    public class UsingInitialZeroValueTests
+    public class InitialZeroValueInterpolatorTests
     {
         [TestMethod]
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
@@ -20,7 +20,8 @@ namespace DevelopmentTesting.NISTDataSets
 
 
             // Act
-            Interpolation.UsingInitialZeroValue.InterpolateSeriesInstance(series);
+            InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
+            usingInitialZeroValue.Interpolate(series);
 
             // Assert
             Assert.AreEqual(0.00012, series.GetValue(1));
@@ -35,7 +36,8 @@ namespace DevelopmentTesting.NISTDataSets
 
 
             // Act
-            Interpolation.UsingInitialZeroValue.InterpolateSeriesInstance(series);
+            InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
+            usingInitialZeroValue.Interpolate(series);
 
             // Assert
             Assert.AreEqual(-0.00012, series.GetValue(1));
@@ -50,7 +52,8 @@ namespace DevelopmentTesting.NISTDataSets
 
 
             // Act
-            Interpolation.UsingInitialZeroValue.InterpolateSeriesInstance(series);
+            InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
+            usingInitialZeroValue.Interpolate(series);
 
             // Assert
             Assert.AreEqual(-0.00011, series.GetValue(1));
@@ -64,7 +67,8 @@ namespace DevelopmentTesting.NISTDataSets
             Series series = Series.CreateSeries(1, [0, 10, 0, 20], [-0.00001, -0.00012, 0.00002, -.00022]);
 
             // Act
-            Interpolation.UsingInitialZeroValue.InterpolateSeriesInstance(series);
+            InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
+            usingInitialZeroValue.Interpolate(series);
 
             // Assert
             Assert.AreEqual(-0.00011, series.GetValue(1));

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Models.Modifiers;
 using Models.DataTransform;
+using Models.DataQueries;
+using Models.Interpolation;
+
 
 namespace Models
 {
@@ -90,11 +93,20 @@ namespace Models
             seriesValues = modifier.Order(seriesValues);
         }
 
-        public double[] Transform(ITransformSeriesArray transform)
+        public double[] Transform(ITransformToDoubleArray transform)
         {
             return transform.ToArray(seriesValues);
         }
 
+        public List<SeriesValue> Query(IQuerySeries querySeries)
+        {
+            return querySeries.Query(seriesValues);
+        }
+
+        public void Interpolate(IInterpolate interpolator)
+        {
+            interpolator.Interpolate(this);
+        }
 
         public static Series CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
         {

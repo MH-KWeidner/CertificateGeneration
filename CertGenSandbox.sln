@@ -7,25 +7,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLib", "MathLib\MathLib.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibTests", "MathLibTests\MathLibTests.csproj", "{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelperTests", "HelperTests\HelperTests.csproj", "{DDD7582C-C9DB-47B3-8DE3-99E383FE502C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpolation", "Interpolation\Interpolation.csproj", "{4D936DEC-F5B0-47BA-960F-59288B3C4C20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpolationTests", "InterpolationTests\InterpolationTests.csproj", "{29C7DFBD-3CA8-4872-A03A-F07B2A9CDDD1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{39CD7088-4BE5-49C4-858F-7E7D499A1562}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{171F7D85-D6E6-4689-BFF8-307DE0C64649}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopmentTesting", "DevelopmentTesting\DevelopmentTesting.csproj", "{C0F458BA-260B-4819-8C1D-5577E5B7FF15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsTesting", "ModelsTesting\ModelsTesting.csproj", "{9B9B7F6B-B108-4788-8609-878136C58C8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsTesting", "ModelsTesting\ModelsTesting.csproj", "{9B9B7F6B-B108-4788-8609-878136C58C8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polynomial", "Polynomial\Polynomial.csproj", "{F3A40C4D-E361-4A51-9833-7AE1F61973F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polynomial", "Polynomial\Polynomial.csproj", "{F3A40C4D-E361-4A51-9833-7AE1F61973F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Certificates", "Certificates\Certificates.csproj", "{5C4078A3-C12A-4072-A17B-994B8A60ACEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Certificates", "Certificates\Certificates.csproj", "{5C4078A3-C12A-4072-A17B-994B8A60ACEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertificatesTesting", "CertificatesTesting\CertificatesTesting.csproj", "{68E8EB34-F96F-4E46-B882-416230D0E45B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CertificatesTesting", "CertificatesTesting\CertificatesTesting.csproj", "{68E8EB34-F96F-4E46-B882-416230D0E45B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +37,6 @@ Global
 		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBBFF5D2-1DAB-4629-B112-5CDA8658B872}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDD7582C-C9DB-47B3-8DE3-99E383FE502C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDD7582C-C9DB-47B3-8DE3-99E383FE502C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDD7582C-C9DB-47B3-8DE3-99E383FE502C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDD7582C-C9DB-47B3-8DE3-99E383FE502C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D936DEC-F5B0-47BA-960F-59288B3C4C20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D936DEC-F5B0-47BA-960F-59288B3C4C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D936DEC-F5B0-47BA-960F-59288B3C4C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,10 +45,6 @@ Global
 		{29C7DFBD-3CA8-4872-A03A-F07B2A9CDDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C7DFBD-3CA8-4872-A03A-F07B2A9CDDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C7DFBD-3CA8-4872-A03A-F07B2A9CDDD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39CD7088-4BE5-49C4-858F-7E7D499A1562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39CD7088-4BE5-49C4-858F-7E7D499A1562}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39CD7088-4BE5-49C4-858F-7E7D499A1562}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39CD7088-4BE5-49C4-858F-7E7D499A1562}.Release|Any CPU.Build.0 = Release|Any CPU
 		{171F7D85-D6E6-4689-BFF8-307DE0C64649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{171F7D85-D6E6-4689-BFF8-307DE0C64649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{171F7D85-D6E6-4689-BFF8-307DE0C64649}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models.DataTransform
 {
-    public interface ITransformSeriesArray
+    public interface ITransformToDoubleArray
     {
         public double[] ToArray(List<SeriesValue>? seriesValues);
     }

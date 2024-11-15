@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Models.Modifiers;
 using Interpolation;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace InterpolationTests
 {
     [TestClass]
-    public class UsingNISTInterpollationTests
+    public class NistInterpolatorTests
     {
         [TestMethod]
         public void calculateNISInterpolatedValue_ValidOutput_ReturnsExpectedInterpolatedValue()
@@ -19,7 +19,7 @@ namespace DevelopmentTesting.NISTDataSets
             int OneBasedSeriesPositionOfForceReading = 1;
 
             // Act
-            var interpolatedValue = UsingNISTInterpolation.CalculateNISInterpolatedValue
+            var interpolatedValue = NistInterpolator.CalculateNISInterpolatedValue
                 (
                      startZeroValue: startZeroValue,
                      endZeroValue: endZeroValue,
