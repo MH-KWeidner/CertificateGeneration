@@ -27,8 +27,6 @@ namespace Models.Modifiers
                 ArgumentNullException.ThrowIfNull(seriesValues);
             }
 
-            var values = seriesValues.OrderBy(sv => sv.AppliedForce).ToList();
-
             return seriesValues?.OrderBy(sv => sv.AppliedForce).ToList();
         }
     }
