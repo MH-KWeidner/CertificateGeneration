@@ -90,6 +90,8 @@ namespace Models
         {
             //TODO add error handling - List may be null
 
+            // TODO consider renaming method to Order  
+
             seriesValues = modifier.Order(seriesValues);
         }
 

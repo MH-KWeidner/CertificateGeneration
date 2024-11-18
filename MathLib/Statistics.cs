@@ -1,4 +1,5 @@
 ﻿using MathNet.Numerics;
+using MathNet.Numerics.Distributions;
 using MathNet.Numerics.Statistics;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,11 @@ namespace MathLib
 {
     public static class Statistics
     {
-        public static double[] FitPolynomialToLeastSquares(double[] x, double[] y, int degree)
+        public static double[] FitPolynomialToLeastSquares(double[] appliedForces, double[] seriesValues, int degree)
         {
-            //TODO better wording on x and y
-
             try
             {
-                return Fit.Polynomial(x, y, degree);
+                return Fit.Polynomial(appliedForces, seriesValues, degree);
             }
             catch
             {
@@ -43,6 +42,35 @@ namespace MathLib
                 //TODO add specific error handling
                 throw new Exception("Error in Statistics.GetMean");
             }
+        }
+    
+        public static double GetMean(IList<double> values)
+        {
+            try
+            {
+                double mean = values.Mean();
+
+                if (double.IsNaN(mean))
+                    throw new Exception("Error in Statistics.GetMean has NaN value.");
+
+                return mean;
+            }
+            catch
+            {
+                //TODO add specific error handling
+                throw new Exception("Error in Statistics.GetMean");
+            }
+        }
+
+        public static double CFactor(int n, int m)
+        {
+            // TODO: better naming
+
+            const double DISTRIBUTION_EVALUATION = 0.975;
+
+            var FDist = new FisherSnedecor(1, n - m - 1);
+            var fDistValue = FDist.InverseCumulativeDistribution(DISTRIBUTION_EVALUATION);
+            return (double)Math.Sqrt(1 + (fDistValue - 1) / (n - m));
         }
     }
 }

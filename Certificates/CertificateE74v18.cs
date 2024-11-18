@@ -5,6 +5,8 @@ namespace Certificates
 {
     public class CertificateE74v18
     {
+        
+        
         private List<Series> seriesList;
 
         public CertificateE74v18()
