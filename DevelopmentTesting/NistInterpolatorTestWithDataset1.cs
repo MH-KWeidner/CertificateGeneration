@@ -30,6 +30,7 @@ namespace DevelopmentTesting
             series2.Modify(new OrderByAppliedForceAscending());
             series3.Modify(new OrderByAppliedForceAscending());
 
+            // Assert
             Assert.AreEqual(-0.08157, Math.Round(series1.GetValue(0), 5));
             Assert.AreEqual(-0.40789, Math.Round(series1.GetValue(1), 5));
             Assert.AreEqual(-0.81585, Math.Round(series1.GetValue(2), 5));
