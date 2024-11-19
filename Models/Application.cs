@@ -63,43 +63,39 @@ namespace Models
 
             // TODO: test for symmetry of series data and applied forces
 
+            //TODO; what are the boundry conditions for the degree of the polynomial?
+
             double[] appliedForces = GetAppliedForces();
 
             double[] seriesMean = CalculateSeriesMean();
-            
-            const int SAMPLE_COUNT = 5;
-            
-            const int MAX_DEGREE = 5;
 
-            int bestFitDegree = MAX_DEGREE;
+            const int MAX_DEGREE_OF_FIT = 5;
 
-            double[] residualStandardDeviation = new double[SAMPLE_COUNT];
-            double[] cFactors = new double[SAMPLE_COUNT];
+            int degreeOfFit = MAX_DEGREE_OF_FIT;
 
-            for (int i = 0; i < SAMPLE_COUNT; i++)
+            double[] residualStandardDeviations = new double[MAX_DEGREE_OF_FIT];
+
+            for (int i = MAX_DEGREE_OF_FIT; i >= 1; i--)
             {
-                double[] bestFit = Statistics.FitPolynomialToLeastSquares(appliedForces, seriesMean, bestFitDegree);
+                double[] bestFit = Statistics.FitPolynomialToLeastSquares(appliedForces, seriesMean, degreeOfFit);
 
-                residualStandardDeviation[i] = 0.0;
-                foreach (double value in bestFit)
-                    residualStandardDeviation[i] += Math.Pow(value, 2);
-
-                residualStandardDeviation[i] = residualStandardDeviation[i] / (bestFit.Length - bestFitDegree - 1);
-
-                residualStandardDeviation[i] = Math.Sqrt(residualStandardDeviation[i]);
-
-                cFactors[i] = Statistics.CFactor(seriesMean.Length, bestFitDegree);
-
-                if (i == 0)
-                    continue;
+                residualStandardDeviations[i] = MathLib.Statistics.CalculateResidualStandardDeviation(seriesMean, bestFit, degreeOfFit); 
                 
-                if ((residualStandardDeviation[i] / residualStandardDeviation[i-1]) > cFactors[i-1])
+                if (i == MAX_DEGREE_OF_FIT)
+                    continue;
+
+                if (IsBestFitPolynomialFit(residualStandardDeviations[i], residualStandardDeviations[i + 1], seriesMean.Length, degreeOfFit))
                     break;
 
-                bestFitDegree--;
+                degreeOfFit--;
             }
 
-            return bestFitDegree;
+            return degreeOfFit;
+        }
+
+        public bool IsBestFitPolynomialFit(double residualStandardDeviation1, double residualStandardDeveian2, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
+        { 
+            return (residualStandardDeviation1 / residualStandardDeveian2) > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
         }
 
         public int GetSeriesSize()
@@ -118,7 +114,7 @@ namespace Models
             double[] seriesMean = new double[seriesSize];
 
             for (int i = 0; i < seriesSize; i++)
-                seriesMean[i] = Statistics.GetMean(GetSeriesRow(i));
+                seriesMean[i] = Statistics.CalculateMean(GetSeriesRow(i));
 
             return seriesMean;
         }
@@ -127,6 +123,7 @@ namespace Models
         {
             return seriesList[0].Transform(new AppliedForceToArray());
         }
+
 
     }
 }

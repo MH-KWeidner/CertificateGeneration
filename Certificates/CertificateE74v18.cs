@@ -5,8 +5,6 @@ namespace Certificates
 {
     public class CertificateE74v18
     {
-        
-        
         private List<Series> seriesList;
 
         public CertificateE74v18()
@@ -20,9 +18,5 @@ namespace Certificates
                 seriesList.Add(Series.CreateSeries(seriesList.Count + 1, appliedForce, data));
         }
 
-        public void ApplyInterpolation()
-        {
-            
-        }
     }
 }

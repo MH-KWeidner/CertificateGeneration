@@ -48,7 +48,7 @@
                 double[] x = { 10, 20, 30};
                 
                 // Act
-                double result = Statistics.GetMean(x);
+                double result = Statistics.CalculateMean(x);
 
                 // Assert
                 Assert.AreEqual(20, result);
@@ -64,12 +64,12 @@
                 double[] x = { double.NaN, 20, 30 };
 
                 // Act
-                double result = Statistics.GetMean(x);
+                double result = Statistics.CalculateMean(x);
 
                 // Assert
-                Assert.ThrowsException<Exception>(() => Statistics.GetMean(x));
+                Assert.ThrowsException<Exception>(() => Statistics.CalculateMean(x));
 
-                var exception = Assert.ThrowsException<Exception>(() => Statistics.GetMean(x));
+                var exception = Assert.ThrowsException<Exception>(() => Statistics.CalculateMean(x));
                 Assert.AreEqual("Error in Statistics.GetMean has NaN value.", exception.Message);
             }
         }
