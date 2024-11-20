@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CertificateGeneration\CertificateGeneration.csproj" />
     <ProjectReference Include="..\Interpolation\Interpolation.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>

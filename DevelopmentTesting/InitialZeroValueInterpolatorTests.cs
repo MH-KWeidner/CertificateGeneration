@@ -1,7 +1,7 @@
 ﻿using DevelopmentTesting.InitialZeroDataSets;
-using Interpolation;
-using Models.Modifiers;
-using Models;
+using CertificateGeneration.Models;
+using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.Interpolation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace DevelopmentTesting
             series.Modify(removeZeroValueForceItems);
 
             IOrderSeries orderByAppliedForceAscending = new OrderByAppliedForceAscending();
-            series.Modify(orderByAppliedForceAscending);
+            series.Order(orderByAppliedForceAscending);
 
             // Assert
             Assert.AreEqual(-0.08193, series.GetValue(1));

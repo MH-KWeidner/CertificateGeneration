@@ -1,6 +1,6 @@
-﻿using Interpolation;
-using Models.Modifiers;
-using Models;
+﻿using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +31,9 @@ namespace DevelopmentTesting
             series2.Modify(new RemoveZeroValueForceItems());
             series3.Modify(new RemoveZeroValueForceItems());
 
-            series1.Modify(new OrderByAppliedForceAscending());
-            series2.Modify(new OrderByAppliedForceAscending());
-            series3.Modify(new OrderByAppliedForceAscending());
+            series1.Order(new OrderByAppliedForceAscending());
+            series2.Order(new OrderByAppliedForceAscending());
+            series3.Order(new OrderByAppliedForceAscending());
 
             // Assert
             Assert.AreEqual(-0.08158, Math.Round(series1.GetValue(0), 5));
