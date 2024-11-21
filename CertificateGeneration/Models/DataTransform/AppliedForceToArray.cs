@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CertificateGeneration.Models.DataTransform
 {
-    internal class AppliedForceToArray : ITransformToDoubleArray
+    public class AppliedForceToArray : ITransformToDoubleArray
     {
         public double[] ToArray(List<SeriesValue>? seriesValues)
         {

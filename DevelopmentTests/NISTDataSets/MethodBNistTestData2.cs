@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace DevelopmentTests.NISTDataSets
 {
-    internal class TestData2
+    internal class MethodBNistTestData2
     {
-        //TODO remove this class when no longer needed
-
         // CALIBRATION & ISSUE DATE: 11/06/2024
         // REPORT NO.: 226367AK0624
 

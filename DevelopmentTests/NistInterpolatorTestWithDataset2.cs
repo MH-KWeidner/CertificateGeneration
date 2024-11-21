@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevelopmentTesting.NISTDataSets;
+using DevelopmentTests.NISTDataSets;
 
-namespace DevelopmentTesting
+namespace DevelopmentTests
 {
     [TestClass]
     public class NistInterpolatorTestWithDataset2
@@ -17,10 +17,10 @@ namespace DevelopmentTesting
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = TestData2.GetAppliedForce();
-            Series series1 = Series.CreateSeries(1, appliedForce, TestData2.GetRawDataSeries1());
-            Series series2 = Series.CreateSeries(2, appliedForce, TestData2.GetRawDataSeries2());
-            Series series3 = Series.CreateSeries(3, appliedForce, TestData2.GetRawDataSeries3());
+            double[] appliedForce = MethodBNistTestData2.GetAppliedForce();
+            Series series1 = Series.CreateSeries(1, appliedForce, MethodBNistTestData2.GetRawDataSeries1());
+            Series series2 = Series.CreateSeries(2, appliedForce, MethodBNistTestData2.GetRawDataSeries2());
+            Series series3 = Series.CreateSeries(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
 
             // Act
             series1.Interpolate(new NistInterpolator());

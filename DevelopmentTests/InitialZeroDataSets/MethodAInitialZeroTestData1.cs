@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevelopmentTesting.InitialZeroDataSets
+namespace DevelopmentTests.InitialZeroDataSets
 {
-    internal class TestData1
+    internal class MethodAInitialZeroTestData1
     {
-        //TODO remove this class when no longer needed
-
         // CALIBRATION & ISSUE DATE: 10/08/2024
         // REPORT NO.: 103443AJ0824
 
@@ -22,7 +20,7 @@ namespace DevelopmentTesting.InitialZeroDataSets
                 400,
                 500,
                 1000,
-                200, //1500,
+                1500,
                 2000,
                 2500,
                 3000,

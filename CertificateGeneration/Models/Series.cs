@@ -7,6 +7,7 @@ using CertificateGeneration.Models.Modifiers;
 using CertificateGeneration.Models.DataTransform;
 using CertificateGeneration.Models.DataQueries;
 using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models.TestModifiers;
 
 
 namespace CertificateGeneration.Models
@@ -109,6 +110,13 @@ namespace CertificateGeneration.Models
         public void Interpolate(IInterpolate interpolator)
         {
             interpolator.Interpolate(this);
+        }
+
+        public void RemoveSeriesValueForTestPurpose(int itemNumber)
+        {
+            // TODO REMOVE THIS METHOD> FOR TESTING PURPOSE ONLY`
+            
+            seriesValues = seriesValues.Where((seriesValue, index) => index != itemNumber).ToList();
         }
 
         public static Series CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)

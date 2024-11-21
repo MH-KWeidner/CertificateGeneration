@@ -12,17 +12,13 @@ namespace CertificateGeneration.MathLib
 {
     public static class Statistics
     {
-        public static double[] FitPolynomialToLeastSquares(double[] appliedForces, double[] seriesValues, int degree)
+        public static double CalculatePolynomial(double[] coefficients, double appliedForce)
         {
-            try
-            {
-                return Fit.Polynomial(appliedForces, seriesValues, degree);
-            }
-            catch
-            {
-                //TODO add specific error handling
-                throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
-            }
+            //TODO add specific error handling
+
+            //
+
+            return coefficients.Select((coeff, index) => coeff * Math.Pow(appliedForce, index)).Sum();
         }
 
         public static double CalculateMean(double[] values)
@@ -99,7 +95,7 @@ namespace CertificateGeneration.MathLib
 
             // TODO: consider if this is method is domain specific and should be moved to a different class/namespace
 
-            // TODO : consider naming that relects polynomial name of parameters
+            // TODO : consider naming that relects name of parameters - degrees of freedom
 
             const int POWER_OF_TWO = 2;
 
@@ -112,5 +108,43 @@ namespace CertificateGeneration.MathLib
 
             return Math.Sqrt(residualStandardDeviation);
         }
+
+        public static double[] FitPolynomialToLeastSquares(double[] xsStacked, double[] ysStacked, int degree)
+        {
+            try
+            {
+                return Fit.Polynomial(xsStacked, ysStacked, degree);
+            }
+            catch
+            {
+                //TODO add specific error handling
+                throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
+            }
+        }
+
+        //public static double[] GetCoefficients(double[] xs, double[] ys, int degree, bool fitThroughOrigin)
+        //{
+        //    // Use Numeric's more accurate line formula's for 1st degree calculations
+        //    if (degree == 1)
+        //    {
+        //        if (fitThroughOrigin)
+        //            return [0, Fit.LineThroughOrigin(xs, ys)];
+
+        //        var (intercept, slope) = Fit.Line(xs, ys);
+        //        return [intercept, slope];
+        //    }
+
+        //    if (!fitThroughOrigin)
+        //        return Fit.Polynomial(xs, ys, degree);
+
+        //    // Returns n rows of xs as [ xs^1, ... xs^degree ]n
+        //    var multiDegree = CreateMultiDegreeValues(xs, degree);
+
+        //    // If intercept is true, a column is prepended to the xs of the 0th power (all 1s)
+        //    return [0, .. Fit.MultiDim(multiDegree, ys, intercept: !fitThroughOrigin)];
+        //}
+
+
+
     }
 }

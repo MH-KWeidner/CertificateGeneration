@@ -1,16 +1,13 @@
-﻿using CertificateGeneration.Models.Modifiers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace CertificatesTesting.DataSets
 {
-    internal class TestData1
+    internal class E74v18DataSet1
     {
-        //TODO remove this class when no longer needed
-
         // CALIBRATION & ISSUE DATE: 07/01/2024
         // REPORT NO.: U-7989G0124
 
@@ -75,12 +72,11 @@ namespace DevelopmentTesting.NISTDataSets
                 -1.63283,
                 -0.00003
             ];
-
         }
 
         public static double[] GetRawDataSeries3()
         {
-            return 
+            return
             [
                 -0.00001,
                 -0.08158,

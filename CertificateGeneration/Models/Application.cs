@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CertificateGeneration.MathLib;
 using CertificateGeneration.Models.DataTransform;
 using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CertificateGeneration.Models
 {
@@ -59,6 +60,55 @@ namespace CertificateGeneration.Models
 
         public int DetermineDegreeOfBestFittingPolynomial()
         {
+            // how to test this??
+
+            const int MIN_DEGREE_OF_FIT = 1;
+
+            const int MAX_DEGREE_OF_FIT = 4;
+
+            double[] stackedAppliedForces = StackData(new AppliedForceToArray());
+
+            double[] stackedSeriesData = StackData(new SeriesValueToArray());
+
+            double[] observedMean = CalculateSeriesMean();
+
+            double[] appliedForces = GetAppliedForces();
+
+            var rangeOfDegrees = Enumerable.Range(MIN_DEGREE_OF_FIT, MAX_DEGREE_OF_FIT).Reverse();
+
+            int returnBestFitDegree = 0;
+
+            // TODO: consider double?
+            double currentResidualDeviation = 0;
+            double previousResidualDeviation = 0;
+
+            foreach (int degree in rangeOfDegrees)
+            {
+                returnBestFitDegree = degree;
+
+                double[] polynomials = MathLib.Statistics.FitPolynomialToLeastSquares(stackedAppliedForces, stackedSeriesData, degree);
+
+                double[] predictedFit = new double[appliedForces.Length];
+
+                for (int i = 0; i < predictedFit.Length; i++)
+                    predictedFit[i] = MathLib.Statistics.CalculatePolynomial(polynomials, appliedForces[i]);
+
+                previousResidualDeviation = currentResidualDeviation;
+
+                currentResidualDeviation = MathLib.Statistics.CalculateResidualStandardDeviation(observedMean, predictedFit, degree);
+
+                if (degree == MAX_DEGREE_OF_FIT)
+                    continue;
+
+                if (IsBestFitPolynomialFit(currentResidualDeviation, previousResidualDeviation, observedMean.Length, degree))
+                    break;
+            }
+
+            return returnBestFitDegree;
+        }
+
+        public int DetermineDegreeOfBestFittingPolynomialz()
+        {
             // TODO: consider best way to get series size
 
             // TODO: test for symmetry of series data and applied forces
@@ -79,8 +129,8 @@ namespace CertificateGeneration.Models
             {
                 double[] bestFit = Statistics.FitPolynomialToLeastSquares(appliedForces, seriesMean, degreeOfFit);
 
-                residualStandardDeviations[i] = CertificateGeneration.MathLib.Statistics.CalculateResidualStandardDeviation(seriesMean, bestFit, degreeOfFit); 
-                
+                residualStandardDeviations[i] = CertificateGeneration.MathLib.Statistics.CalculateResidualStandardDeviation(seriesMean, bestFit, degreeOfFit);
+
                 if (i == MAX_DEGREE_OF_FIT)
                     continue;
 
@@ -94,7 +144,7 @@ namespace CertificateGeneration.Models
         }
 
         public bool IsBestFitPolynomialFit(double residualStandardDeviation1, double residualStandardDeveian2, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
-        { 
+        {
             return (residualStandardDeviation1 / residualStandardDeveian2) > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
         }
 
@@ -121,9 +171,32 @@ namespace CertificateGeneration.Models
 
         public double[] GetAppliedForces()
         {
-            return seriesList[0].Transform(new AppliedForceToArray());
+            // TODO: better way to handle this wihout using the first series "[0]"
+
+            const int SERIES_TO_USE = 0;
+
+            return seriesList[SERIES_TO_USE].Transform(new AppliedForceToArray());
         }
 
+        public double[] StackData(ITransformToDoubleArray transform)
+        {
+            // TODO : add error handling
 
+            // TODO: values need to be ordered
+
+            // TODO: how to test while seriesList is encapsulated
+
+            List<double> stacked = [];
+
+            foreach (var series in seriesList)
+                stacked.AddRange(series.Transform(transform));
+
+            return [.. stacked];
+        }
+
+        public void RemoveSeriesValueForTestPurpose(int seriesIndex, int itemNumber)
+        {
+            seriesList[seriesIndex].RemoveSeriesValueForTestPurpose(itemNumber);
+        }
     }
 }

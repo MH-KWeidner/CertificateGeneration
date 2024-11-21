@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using CertificateGeneration.Models.Modifiers;
 
-namespace DevelopmentTesting.NISTDataSets
+namespace DevelopmentTests.NISTDataSets
 {
-    public static class TestDataExample
+    public static class MHForceWebTestDataExample
     {
-        //TODO remove this class when no longer needed
-
         // Test data from https://mhforce.com/interpolated-zero-reduction-methods/
 
         public static double[] GetAppliedForce()

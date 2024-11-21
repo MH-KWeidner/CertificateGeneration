@@ -2,10 +2,11 @@ using CertificateGeneration.Certificates;
 using CertificateGeneration.Models;
 using CertificateGeneration.Models.Modifiers;
 using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models.DataTransform;
 
 namespace CertificatesTesting
 {
-    [Ignore]
+    // [Ignore]
     [TestClass]
     public class TestE74v18
     {
