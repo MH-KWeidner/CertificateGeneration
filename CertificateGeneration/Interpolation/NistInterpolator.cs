@@ -1,9 +1,4 @@
 ﻿using CertificateGeneration.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CertificateGeneration.Models.DataQueries;
 
 namespace CertificateGeneration.Interpolation
@@ -21,7 +16,7 @@ namespace CertificateGeneration.Interpolation
                     break;
 
                 int indexOfStartingZeroAppliedForce = zeroAppliedForceItems[i].OriginalIndex;
-                
+
                 int indexOfEndingZeroAppliedForce = zeroAppliedForceItems[i + 1].OriginalIndex;
 
                 // 2 consecutive zero values can not be used to calculate an interpolation value
@@ -48,7 +43,7 @@ namespace CertificateGeneration.Interpolation
 
                 #region Interpolate for when there is more than 1 non-zero-applied-force points between 2 zero force points
                 int OneBasedSeriesPositionForNonZeroForce = 1;
-                
+
                 for (int j = indexOfItemWithNonZeroForceApplied; j < indexOfEndingZeroAppliedForce; j++)
                 {
                     var interpolatedValue = CalculateNISInterpolatedValue(

@@ -1,9 +1,7 @@
 ﻿namespace CertificateGeneration.MathLib.Tests
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using MathLib;
-    using MathNet.Numerics;
+    using System;
 
     namespace MathLib.Tests
     {
@@ -45,8 +43,8 @@
             public void GetMean_ValidInput_ReturnsExpectedValue()
             {
                 // Arrange
-                double[] x = { 10, 20, 30};
-                
+                double[] x = { 10, 20, 30 };
+
                 // Act
                 double result = Statistics.CalculateMean(x);
 

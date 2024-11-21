@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models;
-using System.Reflection.Metadata.Ecma335;
+﻿using CertificateGeneration.Models;
 
 namespace CertificateGeneration.Interpolation
 {
@@ -20,7 +13,7 @@ namespace CertificateGeneration.Interpolation
             int seriesSize = series.CountValues();
             for (int i = 0; i < seriesSize; i++)
             {
-                if(series.GetAppliedForce(i) == DOUBLE_ZERO)
+                if (series.GetAppliedForce(i) == DOUBLE_ZERO)
                 {
                     currentZeroValue = series.GetRawValue(i);
                     continue;

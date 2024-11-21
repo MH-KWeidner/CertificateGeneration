@@ -1,12 +1,6 @@
 ﻿using MathNet.Numerics;
 using MathNet.Numerics.Distributions;
 using MathNet.Numerics.Statistics;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CertificateGeneration.MathLib
 {
@@ -28,10 +22,10 @@ namespace CertificateGeneration.MathLib
             try
             {
                 double mean = values.Mean();
-                
-                if(double.IsNaN(mean))
+
+                if (double.IsNaN(mean))
                     throw new Exception("Error in Statistics.GetMean has NaN value.");
-                
+
                 return mean;
             }
             catch
@@ -40,7 +34,7 @@ namespace CertificateGeneration.MathLib
                 throw new Exception("Error in Statistics.GetMean");
             }
         }
-    
+
         public static double CalculateMean(IList<double> values)
         {
             try

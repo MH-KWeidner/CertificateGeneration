@@ -1,6 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using CertificateGeneration.Models.Modifiers;
 using CertificateGeneration.Interpolation;
 
 namespace InterpolationTests

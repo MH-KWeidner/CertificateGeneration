@@ -1,12 +1,7 @@
-﻿using DevelopmentTests.InitialZeroDataSets;
+﻿using CertificateGeneration.Interpolation;
 using CertificateGeneration.Models;
 using CertificateGeneration.Models.Modifiers;
-using CertificateGeneration.Interpolation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DevelopmentTests.InitialZeroDataSets;
 
 namespace DevelopmentTests
 {
@@ -24,7 +19,7 @@ namespace DevelopmentTests
             // Act
             InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();
             interoplater.Interpolate(series);
-            
+
             IModifySeriesSize removeZeroValueForceItems = new RemoveZeroValueForceItems();
             series.Modify(removeZeroValueForceItems);
 

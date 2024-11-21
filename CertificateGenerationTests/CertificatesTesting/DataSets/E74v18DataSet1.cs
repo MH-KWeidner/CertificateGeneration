@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CertificatesTesting.DataSets
+﻿namespace CertificatesTesting.DataSets
 {
     internal class E74v18DataSet1
     {

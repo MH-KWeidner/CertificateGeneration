@@ -1,8 +1,6 @@
-using CertificateGeneration.Certificates;
+using CertificateGeneration.Interpolation;
 using CertificateGeneration.Models;
 using CertificateGeneration.Models.Modifiers;
-using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.DataTransform;
 
 namespace CertificatesTesting
 {
@@ -17,7 +15,7 @@ namespace CertificatesTesting
             // CALIBRATION & ISSUE DATE: 07/01/2024
             // REPORT NO.: U-7989G0124
 
-            Application application = new (
+            Application application = new(
                 DataSets.E74v18DataSet1.GetAppliedForce(),
                 DataSets.E74v18DataSet1.GetRawDataSeries1(),
                 DataSets.E74v18DataSet1.GetRawDataSeries2(),

@@ -1,6 +1,4 @@
-﻿global using CertificateGeneration.Shared;
-
-namespace CertificateGeneration
+﻿namespace CertificateGeneration
 {
     internal class GlobalUsings { }
 }

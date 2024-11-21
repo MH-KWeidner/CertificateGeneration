@@ -1,11 +1,4 @@
-﻿using CertificateGeneration.Models.Modifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevelopmentTests.InitialZeroDataSets
+﻿namespace DevelopmentTests.InitialZeroDataSets
 {
     internal class MethodAInitialZeroTestData1
     {
@@ -74,7 +67,7 @@ namespace DevelopmentTests.InitialZeroDataSets
 
         public static double[] GetRawDataSeries3()
         {
-            return 
+            return
             [
                 0,
                 405,

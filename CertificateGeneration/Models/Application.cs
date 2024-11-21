@@ -1,14 +1,7 @@
 ﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.Modifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CertificateGeneration.MathLib;
 using CertificateGeneration.Models.DataTransform;
-using System.Drawing;
-using static System.Net.Mime.MediaTypeNames;
+using CertificateGeneration.Models.Modifiers;
 
 namespace CertificateGeneration.Models
 {
@@ -86,7 +79,9 @@ namespace CertificateGeneration.Models
             {
                 returnBestFitDegree = degree;
 
-                double[] polynomials = MathLib.Statistics.FitPolynomialToLeastSquares(stackedAppliedForces, stackedSeriesData, degree);
+                //double[] polynomials = MathLib.Statistics.FitPolynomialToLeastSquares(stackedAppliedForces, stackedSeriesData, degree);
+
+                double[] polynomials = MathLib.Statistics.FitPolynomialToLeastSquares(appliedForces, observedMean, degree);
 
                 double[] predictedFit = new double[appliedForces.Length];
 
@@ -100,52 +95,16 @@ namespace CertificateGeneration.Models
                 if (degree == MAX_DEGREE_OF_FIT)
                     continue;
 
-                if (IsBestFitPolynomialFit(currentResidualDeviation, previousResidualDeviation, observedMean.Length, degree))
+                if (IsBestFitPolynomialFit(previousResidualDeviation, currentResidualDeviation, observedMean.Length, degree))
                     break;
             }
 
             return returnBestFitDegree;
         }
 
-        public int DetermineDegreeOfBestFittingPolynomialz()
+        public bool IsBestFitPolynomialFit(double previousResidualDeviation, double currentResidualStandardDeveian, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
         {
-            // TODO: consider best way to get series size
-
-            // TODO: test for symmetry of series data and applied forces
-
-            //TODO; what are the boundry conditions for the degree of the polynomial?
-
-            double[] appliedForces = GetAppliedForces();
-
-            double[] seriesMean = CalculateSeriesMean();
-
-            const int MAX_DEGREE_OF_FIT = 5;
-
-            int degreeOfFit = MAX_DEGREE_OF_FIT;
-
-            double[] residualStandardDeviations = new double[MAX_DEGREE_OF_FIT];
-
-            for (int i = MAX_DEGREE_OF_FIT; i >= 1; i--)
-            {
-                double[] bestFit = Statistics.FitPolynomialToLeastSquares(appliedForces, seriesMean, degreeOfFit);
-
-                residualStandardDeviations[i] = CertificateGeneration.MathLib.Statistics.CalculateResidualStandardDeviation(seriesMean, bestFit, degreeOfFit);
-
-                if (i == MAX_DEGREE_OF_FIT)
-                    continue;
-
-                if (IsBestFitPolynomialFit(residualStandardDeviations[i], residualStandardDeviations[i + 1], seriesMean.Length, degreeOfFit))
-                    break;
-
-                degreeOfFit--;
-            }
-
-            return degreeOfFit;
-        }
-
-        public bool IsBestFitPolynomialFit(double residualStandardDeviation1, double residualStandardDeveian2, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
-        {
-            return (residualStandardDeviation1 / residualStandardDeveian2) > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
+            return (previousResidualDeviation / currentResidualStandardDeveian) > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
         }
 
         public int GetSeriesSize()

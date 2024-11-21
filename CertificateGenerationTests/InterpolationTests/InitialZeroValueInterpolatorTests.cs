@@ -1,10 +1,4 @@
 ﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.Modifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CertificateGeneration.Models;
 
 namespace InterpolationTests
@@ -16,7 +10,7 @@ namespace InterpolationTests
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            Series series = Series.CreateSeries(1, [ 0, 10, 20 ], [ 0.00000, 0.00012, 0.00022 ]);
+            Series series = Series.CreateSeries(1, [0, 10, 20], [0.00000, 0.00012, 0.00022]);
 
 
             // Act
@@ -73,6 +67,6 @@ namespace InterpolationTests
             // Assert
             Assert.AreEqual(-0.00011, series.GetValue(1));
             Assert.AreEqual(-0.00024, series.GetValue(3));
-        }      
+        }
     }
 }

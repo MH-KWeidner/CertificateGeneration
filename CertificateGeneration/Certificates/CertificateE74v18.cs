@@ -1,5 +1,4 @@
 ﻿using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
 
 namespace CertificateGeneration.Certificates
 {
@@ -13,8 +12,8 @@ namespace CertificateGeneration.Certificates
         }
 
         public void LoadRawData(double[] appliedForce, params double[][] rawData)
-        {   
-            foreach(var data in rawData)
+        {
+            foreach (var data in rawData)
                 seriesList.Add(Series.CreateSeries(seriesList.Count + 1, appliedForce, data));
         }
 

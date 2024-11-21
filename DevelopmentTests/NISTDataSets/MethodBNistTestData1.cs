@@ -1,11 +1,4 @@
-﻿using CertificateGeneration.Models.Modifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevelopmentTests.NISTDataSets
+﻿namespace DevelopmentTests.NISTDataSets
 {
     internal class MethodBNistTestData1
     {
@@ -78,7 +71,7 @@ namespace DevelopmentTests.NISTDataSets
 
         public static double[] GetRawDataSeries3()
         {
-            return 
+            return
             [
                 -0.00001,
                 -0.08158,

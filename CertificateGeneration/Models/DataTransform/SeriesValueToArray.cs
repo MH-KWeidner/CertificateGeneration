@@ -1,11 +1,4 @@
-﻿using CertificateGeneration.Models.Modifiers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CertificateGeneration.Models.DataTransform
+﻿namespace CertificateGeneration.Models.DataTransform
 {
     public class SeriesValueToArray : ITransformToDoubleArray
     {

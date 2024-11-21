@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CertificateGeneration.Models.Modifiers;
-using CertificateGeneration.Models.DataTransform;
+﻿using CertificateGeneration.Interpolation;
 using CertificateGeneration.Models.DataQueries;
-using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.TestModifiers;
+using CertificateGeneration.Models.DataTransform;
+using CertificateGeneration.Models.Modifiers;
 
 
 namespace CertificateGeneration.Models
@@ -20,7 +14,7 @@ namespace CertificateGeneration.Models
 
         // retain original raw values
         private readonly List<SeriesValue> originalValuesCache;
-        
+
         private List<SeriesValue> seriesValues;
 
         private Series(int seriesId, double[] appliedForce, double[] rawValue)
@@ -115,7 +109,7 @@ namespace CertificateGeneration.Models
         public void RemoveSeriesValueForTestPurpose(int itemNumber)
         {
             // TODO REMOVE THIS METHOD> FOR TESTING PURPOSE ONLY`
-            
+
             seriesValues = seriesValues.Where((seriesValue, index) => index != itemNumber).ToList();
         }
 

@@ -9,8 +9,8 @@ namespace ModelsTesting
         public void SeriesValueToArray_ValidOutout_ReturnsCorrectValues()
         {
             // Arrange
-            double[] force = [ 10, 20, 30 ];
-            double[] values = [ 1.0, 2.0, 3.0 ];
+            double[] force = [10, 20, 30];
+            double[] values = [1.0, 2.0, 3.0];
             Series series = Series.CreateSeries(1, force, values);
 
             // Act

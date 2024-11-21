@@ -1,5 +1,4 @@
 ﻿using MathNet.Numerics;
-using System;
 
 namespace CertificateGeneration;
 
@@ -16,7 +15,7 @@ class Program
         Console.WriteLine("Coefficients: " + string.Join(", ", coefficients));
 
         /////////////
-        
+
         double[] fittedValues = new double[xData.Length];
 
         for (int i = 0; i < xData.Length; i++)
