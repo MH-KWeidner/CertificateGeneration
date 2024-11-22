@@ -1,19 +1,62 @@
 ﻿namespace CertificateGeneration.Shared
 {
+    /// <summary>
+    /// Defines the Units
+    /// </summary>
     public enum Units
     {
+        /// <summary>
+        /// Defines the None
+        /// </summary>
         None,
+
+        /// <summary>
+        /// Defines the Ounces
+        /// </summary>
         Ounces,
+
+        /// <summary>
+        /// Defines the Pounds
+        /// </summary>
         Pounds,
+
+        /// <summary>
+        /// Defines the Tons
+        /// </summary>
         Tons,
+
+        /// <summary>
+        /// Defines the Newtons
+        /// </summary>
         Newtons,
+
+        /// <summary>
+        /// Defines the Decanewtons
+        /// </summary>
         Decanewtons,
+
+        /// <summary>
+        /// Defines the Kilonewtons
+        /// </summary>
         Kilonewtons,
+
+        /// <summary>
+        /// Defines the Grams
+        /// </summary>
         Grams,
+
+        /// <summary>
+        /// Defines the Kilograms
+        /// </summary>
         Kilograms
     }
 
-    public class Enumerations { }
+    /// <summary>
+    /// Defines the <see cref="Enumerations" />
+    /// </summary>
+    public class Enumerations
+    {
+    }
 
     // TODO implement this as needed
 

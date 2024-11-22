@@ -34,10 +34,6 @@ class Program
             Console.WriteLine($"Fitted value at x = {xData[i]}: {fittedValues[i]}");
         }
 
-
-
-
-
         Console.ReadKey();
     }
 }

@@ -1,11 +1,20 @@
-﻿using MathNet.Numerics;
-using MathNet.Numerics.Distributions;
-using MathNet.Numerics.Statistics;
-
-namespace CertificateGeneration.MathLib
+﻿namespace CertificateGeneration.MathLib
 {
+    using MathNet.Numerics;
+    using MathNet.Numerics.Distributions;
+    using MathNet.Numerics.Statistics;
+
+    /// <summary>
+    /// Defines the <see cref="Statistics" />
+    /// </summary>
     public static class Statistics
     {
+        /// <summary>
+        /// The CalculatePolynomial
+        /// </summary>
+        /// <param name="coefficients">The coefficients<see cref="double[]"/></param>
+        /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculatePolynomial(double[] coefficients, double appliedForce)
         {
             //TODO add specific error handling
@@ -15,6 +24,11 @@ namespace CertificateGeneration.MathLib
             return coefficients.Select((coeff, index) => coeff * Math.Pow(appliedForce, index)).Sum();
         }
 
+        /// <summary>
+        /// The CalculateMean
+        /// </summary>
+        /// <param name="values">The values<see cref="double[]"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculateMean(double[] values)
         {
             //TODO better error handling
@@ -35,6 +49,11 @@ namespace CertificateGeneration.MathLib
             }
         }
 
+        /// <summary>
+        /// The CalculateMean
+        /// </summary>
+        /// <param name="values">The values<see cref="IList{double}"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculateMean(IList<double> values)
         {
             try
@@ -53,6 +72,12 @@ namespace CertificateGeneration.MathLib
             }
         }
 
+        /// <summary>
+        /// The CalculateCFactor
+        /// </summary>
+        /// <param name="n">The n<see cref="int"/></param>
+        /// <param name="m">The m<see cref="int"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculateCFactor(int n, int m)
         {
             // TODO: better naming that also explains what this is
@@ -66,21 +91,13 @@ namespace CertificateGeneration.MathLib
             return (double)Math.Sqrt(1 + (fDistValue - 1) / (n - m));
         }
 
-        // TODO verify if this is the correct implementation
-        //public static double GetResidualStandardDeviation(double[] observed, double[] predicted)
-        //{
-        //    // TODO: add error handling
-
-        //    // TODO: verify arrays are the same size
-
-        //    double[] residuals = new double[observed.Length];
-
-        //    for (int i = 0; i < observed.Length; i++)
-        //        residuals[i] = observed[i] - predicted[i];
-
-        //    return residuals.StandardDeviation();
-        //}
-
+        /// <summary>
+        /// The CalculateResidualStandardDeviation
+        /// </summary>
+        /// <param name="observedMean">The observedMean<see cref="double[]"/></param>
+        /// <param name="predictedFit">The predictedFit<see cref="double[]"/></param>
+        /// <param name="degreeOfPolynpmialFit">The degreeOfPolynpmialFit<see cref="int"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculateResidualStandardDeviation(double[] observedMean, double[] predictedFit, int degreeOfPolynpmialFit)
         {
             // TODO: add error handling
@@ -103,6 +120,13 @@ namespace CertificateGeneration.MathLib
             return Math.Sqrt(residualStandardDeviation);
         }
 
+        /// <summary>
+        /// The FitPolynomialToLeastSquares
+        /// </summary>
+        /// <param name="xsStacked">The xsStacked<see cref="double[]"/></param>
+        /// <param name="ysStacked">The ysStacked<see cref="double[]"/></param>
+        /// <param name="degree">The degree<see cref="int"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] FitPolynomialToLeastSquares(double[] xsStacked, double[] ysStacked, int degree)
         {
             try
@@ -115,30 +139,5 @@ namespace CertificateGeneration.MathLib
                 throw new Exception("Error in Statistics.FitPolynomialToLeastSquares");
             }
         }
-
-        //public static double[] GetCoefficients(double[] xs, double[] ys, int degree, bool fitThroughOrigin)
-        //{
-        //    // Use Numeric's more accurate line formula's for 1st degree calculations
-        //    if (degree == 1)
-        //    {
-        //        if (fitThroughOrigin)
-        //            return [0, Fit.LineThroughOrigin(xs, ys)];
-
-        //        var (intercept, slope) = Fit.Line(xs, ys);
-        //        return [intercept, slope];
-        //    }
-
-        //    if (!fitThroughOrigin)
-        //        return Fit.Polynomial(xs, ys, degree);
-
-        //    // Returns n rows of xs as [ xs^1, ... xs^degree ]n
-        //    var multiDegree = CreateMultiDegreeValues(xs, degree);
-
-        //    // If intercept is true, a column is prepended to the xs of the 0th power (all 1s)
-        //    return [0, .. Fit.MultiDim(multiDegree, ys, intercept: !fitThroughOrigin)];
-        //}
-
-
-
     }
 }

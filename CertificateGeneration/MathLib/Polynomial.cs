@@ -1,21 +1,22 @@
-﻿using MathNet.Numerics;
-
-namespace CertificateGeneration.MathLib
+﻿namespace CertificateGeneration.MathLib
 {
+    using MathNet.Numerics;
+
+    /// <summary>
+    /// Defines the <see cref="Polynomial" />
+    /// </summary>
     public class Polynomial
     {
         /// <summary>
         /// Returns <paramref name="degree"/> + 1 number of coefficients using Least Squares. Each row of <paramref name="ys"/> shall
         /// correspond to the same row of <paramref name="xs"/>. If <paramref name="fitThroughOrigin"/> is <see langword="true"/>,
-        /// the first coefficient will be 0. Coefficients are returned in ascending degree order (i.e., x0, x1, x2, etc.).
+        /// the first coefficient will be 0. Coefficients are returned in ascending degree order (i.e., x0, x1, x2, etc.)
         /// </summary>
-        /// 
-        /// <param name="xs">The collection of x values that correspond with the <paramref name="ys"/>.</param>
-        /// <param name="ys">The collection of y values that correspond with the <paramref name="xs"/>.</param>
-        /// <param name="degree">The highest coefficient degree desired.</param>
-        /// <param name="fitThroughOrigin">If <see langword="true"/>, the first coefficient (x0) will be 0. Otherwise, coefficients are calculated normally.</param>
-        /// 
-        /// <returns>The <paramref name="degree"/> + 1 calculated coefficients in ascending degree order.</returns>
+        /// <param name="xs">The collection of x values that correspond with the <paramref name="ys"/></param>
+        /// <param name="ys">The collection of y values that correspond with the <paramref name="xs"/></param>
+        /// <param name="degree">The highest coefficient degree desired</param>
+        /// <param name="fitThroughOrigin">If <see langword="true"/>, the first coefficient (x0) will be 0. Otherwise, coefficients are calculated normally</param>
+        /// <returns>The <paramref name="degree"/> + 1 calculated coefficients in ascending degree order</returns>
         public static double[] GetCoefficients(double[] xs, double[] ys, int degree, bool fitThroughOrigin)
         {
             // Use Numeric's more accurate line formula's for 1st degree calculations
@@ -41,28 +42,10 @@ namespace CertificateGeneration.MathLib
 
         /// <summary>
         /// Creates a two dimensional array of <paramref name="values"/> with <paramref name="degree"/> columns. The column index, <see langword="i"/>,
-        /// represents the values raised to <see langword="i + 1"/>.
+        /// represents the values raised to <see langword="i + 1"/>
         /// </summary>
-        /// 
-        /// <remarks><code>
-        /// degree = 3
-        /// values = [
-        ///     0,
-        ///     1,
-        ///     2,
-        ///     3,
-        ///     4,
-        /// ]
-        /// 
-        /// returns [
-        ///     [ 0, 0,  0  ],
-        ///     [ 1, 1,  1  ],
-        ///     [ 2, 4,  8  ],
-        ///     [ 3, 9,  27 ],
-        ///     [ 4, 16, 64 ],
-        /// ]
-        /// </code></remarks>
-        /// 
+        /// <param name="values">The values<see cref="double[]"/></param>
+        /// <param name="degree">The degree<see cref="int"/></param>
         /// <returns></returns>
         public static double[][] CreateMultiDegreeValues(double[] values, int degree)
         {

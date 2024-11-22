@@ -1,13 +1,20 @@
-using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
-
-namespace CertificatesTesting
+namespace CertificateGenerationTests.CertificatesTesting
 {
+    using CertificateGeneration.Interpolation;
+    using CertificateGeneration.Models;
+    using CertificateGeneration.Models.Modifiers;
+
     // [Ignore]
+
+    /// <summary>
+    /// Defines the <see cref="TestE74v18" />
+    /// </summary>
     [TestClass]
     public class TestE74v18
     {
+        /// <summary>
+        /// The TestBuild
+        /// </summary>
         [TestMethod]
         public void TestBuild()
         {

@@ -16,17 +16,13 @@ public class DetermineDegreeOfBestFittingPolynomial
         double[] rawSeries2 = MethodBNistTestData1.GetRawDataSeries2();
         double[] rawSeries3 = MethodBNistTestData1.GetRawDataSeries3();
 
-        Application application = new Application(appliedForce, rawSeries1, rawSeries2, rawSeries3);
+        Application application = new(appliedForce, rawSeries1, rawSeries2, rawSeries3);
 
         application.InterpolateSeriesData(new NistInterpolator());
 
         application.ModifySeriesData(new RemoveZeroValueForceItems());
 
         application.OrderSeriesData(new OrderByAppliedForceAscending());
-
-        application.RemoveSeriesValueForTestPurpose(0, 5);
-        application.RemoveSeriesValueForTestPurpose(1, 5);
-        application.RemoveSeriesValueForTestPurpose(2, 5);
 
         application.DetermineDegreeOfBestFittingPolynomial();
     }

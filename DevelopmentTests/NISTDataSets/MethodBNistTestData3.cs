@@ -1,10 +1,17 @@
 ﻿namespace DevelopmentTests.NISTDataSets
 {
+    /// <summary>
+    /// Defines the <see cref="MethodBNistTestData3" />
+    /// </summary>
     internal class MethodBNistTestData3
     {
         // CALIBRATION & ISSUE DATE: 11/06/2024
         // REPORT NO.: 070221K0624
 
+        /// <summary>
+        /// The GetAppliedForce
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetAppliedForce()
         {
             return
@@ -27,6 +34,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries1
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries1()
         {
             return
@@ -49,6 +60,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries2
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries2()
         {
             return
@@ -71,6 +86,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries3
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries3()
         {
             return
@@ -93,6 +112,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries4
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries4()
         {
             return

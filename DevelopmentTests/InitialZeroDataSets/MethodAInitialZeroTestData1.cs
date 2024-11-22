@@ -1,10 +1,17 @@
 ﻿namespace DevelopmentTests.InitialZeroDataSets
 {
+    /// <summary>
+    /// Defines the <see cref="MethodAInitialZeroTestData1" />
+    /// </summary>
     internal class MethodAInitialZeroTestData1
     {
         // CALIBRATION & ISSUE DATE: 10/08/2024
         // REPORT NO.: 103443AJ0824
 
+        /// <summary>
+        /// The GetAppliedForce
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetAppliedForce()
         {
             return
@@ -25,6 +32,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries1
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries1()
         {
             return
@@ -45,6 +56,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries2
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries2()
         {
             return
@@ -65,6 +80,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries3
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries3()
         {
             return

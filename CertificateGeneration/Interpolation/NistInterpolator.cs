@@ -1,10 +1,17 @@
-﻿using CertificateGeneration.Models;
-using CertificateGeneration.Models.DataQueries;
-
-namespace CertificateGeneration.Interpolation
+﻿namespace CertificateGeneration.Interpolation
 {
+    using CertificateGeneration.Models;
+    using CertificateGeneration.Models.DataQueries;
+
+    /// <summary>
+    /// Defines the <see cref="NistInterpolator" />
+    /// </summary>
     public class NistInterpolator : IInterpolate
     {
+        /// <summary>
+        /// The Interpolate
+        /// </summary>
+        /// <param name="series">The series<see cref="Series"/></param>
         public void Interpolate(Series series)
         {
             List<SeriesValue> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
@@ -27,7 +34,6 @@ namespace CertificateGeneration.Interpolation
 
                 int indexOfItemWithNonZeroForceApplied = indexOfStartingZeroAppliedForce + 1;
 
-                #region Interpolate a non-zero-applied-force point between 2 zero force points
                 if (numberItemsWithNonZeroForceApplied == 1)
                 {
                     var interpolatedValue = InterpolateByZeroForceAverage(
@@ -39,9 +45,7 @@ namespace CertificateGeneration.Interpolation
 
                     continue;
                 }
-                #endregion
 
-                #region Interpolate for when there is more than 1 non-zero-applied-force points between 2 zero force points
                 int OneBasedSeriesPositionForNonZeroForce = 1;
 
                 for (int j = indexOfItemWithNonZeroForceApplied; j < indexOfEndingZeroAppliedForce; j++)
@@ -57,10 +61,18 @@ namespace CertificateGeneration.Interpolation
 
                     OneBasedSeriesPositionForNonZeroForce++;
                 }
-                #endregion
             }
         }
 
+        /// <summary>
+        /// The CalculateNISInterpolatedValue
+        /// </summary>
+        /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
+        /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
+        /// <param name="numberOfNonZeroForcePoints">The numberOfNonZeroForcePoints<see cref="int"/></param>
+        /// <param name="forceReading">The forceReading<see cref="double"/></param>
+        /// <param name="OneBasedSeriesPositionForNonZeroForce">The OneBasedSeriesPositionForNonZeroForce<see cref="int"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionForNonZeroForce)
         {
             //TODO better naming
@@ -76,6 +88,13 @@ namespace CertificateGeneration.Interpolation
             }
         }
 
+        /// <summary>
+        /// The InterpolateByZeroForceAverage
+        /// </summary>
+        /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
+        /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
+        /// <param name="forceReading">The forceReading<see cref="double"/></param>
+        /// <returns>The <see cref="double"/></returns>
         public static double InterpolateByZeroForceAverage(double startZeroValue, double endZeroValue, double forceReading)
         {
             //TODO better naming

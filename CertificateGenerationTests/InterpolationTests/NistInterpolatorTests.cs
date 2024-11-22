@@ -1,10 +1,16 @@
-using CertificateGeneration.Interpolation;
-
-namespace InterpolationTests
+namespace CertificateGenerationTests.InterpolationTests
 {
+    using CertificateGeneration.Interpolation;
+
+    /// <summary>
+    /// Defines the <see cref="NistInterpolatorTests" />
+    /// </summary>
     [TestClass]
     public class NistInterpolatorTests
     {
+        /// <summary>
+        /// The calculateNISInterpolatedValue_ValidOutput_ReturnsExpectedInterpolatedValue
+        /// </summary>
         [TestMethod]
         public void calculateNISInterpolatedValue_ValidOutput_ReturnsExpectedInterpolatedValue()
         {

@@ -1,10 +1,17 @@
-using CertificateGeneration.Models;
-using CertificateGeneration.Models.DataTransform;
-namespace ModelsTesting
+namespace CertificateGenerationTests.ModelsTests
 {
+    using CertificateGeneration.Models;
+    using CertificateGeneration.Models.DataTransform;
+
+    /// <summary>
+    /// Defines the <see cref="DataTransformTests" />
+    /// </summary>
     [TestClass]
     public class DataTransformTests
     {
+        /// <summary>
+        /// The SeriesValueToArray_ValidOutout_ReturnsCorrectValues
+        /// </summary>
         [TestMethod]
         public void SeriesValueToArray_ValidOutout_ReturnsCorrectValues()
         {

@@ -1,5 +1,8 @@
 ﻿namespace DevelopmentTests.InitialZeroDataSets
 {
+    /// <summary>
+    /// Defines the <see cref="MethodAInitialZeroTestData2" />
+    /// </summary>
     internal class MethodAInitialZeroTestData2
     {
         // CALIBRATION & ISSUE DATE: 11/14/2024
@@ -10,6 +13,10 @@
         // Raw data is in lbf, but actual cert is in N.
         //  ie will require conversion to N, in order to test value assertions.
 
+        /// <summary>
+        /// The GetAppliedForce
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetAppliedForce()
         {
             return
@@ -50,6 +57,10 @@
         //    ];
         //}
 
+        /// <summary>
+        /// The GetRawDataSeries3
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries3()
         {
             return
@@ -74,6 +85,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries4
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries4()
         {
             return
@@ -98,6 +113,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries5
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries5()
         {
             return
@@ -122,6 +141,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries6
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries6()
         {
             return

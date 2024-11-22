@@ -1,4 +1,9 @@
 ﻿namespace CertificateGeneration
 {
-    internal class GlobalUsings { }
+    /// <summary>
+    /// Defines the <see cref="GlobalUsings" />
+    /// </summary>
+    internal class GlobalUsings
+    {
+    }
 }

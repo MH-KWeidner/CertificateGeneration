@@ -1,9 +1,16 @@
 ﻿namespace DevelopmentTests.NISTDataSets
 {
+    /// <summary>
+    /// Defines the <see cref="MHForceWebTestDataExample" />
+    /// </summary>
     public static class MHForceWebTestDataExample
     {
         // Test data from https://mhforce.com/interpolated-zero-reduction-methods/
 
+        /// <summary>
+        /// The GetAppliedForce
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetAppliedForce()
         {
             return
@@ -24,6 +31,10 @@
             ];
         }
 
+        /// <summary>
+        /// The GetRawDataSeries1
+        /// </summary>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetRawDataSeries1()
         {
             return
@@ -42,7 +53,6 @@
                 -4.08417,
                 0.00012
             ];
-
         }
     }
 }

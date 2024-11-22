@@ -1,13 +1,19 @@
-﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
-using DevelopmentTests.NISTDataSets;
-
-namespace DevelopmentTests
+﻿namespace DevelopmentTests
 {
+    using CertificateGeneration.Interpolation;
+    using CertificateGeneration.Models;
+    using CertificateGeneration.Models.Modifiers;
+    using DevelopmentTests.NISTDataSets;
+
+    /// <summary>
+    /// Defines the <see cref="NistInterpolatorTestWithDataset2" />
+    /// </summary>
     [TestClass]
     public class NistInterpolatorTestWithDataset2
     {
+        /// <summary>
+        /// The InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues
+        /// </summary>
         [TestMethod]
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {

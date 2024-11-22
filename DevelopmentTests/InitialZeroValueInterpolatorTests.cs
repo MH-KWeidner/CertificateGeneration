@@ -1,14 +1,20 @@
-﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
-using DevelopmentTests.InitialZeroDataSets;
-
-namespace DevelopmentTests
+﻿namespace DevelopmentTests
 {
+    using CertificateGeneration.Interpolation;
+    using CertificateGeneration.Models;
+    using CertificateGeneration.Models.Modifiers;
+    using DevelopmentTests.InitialZeroDataSets;
+
+    /// <summary>
+    /// Defines the <see cref="InitialZeroValueInterpolatorTests" />
+    /// </summary>
     [Ignore]
     [TestClass]
     public class InitialZeroValueInterpolatorTests
     {
+        /// <summary>
+        /// The interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues
+        /// </summary>
         [TestMethod]
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {

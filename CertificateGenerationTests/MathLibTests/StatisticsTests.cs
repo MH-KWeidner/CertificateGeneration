@@ -1,13 +1,19 @@
-﻿namespace CertificateGeneration.MathLib.Tests
+﻿namespace CertificateGenerationTests.MathLibTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
 
     namespace MathLib.Tests
     {
+        /// <summary>
+        /// Defines the <see cref="StatisticsTests" />
+        /// </summary>
         [TestClass]
         public class StatisticsTests
         {
+            /// <summary>
+            /// The FitPolynomialToLeastSquares_ValidInput_ReturnsExpectedCoefficients
+            /// </summary>
             [TestMethod]
             public void FitPolynomialToLeastSquares_ValidInput_ReturnsExpectedCoefficients()
             {
@@ -26,6 +32,9 @@
                 Assert.IsTrue(Math.Abs(result[2] - 1) < 1e-6);
             }
 
+            /// <summary>
+            /// The FitPolynomialToLeastSquares_InvalidInput_ThrowsException
+            /// </summary>
             [TestMethod]
             public void FitPolynomialToLeastSquares_InvalidInput_ThrowsException()
             {
@@ -39,6 +48,9 @@
                 Assert.AreEqual("Error in Statistics.FitPolynomialToLeastSquares", exception.Message);
             }
 
+            /// <summary>
+            /// The GetMean_ValidInput_ReturnsExpectedValue
+            /// </summary>
             [TestMethod]
             public void GetMean_ValidInput_ReturnsExpectedValue()
             {
@@ -52,6 +64,9 @@
                 Assert.AreEqual(20, result);
             }
 
+            /// <summary>
+            /// The GetMean_ValidInput_ThrowsException
+            /// </summary>
             [Ignore]
             [TestMethod]
             public void GetMean_ValidInput_ThrowsException()

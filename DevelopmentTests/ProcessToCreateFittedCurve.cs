@@ -36,10 +36,6 @@ public class ProcessToCreateFittedCurve
         series2.Order(orderByAppliedForceAscending);
         series3.Order(orderByAppliedForceAscending);
 
-        series1.RemoveSeriesValueForTestPurpose(5);
-        series2.RemoveSeriesValueForTestPurpose(5);
-        series3.RemoveSeriesValueForTestPurpose(5);
-
         double[] appliedForceData = series1.Transform(new AppliedForceToArray());
 
         SeriesValueToArray seriesValueToArray = new();

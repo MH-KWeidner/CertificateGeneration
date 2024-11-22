@@ -1,9 +1,16 @@
-﻿using CertificateGeneration.Models;
-
-namespace CertificateGeneration.Interpolation
+﻿namespace CertificateGeneration.Interpolation
 {
+    using CertificateGeneration.Models;
+
+    /// <summary>
+    /// Defines the <see cref="InitialZeroValueInterpolator" />
+    /// </summary>
     public class InitialZeroValueInterpolator : IInterpolate
     {
+        /// <summary>
+        /// The Interpolate
+        /// </summary>
+        /// <param name="series">The series<see cref="Series"/></param>
         public void Interpolate(Series series)
         {
             const double DOUBLE_ZERO = 0.0;
