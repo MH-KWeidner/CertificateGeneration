@@ -1,10 +1,10 @@
-﻿namespace DevelopmentTests
-{
-    using CertificateGeneration.Interpolation;
-    using CertificateGeneration.Models;
-    using CertificateGeneration.Models.Modifiers;
-    using DevelopmentTests.NISTDataSets;
+﻿using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models;
+using CertificateGeneration.Models.Modifiers;
+using DevelopmentTests.NISTDataSets;
 
+namespace DevelopmentTests
+{
     /// <summary>
     /// Defines the <see cref="NistInterpolatorTestWithDataset2" />
     /// </summary>

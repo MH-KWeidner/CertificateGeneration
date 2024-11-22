@@ -1,7 +1,7 @@
-﻿namespace CertificateGeneration.MathLib
-{
-    using MathNet.Numerics;
+﻿using MathNet.Numerics;
 
+namespace CertificateGeneration.MathLib
+{
     /// <summary>
     /// Defines the <see cref="Polynomial" />
     /// </summary>

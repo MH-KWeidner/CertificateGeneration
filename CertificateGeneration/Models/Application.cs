@@ -1,10 +1,10 @@
-﻿namespace CertificateGeneration.Models
-{
-    using CertificateGeneration.Interpolation;
-    using CertificateGeneration.MathLib;
-    using CertificateGeneration.Models.DataTransform;
-    using CertificateGeneration.Models.Modifiers;
+﻿using CertificateGeneration.Interpolation;
+using CertificateGeneration.MathLib;
+using CertificateGeneration.Models.DataTransform;
+using CertificateGeneration.Models.Modifiers;
 
+namespace CertificateGeneration.Models
+{
     /// <summary>
     /// Defines the <see cref="Application" />
     /// </summary>

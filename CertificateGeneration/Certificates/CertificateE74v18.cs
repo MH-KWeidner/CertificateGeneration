@@ -1,7 +1,7 @@
-﻿namespace CertificateGeneration.Certificates
-{
-    using CertificateGeneration.Models;
+﻿using CertificateGeneration.Models;
 
+namespace CertificateGeneration.Certificates
+{
     /// <summary>
     /// Defines the <see cref="CertificateE74v18" />
     /// </summary>

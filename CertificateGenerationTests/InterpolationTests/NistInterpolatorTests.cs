@@ -1,7 +1,7 @@
+using CertificateGeneration.Interpolation;
+
 namespace CertificateGenerationTests.InterpolationTests
 {
-    using CertificateGeneration.Interpolation;
-
     /// <summary>
     /// Defines the <see cref="NistInterpolatorTests" />
     /// </summary>

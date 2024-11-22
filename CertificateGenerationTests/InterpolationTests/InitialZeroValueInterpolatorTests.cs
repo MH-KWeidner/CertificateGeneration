@@ -1,8 +1,8 @@
-﻿namespace CertificateGenerationTests.InterpolationTests
-{
-    using CertificateGeneration.Interpolation;
-    using CertificateGeneration.Models;
+﻿using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models;
 
+namespace CertificateGenerationTests.InterpolationTests
+{
     /// <summary>
     /// Defines the <see cref="InitialZeroValueInterpolatorTests" />
     /// </summary>

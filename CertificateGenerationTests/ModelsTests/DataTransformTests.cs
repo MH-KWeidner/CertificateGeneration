@@ -1,8 +1,8 @@
+using CertificateGeneration.Models;
+using CertificateGeneration.Models.DataTransform;
+
 namespace CertificateGenerationTests.ModelsTests
 {
-    using CertificateGeneration.Models;
-    using CertificateGeneration.Models.DataTransform;
-
     /// <summary>
     /// Defines the <see cref="DataTransformTests" />
     /// </summary>

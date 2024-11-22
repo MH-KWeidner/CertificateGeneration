@@ -1,9 +1,9 @@
-﻿namespace CertificateGeneration.MathLib
-{
-    using MathNet.Numerics;
-    using MathNet.Numerics.Distributions;
-    using MathNet.Numerics.Statistics;
+﻿using MathNet.Numerics;
+using MathNet.Numerics.Distributions;
+using MathNet.Numerics.Statistics;
 
+namespace CertificateGeneration.MathLib
+{
     /// <summary>
     /// Defines the <see cref="Statistics" />
     /// </summary>

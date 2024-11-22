@@ -1,7 +1,7 @@
-﻿namespace CertificateGeneration.Interpolation
-{
-    using CertificateGeneration.Models;
+﻿using CertificateGeneration.Models;
 
+namespace CertificateGeneration.Interpolation
+{
     /// <summary>
     /// Defines the <see cref="InitialZeroValueInterpolator" />
     /// </summary>

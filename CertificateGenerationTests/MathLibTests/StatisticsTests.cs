@@ -1,8 +1,7 @@
-﻿namespace CertificateGenerationTests.MathLibTests
-{
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
+﻿using CertificateGeneration.MathLib;
 
+namespace CertificateGenerationTests.MathLibTests
+{
     namespace MathLib.Tests
     {
         /// <summary>

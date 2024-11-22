@@ -1,9 +1,9 @@
+using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models;
+using CertificateGeneration.Models.Modifiers;
+
 namespace CertificateGenerationTests.CertificatesTesting
 {
-    using CertificateGeneration.Interpolation;
-    using CertificateGeneration.Models;
-    using CertificateGeneration.Models.Modifiers;
-
     // [Ignore]
 
     /// <summary>

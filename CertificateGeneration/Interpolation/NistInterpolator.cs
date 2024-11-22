@@ -1,8 +1,8 @@
-﻿namespace CertificateGeneration.Interpolation
-{
-    using CertificateGeneration.Models;
-    using CertificateGeneration.Models.DataQueries;
+﻿using CertificateGeneration.Models;
+using CertificateGeneration.Models.DataQueries;
 
+namespace CertificateGeneration.Interpolation
+{
     /// <summary>
     /// Defines the <see cref="NistInterpolator" />
     /// </summary>

@@ -1,10 +1,10 @@
-﻿namespace DevelopmentTests
-{
-    using CertificateGeneration.Interpolation;
-    using CertificateGeneration.Models;
-    using CertificateGeneration.Models.Modifiers;
-    using DevelopmentTests.InitialZeroDataSets;
+﻿using CertificateGeneration.Interpolation;
+using CertificateGeneration.Models;
+using CertificateGeneration.Models.Modifiers;
+using DevelopmentTests.InitialZeroDataSets;
 
+namespace DevelopmentTests
+{
     /// <summary>
     /// Defines the <see cref="InitialZeroValueInterpolatorTests" />
     /// </summary>
