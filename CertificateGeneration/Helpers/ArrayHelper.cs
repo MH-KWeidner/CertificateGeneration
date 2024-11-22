@@ -11,7 +11,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="arrays">The arrays<see cref="T[][]"/></param>
         /// <returns>The <see cref="T[]"/></returns>
-        public static T[] StackArray<T>(params T[][] arrays)
+        public static T[] StackArrays<T>(params T[][] arrays)
         {
             // TODO need error handling
 
@@ -33,6 +33,15 @@
                 throw new ArgumentException("The number of times to stack the array must be at least 1.", nameof(n));
 
             return Enumerable.Repeat(array, n).SelectMany(a => a).ToArray();
+        }
+
+        public static double[] CalculateSeriesMeanXDirection(double[][] dataArrays)
+        {
+            // TODO Add error handling
+
+            return Enumerable.Range(0, dataArrays[0].Length)
+                             .Select(i => dataArrays.Average(array => array[i]))
+                             .ToArray();
         }
     }
 }
