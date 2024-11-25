@@ -1,7 +1,7 @@
 using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.CertifcateCalculations.Interpolation;
-using CertificateGeneration.CertificateFactory
+using CertificateGeneration.CertificateFactory;
 
 using CertificateGeneration.Common;
 
