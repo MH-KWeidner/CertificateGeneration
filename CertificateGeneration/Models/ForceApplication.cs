@@ -1,12 +1,12 @@
-﻿using CertificateGeneration.Models.Modifiers;
-using CertificateGeneration.Calculations.Interpolation;
+﻿using CertificateGeneration.CertifcateCalculations.Interpolation;
+using CertificateGeneration.IoC.Modifiers;
 
 namespace CertificateGeneration.Models
 {
     /// <summary>
-    /// Defines the <see cref="Application" />
+    /// Defines the <see cref="ForceApplication" />
     /// </summary>
-    public class Application
+    public class ForceApplication
     {
         /// <summary>
         /// Defines the seriesList
@@ -14,11 +14,11 @@ namespace CertificateGeneration.Models
         private List<Series> seriesList;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Application"/> class.
+        /// Initializes a new instance of the <see cref="ForceApplication"/> class.
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
         /// <param name="rawData">The rawData<see cref="double[][]"/></param>
-        public Application(double[] appliedForce, params double[][] rawData)
+        public ForceApplication(double[] appliedForce, params double[][] rawData)
         {
             seriesList = [];
 

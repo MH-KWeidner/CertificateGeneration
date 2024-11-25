@@ -1,7 +1,6 @@
 ﻿using CertificateGeneration.Models;
-using CertificateGeneration.Calculations.Interpolation;
 
-namespace CertificateGeneration.Calculations.Interpolation
+namespace CertificateGeneration.CertifcateCalculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="InitialZeroValueInterpolator" />

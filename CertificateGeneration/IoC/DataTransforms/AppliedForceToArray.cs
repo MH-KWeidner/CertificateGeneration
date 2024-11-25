@@ -1,4 +1,7 @@
-﻿namespace CertificateGeneration.Models.DataTransform
+﻿using CertificateGeneration.Models;
+using CertificateGeneration.IoC.DataTransforms;
+
+namespace CertificateGeneration.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="AppliedForceToArray" />
@@ -10,7 +13,7 @@
         /// </summary>
         /// <param name="seriesValues">The seriesValues<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<SeriesValue>? seriesValues)
+        public double[] ToArray(List<DataPoint>? seriesValues)
         {
             ArgumentNullException.ThrowIfNull(seriesValues);
 

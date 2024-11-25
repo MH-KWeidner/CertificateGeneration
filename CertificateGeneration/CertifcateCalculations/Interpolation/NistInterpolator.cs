@@ -1,8 +1,7 @@
 ﻿using CertificateGeneration.Models;
-using CertificateGeneration.Models.DataQueries;
-using CertificateGeneration.Calculations.Interpolation;
+using CertificateGeneration.IoC.DataQueries;
 
-namespace CertificateGeneration.Calculations.Interpolation
+namespace CertificateGeneration.CertifcateCalculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolator" />
@@ -15,7 +14,7 @@ namespace CertificateGeneration.Calculations.Interpolation
         /// <param name="series">The series<see cref="Series"/></param>
         public void Interpolate(Series series)
         {
-            List<SeriesValue> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+            List<DataPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
 
             for (int i = 0; i < zeroAppliedForceItems.Count; i++)
             {

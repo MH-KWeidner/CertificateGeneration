@@ -1,5 +1,5 @@
 using CertificateGeneration.Models;
-using CertificateGeneration.Models.DataTransform;
+using CertificateGeneration.IoC.DataTransforms;
 
 namespace CertificateGenerationTests.ModelsTests
 {

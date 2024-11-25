@@ -1,11 +1,11 @@
 ﻿using CertificateGeneration.Models;
 
-namespace CertificateGeneration.Certificates
+namespace CertificateGeneration.CertificateFactory
 {
     /// <summary>
-    /// Defines the <see cref="CertificateE74v18" />
+    /// Defines the <see cref="CertificateE74" />
     /// </summary>
-    public class CertificateE74v18
+    public class CertificateE74
     {
         /// <summary>
         /// Defines the seriesList
@@ -13,9 +13,9 @@ namespace CertificateGeneration.Certificates
         private List<Series> seriesList;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CertificateE74v18"/> class.
+        /// Initializes a new instance of the <see cref="CertificateE74"/> class.
         /// </summary>
-        public CertificateE74v18()
+        public CertificateE74()
         {
             seriesList = [];
         }

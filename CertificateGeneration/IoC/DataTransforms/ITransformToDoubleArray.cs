@@ -1,4 +1,6 @@
-﻿namespace CertificateGeneration.Models.DataTransform
+﻿using CertificateGeneration.Models;
+
+namespace CertificateGeneration.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="ITransformToDoubleArray" />
@@ -10,6 +12,6 @@
         /// </summary>
         /// <param name="seriesValues">The seriesValues<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<SeriesValue>? seriesValues);
+        public double[] ToArray(List<DataPoint>? seriesValues);
     }
 }

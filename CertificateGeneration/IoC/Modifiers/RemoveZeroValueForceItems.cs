@@ -1,4 +1,6 @@
-﻿namespace CertificateGeneration.Models.Modifiers
+﻿using CertificateGeneration.Models;
+
+namespace CertificateGeneration.IoC.Modifiers
 {
     /// <summary>
     /// Removes all SeriesValue items having zero force applied
@@ -10,7 +12,7 @@
         /// </summary>
         /// <param name="seriesValues">The local list of SeriesValues to be modified</param>
         /// <returns>A new list of SeriesValues</returns>
-        public List<SeriesValue>? Modify(List<SeriesValue>? seriesValues)
+        public List<DataPoint>? Modify(List<DataPoint>? seriesValues)
         {
             // TODO add more exception handling
 

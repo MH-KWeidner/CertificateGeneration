@@ -1,7 +1,7 @@
 ﻿using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.IoC.Modifiers;
 using DevelopmentTests.NISTDataSets;
-using CertificateGeneration.Calculations.Interpolation;
+using CertificateGeneration.CertifcateCalculations.Interpolation;
 
 namespace DevelopmentTests
 {

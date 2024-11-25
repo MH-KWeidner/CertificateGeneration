@@ -1,9 +1,9 @@
 using CertificateGeneration.Models;
-using CertificateGeneration.Models.DataTransform;
-using CertificateGeneration.Models.Modifiers;
 using DevelopmentTests.NISTDataSets;
-using CertificateGeneration.Calculations.Interpolation;
-using CertificateGeneration.Wrappers.MathNet;
+using CertificateGeneration.CertifcateCalculations.Interpolation;
+using CertificateGeneration.MathLibrary;
+using CertificateGeneration.IoC.Modifiers;
+using CertificateGeneration.IoC.DataTransforms;
 
 namespace DevelopmentTests;
 

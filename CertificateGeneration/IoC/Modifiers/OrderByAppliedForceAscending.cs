@@ -1,4 +1,6 @@
-﻿namespace CertificateGeneration.Models.Modifiers
+﻿using CertificateGeneration.Models;
+
+namespace CertificateGeneration.IoC.Modifiers
 {
     /// <summary>
     /// Defines the <see cref="OrderByAppliedForceAscending" />
@@ -10,7 +12,7 @@
         /// </summary>
         /// <param name="seriesValues">The seriesValues<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="List{SeriesValue}?"/></returns>
-        public List<SeriesValue>? Order(List<SeriesValue>? seriesValues)
+        public List<DataPoint>? Order(List<DataPoint>? seriesValues)
         {
             // TODO add more exception handling
 

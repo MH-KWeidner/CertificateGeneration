@@ -1,7 +1,7 @@
 using CertificateGeneration.Models;
-using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.IoC.Modifiers;
 using DevelopmentTests.NISTDataSets;
-using CertificateGeneration.Calculations.Interpolation;
+using CertificateGeneration.CertifcateCalculations.Interpolation;
 
 namespace DevelopmentTests;
 
@@ -16,7 +16,7 @@ public class DetermineDegreeOfBestFittingPolynomial
         double[] rawSeries2 = MethodBNistTestData1.GetRawDataSeries2();
         double[] rawSeries3 = MethodBNistTestData1.GetRawDataSeries3();
 
-        Application application = new(appliedForce, rawSeries1, rawSeries2, rawSeries3);
+        ForceApplication application = new(appliedForce, rawSeries1, rawSeries2, rawSeries3);
 
         application.InterpolateSeriesData(new NistInterpolator());
 

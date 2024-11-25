@@ -1,10 +1,12 @@
 ﻿namespace CertificateGeneration.Models
 {
     /// <summary>
-    /// Defines the <see cref="SeriesValue" />
+    /// Defines the <see cref="DataPoint" />
     /// </summary>
-    public class SeriesValue
+    public class DataPoint
     {
+        // TODO condiser if RawValue can be removed. intended only for interpolation
+
         //TODO consider making as a private internal class
 
         //TODO consider chaning index property to id property
@@ -38,11 +40,11 @@
         public double Value { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SeriesValue"/> class.
+        /// Initializes a new instance of the <see cref="DataPoint"/> class.
         /// </summary>
         /// <param name="index">The index<see cref="int"/></param>
         /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>
-        public SeriesValue(int index, double appliedForce, double rawValue) => (OriginalIndex, AppliedForce, RawValue, Value) = (index, appliedForce, rawValue, rawValue);
+        public DataPoint(int index, double appliedForce, double rawValue) => (OriginalIndex, AppliedForce, RawValue, Value) = (index, appliedForce, rawValue, rawValue);
     }
 }

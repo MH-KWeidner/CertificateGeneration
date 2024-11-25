@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.Models.DataQueries;
-using CertificateGeneration.Models.DataTransform;
-using CertificateGeneration.Models.Modifiers;
-using CertificateGeneration.Calculations.Interpolation;
+﻿using CertificateGeneration.CertifcateCalculations.Interpolation;
+using CertificateGeneration.IoC.DataQueries;
+using CertificateGeneration.IoC.Modifiers;
+using CertificateGeneration.IoC.DataTransforms;
 
 namespace CertificateGeneration.Models
 {
@@ -18,12 +18,12 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// Retains the original and unmodified raw values of the series.
         /// </summary>
-        private readonly List<SeriesValue> originalValuesCache;
+        private readonly List<DataPoint> originalValuesCache;
 
         /// <summary>
         /// Defines the seriesValues
         /// </summary>
-        private List<SeriesValue> seriesValues;
+        private List<DataPoint> seriesValues;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="Series"/> class from being created.
@@ -40,8 +40,8 @@ namespace CertificateGeneration.Models
 
             for (int i = 0; i < appliedForce.Length; i++)
             {
-                originalValuesCache.Add(new SeriesValue(i, appliedForce[i], rawValue[i]));
-                seriesValues.Add(new SeriesValue(i, appliedForce[i], rawValue[i]));
+                originalValuesCache.Add(new DataPoint(i, appliedForce[i], rawValue[i]));
+                seriesValues.Add(new DataPoint(i, appliedForce[i], rawValue[i]));
             }
         }
 
@@ -154,7 +154,7 @@ namespace CertificateGeneration.Models
         /// </summary>
         /// <param name="querySeries">The querySeries<see cref="IQuerySeries"/></param>
         /// <returns>The <see cref="List{SeriesValue}"/></returns>
-        public List<SeriesValue> Query(IQuerySeries querySeries)
+        public List<DataPoint> Query(IQuerySeries querySeries)
         {
             return querySeries.Query(seriesValues);
         }
