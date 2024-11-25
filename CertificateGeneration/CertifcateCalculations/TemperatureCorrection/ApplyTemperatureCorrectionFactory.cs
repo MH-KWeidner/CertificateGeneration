@@ -9,6 +9,8 @@ namespace CertificateGeneration.CertifcateCalculations.TemperatureCorrection
 {
     public static class ApplyTemperatureCorrectionFactory
     {
+        // TODO add error handling
+
         // TODO use lazy loading
 
         private static readonly Dictionary<TemperatureUnits, IApplyTemperatureCorrection> cache;
@@ -21,6 +23,9 @@ namespace CertificateGeneration.CertifcateCalculations.TemperatureCorrection
                 { TemperatureUnits.Fahrenheit, new ApplyFahrenheitTemperatureCorrection() }
             };
         }
+
+        // TODO better naming
+
 
         public static IApplyTemperatureCorrection GetTemperatureCorrection(TemperatureUnits unit) => cache[unit];
     }
