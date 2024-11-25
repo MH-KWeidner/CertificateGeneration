@@ -1,6 +1,4 @@
 ﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.MathLib;
-using CertificateGeneration.Models.DataTransform;
 using CertificateGeneration.Models.Modifiers;
 
 namespace CertificateGeneration.Models

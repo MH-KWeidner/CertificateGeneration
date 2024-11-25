@@ -24,6 +24,6 @@ public class DetermineDegreeOfBestFittingPolynomial
 
         application.OrderSeriesData(new OrderByAppliedForceAscending());
 
-        application.DetermineDegreeOfBestFittingPolynomial();
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CertificateGeneration.Helpers;
+using CertificateGeneration.MathLib;
 
-namespace CertificateGeneration.MathLib
+namespace CertificateGeneration.LabCalculations
 {
     /// <summary>
     /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomial" />
@@ -10,6 +11,8 @@ namespace CertificateGeneration.MathLib
         /// <summary>
         /// The Calculate
         /// </summary>
+        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
+        /// <param name="data">The data<see cref="double[][]"/></param>
         /// <returns>The <see cref="int"/></returns>
         public static int Calculate(double[] appliedForces, double[][] data)
         {
@@ -32,23 +35,23 @@ namespace CertificateGeneration.MathLib
             int returnBestFitDegree = 0;
 
             double currentResidualDeviation = 0;
-            
+
             double previousResidualDeviation = 0;
 
             foreach (int degree in rangeOfDegrees)
             {
                 returnBestFitDegree = degree;
 
-                double[] polynomials = MathLib.Statistics.FitPolynomialToLeastSquares(stackedAppliedForces, stackedSeriesData, degree);
+                double[] polynomials = Statistics.FitPolynomialToLeastSquares(stackedAppliedForces, stackedSeriesData, degree);
 
                 double[] predictedFit = new double[appliedForces.Length];
 
                 for (int i = 0; i < predictedFit.Length; i++)
-                    predictedFit[i] = MathLib.Statistics.CalculatePolynomial(polynomials, appliedForces[i]);
+                    predictedFit[i] = Statistics.CalculatePolynomial(polynomials, appliedForces[i]);
 
                 previousResidualDeviation = currentResidualDeviation;
 
-                currentResidualDeviation = MathLib.Statistics.CalculateResidualStandardDeviation(dataMeanValues, predictedFit, degree);
+                currentResidualDeviation = Statistics.CalculateResidualStandardDeviation(dataMeanValues, predictedFit, degree);
 
                 if (degree == MAX_DEGREE_OF_FIT)
                     continue;
@@ -70,7 +73,7 @@ namespace CertificateGeneration.MathLib
         /// <returns>The <see cref="bool"/></returns>
         public static bool IsBestFitPolynomialFit(double previousResidualDeviation, double currentResidualStandardDeveian, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
         {
-            return (previousResidualDeviation / currentResidualStandardDeveian) > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
+            return previousResidualDeviation / currentResidualStandardDeveian > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
         }
     }
 }

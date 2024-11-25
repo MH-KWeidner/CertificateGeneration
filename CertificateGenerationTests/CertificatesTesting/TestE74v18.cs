@@ -29,12 +29,10 @@ namespace CertificateGenerationTests.CertificatesTesting
                 DataSets.E74v18DataSet1.GetRawDataSeries3()
             );
 
-            // NIST Interpolate with Zero Reduction (Method B)
+            // NIST Interpolate (Method B). Apply zero reduction and sort.
             application.InterpolateSeriesData(new NistInterpolator());
             application.ModifySeriesData(new RemoveZeroValueForceItems());
             application.OrderSeriesData(new OrderByAppliedForceAscending());
-
-            application.DetermineDegreeOfBestFittingPolynomial();
         }
     }
 }

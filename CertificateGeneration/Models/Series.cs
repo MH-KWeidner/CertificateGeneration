@@ -15,12 +15,8 @@ namespace CertificateGeneration.Models
         /// </summary>
         private readonly int id;
 
-        // TODO remove if not needed.
-
-        // retain original raw values
-
         /// <summary>
-        /// Defines the originalValuesCache
+        /// Retains the original and unmodified raw values of the series.
         /// </summary>
         private readonly List<SeriesValue> originalValuesCache;
 

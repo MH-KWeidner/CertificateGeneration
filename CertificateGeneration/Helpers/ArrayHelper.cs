@@ -35,6 +35,11 @@
             return Enumerable.Repeat(array, n).SelectMany(a => a).ToArray();
         }
 
+        /// <summary>
+        /// The CalculateSeriesMeanXDirection
+        /// </summary>
+        /// <param name="dataArrays">The dataArrays<see cref="double[][]"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] CalculateSeriesMeanXDirection(double[][] dataArrays)
         {
             // TODO Add error handling
