@@ -18,19 +18,22 @@ public class InitialZeroInterpolatorTestWithDataset2
         Series series5 = Series.CreateSeries(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries5());
         Series series6 = Series.CreateSeries(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries6());
 
-        series3.Interpolate(new NistInterpolator());
-        series4.Interpolate(new NistInterpolator());
-        series5.Interpolate(new NistInterpolator());
-        series6.Interpolate(new NistInterpolator());
+        NistInterpolator interpolator = new();
+        series3.Interpolate(interpolator);
+        series4.Interpolate(interpolator);
+        series5.Interpolate(interpolator);
+        series6.Interpolate(interpolator);
 
-        series3.Modify(new RemoveZeroValueForceItems());
-        series4.Modify(new RemoveZeroValueForceItems());
-        series5.Modify(new RemoveZeroValueForceItems());
-        series6.Modify(new RemoveZeroValueForceItems());
+        RemoveZeroValueForceItems removeZeroValueForceItems = new();
+        series3.Modify(removeZeroValueForceItems);
+        series4.Modify(removeZeroValueForceItems);
+        series5.Modify(removeZeroValueForceItems);
+        series6.Modify(removeZeroValueForceItems);
 
-        series3.Order(new OrderByAppliedForceAscending());
-        series4.Order(new OrderByAppliedForceAscending());
-        series5.Order(new OrderByAppliedForceAscending());
-        series6.Order(new OrderByAppliedForceAscending());
+        OrderByAppliedForceAscending orderByAppliedForceAscending = new();
+        series3.Order(orderByAppliedForceAscending);
+        series4.Order(orderByAppliedForceAscending);
+        series5.Order(orderByAppliedForceAscending);
+        series6.Order(orderByAppliedForceAscending);
     }
 }
