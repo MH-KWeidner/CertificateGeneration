@@ -1,7 +1,8 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.Models.DataQueries;
+using CertificateGeneration.Calculations.Interpolation;
 
-namespace CertificateGeneration.Interpolation
+namespace CertificateGeneration.Calculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolator" />
@@ -79,7 +80,7 @@ namespace CertificateGeneration.Interpolation
 
             try
             {
-                return forceReading - (startZeroValue + ((endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1)));
+                return forceReading - (startZeroValue + (endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1));
             }
             catch
             {
@@ -101,7 +102,7 @@ namespace CertificateGeneration.Interpolation
 
             try
             {
-                return forceReading - ((endZeroValue + startZeroValue) / 2);
+                return forceReading - (endZeroValue + startZeroValue) / 2;
             }
             catch
             {

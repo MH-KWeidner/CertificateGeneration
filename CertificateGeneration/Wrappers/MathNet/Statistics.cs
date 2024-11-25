@@ -2,7 +2,7 @@
 using MathNet.Numerics.Distributions;
 using MathNet.Numerics.Statistics;
 
-namespace CertificateGeneration.MathLib
+namespace CertificateGeneration.Wrappers.MathNet
 {
     /// <summary>
     /// Defines the <see cref="Statistics" />
@@ -115,7 +115,7 @@ namespace CertificateGeneration.MathLib
             for (int i = 0; i < observedMean.Length; i++)
                 residualStandardDeviation += Math.Pow(observedMean[i] - predictedFit[i], POWER_OF_TWO);
 
-            residualStandardDeviation /= (predictedFit.Length - degreeOfPolynpmialFit - 1);
+            residualStandardDeviation /= predictedFit.Length - degreeOfPolynpmialFit - 1;
 
             return Math.Sqrt(residualStandardDeviation);
         }

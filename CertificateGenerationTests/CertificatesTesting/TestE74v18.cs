@@ -1,6 +1,6 @@
-using CertificateGeneration.Interpolation;
 using CertificateGeneration.Models;
 using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.Calculations.Interpolation;
 
 namespace CertificateGenerationTests.CertificatesTesting
 {

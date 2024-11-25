@@ -1,4 +1,4 @@
-﻿using CertificateGeneration.MathLib;
+﻿using CertificateGeneration.Wrappers.MathNet;
 
 namespace CertificateGenerationTests.MathLibTests
 {

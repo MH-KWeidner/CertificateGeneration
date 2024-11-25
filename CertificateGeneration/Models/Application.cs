@@ -1,5 +1,5 @@
-﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.Modifiers;
+﻿using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.Calculations.Interpolation;
 
 namespace CertificateGeneration.Models
 {

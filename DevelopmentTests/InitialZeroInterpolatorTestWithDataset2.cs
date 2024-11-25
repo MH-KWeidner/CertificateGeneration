@@ -1,7 +1,7 @@
-using CertificateGeneration.Interpolation;
 using CertificateGeneration.Models;
 using CertificateGeneration.Models.Modifiers;
 using DevelopmentTests.InitialZeroDataSets;
+using CertificateGeneration.Calculations.Interpolation;
 
 namespace DevelopmentTests;
 

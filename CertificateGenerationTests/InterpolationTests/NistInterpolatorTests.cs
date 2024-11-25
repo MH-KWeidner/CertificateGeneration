@@ -1,4 +1,4 @@
-using CertificateGeneration.Interpolation;
+using CertificateGeneration.Calculations.Interpolation;
 
 namespace CertificateGenerationTests.InterpolationTests
 {

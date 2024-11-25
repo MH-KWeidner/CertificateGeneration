@@ -1,7 +1,7 @@
 ﻿using CertificateGeneration.Helpers;
-using CertificateGeneration.MathLib;
+using CertificateGeneration.Wrappers.MathNet;
 
-namespace CertificateGeneration.LabCalculations
+namespace CertificateGeneration.Calculations
 {
     /// <summary>
     /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomial" />

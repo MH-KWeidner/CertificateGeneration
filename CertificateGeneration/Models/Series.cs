@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.Interpolation;
-using CertificateGeneration.Models.DataQueries;
+﻿using CertificateGeneration.Models.DataQueries;
 using CertificateGeneration.Models.DataTransform;
 using CertificateGeneration.Models.Modifiers;
+using CertificateGeneration.Calculations.Interpolation;
 
 namespace CertificateGeneration.Models
 {
