@@ -25,9 +25,11 @@ namespace CertificateGenerationTests.CertificatesTesting
             // CALIBRATION & ISSUE DATE: 07/01/2024
             // REPORT NO.: U-7989G0124
 
-            E74Configuration configuration = new();
-            configuration.InterpolationType = InterpolationTypes.MethodB;
-            
+            E74Configuration configuration = new()
+            {
+                InterpolationType = InterpolationTypes.MethodB
+            };
+
             ForceApplication application = new(
                 DataSets.E74v18DataSet1.GetAppliedForce(),
                 DataSets.E74v18DataSet1.GetRawDataSeries1(),
@@ -36,7 +38,7 @@ namespace CertificateGenerationTests.CertificatesTesting
             );
 
             // NIST Interpolate (Method B). Apply zero reduction and sort.
-            application.InterpolateSeriesData(InterpolatorFactory.GetInterpolator(configuration.InterpolationType));
+            application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));
             application.ModifySeriesData(new RemoveZeroValueForceItems());
             application.OrderSeriesData(new OrderByAppliedForceAscending());
         }

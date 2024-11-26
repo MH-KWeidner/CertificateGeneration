@@ -10,24 +10,14 @@ namespace CertificateGeneration.CertifcateCalculations.Interpolation
 {
     public static class InterpolatorFactory
     {
-        // TODO add error handling
-
-        // TODO use lazy loading
-
-        private static readonly Dictionary<InterpolationTypes, IInterpolate> cache;
-
-        static InterpolatorFactory()
+        public static IInterpolate CreateInterpolator(InterpolationTypes interpolationType)
         {
-            cache = new Dictionary<InterpolationTypes, IInterpolate>
+            return interpolationType switch
             {
-                { InterpolationTypes.MethodA, new InitialZeroValueInterpolator() },
-                { InterpolationTypes.MethodB, new NistInterpolator() }
+                InterpolationTypes.MethodA => new InitialZeroValueInterpolator(),
+                InterpolationTypes.MethodB => new NistInterpolator(),
+                _ => throw new ArgumentException("Invalid interpolation type", nameof(interpolationType))
             };
         }
-
-        // TODO better naming
-
-
-        public static IInterpolate GetInterpolator(InterpolationTypes interpolationType) => cache[interpolationType];
     }
 }

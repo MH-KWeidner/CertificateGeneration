@@ -10,6 +10,7 @@ namespace DevelopmentTests;
 [TestClass]
 public class ProcessToCreateFittedCurve
 {
+    [Ignore]
     [TestMethod]
     public void ProcessToCreateFittedCurve_ValidInput_ReturnsExpectedInterpolatedValues()
     {

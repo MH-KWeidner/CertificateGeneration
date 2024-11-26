@@ -80,12 +80,16 @@ namespace CertificateGeneration.MathLibrary
         /// <returns>The <see cref="double"/></returns>
         public static double CalculateCFactor(int n, int m)
         {
+            
+            
             // TODO: better naming that also explains what this is
 
             // TODO: better naming for parameters and constant
 
             const double DISTRIBUTION_EVALUATION = 0.975;
 
+
+            // TODO: confirm this is the correct distribution or method to use
             var FDist = new FisherSnedecor(1, n - m - 1);
             var fDistValue = FDist.InverseCumulativeDistribution(DISTRIBUTION_EVALUATION);
             return (double)Math.Sqrt(1 + (fDistValue - 1) / (n - m));
