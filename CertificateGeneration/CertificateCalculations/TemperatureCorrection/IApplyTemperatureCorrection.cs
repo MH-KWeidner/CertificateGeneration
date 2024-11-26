@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CertificateGeneration.CertifcateCalculations.TemperatureCorrection
+namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
 {
     public interface IApplyTemperatureCorrection
     {
-        void Apply(Series? series, double temperatureWhenMeasured);
+        void Apply(Series? series, double ambientTemperature);
     }
 }

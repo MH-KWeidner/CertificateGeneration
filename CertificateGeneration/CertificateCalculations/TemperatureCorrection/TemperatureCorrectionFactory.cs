@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CertificateGeneration.CertifcateCalculations.TemperatureCorrection
+namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
 {
     public static class TemperatureCorrectionFactory
     {

@@ -1,4 +1,4 @@
-﻿using CertificateGeneration.CertifcateCalculations.Interpolation;
+﻿using CertificateGeneration.CertificateCalculations.Interpolation;
 using CertificateGeneration.Common;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CertificateGeneration.CertifcateCalculations.Interpolation
+namespace CertificateGeneration.CertificateCalculations.Interpolation
 {
     public static class InterpolatorFactory
     {

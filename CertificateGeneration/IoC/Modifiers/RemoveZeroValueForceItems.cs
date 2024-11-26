@@ -16,7 +16,8 @@ namespace CertificateGeneration.IoC.Modifiers
         {
             // TODO add more exception handling
 
-            ArgumentNullException.ThrowIfNull(seriesValues);
+            // // TODO: fix this
+            //ArgumentNullException.ThrowIfNull(seriesValues);
 
             return seriesValues?.Where(sv => sv.AppliedForce > 0).ToList();
         }

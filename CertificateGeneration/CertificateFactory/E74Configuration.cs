@@ -14,5 +14,15 @@ namespace CertificateGeneration.CertificateFactory
         public TemperatureUnits TemperatureUnits { get; set; }
         
         public double TemperatureWhenMeasured{ get; set; }
+
+        // Items in dataExclusionsByIndex are removed from the applied force array and series data
+        //Occurs after interpolation,but before zero rduction and sorting by applied force.
+        /// <summary>
+        /// By index, items are removed from the applied force data and series data.
+        /// </summary>
+        /// <remarks> 
+        /// Remove items after interpolation, but before zero reduction and sorting by applied force.
+        /// </remarks>
+        public IList<int> DataExclusionsByIndex { get; set; }
     }
 }

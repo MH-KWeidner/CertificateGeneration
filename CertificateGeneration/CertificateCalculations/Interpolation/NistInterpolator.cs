@@ -1,7 +1,7 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.IoC.DataQueries;
 
-namespace CertificateGeneration.CertifcateCalculations.Interpolation
+namespace CertificateGeneration.CertificateCalculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolator" />

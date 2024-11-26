@@ -1,9 +1,9 @@
 using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.CertifcateCalculations.Interpolation;
 using CertificateGeneration.CertificateFactory;
 
 using CertificateGeneration.Common;
+using CertificateGeneration.CertificateCalculations.Interpolation;
 
 namespace CertificateGenerationTests.CertificatesTesting
 {
@@ -27,7 +27,8 @@ namespace CertificateGenerationTests.CertificatesTesting
 
             E74Configuration configuration = new()
             {
-                InterpolationType = InterpolationTypes.MethodB
+                InterpolationType = InterpolationTypes.MethodB,
+                DataExclusionsByIndex = [12]
             };
 
             ForceApplication application = new(

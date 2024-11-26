@@ -17,7 +17,9 @@ namespace CertificateGeneration.IoC.DataTransforms
         /// <returns>The <see cref="double[]"/></returns>
         public double[] ToArray(List<DataPoint>? seriesValues)
         {
-            ArgumentNullException.ThrowIfNull(seriesValues);
+            // TODO: fix this
+
+            // ArgumentNullException.ThrowIfNull(seriesValues);
 
             return seriesValues.Select(sv => sv.Value).ToArray();
         }

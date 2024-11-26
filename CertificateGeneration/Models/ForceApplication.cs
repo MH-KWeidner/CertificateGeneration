@@ -1,4 +1,4 @@
-﻿using CertificateGeneration.CertifcateCalculations.Interpolation;
+﻿using CertificateGeneration.CertificateCalculations.Interpolation;
 using CertificateGeneration.IoC.Modifiers;
 
 namespace CertificateGeneration.Models

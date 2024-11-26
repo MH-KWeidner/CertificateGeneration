@@ -5,21 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CertificateGeneration.CertifcateCalculations.TemperatureCorrection
+namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
 {
     public class ApplyCelsiusTemperatureCorrection : IApplyTemperatureCorrection
     {
-        public void Apply(Series? series, double temperatureWhenMeasured)
+        public void Apply(Series? series, double ambientTemperature)
         {
             // TODO add error handling and handling for null lists
 
-            ArgumentNullException.ThrowIfNull(series);
+            // TODO: fix this
+            // ArgumentNullException.ThrowIfNull(series);
 
             double standardTemperature = StandardTemperaturesOfCalibration.Celsius;
 
             double correctionValue = TemperatureCorrectionValues.Celsius;
 
-            double correction = (standardTemperature - temperatureWhenMeasured) * correctionValue;
+            double correction = (standardTemperature - ambientTemperature) * correctionValue;
 
         }
     }

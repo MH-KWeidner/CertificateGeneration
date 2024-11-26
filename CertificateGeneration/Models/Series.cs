@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.CertifcateCalculations.Interpolation;
-using CertificateGeneration.IoC.DataQueries;
+﻿using CertificateGeneration.IoC.DataQueries;
 using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.IoC.DataTransforms;
+using CertificateGeneration.CertificateCalculations.Interpolation;
 
 namespace CertificateGeneration.Models
 {
@@ -169,7 +169,7 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// The CreateSeries
+        /// Creates a Series object populated with the provided data.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>

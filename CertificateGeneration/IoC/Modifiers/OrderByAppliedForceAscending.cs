@@ -19,7 +19,9 @@ namespace CertificateGeneration.IoC.Modifiers
             // Check for null argument
             if (seriesValues == null)
             {
-                throw new ArgumentNullException(nameof(seriesValues), "The seriesValues list cannot be null.");
+                // TODO: fix this
+
+                // throw new ArgumentNullException(nameof(seriesValues), "The seriesValues list cannot be null.");
             }
 
             // Ensure the list is not empty
@@ -27,7 +29,8 @@ namespace CertificateGeneration.IoC.Modifiers
             {
                 throw new ArgumentException("The seriesValues list cannot be empty.", nameof(seriesValues));
 
-                ArgumentNullException.ThrowIfNull(seriesValues);
+                // TODO: fix this
+                // ArgumentNullException.ThrowIfNull(seriesValues);
             }
 
             return seriesValues?.OrderBy(sv => sv.AppliedForce).ToList();

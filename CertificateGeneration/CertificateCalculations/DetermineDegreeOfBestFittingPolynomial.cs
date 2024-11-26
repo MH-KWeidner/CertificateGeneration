@@ -1,7 +1,7 @@
 ﻿using CertificateGeneration.Helpers;
 using CertificateGeneration.MathLibrary;
 
-namespace CertificateGeneration.CertifcateCalculations
+namespace CertificateGeneration.CertificateCalculations
 {
     /// <summary>
     /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomial" />
@@ -14,7 +14,7 @@ namespace CertificateGeneration.CertifcateCalculations
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
         /// <param name="data">The data<see cref="double[][]"/></param>
         /// <returns>The <see cref="int"/></returns>
-        public static int Calculate(double[] appliedForces, double[][] data)
+        public static int Calculate(double[] appliedForces, params double[][] data)
         {
             //TODO naming on data
 
@@ -22,7 +22,7 @@ namespace CertificateGeneration.CertifcateCalculations
 
             const int MIN_DEGREE_OF_FIT = 1;
 
-            const int MAX_DEGREE_OF_FIT = 4;
+            const int MAX_DEGREE_OF_FIT = 5;
 
             double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, data.Length);
 

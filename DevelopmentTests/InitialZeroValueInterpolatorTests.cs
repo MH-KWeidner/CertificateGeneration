@@ -1,8 +1,8 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
 using DevelopmentTests.InitialZeroDataSets;
-using CertificateGeneration.CertifcateCalculations.Interpolation;
 using CertificateGeneration.IoC.Modifiers;
+using CertificateGeneration.CertificateCalculations.Interpolation;
 
 namespace DevelopmentTests
 {
