@@ -29,7 +29,7 @@ namespace CertificateGenerationTests.CertificatesTesting
             {
                 InterpolationType = InterpolationTypes.MethodB,
                 ExcludedAppliedForcesByIndex = [12],
-                ExcludedSeriesById = []
+                ExcludedSeriesByIndex = []
             };
 
             ForceApplication application = new(

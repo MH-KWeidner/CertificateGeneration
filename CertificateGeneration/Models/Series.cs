@@ -1,5 +1,4 @@
-﻿using CertificateGeneration.IoC.DataQueries;
-using CertificateGeneration.IoC.Modifiers;
+﻿using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.IoC.DataTransforms;
 using CertificateGeneration.CertificateCalculations.Interpolation;
 
@@ -147,16 +146,6 @@ namespace CertificateGeneration.Models
         public double[] Transform(ITransformToDoubleArray transform)
         {
             return transform.ToArray(dataPoints);
-        }
-
-        /// <summary>
-        /// The Query
-        /// </summary>
-        /// <param name="querySeries">The querySeries<see cref="IQuerySeries"/></param>
-        /// <returns>The <see cref="List{SeriesValue}"/></returns>
-        public List<DataPoint> Query(IQuerySeries querySeries)
-        {
-            return querySeries.Query(dataPoints);
         }
 
         /// <summary>

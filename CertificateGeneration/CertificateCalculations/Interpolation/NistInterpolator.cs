@@ -1,5 +1,4 @@
 ﻿using CertificateGeneration.Models;
-using CertificateGeneration.IoC.DataQueries;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 

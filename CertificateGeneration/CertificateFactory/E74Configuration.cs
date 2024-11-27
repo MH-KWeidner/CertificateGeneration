@@ -17,6 +17,6 @@ namespace CertificateGeneration.CertificateFactory
 
         public IList<int> ExcludedAppliedForcesByIndex { get; set; }
 
-        public IList<int> ExcludedSeriesById { get; set; }
+        public IList<int> ExcludedSeriesByIndex { get; set; }
     }
 }

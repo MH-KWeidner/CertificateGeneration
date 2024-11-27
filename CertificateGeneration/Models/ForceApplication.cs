@@ -69,7 +69,6 @@ namespace CertificateGeneration.Models
 
             seriesList?.ForEach(series => series.Order(modifier));
         }
-
         
         public void RemoveValuesByIndex(IList<int> indexes)
         {
@@ -80,5 +79,16 @@ namespace CertificateGeneration.Models
 
             seriesList?.ForEach(series => series.RemoveValuesByIndex(indexes));
         }
+
+        public void RemoveSeriesByIndex(IList<int> indexes)
+        {
+            //TODO add error handling
+
+            if (indexes == null)
+                return;
+
+            seriesList = seriesList.Where((series, index) => !indexes.Contains(index)).ToList();
+        }
+
     }
 }
