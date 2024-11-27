@@ -10,7 +10,7 @@ namespace CertificateGeneration.IoC.Modifiers
         /// <summary>
         /// The Order
         /// </summary>
-        /// <param name="seriesValues">The seriesValues<see cref="List{SeriesValue}?"/></param>
+        /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="List{SeriesValue}?"/></returns>
         public List<DataPoint>? Order(List<DataPoint>? seriesValues)
         {
@@ -21,7 +21,7 @@ namespace CertificateGeneration.IoC.Modifiers
             {
                 // TODO: fix this
 
-                // throw new ArgumentNullException(nameof(seriesValues), "The seriesValues list cannot be null.");
+                // throw new ArgumentNullException(nameof(dataPoints), "The dataPoints list cannot be null.");
             }
 
             // Ensure the list is not empty
@@ -30,7 +30,7 @@ namespace CertificateGeneration.IoC.Modifiers
                 throw new ArgumentException("The seriesValues list cannot be empty.", nameof(seriesValues));
 
                 // TODO: fix this
-                // ArgumentNullException.ThrowIfNull(seriesValues);
+                // ArgumentNullException.ThrowIfNull(dataPoints);
             }
 
             return seriesValues?.OrderBy(sv => sv.AppliedForce).ToList();

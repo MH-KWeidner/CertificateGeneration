@@ -24,9 +24,10 @@ namespace DevelopmentTests
             Series series3 = Series.CreateSeries(3, appliedForce, MethodBNistTestData1.GetRawDataSeries3());
 
             // Act
-            series1.Interpolate(new NistInterpolator());
-            series2.Interpolate(new NistInterpolator());
-            series3.Interpolate(new NistInterpolator());
+            IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
+            series1.Interpolate(interpolator);
+            series2.Interpolate(interpolator);
+            series3.Interpolate(interpolator);
 
             series1.Modify(new RemoveZeroValueForceItems());
             series2.Modify(new RemoveZeroValueForceItems());

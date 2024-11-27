@@ -17,7 +17,7 @@ namespace CertificateGeneration.IoC.Modifiers
             // TODO add more exception handling
 
             // // TODO: fix this
-            //ArgumentNullException.ThrowIfNull(seriesValues);
+            //ArgumentNullException.ThrowIfNull(dataPoints);
 
             return seriesValues?.Where(sv => sv.AppliedForce > 0).ToList();
         }

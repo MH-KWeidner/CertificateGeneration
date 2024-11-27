@@ -1,5 +1,7 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.IoC.DataQueries;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace CertificateGeneration.CertificateCalculations.Interpolation
 {
@@ -14,17 +16,23 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
         /// <param name="series">The series<see cref="Series"/></param>
         public void Interpolate(Series series)
         {
-            List<DataPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+            if (series == null)
+                return;
+            
+            // Get positions of zero force values in the series
+            IList<int> zeroForcePositions = GetZeroAppliedForcePositions(series);
 
-            for (int i = 0; i < zeroAppliedForceItems.Count; i++)
+            //List<DataPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+
+            for (int i = 0; i < zeroForcePositions.Count; i++)
             {
                 // 2 zero-applied-force values are needed to calculate an interpolation value
-                if (i + 1 == zeroAppliedForceItems.Count)
+                if (i + 1 == zeroForcePositions.Count)
                     break;
 
-                int indexOfStartingZeroAppliedForce = zeroAppliedForceItems[i].OriginalIndex;
+                int indexOfStartingZeroAppliedForce = zeroForcePositions[i];
 
-                int indexOfEndingZeroAppliedForce = zeroAppliedForceItems[i + 1].OriginalIndex;
+                int indexOfEndingZeroAppliedForce = zeroForcePositions[i + 1];
 
                 // 2 consecutive zero values can not be used to calculate an interpolation value
                 if (indexOfEndingZeroAppliedForce - 1 == indexOfStartingZeroAppliedForce)
@@ -108,6 +116,15 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
                 //TODO add specific error handling
                 throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
             }
+        }
+
+        public IList<int> GetZeroAppliedForcePositions(Series series)
+        {
+            // TODO add null check and error handling
+
+            return Enumerable.Range(0, series.CountValues())
+                    .Where(i => series.GetAppliedForce(i) == 0.0)
+                    .ToList();
         }
     }
 }

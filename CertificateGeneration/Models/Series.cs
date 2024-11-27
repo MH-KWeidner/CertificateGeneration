@@ -16,14 +16,9 @@ namespace CertificateGeneration.Models
         private readonly int id;
 
         /// <summary>
-        /// Retains the original and unmodified raw values of the series.
+        /// Defines the dataPoints
         /// </summary>
-        private readonly List<DataPoint> originalValuesCache;
-
-        /// <summary>
-        /// Defines the seriesValues
-        /// </summary>
-        private List<DataPoint> seriesValues;
+        private List<DataPoint> dataPoints;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="Series"/> class from being created.
@@ -35,14 +30,9 @@ namespace CertificateGeneration.Models
         {
             id = seriesId;
 
-            originalValuesCache = [];
-            seriesValues = [];
+            dataPoints = [];
 
-            for (int i = 0; i < appliedForce.Length; i++)
-            {
-                originalValuesCache.Add(new DataPoint(i, appliedForce[i], rawValue[i]));
-                seriesValues.Add(new DataPoint(i, appliedForce[i], rawValue[i]));
-            }
+            dataPoints.AddRange(appliedForce.Select((force, i) => new DataPoint(force, rawValue[i])));
         }
 
         /// <summary>
@@ -60,7 +50,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return seriesValues[index].RawValue;
+            return dataPoints[index].RawValue;
         }
 
         /// <summary>
@@ -73,7 +63,17 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            seriesValues[index].Value = value;
+            dataPoints[index].NormalizedValue = value;
+        }
+
+        public void RemoveValuesByIndex(IList<int>? indexes)
+        {
+            //TODO add error handling
+
+            if (indexes == null)
+                return;
+
+            dataPoints = dataPoints.Where((dp, i) => !indexes.Contains(i)).ToList();
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return seriesValues[index].Value;
+            return dataPoints[index].NormalizedValue;
 
             throw new Exception("Value is null");
         }
@@ -101,7 +101,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return seriesValues[index].AppliedForce;
+            return dataPoints[index].AppliedForce;
         }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace CertificateGeneration.Models
         {
             //TODO add error handling - List may be null
 
-            return seriesValues.Count;
+            return dataPoints.Count;
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace CertificateGeneration.Models
         {
             //TODO add error handling - List may be null
 
-            seriesValues = modifier.Modify(seriesValues);
+            dataPoints = modifier.Modify(dataPoints);
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace CertificateGeneration.Models
 
             // TODO consider renaming method to Order  
 
-            seriesValues = modifier.Order(seriesValues);
+            dataPoints = modifier.Order(dataPoints);
         }
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace CertificateGeneration.Models
         /// <returns>The <see cref="double[]"/></returns>
         public double[] Transform(ITransformToDoubleArray transform)
         {
-            return transform.ToArray(seriesValues);
+            return transform.ToArray(dataPoints);
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace CertificateGeneration.Models
         /// <returns>The <see cref="List{SeriesValue}"/></returns>
         public List<DataPoint> Query(IQuerySeries querySeries)
         {
-            return querySeries.Query(seriesValues);
+            return querySeries.Query(dataPoints);
         }
 
         /// <summary>

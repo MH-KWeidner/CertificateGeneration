@@ -11,13 +11,13 @@ namespace CertificateGeneration.IoC.DataTransforms
         /// <summary>
         /// The ToArray
         /// </summary>
-        /// <param name="seriesValues">The seriesValues<see cref="List{SeriesValue}?"/></param>
+        /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
         public double[] ToArray(List<DataPoint>? seriesValues)
         {
             // TODO: fix this
 
-            // ArgumentNullException.ThrowIfNull(seriesValues);
+            // ArgumentNullException.ThrowIfNull(dataPoints);
 
             return seriesValues.Select(sv => sv.AppliedForce).ToArray();
         }

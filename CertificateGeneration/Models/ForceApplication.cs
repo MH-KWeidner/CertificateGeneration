@@ -1,5 +1,6 @@
 ﻿using CertificateGeneration.CertificateCalculations.Interpolation;
 using CertificateGeneration.IoC.Modifiers;
+using MathNet.Numerics;
 
 namespace CertificateGeneration.Models
 {
@@ -20,10 +21,11 @@ namespace CertificateGeneration.Models
         /// <param name="rawData">The rawData<see cref="double[][]"/></param>
         public ForceApplication(double[] appliedForce, params double[][] rawData)
         {
+            //TODO add error handling
+
             seriesList = [];
 
-            foreach (var data in rawData)
-                seriesList.Add(Series.CreateSeries(seriesList.Count + 1, appliedForce, data));
+            seriesList.AddRange(rawData.Select((data, index) => Series.CreateSeries(index + 1, appliedForce, data)));
         }
 
         /// <summary>
@@ -32,8 +34,12 @@ namespace CertificateGeneration.Models
         /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
         public void InterpolateSeriesData(IInterpolate interpolator)
         {
-            foreach (var series in seriesList)
-                series.Interpolate(interpolator);
+            //TODO add error handling
+
+            if (interpolator == null)
+                return;
+
+            seriesList?.ForEach(series => series.Interpolate(interpolator));
         }
 
         /// <summary>
@@ -42,8 +48,12 @@ namespace CertificateGeneration.Models
         /// <param name="modifier">The modifier<see cref="IModifySeriesSize"/></param>
         public void ModifySeriesData(IModifySeriesSize modifier)
         {
-            foreach (var series in seriesList)
-                series.Modify(modifier);
+            //TODO add error handling
+
+            if (modifier == null)
+                return;
+
+            seriesList?.ForEach(series => series.Modify(modifier));
         }
 
         /// <summary>
@@ -52,8 +62,23 @@ namespace CertificateGeneration.Models
         /// <param name="modifier">The modifier<see cref="IOrderSeries"/></param>
         public void OrderSeriesData(IOrderSeries modifier)
         {
-            foreach (var series in seriesList)
-                series.Order(modifier);
+            //TODO add error handling
+
+            if (modifier == null)
+                return;
+
+            seriesList?.ForEach(series => series.Order(modifier));
+        }
+
+        
+        public void RemoveValuesByIndex(IList<int> indexes)
+        {
+            //TODO add error handling
+
+            if (indexes == null)
+                return;
+
+            seriesList?.ForEach(series => series.RemoveValuesByIndex(indexes));
         }
     }
 }
