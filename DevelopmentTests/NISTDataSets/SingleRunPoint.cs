@@ -33,6 +33,7 @@ namespace DevelopmentTests.NISTDataSets
         public decimal Resolution { get; set; }
         public decimal Median { get; set; }
         public Direction PointDirection { get; set; }
+        public List<UncertaintyObject> Uncertainties { get; set; }
         public decimal ExpandedUncertainty { get; set; }
         public decimal TUR { get; set; }
         public double PFA { get; set; }

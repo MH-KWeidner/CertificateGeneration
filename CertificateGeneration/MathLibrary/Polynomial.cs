@@ -19,6 +19,8 @@ namespace CertificateGeneration.MathLibrary
         /// <returns>The <paramref name="degree"/> + 1 calculated coefficients in ascending degree order</returns>
         public static double[] GetCoefficients(double[] xs, double[] ys, int degree, bool fitThroughOrigin)
         {
+            //TODO need to use this method having fitThroughOrigin
+
             // Use Numeric's more accurate line formula's for 1st degree calculations
             if (degree == 1)
             {

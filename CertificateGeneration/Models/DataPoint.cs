@@ -11,7 +11,7 @@
 
         //TODO consider chaning index property to id property
 
-        //TODO consider removing nullabe from NormalizedValue property
+        //TODO consider removing nullabe from Value property
 
         // TODO consider removing rawValue
 
@@ -30,9 +30,9 @@
         public double RawValue { get; set; }
 
         /// <summary>
-        /// Gets or sets the NormalizedValue
+        /// Gets or sets the Value
         /// </summary>
-        public double NormalizedValue { get; set; }
+        public double Value { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataPoint"/> class.
@@ -40,6 +40,6 @@
         /// <param name="index">The index<see cref="int"/></param>
         /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>
-        public DataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, NormalizedValue) = (appliedForce, rawValue, rawValue);
+        public DataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
     }
 }

@@ -10,37 +10,36 @@ namespace DevelopmentTests;
 [TestClass]
 public class DetermineDegreeOfBestFittingPolynomialTest
 {
-    [Ignore]
     [TestMethod]
     public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
     {
+        // Arrange
         // Arrange
         double[] appliedForce = MethodBNistTestData1.GetAppliedForce();
         Series series1 = Series.CreateSeries(1, appliedForce, MethodBNistTestData1.GetRawDataSeries1());
         Series series2 = Series.CreateSeries(2, appliedForce, MethodBNistTestData1.GetRawDataSeries2());
         Series series3 = Series.CreateSeries(3, appliedForce, MethodBNistTestData1.GetRawDataSeries3());
 
-        IInterpolate interpolator = new NistInterpolator();
+        // Act
+        IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
         series1.Interpolate(interpolator);
         series2.Interpolate(interpolator);
         series3.Interpolate(interpolator);
 
-        // Because in LV, some data points are removed after intepolation
-        // TODO: But check this
-        List<int> exclusions = [11];
-        series1.RemoveValuesByIndex(exclusions);
-        series2.RemoveValuesByIndex(exclusions);
-        series3.RemoveValuesByIndex(exclusions);
+        List<int> TransientForceMeasurementsByIndex = [12];
+        series1.RemoveValuesByIndex(TransientForceMeasurementsByIndex);
+        series2.RemoveValuesByIndex(TransientForceMeasurementsByIndex);
+        series3.RemoveValuesByIndex(TransientForceMeasurementsByIndex);
 
-        IModifySeriesSize seriesSizeModifier = new RemoveZeroValueForceItems();
-        series1.Modify(seriesSizeModifier);
-        series2.Modify(seriesSizeModifier);
-        series3.Modify(seriesSizeModifier);
+        IModifySeriesSize modifier = new RemoveZeroValueForceItems();
+        series1.Modify(modifier);
+        series2.Modify(modifier);
+        series3.Modify(modifier);
 
-        IOrderSeries orderSeries = new OrderByAppliedForceAscending();
-        series1.Order(orderSeries);
-        series2.Order(orderSeries);
-        series3.Order(orderSeries);
+        IOrderSeries reorder = new OrderByAppliedForceAscending();
+        series1.Order(reorder);
+        series2.Order(reorder);
+        series3.Order(reorder);
 
         // Act
         ITransformToDoubleArray seriesValueTransform = new SeriesValueToArray();
@@ -51,6 +50,6 @@ public class DetermineDegreeOfBestFittingPolynomialTest
             );
 
         // Assert
-        Assert.AreEqual(3, bestFit);
+        Assert.AreEqual(4, bestFit);
     }
 }

@@ -28,8 +28,7 @@ namespace CertificateGenerationTests.CertificatesTesting
             E74Configuration configuration = new()
             {
                 InterpolationType = InterpolationTypes.MethodB,
-                ExcludedAppliedForcesByIndex = [12],
-                ExcludedSeriesByIndex = []
+                TransientForceMeasurementsByIndex = [12],
             };
 
             ForceApplication application = new(
@@ -40,7 +39,7 @@ namespace CertificateGenerationTests.CertificatesTesting
             );
 
             // Mimics Lab Schedule where users can exclude applied forces and corresponding data points.
-            application.RemoveValuesByIndex(configuration.ExcludedAppliedForcesByIndex);
+            application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
 
             // NIST Interpolate (Method B). Apply zero reduction and sort.
             application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));

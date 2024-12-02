@@ -18,7 +18,7 @@ namespace DevelopmentTests.NISTDataSets
         public string Description { get; set; }
         public string SerialNumber { get; set; }
         public Nullable<decimal> MaxCapacity { get; set; }
-        public string NIST { get; set; }
+        public string Nist { get; set; }
         public Nullable<long> StandardTypeID { get; set; }
         public string ModelNumber { get; set; }
         public Nullable<decimal> MaxUncertainty { get; set; }

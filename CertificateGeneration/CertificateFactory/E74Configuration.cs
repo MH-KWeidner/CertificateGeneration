@@ -15,7 +15,7 @@ namespace CertificateGeneration.CertificateFactory
         
         public double AmbientTemperature{ get; set; }
 
-        public IList<int> ExcludedAppliedForcesByIndex { get; set; }
+        public IList<int> TransientForceMeasurementsByIndex { get; set; }
 
         public IList<int> ExcludedSeriesByIndex { get; set; }
     }

@@ -62,7 +62,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            dataPoints[index].NormalizedValue = value;
+            dataPoints[index].Value = value;
         }
 
         public void RemoveValuesByIndex(IList<int>? indexes)
@@ -85,7 +85,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return dataPoints[index].NormalizedValue;
+            return dataPoints[index].Value;
 
             throw new Exception("Value is null");
         }

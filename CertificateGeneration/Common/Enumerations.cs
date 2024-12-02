@@ -8,7 +8,7 @@ namespace CertificateGeneration.Common
 {
     public enum InterpolationTypes
     {
-        MethodA, // Initial Zero NormalizedValue
+        MethodA, // Initial Zero Value
         MethodB // NIST Interpolation
     }
     public class Enumerations{}

@@ -21,7 +21,7 @@ namespace CertificateGeneration.IoC.DataTransforms
 
             // ArgumentNullException.ThrowIfNull(dataPoints);
 
-            return seriesValues.Select(sv => sv.NormalizedValue).ToArray();
+            return seriesValues.Select(sv => sv.Value).ToArray();
         }
     }
 }
