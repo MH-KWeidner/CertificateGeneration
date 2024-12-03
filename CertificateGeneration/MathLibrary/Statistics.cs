@@ -19,8 +19,6 @@ namespace CertificateGeneration.MathLibrary
         {
             //TODO add specific error handling
 
-            //
-
             return coefficients.Select((coeff, index) => coeff * Math.Pow(appliedForce, index)).Sum();
         }
 

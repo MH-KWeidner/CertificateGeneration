@@ -3,7 +3,7 @@ using CertificateGeneration.IoC.Modifiers;
 using DevelopmentTests.NISTDataSets;
 using CertificateGeneration.CertificateCalculations.Interpolation;
 using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.CertificateCalculations;
+using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
 
 namespace DevelopmentTests;
 

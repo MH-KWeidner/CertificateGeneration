@@ -65,5 +65,22 @@ namespace CertificateGeneration.MathLibrary
 
             return result;
         }
+
+        public static double[] GetCoefficientsOfLeastSquaresFit(double[] xs, double[] ys, int degree)
+        {
+            // TODO add error handling
+
+            return Fit.Polynomial(xs, ys, degree);
+        }
+
+        public static double[] GetCoefficientsOfLeastSquaresLine(double[] xs, double[] ys)
+        {
+            // TODO add error handling
+
+            //TODO better naming            
+
+            var (intercept, slope) = Fit.Line(xs, ys);
+            return [intercept, slope];
+        }
     }
 }

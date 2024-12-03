@@ -11,5 +11,9 @@ namespace CertificateGeneration.Common
         MethodA, // Initial Zero Value
         MethodB // NIST Interpolation
     }
+
+
+
+    
     public class Enumerations{}
 }
