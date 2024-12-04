@@ -50,11 +50,11 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
                 // A1.3 Calculate the residual standard deviation
                 currentResidualStandardDeviation = Math.Sqrt(difference / (appliedForces.Length - degreesOfFitDecending[i] - 1));
 
-                if (degreesOfFitDecending[i] == 0)
+                if (i == 0)
                     continue;
 
                 // A1.5 Compute s4 /s5 and compare it to C(n1, 5)
-                if ((previousResidualStandardDeviation / currentResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreeOfFit + 1))
+                if ((previousResidualStandardDeviation / currentResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i]))
                     return degreesOfFitDecending[i-1];
             }
 
