@@ -22,7 +22,7 @@ namespace CertificateGenerationTests.MathLibTests
                 const int degree = 2;
 
                 // Act
-                double[] result = Statistics.FitPolynomialToLeastSquares(x, y, degree);
+                double[] result = StatisticsMath.FitPolynomialToLeastSquares(x, y, degree);
 
                 // Assert
                 Assert.AreEqual(3, result.Length);
@@ -43,7 +43,7 @@ namespace CertificateGenerationTests.MathLibTests
                 const int degree = 2;
 
                 // Act & Assert
-                var exception = Assert.ThrowsException<Exception>(() => Statistics.FitPolynomialToLeastSquares(x, y, degree));
+                var exception = Assert.ThrowsException<Exception>(() => StatisticsMath.FitPolynomialToLeastSquares(x, y, degree));
                 Assert.AreEqual("Error in Statistics.FitPolynomialToLeastSquares", exception.Message);
             }
 
@@ -57,7 +57,7 @@ namespace CertificateGenerationTests.MathLibTests
                 double[] x = { 10, 20, 30 };
 
                 // Act
-                double result = Statistics.CalculateMean(x);
+                double result = StatisticsMath.CalculateMean(x);
 
                 // Assert
                 Assert.AreEqual(20, result);
@@ -78,12 +78,12 @@ namespace CertificateGenerationTests.MathLibTests
                 double[] x = { double.NaN, 20, 30 };
 
                 // Act
-                double result = Statistics.CalculateMean(x);
+                double result = StatisticsMath.CalculateMean(x);
 
                 // Assert
-                Assert.ThrowsException<Exception>(() => Statistics.CalculateMean(x));
+                Assert.ThrowsException<Exception>(() => StatisticsMath.CalculateMean(x));
 
-                var exception = Assert.ThrowsException<Exception>(() => Statistics.CalculateMean(x));
+                var exception = Assert.ThrowsException<Exception>(() => StatisticsMath.CalculateMean(x));
                 Assert.AreEqual("Error in Statistics.GetMean has NaN value.", exception.Message);
             }
         }

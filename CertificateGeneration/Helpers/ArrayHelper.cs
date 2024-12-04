@@ -36,15 +36,19 @@
         }
 
         /// <summary>
-        /// The CalculateSeriesMeanXDirection
+        /// The CalculateMeanAcrossX
         /// </summary>
         /// <param name="dataArrays">The dataArrays<see cref="double[][]"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public static double[] CalculateSeriesMeanXDirection(double[][] dataArrays)
+        public static double[] CalculateMeanAcrossX(double[][] dataArrays)
         {
             // TODO Add error handling
 
-            return Enumerable.Range(0, dataArrays[0].Length)
+            const int RANGE_START = 0;
+
+            const int ARRAY_FOR_LENGTH_REFERENCE = 0;
+            
+            return Enumerable.Range(RANGE_START, dataArrays[ARRAY_FOR_LENGTH_REFERENCE].Length)
                              .Select(i => dataArrays.Average(array => array[i]))
                              .ToArray();
         }

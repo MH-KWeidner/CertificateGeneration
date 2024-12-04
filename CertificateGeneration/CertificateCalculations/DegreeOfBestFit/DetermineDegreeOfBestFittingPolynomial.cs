@@ -1,6 +1,5 @@
 ﻿using CertificateGeneration.Helpers;
 using CertificateGeneration.MathLibrary;
-using MathNet.Numerics;
 
 namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
 {
@@ -17,111 +16,51 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
         /// <returns>The <see cref="int"/></returns>
         public static int Calculate(double[] appliedForces, params double[][] data)
         {
-            //TODO naming on data
-
-            // TODO verify what to use for min and max degree of fit
-
             const int MIN_DEGREE_OF_FIT = 1;
 
-            const int MAX_DEGREE_OF_FIT = 5;
+            const int NUM_OF_DEGREES_OF_FIT = 5;
 
-            const int ONE_DEGREE_OF_FIT = 1;
+            const int RAISED_TO_POWER = 2;
 
             double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, data.Length);
 
-            double[] stackedSeriesData = ArrayHelper.StackArrays(data);
+            double[] stackedMeasurementData = ArrayHelper.StackArrays(data);
 
-            //TODO REMOVE THIS - FOR TESTING ONLY
-            const int ROUNDING_DIGITS = 8;
-            for(int i = 0; i < stackedSeriesData.Length; i++)
-                stackedSeriesData[i]= Math.Round(stackedSeriesData[i], ROUNDING_DIGITS);
+            var degreesOfFitDecending = Enumerable.Range(MIN_DEGREE_OF_FIT, NUM_OF_DEGREES_OF_FIT).Reverse().ToArray();
 
-            double[] dataMeanValues = ArrayHelper.CalculateSeriesMeanXDirection(data);
+            double currentResidualStandardDeviation = 0;
 
-            // var rangeOfDegrees = Enumerable.Range(MIN_DEGREE_OF_FIT, MAX_DEGREE_OF_FIT).Reverse();
+            double previousResidualStandardDeviation = 0;
 
-            var rangeOfDegrees = Enumerable.Range(MIN_DEGREE_OF_FIT, MAX_DEGREE_OF_FIT);
+            // A1.2 Calculate the mean of the data
+            double[] meanData = ArrayHelper.CalculateMeanAcrossX(data);
 
-            int returnBestFitDegree = 0;
-
-            double currentResidualDeviation = 0;
-
-            double previousResidualDeviation = 0;
-
-            foreach (int degree in rangeOfDegrees)
+            for (int i = 0; i < degreesOfFitDecending.Length; i++)
             {
-                returnBestFitDegree = degree;
+                // A1.3 Fit separate polynomials of degreeOfFit 1, 2, 3, 4, and 5 to the mean data
+                double[] coefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecending[i]);
 
-                double[] polynomials;
+                double[] fittedCurve = appliedForces.Select(force => StatisticsMath.EvaluateCoefficients(coefficients, force)).ToArray();
 
-                // TODO abstract this out
-                if (degree == ONE_DEGREE_OF_FIT)
-                    polynomials = CertificateGeneration.MathLibrary.Polynomial.GetCoefficientsOfLeastSquaresLine(stackedAppliedForces, stackedSeriesData);
-                else
-                    polynomials = CertificateGeneration.MathLibrary.Polynomial.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedSeriesData, degree);
+                // A1.3 Sum differences between the fitted curve and the observed mean values
+                double difference = meanData.Zip(fittedCurve, (mean, fit) => Math.Pow(mean - fit, RAISED_TO_POWER)).Sum();
 
-                double[] predictedFit = new double[appliedForces.Length];
+                previousResidualStandardDeviation = currentResidualStandardDeviation;
 
-                for (int i = 0; i < predictedFit.Length; i++)
-                    predictedFit[i] = Statistics.CalculatePolynomial(polynomials, appliedForces[i]);
+                // A1.3 Calculate the residual standard deviation
+                currentResidualStandardDeviation = Math.Sqrt(difference / (appliedForces.Length - degreesOfFitDecending[i] - 1));
 
+                if (degreesOfFitDecending[i] == 0)
+                    continue;
 
-                // TODO REMOVE THIS - FOR TESTING ONLY
-                for (int i = 0; i < predictedFit.Length; i++)
-                    predictedFit[i] = Math.Round(predictedFit[i], ROUNDING_DIGITS);
-
-
-                previousResidualDeviation = currentResidualDeviation;
-
-                currentResidualDeviation = Statistics.CalculateResidualStandardDeviation(dataMeanValues, predictedFit, degree);
-
-
-                /*if (appliedForces.Length - degree - 1 > 0) // else expression can not be passed as parameter to MathNet.Numerics.Distributions.FisherSnedecor (all params req to be >0)
-                {
-                    var FDist = new MathNet.Numerics.Distributions.FisherSnedecor(1, Fits[i].ValuesFromCurve.Count - Fits[i].DegreeFit - 1).InverseCumulativeDistribution(.975);
-                    // var = new MathNet.Numerics.Distributions.FisherSnedecor(1, Fits[i].ValuesFromCurve.Count - Fits[i].DegreeFit - 1).CumulativeDistribution(.975);
-
-                    var probabilityConstant = Math.Round(Math.Sqrt(((FDist - 1) / (Fits[i].ValuesFromCurve.Count - Fits[i].DegreeFit)) + 1), 3);
-
-                    var stdratio = Fits[i - 1].StandardDeviationDeflectionAverage / Fits[i].StandardDeviationDeflectionAverage;
-
-                    Fits[i].StandardDeviationLoad = Math.Round(Fits[i].StandardDeviationLoad, 5);
-
-                    if (stdratio > probabilityConstant) // if the ratio of the standard deviation of the current fit vs the previous fit is greater than the statistical constant
-                    {
-                        // this is the best fit
-                        //BestFit.FTestPass = true;
-                        BestFit = Fits[i];
-                        break;
-                    }
-                }*/
-
-
-
-
-
-
-                //if (degree == MAX_DEGREE_OF_FIT)
-                //    continue;
-
-                //if (IsBestFitPolynomialFit(previousResidualDeviation, currentResidualDeviation, dataMeanValues.Length, degree))
-                //    break;
+                // A1.5 Compute s4 /s5 and compare it to C(n1, 5)
+                if ((previousResidualStandardDeviation / currentResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreeOfFit + 1))
+                    return degreesOfFitDecending[i-1];
             }
 
-            return returnBestFitDegree;
-        }
-
-        /// <summary>
-        /// The IsBestFitPolynomialFit
-        /// </summary>
-        /// <param name="previousResidualDeviation">The previousResidualDeviation<see cref="double"/></param>
-        /// <param name="currentResidualStandardDeveian">The currentResidualStandardDeveian<see cref="double"/></param>
-        /// <param name="numOfNonZeroForceIncrements">The numOfNonZeroForceIncrements<see cref="int"/></param>
-        /// <param name="degreeOfPolynomialFit">The degreeOfPolynomialFit<see cref="int"/></param>
-        /// <returns>The <see cref="bool"/></returns>
-        public static bool IsBestFitPolynomialFit(double previousResidualDeviation, double currentResidualStandardDeveian, int numOfNonZeroForceIncrements, int degreeOfPolynomialFit)
-        {
-            return previousResidualDeviation / currentResidualStandardDeveian > Statistics.CalculateCFactor(numOfNonZeroForceIncrements, degreeOfPolynomialFit);
+            // TODO: how to handle case if best fit cannot be determined
+            const string exceptionMessage = "Unable to determine the best fitting polynomial degree.";
+            throw new Exception(exceptionMessage);
         }
     }
 }

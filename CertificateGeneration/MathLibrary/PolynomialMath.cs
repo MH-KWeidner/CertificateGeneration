@@ -3,9 +3,9 @@
 namespace CertificateGeneration.MathLibrary
 {
     /// <summary>
-    /// Defines the <see cref="Polynomial" />
+    /// Defines the <see cref="PolynomialMath" />
     /// </summary>
-    public class Polynomial
+    public class PolynomialMath
     {
         /// <summary>
         /// Returns <paramref name="degree"/> + 1 number of coefficients using Least Squares. Each row of <paramref name="ys"/> shall
@@ -75,6 +75,8 @@ namespace CertificateGeneration.MathLibrary
 
         public static double[] GetCoefficientsOfLeastSquaresLine(double[] xs, double[] ys)
         {
+            // TODO verify that this is needed
+            
             // TODO add error handling
 
             //TODO better naming            

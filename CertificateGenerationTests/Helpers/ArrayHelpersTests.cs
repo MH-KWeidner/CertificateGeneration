@@ -17,7 +17,7 @@ public class ArrayHelpersTests
         ];
 
         // Act
-        double[] result = ArrayHelper.CalculateSeriesMeanXDirection(doubles);
+        double[] result = ArrayHelper.CalculateMeanAcrossX(doubles);
 
         // Assert
         Assert.AreEqual(4, result[0]);
@@ -37,7 +37,7 @@ public class ArrayHelpersTests
         ];
 
         // Act
-        double[] result = ArrayHelper.CalculateSeriesMeanXDirection(doubles);
+        double[] result = ArrayHelper.CalculateMeanAcrossX(doubles);
 
         // Assert
         Assert.AreEqual(4, result.Length);

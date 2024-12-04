@@ -5,21 +5,28 @@ using MathNet.Numerics.Statistics;
 namespace CertificateGeneration.MathLibrary
 {
     /// <summary>
-    /// Defines the <see cref="Statistics" />
+    /// Defines the <see cref="StatisticsMath" />
     /// </summary>
-    public static class Statistics
+    public static class StatisticsMath
     {
         /// <summary>
-        /// The CalculatePolynomial
+        /// The EvaluateCoefficients
         /// </summary>
         /// <param name="coefficients">The coefficients<see cref="double[]"/></param>
-        /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
+        /// <param name="force">The force<see cref="double"/></param>
         /// <returns>The <see cref="double"/></returns>
-        public static double CalculatePolynomial(double[] coefficients, double appliedForce)
+        public static double EvaluateCoefficients(double[] coefficients, double force)
         {
             //TODO add specific error handling
 
-            return coefficients.Select((coeff, index) => coeff * Math.Pow(appliedForce, index)).Sum();
+            return MathNet.Numerics.Polynomial.Evaluate(force, coefficients);
+        }
+
+        public static double[] EvaluateCoefficients(double[] coefficients, double[] appliedForces)
+        {
+            //TODO add specific error handling
+
+            return appliedForces.Select(n => MathNet.Numerics.Polynomial.Evaluate(n, coefficients)).ToArray();
         }
 
         /// <summary>

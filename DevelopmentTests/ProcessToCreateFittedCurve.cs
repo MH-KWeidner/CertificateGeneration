@@ -50,11 +50,11 @@ public class ProcessToCreateFittedCurve
         const int DEGREE_OF_FIT = 4;
 
         // Act
-        double[] polynomials = Statistics.FitPolynomialToLeastSquares(appliedForceDataStacked, seriesDataStacked, DEGREE_OF_FIT);
+        double[] polynomials = StatisticsMath.FitPolynomialToLeastSquares(appliedForceDataStacked, seriesDataStacked, DEGREE_OF_FIT);
 
         List<double> fittedCurve = [];
         foreach (double force in appliedForceData)
-            fittedCurve.Add(Statistics.CalculatePolynomial(polynomials, force));
+            fittedCurve.Add(StatisticsMath.EvaluateCoefficients(polynomials, force));
 
         // Assert
         Assert.AreEqual(-0.08157, Math.Round(fittedCurve[0], 5));
