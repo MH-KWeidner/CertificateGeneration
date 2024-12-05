@@ -1,7 +1,7 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
-using DevelopmentTests.NISTDataSets;
 using CertificateGeneration.CertificateCalculations.Interpolation;
+using DevelopmentTests.TestData.MethodBTestData2;
 
 namespace DevelopmentTests
 {
@@ -32,9 +32,9 @@ namespace DevelopmentTests
             series2.Modify(new RemoveZeroValueForceItems());
             series3.Modify(new RemoveZeroValueForceItems());
 
-            series1.Order(new OrderByAppliedForceAscending());
-            series2.Order(new OrderByAppliedForceAscending());
-            series3.Order(new OrderByAppliedForceAscending());
+            series1.ReorderSeries(new RereorderByAppliedForceAscending());
+            series2.ReorderSeries(new RereorderByAppliedForceAscending());
+            series3.ReorderSeries(new RereorderByAppliedForceAscending());
 
             // Assert
             Assert.AreEqual(-0.08158, Math.Round(series1.GetValue(0), 5));

@@ -135,16 +135,16 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// The Order
+        /// The Reorder
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IOrderSeries"/></param>
-        public void Order(IOrderSeries modifier)
+        /// <param name="modifier">The modifier<see cref="IReorderSeries"/></param>
+        public void ReorderSeries(IReorderSeries modifier)
         {
             //TODO add error handling - List may be null
 
-            // TODO consider renaming method to Order  
+            // TODO consider renaming method to Reorder  
 
-            dataPoints = modifier.Order(dataPoints);
+            dataPoints = modifier.Reorder(dataPoints);
         }
 
         /// <summary>

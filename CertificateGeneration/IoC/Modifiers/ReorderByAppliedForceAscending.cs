@@ -3,16 +3,16 @@
 namespace CertificateGeneration.IoC.Modifiers
 {
     /// <summary>
-    /// Defines the <see cref="OrderByAppliedForceAscending" />
+    /// Defines the <see cref="RereorderByAppliedForceAscending" />
     /// </summary>
-    public class OrderByAppliedForceAscending : IOrderSeries
+    public class RereorderByAppliedForceAscending : IReorderSeries
     {
         /// <summary>
-        /// The Order
+        /// The Reorder
         /// </summary>
         /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="List{SeriesValue}?"/></returns>
-        public List<DataPoint>? Order(List<DataPoint>? seriesValues)
+        public List<DataPoint>? Reorder(List<DataPoint>? seriesValues)
         {
             // TODO add more exception handling
 

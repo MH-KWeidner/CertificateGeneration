@@ -30,10 +30,10 @@ public class InitialZeroInterpolatorTestWithDataset2
         series5.Modify(removeZeroValueForceItems);
         series6.Modify(removeZeroValueForceItems);
 
-        OrderByAppliedForceAscending orderByAppliedForceAscending = new();
-        series3.Order(orderByAppliedForceAscending);
-        series4.Order(orderByAppliedForceAscending);
-        series5.Order(orderByAppliedForceAscending);
-        series6.Order(orderByAppliedForceAscending);
+        RereorderByAppliedForceAscending rereorderByAppliedForceAscending = new();
+        series3.ReorderSeries(rereorderByAppliedForceAscending);
+        series4.ReorderSeries(rereorderByAppliedForceAscending);
+        series5.ReorderSeries(rereorderByAppliedForceAscending);
+        series6.ReorderSeries(rereorderByAppliedForceAscending);
     }
 }

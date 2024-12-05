@@ -1,4 +1,4 @@
-﻿namespace DevelopmentTests.NISTDataSets
+﻿namespace DevelopmentTests.TestData.MethodBTestData3
 {
     /// <summary>
     /// Defines the <see cref="MethodBNistTestData3" />

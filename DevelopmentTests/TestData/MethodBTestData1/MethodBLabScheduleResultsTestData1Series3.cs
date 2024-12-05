@@ -1,20 +1,24 @@
-﻿using System;
+﻿using DevelopmentTests.NISTDataSets;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevelopmentTests.NISTDataSets
+namespace DevelopmentTests.TestData.MethodBTestData1
 {
-    public static class MethodBLabScheduleResultsTestData1Series1
+    public class MethodBLabScheduleResultsTestData1Series3
     {
-        // METHOD B Nist DATASET 1 LAB VIEW RESULTS Series 1
+        // CALIBRATION & ISSUE DATE: 07/01/2024
+        // REPORT NO.: U-7989G0124
+
+        // METHOD B Nist DATASET 1 LAB VIEW RESULTS Series 3
 
         public static List<SingleRunPoint> dataList =
         [
-             new SingleRunPoint
-            {
+            new SingleRunPoint
+        {
             ForceApplied = 1000.00000000m,
             Value = -0.08157000m,
             PreNormValue = -0.08158000m,
@@ -63,8 +67,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 5000.00000000m,
-            Value = -0.40788636m,
-            PreNormValue = -0.40790000m,
+            Value = -0.40789818m,
+            PreNormValue = -0.40791000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -110,8 +114,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 10000.00000000m,
-            Value = -0.81585273m,
-            PreNormValue = -0.81587000m,
+            Value = -0.81587636m,
+            PreNormValue = -0.81589000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -157,8 +161,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 15000.00000000m,
-            Value = -1.22390909m,
-            PreNormValue = -1.22393000m,
+            Value = -1.22394455m,
+            PreNormValue = -1.22396000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -204,8 +208,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 20000.00000000m,
-            Value = -1.63203545m,
-            PreNormValue = -1.63206000m,
+            Value = -1.63207273m,
+            PreNormValue = -1.63209000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -251,8 +255,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 25000.00000000m,
-            Value = -2.04022182m,
-            PreNormValue = -2.04025000m,
+            Value = -2.04026091m,
+            PreNormValue = -2.04028000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -298,8 +302,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 30000.00000000m,
-            Value = -2.44846818m,
-            PreNormValue = -2.44850000m,
+            Value = -2.44850909m,
+            PreNormValue = -2.44853000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -345,8 +349,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 35000.00000000m,
-            Value = -2.85675455m,
-            PreNormValue = -2.85679000m,
+            Value = -2.85678727m,
+            PreNormValue = -2.85681000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -392,8 +396,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 40000.00000000m,
-            Value = -3.26505091m,
-            PreNormValue = -3.26509000m,
+            Value = -3.26510545m,
+            PreNormValue = -3.26513000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -439,8 +443,8 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 45000.00000000m,
-            Value = -3.67338727m,
-            PreNormValue = -3.67343000m,
+            Value = -3.67342364m,
+            PreNormValue = -3.67345000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -486,7 +490,7 @@ namespace DevelopmentTests.NISTDataSets
         new SingleRunPoint
         {
             ForceApplied = 50000.00000000m,
-            Value = -4.08166364m,
+            Value = -4.08168182m,
             PreNormValue = -4.08171000m,
             Standard = new Standard
             {
@@ -531,5 +535,6 @@ namespace DevelopmentTests.NISTDataSets
             }
         }
         ];
+
     }
 }

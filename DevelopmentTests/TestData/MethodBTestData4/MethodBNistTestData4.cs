@@ -1,4 +1,4 @@
-﻿namespace DevelopmentTests.NISTDataSets
+﻿namespace DevelopmentTests.TestData.MethodBTestData4
 {
     /// <summary>
     /// Defines the <see cref="MethodBNistTestData4" />
@@ -7,6 +7,7 @@
     {
         // CALIBRATION & ISSUE DATE: 10/30/2024
         // REPORT NO.: 10245(NEG)J3024
+        // Degree of Fit: Best Fit from LabSch is 2
 
         /// <summary>
         /// The GetAppliedForce

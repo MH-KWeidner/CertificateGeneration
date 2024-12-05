@@ -20,8 +20,14 @@ namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
 
             double correctionValue = TemperatureCorrectionValues.Celsius;
 
-            double correction = (standardTemperature - ambientTemperature) * correctionValue;
+            double appliedCorrection = (standardTemperature - ambientTemperature) * correctionValue;
 
+            // TODO verify correct based on appliedCorrection being neg or pos
+
+            for (int i = 0; i < series?.CountValues(); i++)
+            {
+                series?.SetValue(i, series.GetValue(i) + appliedCorrection);
+            }
         }
     }
 }

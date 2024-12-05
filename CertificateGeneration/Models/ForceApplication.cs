@@ -1,6 +1,9 @@
 ﻿using CertificateGeneration.CertificateCalculations.Interpolation;
 using CertificateGeneration.IoC.Modifiers;
-using MathNet.Numerics;
+using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
+using CertificateGeneration.IoC.DataTransforms;
+using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
+
 
 namespace CertificateGeneration.Models
 {
@@ -43,10 +46,10 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// The ModifySeriesData
+        /// The ModifySeriesSize
         /// </summary>
         /// <param name="modifier">The modifier<see cref="IModifySeriesSize"/></param>
-        public void ModifySeriesData(IModifySeriesSize modifier)
+        public void ModifySeriesSize(IModifySeriesSize modifier)
         {
             //TODO add error handling
 
@@ -57,19 +60,19 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// The OrderSeriesData
+        /// The ReorderSeriesData
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IOrderSeries"/></param>
-        public void OrderSeriesData(IOrderSeries modifier)
+        /// <param name="modifier">The modifier<see cref="IReorderSeries"/></param>
+        public void ReorderSeriesData(IReorderSeries modifier)
         {
             //TODO add error handling
 
             if (modifier == null)
                 return;
 
-            seriesList?.ForEach(series => series.Order(modifier));
+            seriesList?.ForEach(series => series.ReorderSeries(modifier));
         }
-        
+ 
         public void RemoveValuesByIndex(IList<int> indexes)
         {
             //TODO add error handling
@@ -90,5 +93,28 @@ namespace CertificateGeneration.Models
             seriesList = seriesList.Where((series, index) => !indexes.Contains(index)).ToList();
         }
 
+        public double[] Transform(ITransformToDoubleArray transform, int seriesIndex)
+        {
+            return seriesList[seriesIndex].Transform(transform);
+        }
+
+        public double[][] Transform(ITransformToDoubleArray transform)
+        {
+            //TODO add null check and error handling
+
+            return seriesList.Select(series => series.Transform(transform)).ToArray();
+        }
+
+        public int GetDegreeOfBestFittingPolynomial(double[] appliedForce, params double[][] rawData)
+        {
+            // TODO add error handling
+
+            return DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForce, rawData);
+        }
+    
+        public void ApplyTemperatureCorrection(IApplyTemperatureCorrection modified, double ambientTemperature)
+        {
+            // IApplyTemperatureCorrection
+        }
     }
 }

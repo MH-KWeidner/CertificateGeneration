@@ -1,9 +1,9 @@
 using CertificateGeneration.Models;
-using DevelopmentTests.NISTDataSets;
 using CertificateGeneration.MathLibrary;
 using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.IoC.DataTransforms;
 using CertificateGeneration.CertificateCalculations.Interpolation;
+using DevelopmentTests.TestData.MethodBTestData1;
 
 namespace DevelopmentTests;
 
@@ -32,10 +32,10 @@ public class ProcessToCreateFittedCurve
         series2.Modify(removeZeroValueForceItems);
         series3.Modify(removeZeroValueForceItems);
 
-        OrderByAppliedForceAscending orderByAppliedForceAscending = new();
-        series1.Order(orderByAppliedForceAscending);
-        series2.Order(orderByAppliedForceAscending);
-        series3.Order(orderByAppliedForceAscending);
+        RereorderByAppliedForceAscending reorderByAppliedForceAscending = new();
+        series1.ReorderSeries(reorderByAppliedForceAscending);
+        series2.ReorderSeries(reorderByAppliedForceAscending);
+        series3.ReorderSeries(reorderByAppliedForceAscending);
 
         double[] appliedForceData = series1.Transform(new AppliedForceToArray());
 

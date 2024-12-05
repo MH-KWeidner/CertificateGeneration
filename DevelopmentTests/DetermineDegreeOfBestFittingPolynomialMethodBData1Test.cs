@@ -1,23 +1,18 @@
 using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
-using DevelopmentTests.NISTDataSets;
 using CertificateGeneration.CertificateCalculations.Interpolation;
-using static System.Net.Mime.MediaTypeNames;
+using CertificateGeneration.IoC.DataTransforms;
+using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
 using DevelopmentTests.TestData.MethodBTestData1;
 
 namespace DevelopmentTests
 {
-    /// <summary>
-    /// Defines the <see cref="NistInterpolatorTestWithDataset1" />
-    /// </summary>
+
     [TestClass]
-    public class NistInterpolatorTestWithDataset1
+    public class DetermineDegreeOfBestFittingPolynomialMethodBData1Test
     {
-        /// <summary>
-        /// The InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues
-        /// </summary>
         [TestMethod]
-        public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
+        public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
             double[] appliedForce = MethodBNistTestData1.GetAppliedForce();
@@ -46,25 +41,16 @@ namespace DevelopmentTests
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);
 
-            List<SingleRunPoint> LabSchedulePointsSeries1 = MethodBLabScheduleResultsTestData1Series1.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries2 = MethodBLabScheduleResultsTestData1Series2.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries3 = MethodBLabScheduleResultsTestData1Series3.dataList;
+            ITransformToDoubleArray seriesValueTransform = new SeriesValueToArray();
+            int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new AppliedForceToArray()),
+                    series1.Transform(seriesValueTransform),
+                    series2.Transform(seriesValueTransform),
+                    series3.Transform(seriesValueTransform)
+                );
 
             // Assert
-            Assert.AreEqual(series1.CountValues(), LabSchedulePointsSeries1.Count);
-            Assert.AreEqual(series2.CountValues(), LabSchedulePointsSeries2.Count);
-            Assert.AreEqual(series3.CountValues(), LabSchedulePointsSeries3.Count);
-
-            const int ROUNDING_DIGITS = 8;
-
-            for (int i = 0; i < series1.CountValues(); i++)
-                Assert.AreEqual(Math.Round(series1.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
-
-            for (int i = 0; i < series2.CountValues(); i++)
-                Assert.AreEqual(Math.Round(series2.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
-
-            for (int i = 0; i < series3.CountValues(); i++)
-                Assert.AreEqual(Math.Round(series3.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+            const int LABSCH_BEST_DEGREE_FIT = 4;
+            Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, bestFit);
         }
     }
 }
