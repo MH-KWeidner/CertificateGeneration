@@ -14,7 +14,6 @@ public class DetermineDegreeOfBestFittingPolynomialTest
     public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
     {
         // Arrange
-        // Arrange
         double[] appliedForce = MethodBNistTestData1.GetAppliedForce();
         Series series1 = Series.CreateSeries(1, appliedForce, MethodBNistTestData1.GetRawDataSeries1());
         Series series2 = Series.CreateSeries(2, appliedForce, MethodBNistTestData1.GetRawDataSeries2());
@@ -41,7 +40,6 @@ public class DetermineDegreeOfBestFittingPolynomialTest
         series2.Order(reorder);
         series3.Order(reorder);
 
-        // Act
         ITransformToDoubleArray seriesValueTransform = new SeriesValueToArray();
         int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new AppliedForceToArray()),
                 series1.Transform(seriesValueTransform),

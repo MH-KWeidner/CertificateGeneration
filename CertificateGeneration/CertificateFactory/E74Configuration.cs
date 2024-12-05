@@ -18,5 +18,7 @@ namespace CertificateGeneration.CertificateFactory
         public IList<int> TransientForceMeasurementsByIndex { get; set; }
 
         public IList<int> ExcludedSeriesByIndex { get; set; }
+
+        public DegreeOfFitTypes DegreeOfFit { get; set; }
     }
 }

@@ -12,8 +12,16 @@ namespace CertificateGeneration.Common
         MethodB // NIST Interpolation
     }
 
+    public enum DegreeOfFitTypes
+    {
+        One,
+        Two,
+        Three,
+        Four,
+        Five,
+        DegreeOfBestFit
+    }
 
 
-    
     public class Enumerations{}
 }

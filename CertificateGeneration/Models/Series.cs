@@ -20,6 +20,11 @@ namespace CertificateGeneration.Models
         private List<DataPoint> dataPoints;
 
         /// <summary>
+        /// A list of the original data points.
+        /// </summary>
+        private readonly List<DataPoint> originalDataPoints;
+
+        /// <summary>
         /// Prevents a default instance of the <see cref="Series"/> class from being created.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
@@ -32,6 +37,10 @@ namespace CertificateGeneration.Models
             dataPoints = [];
 
             dataPoints.AddRange(appliedForce.Select((force, i) => new DataPoint(force, rawValue[i])));
+
+            originalDataPoints = [];
+
+            originalDataPoints.AddRange(appliedForce.Select((force, i) => new DataPoint(force, rawValue[i])));
         }
 
         /// <summary>

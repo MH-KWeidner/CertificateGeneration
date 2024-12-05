@@ -54,7 +54,7 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
                     continue;
 
                 // A1.5 Compute s4 /s5 and compare it to C(n1, 5)
-                if ((previousResidualStandardDeviation / currentResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i]))
+                if ((currentResidualStandardDeviation / previousResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i-1]))
                     return degreesOfFitDecending[i-1];
             }
 

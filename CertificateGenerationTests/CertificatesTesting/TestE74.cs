@@ -28,7 +28,11 @@ namespace CertificateGenerationTests.CertificatesTesting
             E74Configuration configuration = new()
             {
                 InterpolationType = InterpolationTypes.MethodB,
+                TemperatureUnits = CertificateGeneration.Common.Temperature.TemperatureUnits.Celsius,
+                AmbientTemperature = 50.0,
                 TransientForceMeasurementsByIndex = [12],
+                ExcludedSeriesByIndex = [],
+                DegreeOfFit = DegreeOfFitTypes.DegreeOfBestFit
             };
 
             ForceApplication application = new(
@@ -38,11 +42,11 @@ namespace CertificateGenerationTests.CertificatesTesting
                 DataSets.E74v18DataSet1.GetRawDataSeries3()
             );
 
-            // Mimics Lab Schedule where users can exclude applied forces and corresponding data points.
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
 
             // NIST Interpolate (Method B). Apply zero reduction and sort.
             application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));
+            application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
             application.ModifySeriesData(new RemoveZeroValueForceItems());
             application.OrderSeriesData(new OrderByAppliedForceAscending());
         }
