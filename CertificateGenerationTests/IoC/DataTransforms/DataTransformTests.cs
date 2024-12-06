@@ -1,7 +1,7 @@
 using CertificateGeneration.Models;
 using CertificateGeneration.IoC.DataTransforms;
 
-namespace CertificateGenerationTests.ModelsTests
+namespace CertificateGenerationTests.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="DataTransformTests" />
@@ -10,10 +10,10 @@ namespace CertificateGenerationTests.ModelsTests
     public class DataTransformTests
     {
         /// <summary>
-        /// The SeriesValueToArray_ValidOutout_ReturnsCorrectValues
+        /// The SeriesValueToArray_ValidOutput_ReturnsCorrectValues
         /// </summary>
         [TestMethod]
-        public void SeriesValueToArray_ValidOutout_ReturnsCorrectValues()
+        public void SeriesValueToArray_ValidOutput_ReturnsCorrectValues()
         {
             // Arrange
             double[] force = [10, 20, 30];
@@ -24,10 +24,10 @@ namespace CertificateGenerationTests.ModelsTests
             double[] result = series.Transform(new SeriesValueToArray());
 
             // Assert
-            Assert.AreEqual(series.CountValues(), result.Length);
-            Assert.AreEqual(1, result[0]);
-            Assert.AreEqual(2, result[1]);
-            Assert.AreEqual(3, result[2]);
+            Assert.AreEqual(series.Count(), result.Length);
+            Assert.AreEqual(1.0, result[0]);
+            Assert.AreEqual(2.0, result[1]);
+            Assert.AreEqual(3.0, result[2]);
         }
     }
 }

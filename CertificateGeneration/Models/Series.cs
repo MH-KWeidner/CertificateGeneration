@@ -1,6 +1,7 @@
 ﻿using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.IoC.DataTransforms;
 using CertificateGeneration.CertificateCalculations.Interpolation;
+using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
 
 namespace CertificateGeneration.Models
 {
@@ -65,7 +66,7 @@ namespace CertificateGeneration.Models
         /// The SetValue
         /// </summary>
         /// <param name="index">The index<see cref="int"/></param>
-        /// <param name="value">The value<see cref="double"/></param>
+        /// <param name="value">The valueToAdd<see cref="double"/></param>
         public void SetValue(int index, double value)
         {
             // TODO add validation for index
@@ -99,6 +100,15 @@ namespace CertificateGeneration.Models
             throw new Exception("Value is null");
         }
 
+        
+        public void IncreaseValuesByAdd(double valueToAdd)
+        {
+            // TODO add error handling  
+
+            for (int i = 0; i < dataPoints.Count; i++)
+                SetValue(i, GetValue(i) + valueToAdd);
+        }
+
         /// <summary>
         /// The GetAppliedForce
         /// </summary>
@@ -113,10 +123,10 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// The CountValues
+        /// Count
         /// </summary>
-        /// <returns>The <see cref="int"/></returns>
-        public int CountValues()
+        /// <returns>The number of Data Points<see cref="int"/></returns>
+        public int Count()
         {
             //TODO add error handling - List may be null
 

@@ -22,6 +22,17 @@ namespace CertificateGeneration.Common
         DegreeOfBestFit
     }
 
+    // TODO better naming for this enum
+    public enum TemperatureUnits
+    {
+        Celsius,
+        Fahrenheit
+    }
+    
+    public enum InstrumentClassifications
+    {   
+        A,
+        AA
+    }
 
-    public class Enumerations{}
 }

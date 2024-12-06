@@ -121,7 +121,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
         {
             // TODO add null check and error handling
 
-            return Enumerable.Range(0, series.CountValues())
+            return Enumerable.Range(0, series.Count())
                     .Where(i => series.GetAppliedForce(i) == 0.0)
                     .ToList();
         }

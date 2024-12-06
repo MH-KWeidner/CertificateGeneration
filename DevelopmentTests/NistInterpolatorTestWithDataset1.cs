@@ -51,19 +51,19 @@ namespace DevelopmentTests
             List<SingleRunPoint> LabSchedulePointsSeries3 = MethodBLabScheduleResultsTestData1Series3.dataList;
 
             // Assert
-            Assert.AreEqual(series1.CountValues(), LabSchedulePointsSeries1.Count);
-            Assert.AreEqual(series2.CountValues(), LabSchedulePointsSeries2.Count);
-            Assert.AreEqual(series3.CountValues(), LabSchedulePointsSeries3.Count);
+            Assert.AreEqual(series1.Count(), LabSchedulePointsSeries1.Count);
+            Assert.AreEqual(series2.Count(), LabSchedulePointsSeries2.Count);
+            Assert.AreEqual(series3.Count(), LabSchedulePointsSeries3.Count);
 
             const int ROUNDING_DIGITS = 8;
 
-            for (int i = 0; i < series1.CountValues(); i++)
+            for (int i = 0; i < series1.Count(); i++)
                 Assert.AreEqual(Math.Round(series1.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
 
-            for (int i = 0; i < series2.CountValues(); i++)
+            for (int i = 0; i < series2.Count(); i++)
                 Assert.AreEqual(Math.Round(series2.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
 
-            for (int i = 0; i < series3.CountValues(); i++)
+            for (int i = 0; i < series3.Count(); i++)
                 Assert.AreEqual(Math.Round(series3.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
         }
     }

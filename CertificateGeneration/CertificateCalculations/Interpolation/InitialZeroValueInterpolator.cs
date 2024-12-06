@@ -17,7 +17,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
 
             double? currentZeroValue = null;
 
-            int seriesSize = series.CountValues();
+            int seriesSize = series.Count();
             for (int i = 0; i < seriesSize; i++)
             {
                 if (series.GetAppliedForce(i) == DOUBLE_ZERO)

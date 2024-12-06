@@ -3,6 +3,7 @@ using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
 using CertificateGeneration.IoC.DataTransforms;
 using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
+using System.Runtime.CompilerServices;
 
 
 namespace CertificateGeneration.Models
@@ -48,7 +49,7 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// The ModifySeriesSize
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IModifySeriesSize"/></param>
+        /// <param name="modifier">The correction<see cref="IModifySeriesSize"/></param>
         public void ModifySeriesSize(IModifySeriesSize modifier)
         {
             //TODO add error handling
@@ -62,7 +63,7 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// The ReorderSeriesData
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IReorderSeries"/></param>
+        /// <param name="modifier">The correction<see cref="IReorderSeries"/></param>
         public void ReorderSeriesData(IReorderSeries modifier)
         {
             //TODO add error handling
@@ -112,9 +113,13 @@ namespace CertificateGeneration.Models
             return DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForce, rawData);
         }
     
-        public void ApplyTemperatureCorrection(IApplyTemperatureCorrection modified, double ambientTemperature)
+        public void ApplyTemperatureCorrection(double ambientTemperature, double standardCalibrationTemperature, double temperatureCorrectionValuePer1Degree)
         {
-            // IApplyTemperatureCorrection
+            //TODO add error handling
+
+            double correctionValue = CalculateTemperatureCorrection.Calculate(ambientTemperature, standardCalibrationTemperature, temperatureCorrectionValuePer1Degree);
+
+            seriesList.ForEach(series => series.IncreaseValuesByAdd(correctionValue));
         }
     }
 }

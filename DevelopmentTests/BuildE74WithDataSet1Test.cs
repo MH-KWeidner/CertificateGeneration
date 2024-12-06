@@ -1,5 +1,5 @@
 using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.CertificateFactory;
+using CertificateGeneration.CertificateCreation;
 using CertificateGeneration.Common;
 using CertificateGeneration.IoC.DataTransforms;
 using CertificateGeneration.IoC.Modifiers;
@@ -22,12 +22,12 @@ public class BuildE74WithDataSet1Test
         E74Configuration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
-            TemperatureUnits = CertificateGeneration.Common.Temperature.TemperatureUnits.Celsius,
+            TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 50.0,
-            TransientForceMeasurementsByIndex = [12],
-            ExcludedSeriesByIndex = [],
-            DegreeOfFit = DegreeOfFitTypes.DegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.DegreeOfBestFit
         };
+
+        configuration.AddTransientForceMeasurementsByIndex(12);
 
         ForceApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
@@ -45,11 +45,17 @@ public class BuildE74WithDataSet1Test
         const int REFERENCE_SERIES_FOR_FORCE = 0;
         double[] appliedForce = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
         double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
-        
-        int bestDegreeOfFit = application.GetDegreeOfBestFittingPolynomial(appliedForce, valuesForAllSeries);
 
+        configuration.CalculatedDegreeOfBestFit = application.GetDegreeOfBestFittingPolynomial(appliedForce, valuesForAllSeries);
+
+        if (configuration.ApplyTemperatureCorrection)
+            application.ApplyTemperatureCorrection
+            (ambientTemperature: configuration.AmbientTemperature,
+                standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
+                temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
+            
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
-        Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, bestDegreeOfFit);
+        Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, configuration.CalculatedDegreeOfBestFit);
     }
 }

@@ -1,4 +1,4 @@
-﻿global using CertificateGeneration.Common.Temperature;
+﻿global using CertificateGeneration.Common;
 
 namespace CertificateGeneration
 {
