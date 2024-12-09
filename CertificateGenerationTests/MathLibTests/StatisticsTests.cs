@@ -1,4 +1,6 @@
 ﻿using CertificateGeneration.MathLibrary;
+using MathNet.Numerics.Statistics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CertificateGenerationTests.MathLibTests
 {
@@ -34,6 +36,7 @@ namespace CertificateGenerationTests.MathLibTests
             /// <summary>
             /// The FitPolynomialToLeastSquares_InvalidInput_ThrowsException
             /// </summary>
+            // [Ignore]
             [TestMethod]
             public void FitPolynomialToLeastSquares_InvalidInput_ThrowsException()
             {
@@ -54,7 +57,7 @@ namespace CertificateGenerationTests.MathLibTests
             public void GetMean_ValidInput_ReturnsExpectedValue()
             {
                 // Arrange
-                double[] x = { 10, 20, 30 };
+                double[] x = [ 10, 20, 30 ];
 
                 // Act
                 double result = StatisticsMath.CalculateMean(x);
@@ -75,16 +78,14 @@ namespace CertificateGenerationTests.MathLibTests
                 // TODO fix this test
 
                 // Arrange
-                double[] x = { double.NaN, 20, 30 };
+                double[] x = [ double.NaN, 20, 30 ];
 
                 // Act
                 double result = StatisticsMath.CalculateMean(x);
 
                 // Assert
-                Assert.ThrowsException<Exception>(() => StatisticsMath.CalculateMean(x));
-
                 var exception = Assert.ThrowsException<Exception>(() => StatisticsMath.CalculateMean(x));
-                Assert.AreEqual("Error in Statistics.GetMean has NaN value.", exception.Message);
+                Assert.AreEqual("Calculated mean is NaN.", exception.Message);
             }
         }
     }

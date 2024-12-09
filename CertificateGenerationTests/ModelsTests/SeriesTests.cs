@@ -21,4 +21,26 @@ public class SeriesTests
         Assert.AreEqual(102.0, series.GetValue(1));
         Assert.AreEqual(103.0, series.GetValue(2));
     }
+
+    [TestMethod]
+    public void IncreaseValueByAdd_Validoutput_ReturnsCorrectValues()
+    {
+        // Arrange
+        int seriesId = 1;
+        double[] appliedForces = [ 10.0, 20.0, 30.0 ];
+        double[] values = [ 1.0, 2.0, 3.0 ];
+        double[] result = [6.0, 7.0, 8.0];
+        double valueToAdd = 5.0;
+        Series series = Series.CreateSeries(seriesId, appliedForces, values);
+
+        // Act
+        series.IncreaseValuesByAdd(valueToAdd);
+
+        // Assert
+        for (int i = 0; i < values.Length; i++)
+        {
+
+            Assert.AreEqual(result[i], series.GetValue(i), $"Value at index {i} was not increased correctly.");
+        }
+    }
 }

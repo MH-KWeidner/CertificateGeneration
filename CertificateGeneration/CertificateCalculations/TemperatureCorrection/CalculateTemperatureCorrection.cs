@@ -8,9 +8,7 @@ namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
     {
         public static double Calculate(double ambientTemperature, double standardCalibrationTemperature, double temperatureCorrectionValuePer1Degree)
         {
-            return temperatureCorrectionValuePer1Degree * (ambientTemperature - standardCalibrationTemperature);
+            return temperatureCorrectionValuePer1Degree * (standardCalibrationTemperature - ambientTemperature);
         }
     }
-
-
 }

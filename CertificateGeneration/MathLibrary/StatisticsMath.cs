@@ -36,44 +36,24 @@ namespace CertificateGeneration.MathLibrary
         /// <returns>The <see cref="double"/></returns>
         public static double CalculateMean(double[] values)
         {
+            double mean = double.NaN;
+
             //TODO better error handling
 
+            // TODO: fix this
+
             try
             {
-                double mean = values.Mean();
+                mean = values.Mean();
 
                 if (double.IsNaN(mean))
-                    throw new Exception("Error in Statistics.GetMean has NaN value.");
-
+                    throw new InvalidOperationException("Calculated mean is NaN.");
+                
                 return mean;
             }
-            catch
+            catch (Exception ex) when (!double.IsNaN(mean))
             {
-                //TODO add specific error handling
-                throw new Exception("Error in Statistics.GetMean");
-            }
-        }
-
-        /// <summary>
-        /// The CalculateMean
-        /// </summary>
-        /// <param name="values">The values<see cref="IList{double}"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public static double CalculateMean(IList<double> values)
-        {
-            try
-            {
-                double mean = values.Mean();
-
-                if (double.IsNaN(mean))
-                    throw new Exception("Error in Statistics.GetMean has NaN value.");
-
-                return mean;
-            }
-            catch
-            {
-                //TODO add specific error handling
-                throw new Exception("Error in Statistics.GetMean");
+                throw new InvalidOperationException("Error calculating mean.", ex);
             }
         }
 

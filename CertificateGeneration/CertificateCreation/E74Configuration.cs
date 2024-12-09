@@ -18,7 +18,7 @@ namespace CertificateGeneration.CertificateCreation
         public TemperatureUnits TemperatureUnits { get; set; }
 
         public double AmbientTemperature { get; set; }
-
+        
         public bool ApplyTemperatureCorrection { get; set; }
 
         public double StandardTemperatureOfCalibration { get; set; }
@@ -27,7 +27,7 @@ namespace CertificateGeneration.CertificateCreation
 
         public DegreeOfFitTypes SelectedDegreeOfFit { get; set; }
 
-        public int CalculatedDegreeOfBestFit { get; set; }
+        public int DegreeOfBestFit { get; set; }
 
         public InstrumentClassifications InstrumentClassification { get; set; }
 

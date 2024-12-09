@@ -103,6 +103,9 @@ namespace CertificateGeneration.Models
         
         public void IncreaseValuesByAdd(double valueToAdd)
         {
+            if(valueToAdd == 0)
+                return;
+
             // TODO add error handling  
 
             for (int i = 0; i < dataPoints.Count; i++)

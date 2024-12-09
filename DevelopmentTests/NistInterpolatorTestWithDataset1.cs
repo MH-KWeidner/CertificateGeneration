@@ -65,6 +65,7 @@ namespace DevelopmentTests
 
             for (int i = 0; i < series3.Count(); i++)
                 Assert.AreEqual(Math.Round(series3.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+        
         }
     }
 }
