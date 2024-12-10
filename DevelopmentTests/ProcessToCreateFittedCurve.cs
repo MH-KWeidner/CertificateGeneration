@@ -20,7 +20,7 @@ public class ProcessToCreateFittedCurve
         // Test the process to create a fitted curve using MethodBNistTestData1
 
         // Arrange
-        E74Configuration configuration = new()
+        E74CertificateConfiguration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,

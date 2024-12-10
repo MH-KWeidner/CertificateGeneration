@@ -23,7 +23,7 @@ public class BuildE74WithDataSet1Test
         // REPORT NO.: U-7989G0124
 
         // Arrange
-        E74Configuration configuration = new()
+        E74CertificateConfiguration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,
