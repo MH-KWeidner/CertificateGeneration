@@ -29,7 +29,7 @@ public class BuildE74WithDataSet1Test
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 0.0,
             ApplyTemperatureCorrection = false,
-            SelectedDegreeOfFit = DegreeOfFitTypes.DegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.CalculatedDegreeOfBestFit
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);
@@ -51,7 +51,7 @@ public class BuildE74WithDataSet1Test
         double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
         double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
 
-        // TODO verify if DegreeOfBestFit always needs to be calculated.
+        // TODO verify if CalculatedDegreeOfBestFit always needs to be calculated.
         configuration.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, appliedForces, valuesForAllSeries);
 
         const int EXPECTED_DEGREE_OF_BEST_FIT = 4;

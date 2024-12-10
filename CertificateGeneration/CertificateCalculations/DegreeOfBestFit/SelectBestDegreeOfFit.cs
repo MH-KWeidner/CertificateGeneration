@@ -15,7 +15,7 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
                 DegreeOfFitTypes.Three => 3,
                 DegreeOfFitTypes.Four => 4,
                 DegreeOfFitTypes.Five => 5,
-                DegreeOfFitTypes.DegreeOfBestFit => DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForces, valuesForAllSeries),
+                DegreeOfFitTypes.CalculatedDegreeOfBestFit => DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForces, valuesForAllSeries),
                 _ => throw new ArgumentOutOfRangeException(nameof(degreeOfFitType), degreeOfFitType, "SelectBestDegreeOfFit Invalid DegreeOfFitType")
             };
         }

@@ -25,7 +25,7 @@ public class ProcessToCreateFittedCurve
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 50.0,
-            SelectedDegreeOfFit = DegreeOfFitTypes.DegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.CalculatedDegreeOfBestFit
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);

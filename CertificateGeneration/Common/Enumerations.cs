@@ -19,10 +19,9 @@ namespace CertificateGeneration.Common
         Three,
         Four,
         Five,
-        DegreeOfBestFit
+        CalculatedDegreeOfBestFit
     }
 
-    // TODO better naming for this enum
     public enum TemperatureUnits
     {
         Celsius,
