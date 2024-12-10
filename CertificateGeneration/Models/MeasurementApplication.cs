@@ -21,15 +21,15 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
         /// </summary>
-        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
-        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
-        public MeasurementApplication(double[] appliedForce, params double[][] rawData)
+        /// <param name="nominalAppliedForce">The nominalAppliedForce<see cref="double[]"/></param>
+        /// <param name="measurementData">The measurementData<see cref="double[][]"/></param>
+        public MeasurementApplication(double[] nominalAppliedForce, double[][] actualAppliedForce, double[][] measurementData)
         {
             //TODO add error handling
 
             seriesList = [];
 
-            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.CreateSeries(index + 1, appliedForce, data)));
+            seriesList.AddRange(measurementData.Select((data, index) => MeasurementSeries.CreateSeries(index + 1, nominalAppliedForce, actualAppliedForce[index], data)));
         }
 
         /// <summary>
