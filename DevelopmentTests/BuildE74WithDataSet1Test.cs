@@ -34,7 +34,7 @@ public class BuildE74WithDataSet1Test
 
         configuration.AddTransientForceMeasurementsByIndex(12);
 
-        ForceApplication application = new(
+        MeasurementApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
             MethodBNistTestData1.GetRawDataSeries1(),
             MethodBNistTestData1.GetRawDataSeries2(),

@@ -9,9 +9,9 @@ using System.Runtime.CompilerServices;
 namespace CertificateGeneration.Models
 {
     /// <summary>
-    /// Defines the <see cref="ForceApplication" />
+    /// Defines the <see cref="MeasurementApplication" />
     /// </summary>
-    public class ForceApplication
+    public class MeasurementApplication
     {
         /// <summary>
         /// Defines the seriesList
@@ -19,11 +19,11 @@ namespace CertificateGeneration.Models
         private List<Series> seriesList;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ForceApplication"/> class.
+        /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
         /// <param name="rawData">The rawData<see cref="double[][]"/></param>
-        public ForceApplication(double[] appliedForce, params double[][] rawData)
+        public MeasurementApplication(double[] appliedForce, params double[][] rawData)
         {
             //TODO add error handling
 
