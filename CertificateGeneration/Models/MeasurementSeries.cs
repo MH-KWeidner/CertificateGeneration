@@ -18,12 +18,12 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// Defines the dataPoints
         /// </summary>
-        private List<DataPoint> dataPoints;
+        private List<MeasurementDataPoint> dataPoints;
 
         /// <summary>
         /// A list of the original data points.
         /// </summary>
-        private readonly List<DataPoint> originalDataPoints;
+        private readonly List<MeasurementDataPoint> originalDataPoints;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
@@ -37,11 +37,11 @@ namespace CertificateGeneration.Models
 
             dataPoints = [];
 
-            dataPoints.AddRange(appliedForce.Select((force, i) => new DataPoint(force, rawValue[i])));
+            dataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
 
             originalDataPoints = [];
 
-            originalDataPoints.AddRange(appliedForce.Select((force, i) => new DataPoint(force, rawValue[i])));
+            originalDataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
         }
 
         /// <summary>

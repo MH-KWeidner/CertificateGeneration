@@ -21,7 +21,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
             // Get positions of zero force values in the series
             IList<int> zeroForcePositions = GetZeroAppliedForcePositions(series);
 
-            //List<DataPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+            //List<MeasurementDataPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
 
             for (int i = 0; i < zeroForcePositions.Count; i++)
             {

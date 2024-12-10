@@ -12,7 +12,7 @@ namespace CertificateGeneration.IoC.Modifiers
         /// </summary>
         /// <param name="seriesValues">The local list of SeriesValues to be modified</param>
         /// <returns>A new list of SeriesValues</returns>
-        public List<DataPoint>? Modify(List<DataPoint>? seriesValues)
+        public List<MeasurementDataPoint>? Modify(List<MeasurementDataPoint>? seriesValues)
         {
             // TODO add more exception handling
 

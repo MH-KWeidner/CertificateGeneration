@@ -1,9 +1,9 @@
 ﻿namespace CertificateGeneration.Models
 {
     /// <summary>
-    /// Defines the <see cref="DataPoint" />
+    /// Defines the <see cref="MeasurementDataPoint" />
     /// </summary>
-    public class DataPoint
+    public class MeasurementDataPoint
     {
         // TODO condiser if RawValue can be removed. intended only for interpolation
 
@@ -35,11 +35,11 @@
         public double Value { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DataPoint"/> class.
+        /// Initializes a new instance of the <see cref="MeasurementDataPoint"/> class.
         /// </summary>
         /// <param name="index">The index<see cref="int"/></param>
         /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>
-        public DataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
+        public MeasurementDataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
     }
 }

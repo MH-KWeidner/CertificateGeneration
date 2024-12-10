@@ -12,6 +12,6 @@ namespace CertificateGeneration.IoC.Modifiers
         /// </summary>
         /// <param name="seriesValues"></param>
         /// <returns>Returns a new list of SeriesValues</returns>
-        public List<DataPoint>? Modify(List<DataPoint>? seriesValues);
+        public List<MeasurementDataPoint>? Modify(List<MeasurementDataPoint>? seriesValues);
     }
 }

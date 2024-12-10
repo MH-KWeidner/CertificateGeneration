@@ -12,7 +12,7 @@ namespace CertificateGeneration.IoC.Modifiers
         /// </summary>
         /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="List{SeriesValue}?"/></returns>
-        public List<DataPoint>? Reorder(List<DataPoint>? seriesValues)
+        public List<MeasurementDataPoint>? Reorder(List<MeasurementDataPoint>? seriesValues)
         {
             // TODO add more exception handling
 

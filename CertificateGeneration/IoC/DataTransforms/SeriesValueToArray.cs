@@ -15,7 +15,7 @@ namespace CertificateGeneration.IoC.DataTransforms
         /// </summary>
         /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<DataPoint>? seriesValues)
+        public double[] ToArray(List<MeasurementDataPoint>? seriesValues)
         {
             // TODO: fix this
 
