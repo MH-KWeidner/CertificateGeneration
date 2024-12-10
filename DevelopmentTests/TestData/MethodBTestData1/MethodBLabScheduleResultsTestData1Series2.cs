@@ -13,7 +13,7 @@ namespace DevelopmentTests.TestData.MethodBTestData1
         // CALIBRATION & ISSUE DATE: 07/01/2024
         // REPORT NO.: U-7989G0124
 
-        // METHOD B Nist DATASET 1 LAB VIEW RESULTS Series 2
+        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 2
 
         public static List<SingleRunPoint> dataList =
         [

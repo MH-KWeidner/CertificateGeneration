@@ -16,7 +16,7 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// Defines the seriesList
         /// </summary>
-        private List<Series> seriesList;
+        private List<MeasurementSeries> seriesList;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
@@ -29,7 +29,7 @@ namespace CertificateGeneration.Models
 
             seriesList = [];
 
-            seriesList.AddRange(rawData.Select((data, index) => Series.CreateSeries(index + 1, appliedForce, data)));
+            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.CreateSeries(index + 1, appliedForce, data)));
         }
 
         /// <summary>

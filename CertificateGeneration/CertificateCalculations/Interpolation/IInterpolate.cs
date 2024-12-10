@@ -10,7 +10,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
         /// <summary>
         /// The Interpolate
         /// </summary>
-        /// <param name="series">The series<see cref="Series"/></param>
-        public void Interpolate(Series series);
+        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+        public void Interpolate(MeasurementSeries series);
     }
 }

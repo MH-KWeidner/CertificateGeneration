@@ -16,7 +16,7 @@ namespace CertificateGenerationTests.InterpolationTests
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            Series series = Series.CreateSeries(1, [0, 10, 20], [0.00000, 0.00012, 0.00022]);
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, [0, 10, 20], [0.00000, 0.00012, 0.00022]);
 
             // Act
             InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
@@ -34,7 +34,7 @@ namespace CertificateGenerationTests.InterpolationTests
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues2()
         {
             // Arrange
-            Series series = Series.CreateSeries(1, [0, 10, 20], [0.00000, -0.00012, 0.00022]);
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, [0, 10, 20], [0.00000, -0.00012, 0.00022]);
 
             // Act
             InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
@@ -52,7 +52,7 @@ namespace CertificateGenerationTests.InterpolationTests
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues3()
         {
             // Arrange
-            Series series = Series.CreateSeries(1, [0, 10, 20], [-0.00001, -0.00012, 0.00022]);
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, [0, 10, 20], [-0.00001, -0.00012, 0.00022]);
 
             // Act
             InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();
@@ -70,7 +70,7 @@ namespace CertificateGenerationTests.InterpolationTests
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues4()
         {
             // Arrange
-            Series series = Series.CreateSeries(1, [0, 10, 0, 20], [-0.00001, -0.00012, 0.00002, -.00022]);
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, [0, 10, 0, 20], [-0.00001, -0.00012, 0.00002, -.00022]);
 
             // Act
             InitialZeroValueInterpolator usingInitialZeroValue = new InitialZeroValueInterpolator();

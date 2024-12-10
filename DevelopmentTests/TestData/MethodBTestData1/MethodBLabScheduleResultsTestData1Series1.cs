@@ -14,7 +14,7 @@ namespace DevelopmentTests.TestData.MethodBTestData1
         // REPORT NO.: U-7989G0124
         // Degree of Fit: Best Fit from LabSch is 4
 
-        // METHOD B Nist DATASET 1 LAB VIEW RESULTS Series 1
+        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 1
 
         public static List<SingleRunPoint> dataList =
         [

@@ -12,8 +12,8 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
         /// <summary>
         /// The Interpolate
         /// </summary>
-        /// <param name="series">The series<see cref="Series"/></param>
-        public void Interpolate(Series series)
+        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+        public void Interpolate(MeasurementSeries series)
         {
             if (series == null)
                 return;
@@ -117,7 +117,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
             }
         }
 
-        public IList<int> GetZeroAppliedForcePositions(Series series)
+        public IList<int> GetZeroAppliedForcePositions(MeasurementSeries series)
         {
             // TODO add null check and error handling
 

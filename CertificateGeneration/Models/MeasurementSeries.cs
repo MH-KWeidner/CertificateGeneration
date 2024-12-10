@@ -6,9 +6,9 @@ using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
 namespace CertificateGeneration.Models
 {
     /// <summary>
-    /// Defines the <see cref="Series" />
+    /// Defines the <see cref="MeasurementSeries" />
     /// </summary>
-    public class Series
+    public class MeasurementSeries
     {
         /// <summary>
         /// Defines the id
@@ -26,12 +26,12 @@ namespace CertificateGeneration.Models
         private readonly List<DataPoint> originalDataPoints;
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="Series"/> class from being created.
+        /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
         /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
         /// <param name="rawValue">The rawValue<see cref="double[]"/></param>
-        private Series(int seriesId, double[] appliedForce, double[] rawValue)
+        private MeasurementSeries(int seriesId, double[] appliedForce, double[] rawValue)
         {
             id = seriesId;
 
@@ -180,17 +180,17 @@ namespace CertificateGeneration.Models
         }
 
         /// <summary>
-        /// Creates a Series object populated with the provided data.
+        /// Creates a MeasurementSeries object populated with the provided data.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
         /// <param name="rawValues">The rawValues<see cref="double[]"/></param>
-        /// <returns>The <see cref="Series"/></returns>
-        public static Series CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
+        /// <returns>The <see cref="MeasurementSeries"/></returns>
+        public static MeasurementSeries CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
         {
             // TODO consider removing this method in favor of a constructor
 
-            return new Series(seriesId, appliedForces, rawValues);
+            return new MeasurementSeries(seriesId, appliedForces, rawValues);
         }
     }
 }

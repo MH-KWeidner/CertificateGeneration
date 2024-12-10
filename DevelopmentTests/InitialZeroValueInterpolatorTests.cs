@@ -21,7 +21,7 @@ namespace DevelopmentTests
         {
             // Arrange
             double[] appliedForce = MethodAInitialZeroTestData1.GetAppliedForce();
-            Series series = Series.CreateSeries(1, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
 
             // Act
             InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();
