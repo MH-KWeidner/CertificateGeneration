@@ -19,7 +19,7 @@ namespace CertificateGeneration.IoC.Modifiers
             // // TODO: fix this
             //ArgumentNullException.ThrowIfNull(dataPoints);
 
-            return seriesValues?.Where(sv => sv.NominalAppliedForce > 0).ToList();
+            return seriesValues?.Where(sv => sv.AppliedForce > 0).ToList();
         }
     }
 }

@@ -17,9 +17,8 @@ namespace CertificateGenerationTests.IoC.DataTransforms
         {
             // Arrange
             double[] force = [10, 20, 30];
-            double[] actualForces = [0.0, 0.0, 0.0];
             double[] values = [1.0, 2.0, 3.0];
-            MeasurementSeries series = MeasurementSeries.CreateSeries(1, force, actualForces, values);
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, force, values);
 
             // Act
             double[] result = series.Transform(new SeriesValueToArray());

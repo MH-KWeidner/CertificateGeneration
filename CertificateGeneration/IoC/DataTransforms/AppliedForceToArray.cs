@@ -19,7 +19,7 @@ namespace CertificateGeneration.IoC.DataTransforms
 
             // ArgumentNullException.ThrowIfNull(dataPoints);
 
-            return seriesValues.Select(sv => sv.NominalAppliedForce).ToArray();
+            return seriesValues.Select(sv => sv.AppliedForce).ToArray();
         }
     }
 }

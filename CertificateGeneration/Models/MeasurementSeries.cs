@@ -21,18 +21,27 @@ namespace CertificateGeneration.Models
         private List<MeasurementDataPoint> dataPoints;
 
         /// <summary>
+        /// A list of the original data points.
+        /// </summary>
+        private readonly List<MeasurementDataPoint> originalDataPoints;
+
+        /// <summary>
         /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
-        /// <param name="nominalAppliedForce">The nominalAppliedForce<see cref="double[]"/></param>
-        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
-        private MeasurementSeries(int seriesId, double[] nominalAppliedForce, double[] actualAppliedForce, double[] measurementData)
+        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
+        /// <param name="rawValue">The rawValue<see cref="double[]"/></param>
+        private MeasurementSeries(int seriesId, double[] appliedForce, double[] rawValue)
         {
             id = seriesId;
 
             dataPoints = [];
 
-            dataPoints.AddRange(nominalAppliedForce.Select((force, i) => new MeasurementDataPoint(force, actualAppliedForce[i], measurementData[i])));
+            dataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
+
+            originalDataPoints = [];
+
+            originalDataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
         }
 
         /// <summary>
@@ -113,7 +122,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return dataPoints[index].NominalAppliedForce;
+            return dataPoints[index].AppliedForce;
         }
 
         /// <summary>
@@ -174,14 +183,14 @@ namespace CertificateGeneration.Models
         /// Creates a MeasurementSeries object populated with the provided data.
         /// </summary>
         /// <param name="seriesId">The seriesId<see cref="int"/></param>
-        /// <param name="nominalAppliedForces">The nominalAppliedForces<see cref="double[]"/></param>
-        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
+        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
+        /// <param name="rawValues">The rawValues<see cref="double[]"/></param>
         /// <returns>The <see cref="MeasurementSeries"/></returns>
-        public static MeasurementSeries CreateSeries(int seriesId, double[] nominalAppliedForces, double[] actualAppliedForces, double[] measurementData)
+        public static MeasurementSeries CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
         {
             // TODO consider removing this method in favor of a constructor
 
-            return new MeasurementSeries(seriesId, nominalAppliedForces, actualAppliedForces, measurementData);
+            return new MeasurementSeries(seriesId, appliedForces, rawValues);
         }
     }
 }

@@ -20,10 +20,8 @@ namespace DevelopmentTests
         public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-
-            // TODO add actualAppliedForce
             double[] appliedForce = MethodAInitialZeroTestData1.GetAppliedForce();
-            MeasurementSeries series = MeasurementSeries.CreateSeries(1, appliedForce, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
+            MeasurementSeries series = MeasurementSeries.CreateSeries(1, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
 
             // Act
             InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();

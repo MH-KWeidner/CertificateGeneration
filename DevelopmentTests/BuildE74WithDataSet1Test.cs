@@ -34,22 +34,11 @@ public class BuildE74WithDataSet1Test
 
         configuration.AddTransientForceMeasurementsByIndex(12);
 
-        // TODO need to have actual force values for each series
-        double[][] actualAppliedForce =
-        [
+        MeasurementApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetAppliedForce()
-        ];
-
-        double[][] measurementData =
-        [
             MethodBNistTestData1.GetRawDataSeries1(),
             MethodBNistTestData1.GetRawDataSeries2(),
-            MethodBNistTestData1.GetRawDataSeries3()
-        ];
-
-        MeasurementApplication application = new(MethodBNistTestData1.GetAppliedForce(), actualAppliedForce, measurementData);
+            MethodBNistTestData1.GetRawDataSeries3());
 
         // Act
         application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);

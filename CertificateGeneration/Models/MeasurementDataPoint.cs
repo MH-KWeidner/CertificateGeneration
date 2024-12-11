@@ -6,14 +6,9 @@
     public class MeasurementDataPoint
     {
         /// <summary>
-        /// Gets or sets the NominalAppliedForce
+        /// Gets or sets the AppliedForce
         /// </summary>
-        public double NominalAppliedForce { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ActualAppliedForce
-        /// </summary>
-        public double ActualAppliedForce { get; set; }
+        public double AppliedForce { get; set; }
 
         /// <summary>
         /// Gets or sets the RawValue
@@ -28,9 +23,8 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementDataPoint"/> class.
         /// </summary>
-        /// <param name="nominalAppliedForce">The nominalAppliedForce<see cref="double"/></param>
-        /// <param name="actualAppliedForce">The actualAppliedForce<see cref="double"/></param>
+        /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>
-        public MeasurementDataPoint(double nominalAppliedForce, double actualAppliedForce, double rawValue) => (NominalAppliedForce, ActualAppliedForce, RawValue, Value) = (nominalAppliedForce, actualAppliedForce, rawValue, rawValue);
+        public MeasurementDataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
     }
 }

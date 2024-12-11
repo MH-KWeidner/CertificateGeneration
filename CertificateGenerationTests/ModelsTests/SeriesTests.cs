@@ -10,9 +10,8 @@ public class SeriesTests
     {
         // Arrange
         double[] force = [10, 20, 30];
-        double[] actualForces = [0.0, 0.0, 0.0];
         double[] values = [1.0, 2.0, 3.0];
-        MeasurementSeries series = MeasurementSeries.CreateSeries(1, force, actualForces, values);
+        MeasurementSeries series = MeasurementSeries.CreateSeries(1, force, values);
 
         // Act
         series.IncreaseValuesByAdd(100.00);
@@ -29,11 +28,10 @@ public class SeriesTests
         // Arrange
         int seriesId = 1;
         double[] appliedForces = [ 10.0, 20.0, 30.0 ];
-        double[] actualForces = [0.0, 0.0, 0.0];
         double[] values = [ 1.0, 2.0, 3.0 ];
         double[] result = [6.0, 7.0, 8.0];
         double valueToAdd = 5.0;
-        MeasurementSeries series = MeasurementSeries.CreateSeries(seriesId, appliedForces, actualForces, values);
+        MeasurementSeries series = MeasurementSeries.CreateSeries(seriesId, appliedForces, values);
 
         // Act
         series.IncreaseValuesByAdd(valueToAdd);

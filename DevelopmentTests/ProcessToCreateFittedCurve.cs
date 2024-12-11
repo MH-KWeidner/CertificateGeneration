@@ -30,21 +30,11 @@ public class ProcessToCreateFittedCurve
 
         configuration.AddTransientForceMeasurementsByIndex(12);
 
-        double[][] actualAppliedForce =
-        [
+        MeasurementApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetAppliedForce(),
-        ];
-
-        double[][] measurementData =
-        [
-            actualAppliedForce[0] = MethodBNistTestData1.GetRawDataSeries1(),
-            actualAppliedForce[1] = MethodBNistTestData1.GetRawDataSeries2(),
-            actualAppliedForce[2] = MethodBNistTestData1.GetRawDataSeries3()
-        ];
-        
-        MeasurementApplication application = new(MethodBNistTestData1.GetAppliedForce(), actualAppliedForce, measurementData);
+            MethodBNistTestData1.GetRawDataSeries1(),
+            MethodBNistTestData1.GetRawDataSeries2(),
+            MethodBNistTestData1.GetRawDataSeries3());
 
         // Act
         //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);

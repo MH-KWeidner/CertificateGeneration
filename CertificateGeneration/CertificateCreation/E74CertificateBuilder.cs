@@ -13,9 +13,9 @@ namespace CertificateGeneration.CertificateCreation
     {
         const int REFERENCE_SERIES_FOR_FORCE = 0;
 
-        static public E74CertificateResult Build(E74CertificateConfiguration configuration, double[] nominalAppliedForces, double[][] actualAppliedForces, double[][] measurementData)
+        static public E74CertificateResult Build(E74CertificateConfiguration configuration, double[] appliedForces, params double[][] measurementData)
         {
-            MeasurementApplication application = new(nominalAppliedForces, actualAppliedForces, measurementData);
+            MeasurementApplication application = new(appliedForces, measurementData);
 
             application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
             application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));

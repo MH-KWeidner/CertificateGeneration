@@ -16,14 +16,9 @@ namespace DevelopmentTests
         {
             // Arrange
             double[] appliedForce = MethodBNistTestData1.GetAppliedForce();
-            double[] actualForce1 = MethodBNistTestData1.GetAppliedForce();
-            double[] actualForce2 = MethodBNistTestData1.GetAppliedForce();
-            double[] actualForce3 = MethodBNistTestData1.GetAppliedForce();
-
-            // TODO need to have actual force values for each series
-            MeasurementSeries series1 = MeasurementSeries.CreateSeries(1, appliedForce, actualForce1, MethodBNistTestData1.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.CreateSeries(2, appliedForce, actualForce2, MethodBNistTestData1.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.CreateSeries(3, appliedForce, actualForce3, MethodBNistTestData1.GetRawDataSeries3());
+            MeasurementSeries series1 = MeasurementSeries.CreateSeries(1, appliedForce, MethodBNistTestData1.GetRawDataSeries1());
+            MeasurementSeries series2 = MeasurementSeries.CreateSeries(2, appliedForce, MethodBNistTestData1.GetRawDataSeries2());
+            MeasurementSeries series3 = MeasurementSeries.CreateSeries(3, appliedForce, MethodBNistTestData1.GetRawDataSeries3());
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
