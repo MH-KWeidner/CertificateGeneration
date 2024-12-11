@@ -31,6 +31,8 @@ namespace CertificateGeneration.CertificateCreation
 
         public InstrumentClassifications InstrumentClassification { get; set; }
 
+        public bool ApplyNominalForceCorrection { get; set; }
+
         public IList<int> TransientForceMeasurementsByIndex => transientForceMeasurementsByIndex;
 
         public void AddTransientForceMeasurementsByIndex(int index) => transientForceMeasurementsByIndex.Add(index);
@@ -38,5 +40,7 @@ namespace CertificateGeneration.CertificateCreation
         public IList<int> ExcludedSeriesByIndex => excludedSeriesByIndex;
 
         public void AddExcludedSeriesByIndex(int index) => excludedSeriesByIndex.Add(index);
+
+
     }
 }

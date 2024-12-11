@@ -15,9 +15,9 @@ namespace DevelopmentTests
         {
             // Arrange
             double[] appliedForce = MethodBNistTestData2.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.CreateSeries(1, appliedForce, MethodBNistTestData2.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.CreateSeries(2, appliedForce, MethodBNistTestData2.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.CreateSeries(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, MethodBNistTestData2.GetRawDataSeries1());
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, MethodBNistTestData2.GetRawDataSeries2());
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);

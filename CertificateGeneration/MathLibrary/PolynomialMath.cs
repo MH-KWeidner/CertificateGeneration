@@ -54,7 +54,7 @@ namespace CertificateGeneration.MathLibrary
             var rowCount = values.Length;
             var result = new double[rowCount][];
 
-            for (var row = 0; row < rowCount; row++)
+            for (int row = 0; row < rowCount; row++)
             {
                 result[row] = new double[degree];
                 var value = values[row];

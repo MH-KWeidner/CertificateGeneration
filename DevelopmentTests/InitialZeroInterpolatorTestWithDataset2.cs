@@ -13,10 +13,10 @@ public class InitialZeroInterpolatorTestWithDataset2
     {
         // Arrange
         double[] appliedForce = MethodAInitialZeroTestData2.GetAppliedForce();
-        MeasurementSeries series3 = MeasurementSeries.CreateSeries(1, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries3());
-        MeasurementSeries series4 = MeasurementSeries.CreateSeries(2, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries4());
-        MeasurementSeries series5 = MeasurementSeries.CreateSeries(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries5());
-        MeasurementSeries series6 = MeasurementSeries.CreateSeries(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries6());
+        MeasurementSeries series3 = MeasurementSeries.Create(1, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries3());
+        MeasurementSeries series4 = MeasurementSeries.Create(2, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries4());
+        MeasurementSeries series5 = MeasurementSeries.Create(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries5());
+        MeasurementSeries series6 = MeasurementSeries.Create(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries6());
 
         NistInterpolator interpolator = new();
         series3.Interpolate(interpolator);

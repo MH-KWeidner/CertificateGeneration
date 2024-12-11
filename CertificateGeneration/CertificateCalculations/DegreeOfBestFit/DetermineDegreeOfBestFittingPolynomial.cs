@@ -37,7 +37,7 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
 
             for (int i = 0; i < degreesOfFitDecending.Length; i++)
             {
-                // A1.3 Fit separate polynomials of degreeOfFit 1, 2, 3, 4, and 5 to the mean data
+                // A1.3 Fit separate polynomials of degree 1, 2, 3, 4, and 5 to the mean data
                 double[] coefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecending[i]);
 
                 double[] fittedCurve = appliedForces.Select(force => StatisticsMath.EvaluateCoefficients(coefficients, force)).ToArray();

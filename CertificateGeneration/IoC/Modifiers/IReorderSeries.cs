@@ -10,8 +10,8 @@ namespace CertificateGeneration.IoC.Modifiers
         /// <summary>
         /// The Reorder
         /// </summary>
-        /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
-        /// <returns>The <see cref="List{SeriesValue}?"/></returns>
-        public List<MeasurementDataPoint>? Reorder(List<MeasurementDataPoint>? seriesValues);
+        /// <param name="seriesValues">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+        /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
+        public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints);
     }
 }

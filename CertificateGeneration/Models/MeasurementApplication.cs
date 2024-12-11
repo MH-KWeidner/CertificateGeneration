@@ -29,7 +29,7 @@ namespace CertificateGeneration.Models
 
             seriesList = [];
 
-            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.CreateSeries(index + 1, appliedForce, data)));
+            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
         }
 
         /// <summary>
@@ -86,6 +86,8 @@ namespace CertificateGeneration.Models
 
         public void RemoveSeriesByIndex(IList<int> indexes)
         {
+            // TODO consider that not including a series is incombant on the client application
+            
             //TODO add error handling
 
             if (indexes == null)

@@ -16,32 +16,32 @@ namespace CertificateGeneration.Models
         private readonly int id;
 
         /// <summary>
-        /// Defines the dataPoints
+        /// Defines the measurementPoints
         /// </summary>
-        private List<MeasurementDataPoint> dataPoints;
-
-        /// <summary>
-        /// A list of the original data points.
-        /// </summary>
-        private readonly List<MeasurementDataPoint> originalDataPoints;
+        private List<IMeasurementPoint> measurementPoints;
 
         /// <summary>
         /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
         /// </summary>
-        /// <param name="seriesId">The seriesId<see cref="int"/></param>
-        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
-        /// <param name="rawValue">The rawValue<see cref="double[]"/></param>
+        /// <param name="seriesId">The id<see cref="int"/></param>
+        /// <param name="appliedForce">The nominalForces<see cref="double[]"/></param>
+        /// <param name="rawValue">The measurementData<see cref="double[]"/></param>
         private MeasurementSeries(int seriesId, double[] appliedForce, double[] rawValue)
         {
             id = seriesId;
 
-            dataPoints = [];
+            measurementPoints = [];
 
-            dataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
+            measurementPoints.AddRange(appliedForce.Select((force, i) => new GenericMeasurementPoint(force, rawValue[i])));
+        }
 
-            originalDataPoints = [];
+        private MeasurementSeries(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
+        {
+            this.id = id;
 
-            originalDataPoints.AddRange(appliedForce.Select((force, i) => new MeasurementDataPoint(force, rawValue[i])));
+            measurementPoints = [];
+
+            measurementPoints.AddRange(nominalForces.Select((force, i) => new HydraulicMeasurementPoint(force, actualForces[i], measurementData[i])));
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return dataPoints[index].RawValue;
+            return measurementPoints[index].RawValue;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            dataPoints[index].Value = value;
+            measurementPoints[index].Value = value;
         }
 
         public void RemoveValuesByIndex(IList<int>? indexes)
@@ -82,7 +82,7 @@ namespace CertificateGeneration.Models
             if (indexes == null)
                 return;
 
-            dataPoints = dataPoints.Where((dp, i) => !indexes.Contains(i)).ToList();
+            measurementPoints = measurementPoints.Where((dp, i) => !indexes.Contains(i)).ToList();
         }
 
         /// <summary>
@@ -95,9 +95,9 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return dataPoints[index].Value;
+            return measurementPoints[index].Value;
 
-            throw new Exception("Value is null");
+            // TODO is this needed: throw new Exception("Value is null");
         }
 
         
@@ -108,7 +108,7 @@ namespace CertificateGeneration.Models
 
             // TODO add error handling  
 
-            for (int i = 0; i < dataPoints.Count; i++)
+            for (int i = 0; i < measurementPoints.Count; i++)
                 SetValue(i, GetValue(i) + valueToAdd);
         }
 
@@ -122,7 +122,7 @@ namespace CertificateGeneration.Models
             // TODO add validation for index
             //TODO add error handling
 
-            return dataPoints[index].AppliedForce;
+            return measurementPoints[index].AppliedForce;
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace CertificateGeneration.Models
         {
             //TODO add error handling - List may be null
 
-            return dataPoints.Count;
+            return measurementPoints.Count;
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace CertificateGeneration.Models
         {
             //TODO add error handling - List may be null
 
-            dataPoints = modifier.Modify(dataPoints);
+            measurementPoints = modifier.Modify(measurementPoints);
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace CertificateGeneration.Models
 
             // TODO consider renaming method to Reorder  
 
-            dataPoints = modifier.Reorder(dataPoints);
+            measurementPoints = modifier.Reorder(measurementPoints);
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace CertificateGeneration.Models
         /// <returns>The <see cref="double[]"/></returns>
         public double[] Transform(ITransformToDoubleArray transform)
         {
-            return transform.ToArray(dataPoints);
+            return transform.ToArray(measurementPoints);
         }
 
         /// <summary>
@@ -182,15 +182,26 @@ namespace CertificateGeneration.Models
         /// <summary>
         /// Creates a MeasurementSeries object populated with the provided data.
         /// </summary>
-        /// <param name="seriesId">The seriesId<see cref="int"/></param>
-        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
-        /// <param name="rawValues">The rawValues<see cref="double[]"/></param>
+        /// <param name="id">The id<see cref="int"/></param>
+        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
         /// <returns>The <see cref="MeasurementSeries"/></returns>
-        public static MeasurementSeries CreateSeries(int seriesId, double[] appliedForces, double[] rawValues)
+        public static MeasurementSeries Create(int id, double[] nominalForces, double[] measurementData)
         {
+            //TODO condider removing the Id property
+
             // TODO consider removing this method in favor of a constructor
 
-            return new MeasurementSeries(seriesId, appliedForces, rawValues);
+            return new MeasurementSeries(id, nominalForces, measurementData);
+        }
+
+        public static MeasurementSeries Create(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
+        {
+            //TODO condider removing the Id property
+
+            // TODO consider removing this method in favor of a constructor
+
+            return new MeasurementSeries(id, nominalForces, actualForces, measurementData);
         }
     }
 }

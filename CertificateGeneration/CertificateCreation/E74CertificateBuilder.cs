@@ -29,10 +29,15 @@ namespace CertificateGeneration.CertificateCreation
             configuration.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
 
             if (configuration.ApplyTemperatureCorrection)
-                application.ApplyTemperatureCorrection
-                (ambientTemperature: configuration.AmbientTemperature,
+                application.ApplyTemperatureCorrection(
+                    ambientTemperature: configuration.AmbientTemperature,
                     standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
                     temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
+
+            if(configuration.ApplyNominalForceCorrection)
+            {
+                
+            }
 
             return new E74CertificateResult();
         }

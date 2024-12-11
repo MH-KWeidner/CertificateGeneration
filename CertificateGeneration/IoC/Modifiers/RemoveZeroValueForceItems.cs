@@ -10,16 +10,16 @@ namespace CertificateGeneration.IoC.Modifiers
         /// <summary>
         /// Removes all SeriesValue items having zero force applied
         /// </summary>
-        /// <param name="seriesValues">The local list of SeriesValues to be modified</param>
+        /// <param name="measurementPoints">The local list of SeriesValues to be modified</param>
         /// <returns>A new list of SeriesValues</returns>
-        public List<MeasurementDataPoint>? Modify(List<MeasurementDataPoint>? seriesValues)
+        public List<IMeasurementPoint>? Modify(List<IMeasurementPoint>? measurementPoints)
         {
             // TODO add more exception handling
 
             // // TODO: fix this
-            //ArgumentNullException.ThrowIfNull(dataPoints);
+            //ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            return seriesValues?.Where(sv => sv.AppliedForce > 0).ToList();
+            return measurementPoints?.Where(m => m.AppliedForce > 0).ToList();
         }
     }
 }

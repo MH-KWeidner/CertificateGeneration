@@ -10,8 +10,8 @@ namespace CertificateGeneration.IoC.DataTransforms
         /// <summary>
         /// The ToArray
         /// </summary>
-        /// <param name="seriesValues">The dataPoints<see cref="List{SeriesValue}?"/></param>
+        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<MeasurementDataPoint>? seriesValues);
+        public double[] ToArray(List<IMeasurementPoint>? measurementPoints);
     }
 }

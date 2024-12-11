@@ -1,7 +1,6 @@
 ﻿using CertificateGeneration.Models;
 using CertificateGeneration.IoC.Modifiers;
 using DevelopmentTests.InitialZeroDataSets;
-using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.CertificateCalculations.Interpolation;
 
 namespace DevelopmentTests
@@ -17,11 +16,11 @@ namespace DevelopmentTests
         /// The interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues
         /// </summary>
         [TestMethod]
-        public void interpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
+        public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
             double[] appliedForce = MethodAInitialZeroTestData1.GetAppliedForce();
-            MeasurementSeries series = MeasurementSeries.CreateSeries(1, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
+            MeasurementSeries series = MeasurementSeries.Create(1, appliedForce, MethodAInitialZeroTestData1.GetRawDataSeries1());
 
             // Act
             InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();

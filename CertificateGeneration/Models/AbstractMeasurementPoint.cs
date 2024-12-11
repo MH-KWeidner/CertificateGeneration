@@ -1,9 +1,10 @@
-﻿namespace CertificateGeneration.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CertificateGeneration.Models
 {
-    /// <summary>
-    /// Defines the <see cref="MeasurementDataPoint" />
-    /// </summary>
-    public class MeasurementDataPoint
+    public abstract class AbstractMeasurementPoint : IMeasurementPoint
     {
         /// <summary>
         /// Gets or sets the AppliedForce
@@ -21,10 +22,10 @@
         public double Value { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MeasurementDataPoint"/> class.
+        /// Initializes a new instance of the <see cref="IMeasurementPoint"/> class.
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>
-        public MeasurementDataPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
+        public AbstractMeasurementPoint(double appliedForce, double rawValue) => (AppliedForce, RawValue, Value) = (appliedForce, rawValue, rawValue);
     }
 }
