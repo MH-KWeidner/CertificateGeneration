@@ -101,6 +101,12 @@ namespace CertificateGeneration.Models
         }
 
         
+        public IEnumerable<IMeasurementPoint> GetEnumerable()
+        {
+            // TODO revisit this as it may expose the internal list
+            return measurementPoints;
+        }
+
         public void IncreaseValuesByAdd(double valueToAdd)
         {
             if(valueToAdd == 0)

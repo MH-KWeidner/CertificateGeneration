@@ -32,6 +32,15 @@ namespace CertificateGeneration.Models
             seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
         }
 
+        public MeasurementApplication(double[] appliedForce, double[][] actualForce, double[][] rawData)
+        {
+            //TODO add error handling
+
+            seriesList = [];
+
+            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
+        }
+
         /// <summary>
         /// The InterpolateSeriesData
         /// </summary>
