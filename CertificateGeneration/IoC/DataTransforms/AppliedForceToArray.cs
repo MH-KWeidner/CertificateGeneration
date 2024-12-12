@@ -19,7 +19,7 @@ namespace CertificateGeneration.IoC.DataTransforms
 
             // ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            return measurementPoints.Select(m => m.AppliedForce).ToArray();
+            return measurementPoints.Select(mp => mp.AppliedForce).ToArray();
         }
     }
 }

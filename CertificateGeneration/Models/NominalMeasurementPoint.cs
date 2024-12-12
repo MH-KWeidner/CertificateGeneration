@@ -8,7 +8,8 @@
     /// </remarks>
     /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
     /// <param name="rawValue">The rawValue<see cref="double"/></param>
-    public class GenericMeasurementPoint(double appliedForce, double rawValue) : AbstractMeasurementPoint(appliedForce, rawValue)
+    public class NominalMeasurementPoint(double appliedForce, double rawValue) : AbstractMeasurementPoint(appliedForce, rawValue)
     {
+        // TODO decide on naming convention for properties and class
     }
 }

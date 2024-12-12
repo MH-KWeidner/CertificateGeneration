@@ -13,15 +13,15 @@ namespace CertificateGeneration.IoC.DataTransforms
         /// <summary>
         /// The ToArray
         /// </summary>
-        /// <param name="seriesValues">The measurementPoints<see cref="List{SeriesValue}?"/></param>
+        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<IMeasurementPoint>? seriesValues)
+        public double[] ToArray(List<IMeasurementPoint>? measurementPoints)
         {
             // TODO: fix this
 
             // ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            return seriesValues.Select(sv => sv.Value).ToArray();
+            return measurementPoints.Select(mp => mp.Value).ToArray();
         }
     }
 }

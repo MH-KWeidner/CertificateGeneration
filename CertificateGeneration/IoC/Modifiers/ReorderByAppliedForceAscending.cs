@@ -10,14 +10,14 @@ namespace CertificateGeneration.IoC.Modifiers
         /// <summary>
         /// The Reorder
         /// </summary>
-        /// <param name="seriesValues">The measurementPoints<see cref="List{SeriesValue}?"/></param>
-        /// <returns>The <see cref="List{SeriesValue}?"/></returns>
-        public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? seriesValues)
+        /// <param name="IMeasurementPoint">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+        /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
+        public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {
             // TODO add more exception handling
 
             // Check for null argument
-            if (seriesValues == null)
+            if (measurementPoints == null)
             {
                 // TODO: fix this
 
@@ -25,15 +25,15 @@ namespace CertificateGeneration.IoC.Modifiers
             }
 
             // Ensure the list is not empty
-            if (!seriesValues.Any())
+            if (!measurementPoints.Any())
             {
-                throw new ArgumentException("The seriesValues list cannot be empty.", nameof(seriesValues));
+                throw new ArgumentException("The IMeasurementPoint list cannot be empty.", nameof(IMeasurementPoint));
 
                 // TODO: fix this
                 // ArgumentNullException.ThrowIfNull(measurementPoints);
             }
 
-            return seriesValues?.OrderBy(sv => sv.AppliedForce).ToList();
+            return measurementPoints.OrderBy(mp => mp.AppliedForce).ToList();
         }
     }
 }

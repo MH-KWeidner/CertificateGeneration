@@ -19,7 +19,7 @@ namespace CertificateGeneration.IoC.Modifiers
             // // TODO: fix this
             //ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            return measurementPoints?.Where(m => m.AppliedForce > 0).ToList();
+            return measurementPoints?.Where(mp => mp.AppliedForce > 0).ToList();
         }
     }
 }

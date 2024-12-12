@@ -32,7 +32,7 @@ namespace CertificateGeneration.Models
 
             measurementPoints = [];
 
-            measurementPoints.AddRange(appliedForce.Select((force, i) => new GenericMeasurementPoint(force, rawValue[i])));
+            measurementPoints.AddRange(appliedForce.Select((force, i) => new NominalMeasurementPoint(force, rawValue[i])));
         }
 
         private MeasurementSeries(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
@@ -41,7 +41,7 @@ namespace CertificateGeneration.Models
 
             measurementPoints = [];
 
-            measurementPoints.AddRange(nominalForces.Select((force, i) => new HydraulicMeasurementPoint(force, actualForces[i], measurementData[i])));
+            measurementPoints.AddRange(nominalForces.Select((force, i) => new ActualMeasurementPoint(force, actualForces[i], measurementData[i])));
         }
 
         /// <summary>
