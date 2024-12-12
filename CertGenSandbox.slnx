@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="CertificateGeneration/CertificateGeneration.csproj" />
+  <Project Path="CertificateGenerationTests/CertificateGenerationTests.csproj" />
+  <Project Path="DevelopmentTests/DevelopmentTests.csproj" />
+</Solution>
