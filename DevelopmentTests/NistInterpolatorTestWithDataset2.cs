@@ -2,6 +2,7 @@
 using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.CertificateCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData2;
+using MathNet.Numerics;
 
 namespace DevelopmentTests
 {
@@ -24,9 +25,11 @@ namespace DevelopmentTests
             MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
 
             // Act
-            series1.Interpolate(new NistInterpolator());
-            series2.Interpolate(new NistInterpolator());
-            series3.Interpolate(new NistInterpolator());
+
+            var interpolator = new NistInterpolator();
+            MeasurementSeries.Interpolate(interpolator, series1);
+            MeasurementSeries.Interpolate(interpolator, series2);
+            MeasurementSeries.Interpolate(interpolator, series3);
 
             series1.Modify(new RemoveZeroValueForceItems());
             series2.Modify(new RemoveZeroValueForceItems());

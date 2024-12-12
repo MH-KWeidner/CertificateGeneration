@@ -35,9 +35,9 @@ namespace CertificateGeneration.Models
             measurementPoints.AddRange(appliedForce.Select((force, i) => new NominalMeasurementPoint(force, rawValue[i])));
         }
 
-        private MeasurementSeries(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
+        private MeasurementSeries(int seriesId, double[] nominalForces, double[] actualForces, double[] measurementData)
         {
-            this.id = id;
+            seriesId = id;
 
             measurementPoints = [];
 
@@ -174,9 +174,9 @@ namespace CertificateGeneration.Models
         /// The Interpolate
         /// </summary>
         /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
-        public void Interpolate(IInterpolate interpolator)
+        public static void Interpolate(IInterpolate interpolator, MeasurementSeries series)
         {
-            interpolator.Interpolate(this);
+            interpolator.Interpolate(series);
         }
 
         /// <summary>

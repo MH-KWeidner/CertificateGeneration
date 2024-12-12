@@ -43,7 +43,7 @@ namespace CertificateGeneration.Models
             if (interpolator == null)
                 return;
 
-            seriesList?.ForEach(series => series.Interpolate(interpolator));
+            seriesList?.ForEach(series => MeasurementSeries.Interpolate(interpolator, series));
         }
 
         /// <summary>

@@ -2,6 +2,7 @@ using CertificateGeneration.Models;
 using DevelopmentTests.InitialZeroDataSets;
 using CertificateGeneration.IoC.Modifiers;
 using CertificateGeneration.CertificateCalculations.Interpolation;
+using MathNet.Numerics;
 
 namespace DevelopmentTests;
 
@@ -19,10 +20,10 @@ public class InitialZeroInterpolatorTestWithDataset2
         MeasurementSeries series6 = MeasurementSeries.Create(3, appliedForce, MethodAInitialZeroTestData2.GetRawDataSeries6());
 
         NistInterpolator interpolator = new();
-        series3.Interpolate(interpolator);
-        series4.Interpolate(interpolator);
-        series5.Interpolate(interpolator);
-        series6.Interpolate(interpolator);
+        MeasurementSeries.Interpolate(interpolator, series3);
+        MeasurementSeries.Interpolate(interpolator, series4);
+        MeasurementSeries.Interpolate(interpolator, series5);
+        MeasurementSeries.Interpolate(interpolator, series6);
 
         RemoveZeroValueForceItems removeZeroValueForceItems = new();
         series3.Modify(removeZeroValueForceItems);

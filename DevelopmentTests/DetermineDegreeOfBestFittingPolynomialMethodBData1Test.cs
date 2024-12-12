@@ -22,9 +22,9 @@ namespace DevelopmentTests
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
-            series1.Interpolate(interpolator);
-            series2.Interpolate(interpolator);
-            series3.Interpolate(interpolator);
+            MeasurementSeries.Interpolate(interpolator, series1);
+            MeasurementSeries.Interpolate(interpolator, series2);
+            MeasurementSeries.Interpolate(interpolator, series3);
 
             List<int> TransientForceMeasurementsByIndex = [12];
             series1.RemoveValuesByIndex(TransientForceMeasurementsByIndex);

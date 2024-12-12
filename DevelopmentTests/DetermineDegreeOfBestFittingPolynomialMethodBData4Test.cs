@@ -21,9 +21,9 @@ namespace DevelopmentTests
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
-            series1.Interpolate(interpolator);
-            series2.Interpolate(interpolator);
-            series3.Interpolate(interpolator);
+            MeasurementSeries.Interpolate(interpolator, series1);
+            MeasurementSeries.Interpolate(interpolator, series2);
+            MeasurementSeries.Interpolate(interpolator, series3);
 
             IModifySeriesSize modifier = new RemoveZeroValueForceItems();
             series1.Modify(modifier);
