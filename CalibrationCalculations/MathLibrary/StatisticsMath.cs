@@ -22,6 +22,12 @@ namespace CalibrationCalculations.MathLibrary
             return MathNet.Numerics.Polynomial.Evaluate(force, coefficients);
         }
 
+        /// <summary>
+        /// The EvaluateCoefficients
+        /// </summary>
+        /// <param name="coefficients">The coefficients<see cref="double[]"/></param>
+        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] EvaluateCoefficients(double[] coefficients, double[] appliedForces)
         {
             //TODO add specific error handling
@@ -48,7 +54,7 @@ namespace CalibrationCalculations.MathLibrary
 
                 if (double.IsNaN(mean))
                     throw new InvalidOperationException("Calculated mean is NaN.");
-                
+
                 return mean;
             }
             catch (Exception ex) when (!double.IsNaN(mean))

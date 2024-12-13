@@ -1,36 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CalibrationCalculations.Common
+﻿namespace CalibrationCalculations.Common
 {
+    /// <summary>
+    /// Defines the InterpolationTypes
+    /// </summary>
     public enum InterpolationTypes
     {
+        /// <summary>
+        /// Defines the MethodA
+        /// </summary>
         MethodA, // Initial Zero Value
-        MethodB // NIST Interpolation
-    }
 
+        /// <summary>
+        /// Defines the MethodB
+        /// </summary>
+        MethodB// NIST Interpolation    }
+
+    /// <summary>
+    /// Defines the DegreeOfFitTypes
+    /// </summary>
     public enum DegreeOfFitTypes
     {
+        /// <summary>
+        /// Defines the One
+        /// </summary>
         One,
+
+        /// <summary>
+        /// Defines the Two
+        /// </summary>
         Two,
+
+        /// <summary>
+        /// Defines the Three
+        /// </summary>
         Three,
+
+        /// <summary>
+        /// Defines the Four
+        /// </summary>
         Four,
+
+        /// <summary>
+        /// Defines the Five
+        /// </summary>
         Five,
+
+        /// <summary>
+        /// Defines the CalculatedDegreeOfBestFit
+        /// </summary>
         CalculatedDegreeOfBestFit
     }
 
+    /// <summary>
+    /// Defines the TemperatureUnits
+    /// </summary>
     public enum TemperatureUnits
     {
+        /// <summary>
+        /// Defines the Celsius
+        /// </summary>
         Celsius,
+
+        /// <summary>
+        /// Defines the Fahrenheit
+        /// </summary>
         Fahrenheit
     }
-    
+
+    /// <summary>
+    /// Defines the InstrumentClassifications
+    /// </summary>
     public enum InstrumentClassifications
-    {   
+    {
+        /// <summary>
+        /// Defines the A
+        /// </summary>
         A,
+
+        /// <summary>
+        /// Defines the AA
+        /// </summary>
         AA
     }
 

@@ -1,11 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using CalibrationCalculations.IoC.DataTransforms;
+﻿using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.Modifiers;
-using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
-
 
 namespace CalibrationCalculations.Models
 {
@@ -33,6 +30,12 @@ namespace CalibrationCalculations.Models
             seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
+        /// </summary>
+        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
+        /// <param name="actualForce">The actualForce<see cref="double[][]"/></param>
+        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
         public MeasurementApplication(double[] appliedForce, double[][] actualForce, double[][] rawData)
         {
             //TODO add error handling
@@ -83,7 +86,11 @@ namespace CalibrationCalculations.Models
 
             seriesList?.ForEach(series => series.ReorderSeries(modifier));
         }
- 
+
+        /// <summary>
+        /// The RemoveValuesByIndex
+        /// </summary>
+        /// <param name="indexes">The indexes<see cref="IList{int}"/></param>
         public void RemoveValuesByIndex(IList<int> indexes)
         {
             //TODO add error handling
@@ -94,10 +101,14 @@ namespace CalibrationCalculations.Models
             seriesList?.ForEach(series => series.RemoveValuesByIndex(indexes));
         }
 
+        /// <summary>
+        /// The RemoveSeriesByIndex
+        /// </summary>
+        /// <param name="indexes">The indexes<see cref="IList{int}"/></param>
         public void RemoveSeriesByIndex(IList<int> indexes)
         {
             // TODO consider that not including a series is incombant on the client application
-            
+
             //TODO add error handling
 
             if (indexes == null)
@@ -106,11 +117,22 @@ namespace CalibrationCalculations.Models
             seriesList = seriesList.Where((series, index) => !indexes.Contains(index)).ToList();
         }
 
+        /// <summary>
+        /// The Transform
+        /// </summary>
+        /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
+        /// <param name="seriesIndex">The seriesIndex<see cref="int"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public double[] Transform(ITransformToDoubleArray transform, int seriesIndex)
         {
             return seriesList[seriesIndex].Transform(transform);
         }
 
+        /// <summary>
+        /// The Transform
+        /// </summary>
+        /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
+        /// <returns>The <see cref="double[][]"/></returns>
         public double[][] Transform(ITransformToDoubleArray transform)
         {
             //TODO add null check and error handling
@@ -118,13 +140,25 @@ namespace CalibrationCalculations.Models
             return seriesList.Select(series => series.Transform(transform)).ToArray();
         }
 
+        /// <summary>
+        /// The GetDegreeOfBestFittingPolynomial
+        /// </summary>
+        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
+        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
+        /// <returns>The <see cref="int"/></returns>
         public int GetDegreeOfBestFittingPolynomial(double[] appliedForce, params double[][] rawData)
         {
             // TODO add error handling
 
             return DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForce, rawData);
         }
-    
+
+        /// <summary>
+        /// The ApplyTemperatureCorrection
+        /// </summary>
+        /// <param name="ambientTemperature">The ambientTemperature<see cref="double"/></param>
+        /// <param name="standardCalibrationTemperature">The standardCalibrationTemperature<see cref="double"/></param>
+        /// <param name="temperatureCorrectionValuePer1Degree">The temperatureCorrectionValuePer1Degree<see cref="double"/></param>
         public void ApplyTemperatureCorrection(double ambientTemperature, double standardCalibrationTemperature, double temperatureCorrectionValuePer1Degree)
         {
             //TODO add error handling

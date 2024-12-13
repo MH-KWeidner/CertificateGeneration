@@ -10,7 +10,7 @@ namespace CalibrationCalculations.IoC.Modifiers
         /// <summary>
         /// The Reorder
         /// </summary>
-        /// <param name="seriesValues">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
         /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints);
     }

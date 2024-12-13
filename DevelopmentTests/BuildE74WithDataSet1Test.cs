@@ -1,14 +1,14 @@
-using DevelopmentTests.NISTDataSets;
-using DevelopmentTests.TestData.MethodBTestData1;
-using CalibrationCalculations.CertificateCreation;
 using CalibrationCalculations.Common;
+using CalibrationCalculations.Generate;
 using CalibrationCalculations.Helpers;
 using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
-using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.NISTDataSets;
+using DevelopmentTests.TestData.MethodBTestData1;
 
 namespace DevelopmentTests;
 
@@ -62,7 +62,7 @@ public class BuildE74WithDataSet1Test
             (ambientTemperature: configuration.AmbientTemperature,
                 standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
                 temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
-            
+
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
         Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, configuration.DegreeOfBestFit);

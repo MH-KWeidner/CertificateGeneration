@@ -1,15 +1,23 @@
-﻿using System;
+﻿using CalibrationCalculations.Common;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.Common;
 
 namespace CalibrationCalculations.StandardCalculations.Interpolation
 {
+    /// <summary>
+    /// Defines the <see cref="InterpolatorFactory" />
+    /// </summary>
     public static class InterpolatorFactory
     {
+        /// <summary>
+        /// The CreateInterpolator
+        /// </summary>
+        /// <param name="interpolationType">The interpolationType<see cref="InterpolationTypes"/></param>
+        /// <returns>The <see cref="IInterpolate"/></returns>
         public static IInterpolate CreateInterpolator(InterpolationTypes interpolationType)
         {
             return interpolationType switch

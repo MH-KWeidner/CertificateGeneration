@@ -1,15 +1,21 @@
-﻿using DevelopmentTests.TestData.MethodBTestData4;
-using CalibrationCalculations.IoC.DataTransforms;
+﻿using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.Models;
-using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.TestData.MethodBTestData4;
 
 namespace DevelopmentTests
 {
+    /// <summary>
+    /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomialMethodBData4Test" />
+    /// </summary>
     [TestClass]
     public class DetermineDegreeOfBestFittingPolynomialMethodBData4Test
     {
+        /// <summary>
+        /// The DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues
+        /// </summary>
         [TestMethod]
         public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
         {

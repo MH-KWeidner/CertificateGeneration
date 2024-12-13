@@ -1,5 +1,4 @@
-﻿
-namespace CalibrationCalculations
+﻿namespace CalibrationCalculations
 {
     /// <summary>
     /// Defines the <see cref="GlobalUsings" />

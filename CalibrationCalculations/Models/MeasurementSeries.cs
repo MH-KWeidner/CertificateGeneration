@@ -34,6 +34,13 @@ namespace CalibrationCalculations.Models
             measurementPoints.AddRange(appliedForce.Select((force, i) => new NominalMeasurementPoint(force, rawValue[i])));
         }
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
+        /// </summary>
+        /// <param name="seriesId">The seriesId<see cref="int"/></param>
+        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+        /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
+        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
         private MeasurementSeries(int seriesId, double[] nominalForces, double[] actualForces, double[] measurementData)
         {
             seriesId = id;
@@ -74,6 +81,10 @@ namespace CalibrationCalculations.Models
             measurementPoints[index].Value = value;
         }
 
+        /// <summary>
+        /// The RemoveValuesByIndex
+        /// </summary>
+        /// <param name="indexes">The indexes<see cref="IList{int}?"/></param>
         public void RemoveValuesByIndex(IList<int>? indexes)
         {
             //TODO add error handling
@@ -95,20 +106,25 @@ namespace CalibrationCalculations.Models
             //TODO add error handling
 
             return measurementPoints[index].Value;
-
-            // TODO is this needed: throw new Exception("Value is null");
         }
 
-        
+        /// <summary>
+        /// The GetEnumerable
+        /// </summary>
+        /// <returns>The <see cref="IEnumerable{IMeasurementPoint}"/></returns>
         public IEnumerable<IMeasurementPoint> GetEnumerable()
         {
             // TODO revisit this as it may expose the internal list
             return measurementPoints;
         }
 
+        /// <summary>
+        /// The IncreaseValuesByAdd
+        /// </summary>
+        /// <param name="valueToAdd">The valueToAdd<see cref="double"/></param>
         public void IncreaseValuesByAdd(double valueToAdd)
         {
-            if(valueToAdd == 0)
+            if (valueToAdd == 0)
                 return;
 
             // TODO add error handling  
@@ -179,13 +195,14 @@ namespace CalibrationCalculations.Models
         /// The Interpolate
         /// </summary>
         /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
+        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
         public static void Interpolate(IInterpolate interpolator, MeasurementSeries series)
         {
             interpolator.Interpolate(series);
         }
 
         /// <summary>
-        /// Creates a MeasurementSeries object populated with the provided data.
+        /// Creates a MeasurementSeries object populated with the provided data
         /// </summary>
         /// <param name="id">The id<see cref="int"/></param>
         /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
@@ -200,6 +217,14 @@ namespace CalibrationCalculations.Models
             return new MeasurementSeries(id, nominalForces, measurementData);
         }
 
+        /// <summary>
+        /// The Create
+        /// </summary>
+        /// <param name="id">The id<see cref="int"/></param>
+        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+        /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
+        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
+        /// <returns>The <see cref="MeasurementSeries"/></returns>
         public static MeasurementSeries Create(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
         {
             //TODO condider removing the Id property

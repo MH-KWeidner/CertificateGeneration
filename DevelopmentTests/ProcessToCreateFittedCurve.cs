@@ -1,12 +1,12 @@
-using DevelopmentTests.TestData.MethodBTestData1;
-using CalibrationCalculations.CertificateCreation;
 using CalibrationCalculations.Common;
+using CalibrationCalculations.Generate;
 using CalibrationCalculations.Helpers;
 using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.TestData.MethodBTestData1;
 
 namespace DevelopmentTests;
 
@@ -59,8 +59,6 @@ public class ProcessToCreateFittedCurve
         List<double> fittedCurve = [];
         foreach (double force in appliedForces)
             fittedCurve.Add(StatisticsMath.EvaluateCoefficients(polynomials, force));
-
-
 
         // Assert
 

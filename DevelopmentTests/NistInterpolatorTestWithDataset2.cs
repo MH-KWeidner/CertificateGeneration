@@ -1,8 +1,7 @@
-﻿using DevelopmentTests.TestData.MethodBTestData2;
-using MathNet.Numerics;
-using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.IoC.Modifiers;
+﻿using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.TestData.MethodBTestData2;
 
 namespace DevelopmentTests
 {

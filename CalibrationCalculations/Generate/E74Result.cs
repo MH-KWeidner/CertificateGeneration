@@ -1,19 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CalibrationCalculations.CertificateCreation
+﻿namespace CalibrationCalculations.Generate
 {
+    /// <summary>
+    /// Defines the <see cref="E74Result" />
+    /// </summary>
     public class E74Result
     {
+        /// <summary>
+        /// Gets or sets the DegreeOfBestFit
+        /// </summary>
         public int DegreeOfBestFit { get; set; }
-        
-        double[]? ACoefficients { get; set; }
 
-        double[]? FittedCurve { get; set; }
+        /// <summary>
+        /// Gets or sets the ACoefficients
+        /// </summary>
+        internal double[]? ACoefficients { get; set; }
 
-        double[]? interpolatedForces { get; set; }
+        /// <summary>
+        /// Gets or sets the FittedCurve
+        /// </summary>
+        internal double[]? FittedCurve { get; set; }
 
-        double[][]? interpolatedMeasurements { get; set; }
+        /// <summary>
+        /// Gets or sets the interpolatedForces
+        /// </summary>
+        internal double[]? interpolatedForces { get; set; }
+
+        /// <summary>
+        /// Gets or sets the interpolatedMeasurements
+        /// </summary>
+        internal double[][]? interpolatedMeasurements { get; set; }
     }
 }

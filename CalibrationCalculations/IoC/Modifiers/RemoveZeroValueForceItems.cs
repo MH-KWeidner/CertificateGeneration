@@ -1,5 +1,4 @@
-﻿using CalibrationCalculations.IoC.Modifiers;
-using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.IoC.Modifiers
 {

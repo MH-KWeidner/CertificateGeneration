@@ -11,21 +11,75 @@ namespace DevelopmentTests.NISTDataSets
 {
     using System;
     using System.Collections.Generic;
-    
+
+    /// <summary>
+    /// Defines the <see cref="Standard" />
+    /// </summary>
     public class Standard
     {
+        /// <summary>
+        /// Gets or sets the StandardID
+        /// </summary>
         public long StandardID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Description
+        /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SerialNumber
+        /// </summary>
         public string SerialNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MaxCapacity
+        /// </summary>
         public Nullable<decimal> MaxCapacity { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Nist
+        /// </summary>
         public string Nist { get; set; }
+
+        /// <summary>
+        /// Gets or sets the StandardTypeID
+        /// </summary>
         public Nullable<long> StandardTypeID { get; set; }
+
+        /// <summary>
+        /// Gets or sets the ModelNumber
+        /// </summary>
         public string ModelNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the MaxUncertainty
+        /// </summary>
         public Nullable<decimal> MaxUncertainty { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CertDescription
+        /// </summary>
         public string CertDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the DateCalibrated
+        /// </summary>
         public Nullable<System.DateTime> DateCalibrated { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CalibrationDueDate
+        /// </summary>
         public Nullable<System.DateTime> CalibrationDueDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Slope
+        /// </summary>
         public Nullable<decimal> Slope { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Intercept
+        /// </summary>
         public Nullable<decimal> Intercept { get; set; }
     }
 }

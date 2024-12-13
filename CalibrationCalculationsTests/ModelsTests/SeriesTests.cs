@@ -27,8 +27,8 @@ public class SeriesTests
     {
         // Arrange
         int seriesId = 1;
-        double[] appliedForces = [ 10.0, 20.0, 30.0 ];
-        double[] values = [ 1.0, 2.0, 3.0 ];
+        double[] appliedForces = [10.0, 20.0, 30.0];
+        double[] values = [1.0, 2.0, 3.0];
         double[] result = [6.0, 7.0, 8.0];
         double valueToAdd = 5.0;
         MeasurementSeries series = MeasurementSeries.Create(seriesId, appliedForces, values);

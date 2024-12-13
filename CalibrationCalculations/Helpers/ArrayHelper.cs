@@ -47,7 +47,7 @@
             const int RANGE_START = 0;
 
             const int ARRAY_FOR_LENGTH_REFERENCE = 0;
-            
+
             return Enumerable.Range(RANGE_START, dataArrays[ARRAY_FOR_LENGTH_REFERENCE].Length)
                              .Select(i => dataArrays.Average(array => array[i]))
                              .ToArray();

@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CalibrationCalculations.CertificateCreation;
-using CalibrationCalculations.IoC.DataTransforms;
+﻿using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CalibrationCalculations.CertificateCreation
+namespace CalibrationCalculations.Generate
 {
+    /// <summary>
+    /// Defines the <see cref="E74Calculator" />
+    /// </summary>
     static public class E74Calculator
     {
-        const int REFERENCE_SERIES_FOR_FORCE = 0;
+        /// <summary>
+        /// Defines the REFERENCE_SERIES_FOR_FORCE
+        /// </summary>
+        internal const int REFERENCE_SERIES_FOR_FORCE = 0;
 
+        /// <summary>
+        /// The Build
+        /// </summary>
+        /// <param name="configuration">The configuration<see cref="E74Configuration"/></param>
+        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
+        /// <param name="measurementData">The measurementData<see cref="double[][]"/></param>
+        /// <returns>The <see cref="E74Result"/></returns>
         static public E74Result Build(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
         {
             MeasurementApplication application = new(appliedForces, measurementData);
@@ -35,9 +44,9 @@ namespace CalibrationCalculations.CertificateCreation
                     standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
                     temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
 
-            if(configuration.ApplyNominalForceCorrection)
+            if (configuration.ApplyNominalForceCorrection)
             {
-                
+
             }
 
             return new E74Result();

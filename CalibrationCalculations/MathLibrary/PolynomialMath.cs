@@ -66,6 +66,13 @@ namespace CalibrationCalculations.MathLibrary
             return result;
         }
 
+        /// <summary>
+        /// The GetCoefficientsOfLeastSquaresFit
+        /// </summary>
+        /// <param name="xs">The xs<see cref="double[]"/></param>
+        /// <param name="ys">The ys<see cref="double[]"/></param>
+        /// <param name="degree">The degree<see cref="int"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetCoefficientsOfLeastSquaresFit(double[] xs, double[] ys, int degree)
         {
             // TODO add error handling
@@ -73,10 +80,16 @@ namespace CalibrationCalculations.MathLibrary
             return Fit.Polynomial(xs, ys, degree);
         }
 
+        /// <summary>
+        /// The GetCoefficientsOfLeastSquaresLine
+        /// </summary>
+        /// <param name="xs">The xs<see cref="double[]"/></param>
+        /// <param name="ys">The ys<see cref="double[]"/></param>
+        /// <returns>The <see cref="double[]"/></returns>
         public static double[] GetCoefficientsOfLeastSquaresLine(double[] xs, double[] ys)
         {
             // TODO verify that this is needed
-            
+
             // TODO add error handling
 
             //TODO better naming            

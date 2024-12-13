@@ -1,12 +1,19 @@
-﻿using System;
+﻿using CalibrationCalculations.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.StandardCalculations.Nominalization
 {
+    /// <summary>
+    /// Defines the <see cref="NormalizeMeasurementPoints" />
+    /// </summary>
     public static class NormalizeMeasurementPoints
     {
+        /// <summary>
+        /// The Nominalize
+        /// </summary>
+        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
         public static void Nominalize(MeasurementSeries series)
         {
             foreach (IMeasurementPoint mp in series.GetEnumerable())
@@ -21,7 +28,6 @@ namespace CalibrationCalculations.StandardCalculations.Nominalization
                     continue;
 
                 double nominalValue = amp.AppliedForce * amp.Value / amp.ActualAppliedForce;
-
 
                 // verify if this is correct to do
                 amp.Value = nominalValue;

@@ -1,8 +1,7 @@
-using DevelopmentTests.InitialZeroDataSets;
-using MathNet.Numerics;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.InitialZeroDataSets;
 
 namespace DevelopmentTests;
 

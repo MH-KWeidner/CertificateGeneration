@@ -34,7 +34,6 @@ namespace CalibrationCalculationsTests.MathLibTests
             /// <summary>
             /// The FitPolynomialToLeastSquares_InvalidInput_ThrowsException
             /// </summary>
-            // [Ignore]
             [TestMethod]
             public void FitPolynomialToLeastSquares_InvalidInput_ThrowsException()
             {
@@ -55,7 +54,7 @@ namespace CalibrationCalculationsTests.MathLibTests
             public void GetMean_ValidInput_ReturnsExpectedValue()
             {
                 // Arrange
-                double[] x = [ 10, 20, 30 ];
+                double[] x = [10, 20, 30];
 
                 // Act
                 double result = StatisticsMath.CalculateMean(x);
@@ -76,7 +75,7 @@ namespace CalibrationCalculationsTests.MathLibTests
                 // TODO fix this test
 
                 // Arrange
-                double[] x = [ double.NaN, 20, 30 ];
+                double[] x = [double.NaN, 20, 30];
 
                 // Act
                 double result = StatisticsMath.CalculateMean(x);

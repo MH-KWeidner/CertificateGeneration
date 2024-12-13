@@ -1,5 +1,4 @@
-﻿using CalibrationCalculations.IoC.Modifiers;
-using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.IoC.Modifiers
 {
@@ -11,7 +10,7 @@ namespace CalibrationCalculations.IoC.Modifiers
         /// <summary>
         /// The Reorder
         /// </summary>
-        /// <param name="IMeasurementPoint">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
         /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {

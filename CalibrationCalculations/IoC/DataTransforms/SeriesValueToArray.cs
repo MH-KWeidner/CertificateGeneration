@@ -1,5 +1,4 @@
-﻿using CalibrationCalculations.IoC.DataTransforms;
-using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.IoC.DataTransforms
 {

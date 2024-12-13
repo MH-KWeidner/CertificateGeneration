@@ -1,5 +1,5 @@
-using CalibrationCalculations.CertificateCreation;
 using CalibrationCalculations.Common;
+using CalibrationCalculations.Generate;
 
 namespace DevelopmentTests;
 
@@ -24,7 +24,6 @@ public class E74BuilderWithDataSet1Test
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);
-
 
     }
 }

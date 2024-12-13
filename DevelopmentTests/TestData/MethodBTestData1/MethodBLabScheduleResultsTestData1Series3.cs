@@ -1,13 +1,11 @@
 ﻿using DevelopmentTests.NISTDataSets;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DevelopmentTests.TestData.MethodBTestData1
 {
+    /// <summary>
+    /// Defines the <see cref="MethodBLabScheduleResultsTestData1Series3" />
+    /// </summary>
     public class MethodBLabScheduleResultsTestData1Series3
     {
         // CALIBRATION & ISSUE DATE: 07/01/2024
@@ -15,6 +13,9 @@ namespace DevelopmentTests.TestData.MethodBTestData1
 
         // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 3
 
+        /// <summary>
+        /// Defines the dataList
+        /// </summary>
         public static List<SingleRunPoint> dataList =
         [
             new SingleRunPoint
@@ -535,6 +536,5 @@ namespace DevelopmentTests.TestData.MethodBTestData1
             }
         }
         ];
-
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Security.Cryptography;
-using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.StandardCalculations.Interpolation
 {
@@ -117,6 +115,11 @@ namespace CalibrationCalculations.StandardCalculations.Interpolation
             }
         }
 
+        /// <summary>
+        /// The GetZeroAppliedForcePositions
+        /// </summary>
+        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+        /// <returns>The <see cref="IList{int}"/></returns>
         public IList<int> GetZeroAppliedForcePositions(MeasurementSeries series)
         {
             // TODO add null check and error handling

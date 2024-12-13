@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CalibrationCalculations.Models;
-
-namespace CalibrationCalculations.Models
+﻿namespace CalibrationCalculations.Models
 {
+    /// <summary>
+    /// Defines the <see cref="AbstractMeasurementPoint" />
+    /// </summary>
     public abstract class AbstractMeasurementPoint : IMeasurementPoint
     {
         /// <summary>
@@ -23,7 +21,7 @@ namespace CalibrationCalculations.Models
         public double Value { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IMeasurementPoint"/> class.
+        /// Initializes a new instance of the <see cref="AbstractMeasurementPoint"/> class.
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double"/></param>
         /// <param name="rawValue">The rawValue<see cref="double"/></param>

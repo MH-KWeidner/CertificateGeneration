@@ -1,9 +1,8 @@
-using DevelopmentTests.NISTDataSets;
-using static System.Net.Mime.MediaTypeNames;
-using DevelopmentTests.TestData.MethodBTestData1;
 using CalibrationCalculations.IoC.Modifiers;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using DevelopmentTests.NISTDataSets;
+using DevelopmentTests.TestData.MethodBTestData1;
 
 namespace DevelopmentTests
 {
@@ -65,7 +64,6 @@ namespace DevelopmentTests
 
             for (int i = 0; i < series3.Count(); i++)
                 Assert.AreEqual(Math.Round(series3.GetValue(i), ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
-        
         }
     }
 }
