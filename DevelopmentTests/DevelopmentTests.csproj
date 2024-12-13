@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CertificateGeneration\CertificateGeneration.csproj" />
+    <ProjectReference Include="..\CalibrationCalculations\CalibrationCalculations.csproj" />
   </ItemGroup>
 
   <ItemGroup>
