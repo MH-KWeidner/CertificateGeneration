@@ -20,7 +20,7 @@ public class E74BuilderWithDataSet1Test
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 0.0,
             ApplyTemperatureCorrection = false,
-            SelectedDegreeOfFit = DegreeOfFitTypes.CalculatedDegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);

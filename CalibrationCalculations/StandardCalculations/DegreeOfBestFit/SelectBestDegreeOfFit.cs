@@ -23,7 +23,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
                 DegreeOfFitTypes.Three => 3,
                 DegreeOfFitTypes.Four => 4,
                 DegreeOfFitTypes.Five => 5,
-                DegreeOfFitTypes.CalculatedDegreeOfBestFit => DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForces, valuesForAllSeries),
+                DegreeOfFitTypes.UseCalculatedDegreeOfBestFit => DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForces, valuesForAllSeries),
                 _ => throw new ArgumentOutOfRangeException(nameof(degreeOfFitType), degreeOfFitType, "SelectBestDegreeOfFit Invalid DegreeOfFitType")
             };
         }

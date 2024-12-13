@@ -13,11 +13,6 @@ namespace CalibrationCalculations.Generate
         private readonly IList<int> transientForceMeasurementsByIndex = [];
 
         /// <summary>
-        /// Defines the excludedSeriesByIndex
-        /// </summary>
-        private readonly IList<int> excludedSeriesByIndex = [];
-
-        /// <summary>
         /// Gets or sets the InterpolationType
         /// </summary>
         public InterpolationTypes InterpolationType { get; set; }
@@ -78,15 +73,5 @@ namespace CalibrationCalculations.Generate
         /// <param name="index">The index<see cref="int"/></param>
         public void AddTransientForceMeasurementsByIndex(int index) => transientForceMeasurementsByIndex.Add(index);
 
-        /// <summary>
-        /// Gets the ExcludedSeriesByIndex
-        /// </summary>
-        public IList<int> ExcludedSeriesByIndex => excludedSeriesByIndex;
-
-        /// <summary>
-        /// The AddExcludedSeriesByIndex
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        public void AddExcludedSeriesByIndex(int index) => excludedSeriesByIndex.Add(index);
     }
 }

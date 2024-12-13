@@ -14,6 +14,7 @@
         /// Defines the MethodB
         /// </summary>
         MethodB// NIST Interpolation    }
+    }
 
     /// <summary>
     /// Defines the DegreeOfFitTypes
@@ -46,9 +47,9 @@
         Five,
 
         /// <summary>
-        /// Defines the CalculatedDegreeOfBestFit
+        /// Defines the UseCalculatedDegreeOfBestFit
         /// </summary>
-        CalculatedDegreeOfBestFit
+        UseCalculatedDegreeOfBestFit
     }
 
     /// <summary>

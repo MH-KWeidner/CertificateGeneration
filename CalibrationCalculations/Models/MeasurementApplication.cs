@@ -102,22 +102,6 @@ namespace CalibrationCalculations.Models
         }
 
         /// <summary>
-        /// The RemoveSeriesByIndex
-        /// </summary>
-        /// <param name="indexes">The indexes<see cref="IList{int}"/></param>
-        public void RemoveSeriesByIndex(IList<int> indexes)
-        {
-            // TODO consider that not including a series is incombant on the client application
-
-            //TODO add error handling
-
-            if (indexes == null)
-                return;
-
-            seriesList = seriesList.Where((series, index) => !indexes.Contains(index)).ToList();
-        }
-
-        /// <summary>
         /// The Transform
         /// </summary>
         /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
