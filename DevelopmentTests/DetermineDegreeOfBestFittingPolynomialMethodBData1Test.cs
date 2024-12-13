@@ -1,9 +1,9 @@
-using CertificateGeneration.Models;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
 using DevelopmentTests.TestData.MethodBTestData1;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 
 namespace DevelopmentTests
 {
@@ -21,7 +21,7 @@ namespace DevelopmentTests
             MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData1.GetRawDataSeries3());
 
             // Act
-            IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CertificateGeneration.Common.InterpolationTypes.MethodB);
+            IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CalibrationCalculations.Common.InterpolationTypes.MethodB);
             MeasurementSeries.Interpolate(interpolator, series1);
             MeasurementSeries.Interpolate(interpolator, series2);
             MeasurementSeries.Interpolate(interpolator, series3);

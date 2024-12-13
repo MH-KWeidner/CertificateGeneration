@@ -1,5 +1,5 @@
-using CertificateGeneration.CertificateCreation;
-using CertificateGeneration.Common;
+using CalibrationCalculations.CertificateCreation;
+using CalibrationCalculations.Common;
 
 namespace DevelopmentTests;
 
@@ -14,7 +14,7 @@ public class E74BuilderWithDataSet1Test
         // REPORT NO.: U-7989G0124
 
         // Arrange
-        E74CertificateConfiguration configuration = new()
+        E74Configuration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,

@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.Models;
-using CertificateGeneration.CertificateCalculations.Interpolation;
+﻿using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CertificateGenerationTests.InterpolationTests
+namespace CalibrationCalculationsTests.InterpolationTests
 {
     /// <summary>
     /// Defines the <see cref="InitialZeroValueInterpolatorTests" />

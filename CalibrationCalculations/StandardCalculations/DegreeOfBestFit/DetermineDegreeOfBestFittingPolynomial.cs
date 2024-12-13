@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.Helpers;
-using CertificateGeneration.MathLibrary;
+﻿using CalibrationCalculations.Helpers;
+using CalibrationCalculations.MathLibrary;
 
-namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
+namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 {
     /// <summary>
     /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomial" />
@@ -54,8 +54,8 @@ namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
                     continue;
 
                 // A1.5 Compute s4 /s5 and compare it to C(n1, 5)
-                if ((currentResidualStandardDeviation / previousResidualStandardDeviation) > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i-1]))
-                    return degreesOfFitDecending[i-1];
+                if (currentResidualStandardDeviation / previousResidualStandardDeviation > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i - 1]))
+                    return degreesOfFitDecending[i - 1];
             }
 
             // TODO: how to handle case if best fit cannot be determined

@@ -1,8 +1,8 @@
-﻿using CertificateGeneration.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Security.Cryptography;
+using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.CertificateCalculations.Interpolation
+namespace CalibrationCalculations.StandardCalculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolator" />
@@ -17,7 +17,7 @@ namespace CertificateGeneration.CertificateCalculations.Interpolation
         {
             if (series == null)
                 return;
-            
+
             // Get positions of zero force values in the series
             IList<int> zeroForcePositions = GetZeroAppliedForcePositions(series);
 

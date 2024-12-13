@@ -1,6 +1,6 @@
-using CertificateGeneration.Models;
+using CalibrationCalculations.Models;
 
-namespace CertificateGenerationTests.ModelsTests;
+namespace CalibrationCalculationsTests.ModelsTests;
 
 [TestClass]
 public class SeriesTests

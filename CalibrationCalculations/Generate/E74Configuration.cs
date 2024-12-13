@@ -1,13 +1,13 @@
-﻿using CertificateGeneration.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalibrationCalculations.Common;
 
-namespace CertificateGeneration.CertificateCreation
+namespace CalibrationCalculations.CertificateCreation
 {
-    public class E74CertificateConfiguration
+    public class E74Configuration
     {
         private readonly IList<int> transientForceMeasurementsByIndex = [];
 

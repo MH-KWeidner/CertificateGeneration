@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using CertificateGeneration.Models;
+using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.CertificateCalculations.Nominalization
+namespace CalibrationCalculations.StandardCalculations.Nominalization
 {
     public static class NormalizeMeasurementPoints
     {

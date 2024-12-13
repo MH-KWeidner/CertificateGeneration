@@ -1,12 +1,12 @@
-﻿using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.Common;
 
-namespace CertificateGeneration.CertificateCalculations.Interpolation
+namespace CalibrationCalculations.StandardCalculations.Interpolation
 {
     public static class InterpolatorFactory
     {

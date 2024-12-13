@@ -1,7 +1,7 @@
-using CertificateGeneration.Models;
-using CertificateGeneration.IoC.DataTransforms;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.Models;
 
-namespace CertificateGenerationTests.IoC.DataTransforms
+namespace CalibrationCalculationsTests.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="DataTransformTests" />

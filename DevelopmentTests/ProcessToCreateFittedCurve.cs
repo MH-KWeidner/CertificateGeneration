@@ -1,12 +1,12 @@
-using CertificateGeneration.Models;
-using CertificateGeneration.MathLibrary;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.CertificateCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData1;
-using CertificateGeneration.CertificateCreation;
-using CertificateGeneration.Common;
-using CertificateGeneration.Helpers;
+using CalibrationCalculations.CertificateCreation;
+using CalibrationCalculations.Common;
+using CalibrationCalculations.Helpers;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.MathLibrary;
+using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
 namespace DevelopmentTests;
 
@@ -20,7 +20,7 @@ public class ProcessToCreateFittedCurve
         // Test the process to create a fitted curve using MethodBNistTestData1
 
         // Arrange
-        E74CertificateConfiguration configuration = new()
+        E74Configuration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,

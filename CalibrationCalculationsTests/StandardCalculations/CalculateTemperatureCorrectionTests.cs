@@ -1,6 +1,6 @@
-using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
+using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
 
-namespace CertificateGenerationTests.CertificateCalculations;
+namespace CalibrationCalculationsTests.StandardCalculations;
 
 [TestClass]
 public class CalculateTemperatureCorrectionTests

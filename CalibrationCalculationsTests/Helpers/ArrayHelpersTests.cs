@@ -1,6 +1,6 @@
-using CertificateGeneration.Helpers;
+using CalibrationCalculations.Helpers;
 
-namespace CertificateGenerationTests.Helpers;
+namespace CalibrationCalculationsTests.Helpers;
 
 [TestClass]
 public class ArrayHelpersTests

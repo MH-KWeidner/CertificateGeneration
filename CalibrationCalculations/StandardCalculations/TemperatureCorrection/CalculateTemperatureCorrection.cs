@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CertificateGeneration.CertificateCalculations.TemperatureCorrection
+namespace CalibrationCalculations.StandardCalculations.TemperatureCorrection
 {
     public static class CalculateTemperatureCorrection
     {

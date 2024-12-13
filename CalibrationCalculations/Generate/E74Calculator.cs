@@ -1,19 +1,20 @@
-﻿using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
-using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CalibrationCalculations.CertificateCreation;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CertificateGeneration.CertificateCreation
+namespace CalibrationCalculations.CertificateCreation
 {
-    static public class E74CertificateBuilder
+    static public class E74Calculator
     {
         const int REFERENCE_SERIES_FOR_FORCE = 0;
 
-        static public E74CertificateResult Build(E74CertificateConfiguration configuration, double[] appliedForces, params double[][] measurementData)
+        static public E74Result Build(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
         {
             MeasurementApplication application = new(appliedForces, measurementData);
 
@@ -39,7 +40,7 @@ namespace CertificateGeneration.CertificateCreation
                 
             }
 
-            return new E74CertificateResult();
+            return new E74Result();
         }
     }
 }

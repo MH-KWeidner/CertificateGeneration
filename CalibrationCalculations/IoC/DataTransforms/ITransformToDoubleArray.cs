@@ -1,6 +1,6 @@
-﻿using CertificateGeneration.Models;
+﻿using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.IoC.DataTransforms
+namespace CalibrationCalculations.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="ITransformToDoubleArray" />

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CertificateGeneration.CertificateCreation
+namespace CalibrationCalculations.CertificateCreation
 {
-    public class E74CertificateResult
+    public class E74Result
     {
         public int DegreeOfBestFit { get; set; }
         

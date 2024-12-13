@@ -1,4 +1,4 @@
-﻿namespace CertificateGeneration.Models
+﻿namespace CalibrationCalculations.Models
 {
     public interface IMeasurementPoint
     {

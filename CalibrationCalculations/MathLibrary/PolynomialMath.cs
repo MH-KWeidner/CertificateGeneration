@@ -1,6 +1,6 @@
 ﻿using MathNet.Numerics;
 
-namespace CertificateGeneration.MathLibrary
+namespace CalibrationCalculations.MathLibrary
 {
     /// <summary>
     /// Defines the <see cref="PolynomialMath" />

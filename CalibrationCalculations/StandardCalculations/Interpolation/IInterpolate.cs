@@ -1,6 +1,6 @@
-﻿using CertificateGeneration.Models;
+﻿using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.CertificateCalculations.Interpolation
+namespace CalibrationCalculations.StandardCalculations.Interpolation
 {
     /// <summary>
     /// Defines the <see cref="IInterpolate" />

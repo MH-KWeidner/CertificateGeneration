@@ -1,7 +1,7 @@
-﻿using CertificateGeneration.Models;
-using CertificateGeneration.IoC.DataTransforms;
+﻿using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.IoC.DataTransforms
+namespace CalibrationCalculations.IoC.DataTransforms
 {
     /// <summary>
     /// Defines the <see cref="AppliedForceToArray" />

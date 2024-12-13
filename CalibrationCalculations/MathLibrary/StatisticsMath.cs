@@ -2,7 +2,7 @@
 using MathNet.Numerics.Distributions;
 using MathNet.Numerics.Statistics;
 
-namespace CertificateGeneration.MathLibrary
+namespace CalibrationCalculations.MathLibrary
 {
     /// <summary>
     /// Defines the <see cref="StatisticsMath" />

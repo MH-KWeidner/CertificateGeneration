@@ -1,4 +1,6 @@
-﻿namespace CertificateGeneration.Models
+﻿using CalibrationCalculations.Models;
+
+namespace CalibrationCalculations.Models
 {
     /// <summary>
     /// Defines the <see cref="IMeasurementPoint" />

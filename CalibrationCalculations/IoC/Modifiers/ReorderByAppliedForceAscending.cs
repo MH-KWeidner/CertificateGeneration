@@ -1,6 +1,7 @@
-﻿using CertificateGeneration.Models;
+﻿using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.IoC.Modifiers
+namespace CalibrationCalculations.IoC.Modifiers
 {
     /// <summary>
     /// Defines the <see cref="RereorderByAppliedForceAscending" />

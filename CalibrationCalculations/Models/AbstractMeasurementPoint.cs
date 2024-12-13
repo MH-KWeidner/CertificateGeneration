@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.Models
+namespace CalibrationCalculations.Models
 {
     public abstract class AbstractMeasurementPoint : IMeasurementPoint
     {

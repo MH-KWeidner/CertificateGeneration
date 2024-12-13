@@ -1,14 +1,14 @@
-using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
-using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.CertificateCreation;
-using CertificateGeneration.Common;
-using CertificateGeneration.Helpers;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.MathLibrary;
-using CertificateGeneration.Models;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
+using CalibrationCalculations.CertificateCreation;
+using CalibrationCalculations.Common;
+using CalibrationCalculations.Helpers;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.MathLibrary;
+using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 
 namespace DevelopmentTests;
 
@@ -23,7 +23,7 @@ public class BuildE74WithDataSet1Test
         // REPORT NO.: U-7989G0124
 
         // Arrange
-        E74CertificateConfiguration configuration = new()
+        E74Configuration configuration = new()
         {
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,

@@ -1,6 +1,5 @@
-﻿global using CertificateGeneration.Common;
-
-namespace CertificateGeneration
+﻿
+namespace CalibrationCalculations
 {
     /// <summary>
     /// Defines the <see cref="GlobalUsings" />

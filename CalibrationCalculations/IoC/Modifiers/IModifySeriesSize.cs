@@ -1,6 +1,6 @@
-﻿using CertificateGeneration.Models;
+﻿using CalibrationCalculations.Models;
 
-namespace CertificateGeneration.IoC.Modifiers
+namespace CalibrationCalculations.IoC.Modifiers
 {
     /// <summary>
     /// Classes that implement this interface will modify the size of a list of SeriesValues

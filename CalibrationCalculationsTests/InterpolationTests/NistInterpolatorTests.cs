@@ -1,6 +1,6 @@
-using CertificateGeneration.CertificateCalculations.Interpolation;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CertificateGenerationTests.InterpolationTests
+namespace CalibrationCalculationsTests.InterpolationTests
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolatorTests" />

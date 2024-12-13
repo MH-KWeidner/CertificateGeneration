@@ -1,9 +1,8 @@
-﻿using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
+﻿using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CertificateGeneration.Models
+namespace CalibrationCalculations.Models
 {
     /// <summary>
     /// Defines the <see cref="MeasurementSeries" />

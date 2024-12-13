@@ -1,12 +1,13 @@
-﻿using CertificateGeneration.CertificateCalculations.Interpolation;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.CertificateCalculations.DegreeOfBestFit;
-using CertificateGeneration.IoC.DataTransforms;
-using CertificateGeneration.CertificateCalculations.TemperatureCorrection;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
+using CalibrationCalculations.IoC.DataTransforms;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.Models;
+using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
 
 
-namespace CertificateGeneration.Models
+namespace CalibrationCalculations.Models
 {
     /// <summary>
     /// Defines the <see cref="MeasurementApplication" />

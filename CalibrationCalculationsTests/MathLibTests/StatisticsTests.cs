@@ -1,8 +1,6 @@
-﻿using CertificateGeneration.MathLibrary;
-using MathNet.Numerics.Statistics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using CalibrationCalculations.MathLibrary;
 
-namespace CertificateGenerationTests.MathLibTests
+namespace CalibrationCalculationsTests.MathLibTests
 {
     namespace MathLib.Tests
     {

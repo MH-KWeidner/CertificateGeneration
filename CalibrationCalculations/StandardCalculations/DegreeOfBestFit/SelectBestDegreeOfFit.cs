@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CalibrationCalculations.Common;
 
-namespace CertificateGeneration.CertificateCalculations.DegreeOfBestFit
+namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 {
     static public class SelectBestDegreeOfFit
     {

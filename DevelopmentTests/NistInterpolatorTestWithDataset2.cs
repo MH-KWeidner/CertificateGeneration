@@ -1,8 +1,8 @@
-﻿using CertificateGeneration.Models;
-using CertificateGeneration.IoC.Modifiers;
-using CertificateGeneration.CertificateCalculations.Interpolation;
-using DevelopmentTests.TestData.MethodBTestData2;
+﻿using DevelopmentTests.TestData.MethodBTestData2;
 using MathNet.Numerics;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.Models;
 
 namespace DevelopmentTests
 {

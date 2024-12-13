@@ -1,4 +1,4 @@
-﻿namespace CertificateGeneration.Helpers
+﻿namespace CalibrationCalculations.Helpers
 {
     /// <summary>
     /// Defines the <see cref="ArrayHelper" />
