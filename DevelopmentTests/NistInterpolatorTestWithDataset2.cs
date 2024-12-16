@@ -1,5 +1,6 @@
-﻿using CalibrationCalculations.IoC.Modifiers;
-using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Models;
+using CalibrationCalculations.IoC.ModifySeriesSize;
+using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData2;
 

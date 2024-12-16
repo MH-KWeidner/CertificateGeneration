@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.Modifiers
+namespace CalibrationCalculations.IoC.ReorderSeries
 {
     /// <summary>
     /// Defines the <see cref="RereorderByAppliedForceAscending" />

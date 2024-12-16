@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.Modifiers
+namespace CalibrationCalculations.IoC.ModifySeriesSize
 {
     /// <summary>
     /// Classes that implement this interface will modify the size of a list of SeriesValues

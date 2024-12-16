@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.Modifiers
+namespace CalibrationCalculations.IoC.ModifySeriesSize
 {
     /// <summary>
     /// Removes all SeriesValue items having zero force applied

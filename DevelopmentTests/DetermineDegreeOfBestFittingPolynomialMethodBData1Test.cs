@@ -1,5 +1,6 @@
 using CalibrationCalculations.IoC.DataTransforms;
-using CalibrationCalculations.IoC.Modifiers;
+using CalibrationCalculations.IoC.ModifySeriesSize;
+using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
