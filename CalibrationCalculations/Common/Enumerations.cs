@@ -8,12 +8,12 @@
         /// <summary>
         /// Defines the MethodA
         /// </summary>
-        MethodA, // Initial Zero Value
+        MethodA = 0, // Initial Zero Value
 
         /// <summary>
         /// Defines the MethodB
         /// </summary>
-        MethodB// NIST Interpolation    }
+        MethodB = 1 // NIST Interpolation
     }
 
     /// <summary>
@@ -21,35 +21,35 @@
     /// </summary>
     public enum DegreeOfFitTypes
     {
+        // <summary>
+        /// Defines the UseCalculatedDegreeOfBestFit
+        /// </summary>
+        UseCalculatedDegreeOfBestFit = 0,
+
         /// <summary>
         /// Defines the One
         /// </summary>
-        One,
+        One = 1,
 
         /// <summary>
         /// Defines the Two
         /// </summary>
-        Two,
+        Two = 2,
 
         /// <summary>
         /// Defines the Three
         /// </summary>
-        Three,
+        Three = 3,
 
         /// <summary>
         /// Defines the Four
         /// </summary>
-        Four,
+        Four = 4,
 
         /// <summary>
         /// Defines the Five
         /// </summary>
-        Five,
-
-        /// <summary>
-        /// Defines the UseCalculatedDegreeOfBestFit
-        /// </summary>
-        UseCalculatedDegreeOfBestFit
+        Five = 5
     }
 
     /// <summary>
@@ -60,12 +60,12 @@
         /// <summary>
         /// Defines the Celsius
         /// </summary>
-        Celsius,
+        Celsius = 0,
 
         /// <summary>
         /// Defines the Fahrenheit
         /// </summary>
-        Fahrenheit
+        Fahrenheit = 1
     }
 
     /// <summary>
@@ -76,12 +76,11 @@
         /// <summary>
         /// Defines the A
         /// </summary>
-        A,
+        A = 0,
 
         /// <summary>
         /// Defines the AA
         /// </summary>
-        AA
+        AA = 1
     }
-
 }
