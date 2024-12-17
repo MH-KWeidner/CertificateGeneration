@@ -47,15 +47,17 @@ public class BuildE74WithDataSet1Test
         application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
         application.ModifySeriesSize(new RemoveZeroValueForceItems());
         
-        application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
+        if(configuration.InterpolatedReorderType != ReorderTypes.DoNotReorder)
+            application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
         double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
         double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
 
-        // TODO verify if UseCalculatedDegreeOfBestFit always needs to be calculated.
+        
+        // TODO consider if called method should be refactored in some way
         configuration.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, appliedForces, valuesForAllSeries);
-
+        
         const int EXPECTED_DEGREE_OF_BEST_FIT = 4;
         Assert.AreEqual(EXPECTED_DEGREE_OF_BEST_FIT, configuration.DegreeOfBestFit);
 

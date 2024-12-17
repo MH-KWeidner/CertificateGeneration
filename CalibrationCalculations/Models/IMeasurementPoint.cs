@@ -19,5 +19,10 @@
         /// Gets or sets the Value
         /// </summary>
         double Value { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Value
+        /// </summary>
+        int? OrderTag { get; set; }
     }
 }

@@ -9,7 +9,13 @@ namespace CalibrationCalculations.IoC.ReorderSeries
     {
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {
-            throw new NotImplementedException();
+            if (measurementPoints == null)
+                throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
+
+            if (measurementPoints.Any(mp => mp.OrderTag == null))
+                throw new ArgumentException("The IMeasurementPoint list cannot contain null OrderTags.", nameof(measurementPoints));
+
+            return new List<IMeasurementPoint>(measurementPoints.OrderByDescending(mp => mp.OrderTag));
         }
     }
 }
