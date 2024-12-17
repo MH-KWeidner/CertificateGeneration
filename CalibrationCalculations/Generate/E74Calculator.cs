@@ -30,6 +30,17 @@ namespace CalibrationCalculations.Generate
 
             MeasurementApplication application = new(appliedForces, measurementData);
 
+            // TODO where to put this...
+
+            //if (measurementPoints == null)
+            //    throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
+
+            //if (measurementPoints.Count == 0)
+            //    return measurementPoints;
+
+            //if (measurementPoints[0].AppliedForce != 0)
+            //    throw new ArgumentException("The measurement data must start with ZERO nominal force.", nameof(measurementPoints));
+
             application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
             application.ModifySeriesSize(new RemoveZeroValueForceItems());

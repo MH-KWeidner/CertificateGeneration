@@ -14,24 +14,8 @@ namespace CalibrationCalculations.IoC.ReorderSeries
         /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {
-            // TODO add more exception handling
-
-            // Check for null argument
-            if (measurementPoints == null)
-            {
-                // TODO: fix this
-
-                // throw new ArgumentNullException(nameof(measurementPoints), "The measurementPoints list cannot be null.");
-            }
-
-            // Ensure the list is not empty
-            if (!measurementPoints.Any())
-            {
-                throw new ArgumentException("The IMeasurementPoint list cannot be empty.", nameof(IMeasurementPoint));
-
-                // TODO: fix this
-                // ArgumentNullException.ThrowIfNull(measurementPoints);
-            }
+            if(measurementPoints == null)
+                throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
 
             return new List<IMeasurementPoint>(measurementPoints.OrderBy(mp => mp.AppliedForce));
         }

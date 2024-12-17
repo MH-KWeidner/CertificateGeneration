@@ -87,7 +87,7 @@
     public enum ReorderTypes
     {
         DoNotReorder = 0,
-        DetectedOrdering = 1,
+        DetectedNominalForceOrdering = 1,
         NominalForceAscending = 2,
         NominalForceDescending = 3,
         OrderTagAscending = 4,

@@ -12,7 +12,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
         {
             return reorderType switch
             {
-                ReorderTypes.DetectedOrdering => new ReorderbyDetectedOrdering(),
+                ReorderTypes.DetectedNominalForceOrdering => new ReorderByDetectedNominalForceOrdering(),
                 ReorderTypes.NominalForceAscending => new ReorderByNominalForceAscending(),
                 ReorderTypes.NominalForceDescending => new ReorderByNominalForceDescending(),
                 ReorderTypes.OrderTagAscending => new ReorderByOrderTagAscending(),
