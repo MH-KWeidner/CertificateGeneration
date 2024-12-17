@@ -35,9 +35,9 @@ namespace DevelopmentTests
             series2.Modify(new RemoveZeroValueForceItems());
             series3.Modify(new RemoveZeroValueForceItems());
 
-            series1.ReorderSeries(new RereorderByAppliedForceAscending());
-            series2.ReorderSeries(new RereorderByAppliedForceAscending());
-            series3.ReorderSeries(new RereorderByAppliedForceAscending());
+            series1.ReorderSeries(new ReorderByNominalForceAscending());
+            series2.ReorderSeries(new ReorderByNominalForceAscending());
+            series3.ReorderSeries(new ReorderByNominalForceAscending());
 
             // Assert
             Assert.AreEqual(-0.08158, Math.Round(series1.GetValue(0), 5));

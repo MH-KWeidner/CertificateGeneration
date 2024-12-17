@@ -30,10 +30,10 @@ namespace CalibrationCalculations.Generate
 
             MeasurementApplication application = new(appliedForces, measurementData);
 
-            application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));
+            application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
             application.ModifySeriesSize(new RemoveZeroValueForceItems());
-            application.ReorderSeriesData(new RereorderByAppliedForceAscending());
+            application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
             double[] forces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
             double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());

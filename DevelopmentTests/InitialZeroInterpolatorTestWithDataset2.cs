@@ -31,7 +31,7 @@ public class InitialZeroInterpolatorTestWithDataset2
         series5.Modify(removeZeroValueForceItems);
         series6.Modify(removeZeroValueForceItems);
 
-        RereorderByAppliedForceAscending rereorderByAppliedForceAscending = new();
+        ReorderByNominalForceAscending rereorderByAppliedForceAscending = new();
         series3.ReorderSeries(rereorderByAppliedForceAscending);
         series4.ReorderSeries(rereorderByAppliedForceAscending);
         series5.ReorderSeries(rereorderByAppliedForceAscending);

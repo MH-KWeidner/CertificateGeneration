@@ -39,10 +39,10 @@ public class ProcessToCreateFittedCurve
 
         // Act
         //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
-        application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));
+        application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
         application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
         application.ModifySeriesSize(new RemoveZeroValueForceItems());
-        application.ReorderSeriesData(new RereorderByAppliedForceAscending());
+        application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
         double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);

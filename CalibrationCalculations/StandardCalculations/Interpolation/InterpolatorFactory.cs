@@ -14,11 +14,11 @@ namespace CalibrationCalculations.StandardCalculations.Interpolation
     public static class InterpolatorFactory
     {
         /// <summary>
-        /// The CreateInterpolator
+        /// The Create
         /// </summary>
         /// <param name="interpolationType">The interpolationType<see cref="InterpolationTypes"/></param>
         /// <returns>The <see cref="IInterpolate"/></returns>
-        public static IInterpolate CreateInterpolator(InterpolationTypes interpolationType)
+        public static IInterpolate Create(InterpolationTypes interpolationType)
         {
             return interpolationType switch
             {

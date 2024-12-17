@@ -30,7 +30,8 @@ public class BuildE74WithDataSet1Test
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 0.0,
             ApplyTemperatureCorrection = false,
-            SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
+            InterpolatedReorderType = ReorderTypes.NominalForceAscending
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);
@@ -42,10 +43,11 @@ public class BuildE74WithDataSet1Test
             MethodBNistTestData1.GetRawDataSeries3());
 
         // Act
-        application.InterpolateSeriesData(InterpolatorFactory.CreateInterpolator(configuration.InterpolationType));
+        application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
         application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
         application.ModifySeriesSize(new RemoveZeroValueForceItems());
-        application.ReorderSeriesData(new RereorderByAppliedForceAscending());
+        
+        application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
         double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);

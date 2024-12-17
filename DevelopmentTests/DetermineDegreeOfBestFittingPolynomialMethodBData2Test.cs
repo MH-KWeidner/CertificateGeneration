@@ -27,7 +27,7 @@ namespace DevelopmentTests
             MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
 
             // Act
-            IInterpolate interpolator = InterpolatorFactory.CreateInterpolator(CalibrationCalculations.Common.InterpolationTypes.MethodB);
+            IInterpolate interpolator = InterpolatorFactory.Create(CalibrationCalculations.Common.InterpolationTypes.MethodB);
             MeasurementSeries.Interpolate(interpolator, series1);
             MeasurementSeries.Interpolate(interpolator, series2);
             MeasurementSeries.Interpolate(interpolator, series3);
@@ -42,7 +42,7 @@ namespace DevelopmentTests
             series2.Modify(modifier);
             series3.Modify(modifier);
 
-            IReorderSeries reorder = new RereorderByAppliedForceAscending();
+            IReorderSeries reorder = new ReorderByNominalForceAscending();
             series1.ReorderSeries(reorder);
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);

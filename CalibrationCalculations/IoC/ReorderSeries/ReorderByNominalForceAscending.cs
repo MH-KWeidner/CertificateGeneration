@@ -3,9 +3,9 @@
 namespace CalibrationCalculations.IoC.ReorderSeries
 {
     /// <summary>
-    /// Defines the <see cref="RereorderByAppliedForceAscending" />
+    /// Defines the <see cref="ReorderByNominalForceAscending" />
     /// </summary>
-    public class RereorderByAppliedForceAscending : IReorderSeries
+    public class ReorderByNominalForceAscending : IReorderSeries
     {
         /// <summary>
         /// The Reorder
@@ -33,7 +33,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
                 // ArgumentNullException.ThrowIfNull(measurementPoints);
             }
 
-            return measurementPoints.OrderBy(mp => mp.AppliedForce).ToList();
+            return new List<IMeasurementPoint>(measurementPoints.OrderBy(mp => mp.AppliedForce));
         }
     }
 }
