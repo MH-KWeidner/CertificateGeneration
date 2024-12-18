@@ -1,33 +1,40 @@
-﻿using CalibrationCalculations.Models;
+﻿using CalibrationCalculations.Exceptions;
+using CalibrationCalculations.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CalibrationCalculations.IoC.ReorderSeries
 {
-    internal class ReorderByDetectedNominalForceOrdering : IReorderSeries
+    public class ReorderByDetectedNominalForceOrdering : IReorderSeries
     {
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {
-            // TODO where to put these checks 
+            // TODO consider how to decompose this method
 
             if (measurementPoints == null)
-                throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
+                throw new ArgumentException(ExceptionMessages.NULL_MEASUREMENT_POINT_LIST, nameof(measurementPoints));
 
-            if (measurementPoints.Count == 0)
+            const int MINIMUM_NUMBER_OF_POINTS_REQUIRED_FOR_DETECTED_ORDERING = 2;
+            if (measurementPoints.Count < MINIMUM_NUMBER_OF_POINTS_REQUIRED_FOR_DETECTED_ORDERING)
                 return measurementPoints;
 
-            if (measurementPoints[0].AppliedForce != 0)
-                throw new ArgumentException("The data must start with ZERO nominal force measurement.", nameof(measurementPoints));
+            const int FIRST_ITEM_INDEX = 0;       
+            const double EXPECTED_ZERO_VALUE = 0.0;
+            
+            if (measurementPoints[FIRST_ITEM_INDEX].AppliedForce != EXPECTED_ZERO_VALUE)
+                throw new InvalidMeasurementPointException(ExceptionMessages.FIRST_NOMINAL_FORCE_VALUE_NOT_ZERO, nameof(measurementPoints));
 
-            List<IMeasurementPoint> ascendingPoints = new List<IMeasurementPoint>();
-            List<IMeasurementPoint> descendingPoints = new List<IMeasurementPoint>();
+            List<IMeasurementPoint> ascendingPoints = [];
+            List<IMeasurementPoint> descendingPoints = [];
 
-            for (int i = 0; i < measurementPoints.Count; i++)
-            {
-                if (measurementPoints[i].AppliedForce == 0)
-                    continue;
+            // By convention, the first point, which is required to have nominal force of zero, is added to the ascending list
+            ascendingPoints.Add(measurementPoints[FIRST_ITEM_INDEX]);
 
+            // Determine ordering for the remaining points, starting with the second point
+            const int LOOP_START = 1;
+            for (int i = LOOP_START; i < measurementPoints.Count; i++)
+            {     
                 if (measurementPoints[i - 1].AppliedForce <= measurementPoints[i].AppliedForce)
                 {
                     ascendingPoints.Add(measurementPoints[i]);
