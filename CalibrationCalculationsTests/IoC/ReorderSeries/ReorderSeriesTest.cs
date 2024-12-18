@@ -277,14 +277,14 @@ public class ReorderSeriesTest
         // Arrange
         List<IMeasurementPoint> measurementPoints =
         [
-            new NominalMeasurementPoint(0.0, 0.1), // I
-            new NominalMeasurementPoint(50.0, 0.4), // I
-            new NominalMeasurementPoint(30.0, 0.2),
-            new NominalMeasurementPoint(10.0, 0.7),
-            new NominalMeasurementPoint(0.0, 0.1),
-            new NominalMeasurementPoint(25.0, 0.4),
-            new NominalMeasurementPoint(0.0, 0.2),
-            new NominalMeasurementPoint(42.0, 0.7)
+            new NominalMeasurementPoint(0.0, 0.1),  // A
+            new NominalMeasurementPoint(50.0, 0.4), // A
+            new NominalMeasurementPoint(30.0, 0.2), // D
+            new NominalMeasurementPoint(10.0, 0.7), // D
+            new NominalMeasurementPoint(0.0, 0.1),  // D
+            new NominalMeasurementPoint(25.0, 0.4), // A
+            new NominalMeasurementPoint(0.0, 0.2),  // D
+            new NominalMeasurementPoint(42.0, 0.7)  // A
         ];
 
         // Act
@@ -294,14 +294,18 @@ public class ReorderSeriesTest
         // Assert
         Assert.IsNotNull(reorderedPoints);
         Assert.AreEqual(8, reorderedPoints.Count);
+
+        // Ascending part of the list
         Assert.AreEqual(0.0, reorderedPoints[0].AppliedForce);
-        Assert.AreEqual(0.0, reorderedPoints[1].AppliedForce);
-        Assert.AreEqual(0.0, reorderedPoints[2].AppliedForce);
-        Assert.AreEqual(25.0, reorderedPoints[3].AppliedForce);
-        Assert.AreEqual(42.0, reorderedPoints[4].AppliedForce);
-        Assert.AreEqual(50.0, reorderedPoints[5].AppliedForce);
-        Assert.AreEqual(30.0, reorderedPoints[6].AppliedForce);
-        Assert.AreEqual(10.0, reorderedPoints[7].AppliedForce);
+        Assert.AreEqual(25.0, reorderedPoints[1].AppliedForce);
+        Assert.AreEqual(42.0, reorderedPoints[2].AppliedForce);
+        Assert.AreEqual(50.0, reorderedPoints[3].AppliedForce);
+
+        // Descending part of the list
+        Assert.AreEqual(30.0, reorderedPoints[4].AppliedForce);
+        Assert.AreEqual(10.0, reorderedPoints[5].AppliedForce);
+        Assert.AreEqual(0.0, reorderedPoints[6].AppliedForce);
+        Assert.AreEqual(0.0, reorderedPoints[7].AppliedForce);
     }
 
     [TestMethod]
