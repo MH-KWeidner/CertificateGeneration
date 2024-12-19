@@ -1,4 +1,6 @@
-﻿namespace CalibrationCalculations.Helpers
+﻿using CalibrationCalculations.Exceptions;
+
+namespace CalibrationCalculations.Helpers
 {
     /// <summary>
     /// Defines the <see cref="ArrayHelper" />
@@ -29,8 +31,10 @@
         {
             // TODO need error handling
 
-            if (n < 1)
-                throw new ArgumentException("The number of times to stack the array must be at least 1.", nameof(n));
+            const int MINIMUM_NUMBER_OF_TIMES_TO_STACK = 1;
+            
+            if (n < MINIMUM_NUMBER_OF_TIMES_TO_STACK)
+                throw new ArgumentException(ExceptionMessages.MINIMUM_ARRAY_STACKING_IS_ONE, nameof(n));
 
             return Enumerable.Repeat(array, n).SelectMany(a => a).ToArray();
         }
