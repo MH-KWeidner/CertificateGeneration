@@ -1,6 +1,7 @@
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.Common;
+using CalibrationCalculations.Exceptions;
 
 namespace CalibrationCalculationsTests.IoC.ReorderSeries;
 
@@ -49,6 +50,37 @@ public class ReorderSeriesTest
         Assert.AreEqual(0.00012, reorderedPoints[0].Value);
         Assert.AreEqual(0.00000, reorderedPoints[1].Value);
         Assert.AreEqual(0.00022, reorderedPoints[2].Value);
+    }
+
+    [TestMethod]
+    public void ReorderByNominalForceDescending_NullInput_ThrowsArgumentException()
+    {
+        // Arrange
+        IReorderSeries reorderSeries = ReorderFactory.Create(ReorderTypes.NominalForceDescending);
+
+        // Act and Assert
+        var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
+    }
+
+    [TestMethod]
+    public void ReorderByNominalForceAscending_NullInput_ThrowsArgumentException()
+    {
+        // Arrange
+        IReorderSeries reorderSeries = ReorderFactory.Create(ReorderTypes.NominalForceAscending);
+
+        // Act and Assert
+        var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
+
+    }
+
+    [TestMethod]
+    public void ReorderByOrderTagAscending_InputNull_ThrowsArgumentException()
+    {
+        // Arrange
+        IReorderSeries reorderSeries = ReorderFactory.Create(ReorderTypes.OrderTagAscending);
+
+        // Act and Assert
+        var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
     }
 
     [TestMethod]
@@ -105,6 +137,16 @@ public class ReorderSeriesTest
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(measurementPoints));
+    }
+
+    [TestMethod]
+    public void ReorderByOrderTagDescending_InputNull_ThrowsArgumentException()
+    {
+        // Arrange
+        IReorderSeries reorderSeries = ReorderFactory.Create(ReorderTypes.OrderTagDescending);
+
+        // Act and Assert
+        var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
     }
 
     [TestMethod]
@@ -183,11 +225,11 @@ public class ReorderSeriesTest
             new NominalMeasurementPoint(0, 0.2)
         ];
 
-        // Assert.
+        // Assert
         IReorderSeries reorderSeries = ReorderFactory.Create(ReorderTypes.DetectedNominalForceOrdering);
 
-        // Act and Assert
-        var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
+        // Act
+        var exception = Assert.ThrowsException<InvalidMeasurementPointException>(() => reorderSeries.Reorder(measurementPoints));
     }
 
     [TestMethod]
@@ -331,5 +373,12 @@ public class ReorderSeriesTest
         Assert.AreEqual(50.0, reorderedPoints[1].AppliedForce);
         Assert.AreEqual(50.0, reorderedPoints[2].AppliedForce);
         Assert.AreEqual(50.0, reorderedPoints[3].AppliedForce);
+    }
+
+    [TestMethod]
+    public void ReorderFactoryCreate_InputNotImplementedReorderType_ThrowsNotImplementedException()
+    {
+        // Act and Assert
+        var exception = Assert.ThrowsException<NotImplementedException>(() => ReorderFactory.Create((ReorderTypes)999));
     }
 }

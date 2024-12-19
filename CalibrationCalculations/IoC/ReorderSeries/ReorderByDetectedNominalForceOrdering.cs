@@ -38,7 +38,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
             const int LOOP_START = 1;
             for (int i = LOOP_START; i < measurementPoints.Count; i++)
             {
-                // currentList remains the same if the applied force is the same as the previous applied force
+                // currentList remains the same if the measurement point has the same applied force as the previous measure point
 
                 if (measurementPoints[i - 1].AppliedForce < measurementPoints[i].AppliedForce)
                     currentList = ascendingPoints;
