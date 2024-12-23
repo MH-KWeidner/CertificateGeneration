@@ -12,6 +12,8 @@ namespace CalibrationCalculations.Generate
     /// </summary>
     static public class E74Builder
     {
+        private const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
+
         /// <summary>
         /// The Builder
         /// </summary>
@@ -37,18 +39,21 @@ namespace CalibrationCalculations.Generate
             //    throw new ArgumentException("The measurement data must start with ZERO nominal force.", nameof(measurementPoints));
 
             application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
+            
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
+
+            // TODO does this need to be an object/interface?
             application.ModifySeriesSize(new RemoveZeroValueForceItems());
+            
             application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
-            const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
-
             double[] forces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+
             double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
 
+            int degreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
 
-
-            result.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
+            result.DegreeOfBestFit = degreeOfBestFit;   
 
             if (configuration.ApplyTemperatureCorrection)
                 application.ApplyTemperatureCorrection(
@@ -61,7 +66,11 @@ namespace CalibrationCalculations.Generate
 
             }
 
-            return new E74Result();
+            result.NominalForces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+
+            result.AdjustedMeasurements = application.Transform(new SeriesValueToArray());
+
+            return result;
         }
     }
 }

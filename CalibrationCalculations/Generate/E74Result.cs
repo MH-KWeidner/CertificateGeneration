@@ -13,21 +13,21 @@
         /// <summary>
         /// Gets or sets the ACoefficients
         /// </summary>
-        internal double[]? ACoefficients { get; set; }
+        public double[]? ACoefficients { get; set; }
 
         /// <summary>
         /// Gets or sets the FittedCurve
         /// </summary>
-        internal double[]? FittedCurve { get; set; }
+        public double[]? FittedCurve { get; set; }
 
         /// <summary>
-        /// Gets or sets the interpolatedForces
+        /// Gets or sets the NominalForces
         /// </summary>
-        internal double[]? interpolatedForces { get; set; }
+        public double[]? NominalForces { get; set; }
 
         /// <summary>
-        /// Gets or sets the interpolatedMeasurements
+        /// Gets or sets the AdjustedMeasurements
         /// </summary>
-        internal double[][]? interpolatedMeasurements { get; set; }
+        public double[][]? AdjustedMeasurements { get; set; }
     }
 }
