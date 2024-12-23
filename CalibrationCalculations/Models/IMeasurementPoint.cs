@@ -8,12 +8,12 @@
         /// <summary>
         /// Gets or sets the AppliedForce
         /// </summary>
-        double AppliedForce { get; set; }
+        double AppliedForce { get; }
 
         /// <summary>
         /// Gets or sets the RawValue
         /// </summary>
-        double RawValue { get; set; }
+        double RawValue { get; }
 
         /// <summary>
         /// Gets or sets the Value
@@ -23,6 +23,6 @@
         /// <summary>
         /// Gets or sets the Value
         /// </summary>
-        int? OrderTag { get; set; }
+        int? OrderTag { get; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CalibrationCalculations.IoC.DataTransforms;
+﻿using CalibrationCalculations.Helpers;
+using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
@@ -53,7 +54,11 @@ namespace CalibrationCalculations.Generate
 
             int degreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
 
-            result.DegreeOfBestFit = degreeOfBestFit;   
+            //double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, data.Length);
+
+            //double[] stackedMeasurementData = ArrayHelper.StackArrays(data);
+
+            // result.ACoefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecending[i]);
 
             if (configuration.ApplyTemperatureCorrection)
                 application.ApplyTemperatureCorrection(
@@ -62,9 +67,7 @@ namespace CalibrationCalculations.Generate
                     temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
 
             if (configuration.ApplyNominalForceCorrection)
-            {
-
-            }
+                application.ApplyNominalForceCorrection();
 
             result.NominalForces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
 

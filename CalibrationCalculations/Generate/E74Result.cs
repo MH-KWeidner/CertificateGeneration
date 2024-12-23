@@ -6,11 +6,6 @@
     public class E74Result
     {
         /// <summary>
-        /// Gets or sets the DegreeOfBestFit
-        /// </summary>
-        public int DegreeOfBestFit { get; set; }
-
-        /// <summary>
         /// Gets or sets the ACoefficients
         /// </summary>
         public double[]? ACoefficients { get; set; }

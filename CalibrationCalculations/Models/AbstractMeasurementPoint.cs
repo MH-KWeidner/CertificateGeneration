@@ -8,12 +8,12 @@
         /// <summary>
         /// Gets or sets the AppliedForce
         /// </summary>
-        public double AppliedForce { get; set; }
+        public double AppliedForce { get; }
 
         /// <summary>
         /// Gets or sets the RawValue
         /// </summary>
-        public double RawValue { get; set; }
+        public double RawValue { get; }
 
         /// <summary>
         /// Gets or sets the Value
@@ -23,7 +23,7 @@
         /// <summary>
         /// Gets or sets the Value
         /// </summary>
-        public int? OrderTag { get; set; }
+        public int? OrderTag { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AbstractMeasurementPoint"/> class.

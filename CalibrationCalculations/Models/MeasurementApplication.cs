@@ -4,6 +4,7 @@ using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
+using CalibrationCalculations.StandardCalculations.Nominalization;
 
 namespace CalibrationCalculations.Models
 {
@@ -151,6 +152,13 @@ namespace CalibrationCalculations.Models
             double correctionValue = CalculateTemperatureCorrection.Calculate(ambientTemperature, standardCalibrationTemperature, temperatureCorrectionValuePer1Degree);
 
             seriesList.ForEach(series => series.IncreaseValuesByAdd(correctionValue));
+        }
+
+        public void ApplyNominalForceCorrection()
+        {
+            //TODO add error handling
+
+            seriesList.ForEach(series => NormalizeMeasurementPoints.Nominalize(series));
         }
     }
 }

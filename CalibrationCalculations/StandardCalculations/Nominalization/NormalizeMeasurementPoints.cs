@@ -16,21 +16,16 @@ namespace CalibrationCalculations.StandardCalculations.Nominalization
         /// <param name="series">The series<see cref="MeasurementSeries"/></param>
         public static void Nominalize(MeasurementSeries series)
         {
-            foreach (IMeasurementPoint mp in series.GetEnumerable())
+            foreach (ActualMeasurementPoint amp in series.GetEnumerable().OfType<ActualMeasurementPoint>())
             {
-                if (mp is not ActualMeasurementPoint)
-                    continue;
-
-                ActualMeasurementPoint amp = (ActualMeasurementPoint)mp;
-
                 // verify if this is correct to do
                 if (amp.ActualAppliedForce == 0)
                     continue;
 
-                double nominalValue = amp.AppliedForce * amp.Value / amp.ActualAppliedForce;
+                double nominalAdjustedValue = amp.AppliedForce * amp.Value / amp.ActualAppliedForce;
 
                 // verify if this is correct to do
-                amp.Value = nominalValue;
+                amp.Value = nominalAdjustedValue;
             }
         }
     }
