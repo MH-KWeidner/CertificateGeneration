@@ -8,18 +8,18 @@ using CalibrationCalculations.StandardCalculations.Interpolation;
 namespace CalibrationCalculations.Generate
 {
     /// <summary>
-    /// Defines the <see cref="E74Calculator" />
+    /// Defines the <see cref="E74Builder" />
     /// </summary>
-    static public class E74Calculator
+    static public class E74Builder
     {
         /// <summary>
-        /// The Calculate
+        /// The Builder
         /// </summary>
         /// <param name="configuration">The configuration<see cref="E74Configuration"/></param>
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
         /// <param name="measurementData">The measurementData<see cref="double[][]"/></param>
         /// <returns>The <see cref="E74Result"/></returns>
-        static public E74Result Calculate(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
+        static public E74Result Builder(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
         {
             E74Result result = new();
 
