@@ -13,11 +13,6 @@ namespace CalibrationCalculations.Generate
     static public class E74Calculator
     {
         /// <summary>
-        /// Defines the REFERENCE_SERIES_FOR_FORCE
-        /// </summary>
-        internal const int REFERENCE_SERIES_FOR_FORCE = 0;
-
-        /// <summary>
         /// The Calculate
         /// </summary>
         /// <param name="configuration">The configuration<see cref="E74Configuration"/></param>
@@ -46,7 +41,9 @@ namespace CalibrationCalculations.Generate
             application.ModifySeriesSize(new RemoveZeroValueForceItems());
             application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
-            double[] forces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
+            const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
+
+            double[] forces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
             double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
 
             result.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
