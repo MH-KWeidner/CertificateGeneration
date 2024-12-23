@@ -39,12 +39,14 @@ namespace CalibrationCalculations.Generate
             application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
             application.ModifySeriesSize(new RemoveZeroValueForceItems());
-            application.ReorderSeriesData(new ReorderByNominalForceAscending());
+            application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
             const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
 
             double[] forces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
             double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
+
+
 
             result.DegreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
 
