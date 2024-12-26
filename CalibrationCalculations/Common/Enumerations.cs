@@ -84,7 +84,7 @@
         AA = 1
     }
 
-    public enum ReorderTypes
+    public enum MeasurementSeriesReorderTypes
     {
         DoNotReorder = 0,
         DetectedNominalForceOrdering = 1,
@@ -93,4 +93,10 @@
         OrderTagAscending = 4,
         OrderTagDescending = 5
     }
+
+    public enum MeasurementPointsToDoubleArrayTransformTypes
+    {
+        NominalForceApplied = 0,
+        AdjustedValue = 1,
+    } 
 }

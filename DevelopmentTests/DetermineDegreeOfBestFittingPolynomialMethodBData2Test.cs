@@ -1,10 +1,10 @@
-﻿using CalibrationCalculations.IoC.DataTransforms;
-using CalibrationCalculations.IoC.ModifySeriesSize;
+﻿using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData2;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace DevelopmentTests
 {
@@ -47,8 +47,8 @@ namespace DevelopmentTests
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);
 
-            ITransformToDoubleArray seriesValueTransform = new SeriesValueToArray();
-            int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new AppliedForceToArray()),
+            ITransformMeasurementPointsToDoubleArray seriesValueTransform = new ValueToArray();
+            int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new NominalForceAppliedToArray()),
                     series1.Transform(seriesValueTransform),
                     series2.Transform(seriesValueTransform),
                     series3.Transform(seriesValueTransform)

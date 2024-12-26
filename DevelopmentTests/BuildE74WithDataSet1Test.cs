@@ -1,7 +1,6 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.Generate;
 using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.MathLibrary;
@@ -10,6 +9,7 @@ using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace DevelopmentTests;
 
@@ -31,7 +31,7 @@ public class BuildE74WithDataSet1Test
             AmbientTemperature = 0.0,
             ApplyTemperatureCorrection = false,
             SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
-            InterpolatedReorderType = ReorderTypes.NominalForceAscending
+            InterpolatedReorderType = MeasurementSeriesReorderTypes.NominalForceAscending
         };
 
         configuration.AddTransientForceMeasurementsByIndex(12);
@@ -47,12 +47,12 @@ public class BuildE74WithDataSet1Test
         application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
         application.ModifySeriesSize(new RemoveZeroValueForceItems());
         
-        if(configuration.InterpolatedReorderType != ReorderTypes.DoNotReorder)
+        if(configuration.InterpolatedReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
             application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
-        double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
-        double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
+        double[] appliedForces = application.Transform(new NominalForceAppliedToArray(), REFERENCE_SERIES_FOR_FORCE);
+        double[][] valuesForAllSeries = application.Transform(new ValueToArray());
 
         
         // TODO consider if called method should be refactored in some way

@@ -6,7 +6,7 @@ namespace CalibrationCalculationsTests.ModelsTests;
 public class SeriesTests
 {
     [TestMethod]
-    public void SeriesAddValue_Validoutput_ReturnsCorrectValues()
+    public void SeriesAddValue_ValidInput_ReturnsCorrectValues()
     {
         // Arrange
         double[] force = [10, 20, 30];
@@ -23,7 +23,7 @@ public class SeriesTests
     }
 
     [TestMethod]
-    public void IncreaseValueByAdd_Validoutput_ReturnsCorrectValues()
+    public void IncreaseValueByAdd_ValidInput_ReturnsCorrectValues()
     {
         // Arrange
         int seriesId = 1;
@@ -39,7 +39,6 @@ public class SeriesTests
         // Assert
         for (int i = 0; i < values.Length; i++)
         {
-
             Assert.AreEqual(result[i], series.GetValue(i), $"Value at index {i} was not increased correctly.");
         }
     }

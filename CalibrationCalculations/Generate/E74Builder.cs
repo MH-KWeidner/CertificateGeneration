@@ -1,10 +1,10 @@
 ﻿using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace CalibrationCalculations.Generate
 {
@@ -48,9 +48,9 @@ namespace CalibrationCalculations.Generate
             
             application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
-            double[] forces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            double[] forces = application.Transform(new NominalForceAppliedToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
 
-            double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
+            double[][] valuesForAllSeries = application.Transform(new ValueToArray());
 
             int degreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
 
@@ -69,9 +69,9 @@ namespace CalibrationCalculations.Generate
             if (configuration.ApplyNominalForceCorrection)
                 application.ApplyNominalForceCorrection();
 
-            result.NominalForces = application.Transform(new AppliedForceToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            result.NominalForces = application.Transform(new NominalForceAppliedToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
 
-            result.AdjustedMeasurements = application.Transform(new SeriesValueToArray());
+            result.AdjustedMeasurements = application.Transform(new ValueToArray());
 
             return result;
         }

@@ -4,15 +4,15 @@ namespace CalibrationCalculations.IoC.ReorderSeries
 {
     public static class ReorderFactory
     {
-        public static IReorderSeries Create(ReorderTypes reorderType)
+        public static IReorderSeries Create(MeasurementSeriesReorderTypes reorderType)
         {
             return reorderType switch
             {
-                ReorderTypes.DetectedNominalForceOrdering => new ReorderByDetectedNominalForceOrdering(),
-                ReorderTypes.NominalForceAscending => new ReorderByNominalForceAscending(),
-                ReorderTypes.NominalForceDescending => new ReorderByNominalForceDescending(),
-                ReorderTypes.OrderTagAscending => new ReorderByOrderTagAscending(),
-                ReorderTypes.OrderTagDescending => new ReorderByOrderTagDescending(),
+                MeasurementSeriesReorderTypes.DetectedNominalForceOrdering => new ReorderByDetectedNominalForceOrdering(),
+                MeasurementSeriesReorderTypes.NominalForceAscending => new ReorderByNominalForceAscending(),
+                MeasurementSeriesReorderTypes.NominalForceDescending => new ReorderByNominalForceDescending(),
+                MeasurementSeriesReorderTypes.OrderTagAscending => new ReorderByOrderTagAscending(),
+                MeasurementSeriesReorderTypes.OrderTagDescending => new ReorderByOrderTagDescending(),
                 _ => throw new NotImplementedException(),
             };
         }

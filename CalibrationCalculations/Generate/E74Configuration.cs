@@ -73,7 +73,7 @@ namespace CalibrationCalculations.Generate
         /// <param name="index">The index<see cref="int"/></param>
         public void AddTransientForceMeasurementsByIndex(int index) => transientForceMeasurementsByIndex.Add(index);
 
-        public ReorderTypes InterpolatedReorderType { get; set; }
+        public MeasurementSeriesReorderTypes InterpolatedReorderType { get; set; }
 
     }
 }

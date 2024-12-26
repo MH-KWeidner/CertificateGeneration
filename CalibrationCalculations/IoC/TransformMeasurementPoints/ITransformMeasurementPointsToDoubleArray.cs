@@ -1,11 +1,11 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.DataTransforms
+namespace CalibrationCalculations.IoC.TransformMeasurementPoints
 {
     /// <summary>
-    /// Defines the <see cref="ITransformToDoubleArray" />
+    /// Defines the <see cref="ITransformMeasurementPointsToDoubleArray" />
     /// </summary>
-    public interface ITransformToDoubleArray
+    public interface ITransformMeasurementPointsToDoubleArray
     {
         /// <summary>
         /// The ToArray

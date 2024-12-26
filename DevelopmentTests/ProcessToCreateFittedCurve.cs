@@ -1,13 +1,13 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.Generate;
 using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData1;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace DevelopmentTests;
 
@@ -45,8 +45,8 @@ public class ProcessToCreateFittedCurve
         application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
-        double[] appliedForces = application.Transform(new AppliedForceToArray(), REFERENCE_SERIES_FOR_FORCE);
-        double[][] valuesForAllSeries = application.Transform(new SeriesValueToArray());
+        double[] appliedForces = application.Transform(new NominalForceAppliedToArray(), REFERENCE_SERIES_FOR_FORCE);
+        double[][] valuesForAllSeries = application.Transform(new ValueToArray());
 
         double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, valuesForAllSeries.Length);
 

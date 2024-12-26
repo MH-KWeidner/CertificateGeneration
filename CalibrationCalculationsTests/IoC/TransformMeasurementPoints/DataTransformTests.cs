@@ -1,7 +1,7 @@
-using CalibrationCalculations.IoC.DataTransforms;
 using CalibrationCalculations.Models;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
-namespace CalibrationCalculationsTests.IoC.DataTransforms
+namespace CalibrationCalculationsTests.IoC.TransformMeasurementPoints
 {
     /// <summary>
     /// Defines the <see cref="DataTransformTests" />
@@ -21,7 +21,7 @@ namespace CalibrationCalculationsTests.IoC.DataTransforms
             MeasurementSeries series = MeasurementSeries.Create(1, force, values);
 
             // Act
-            double[] result = series.Transform(new SeriesValueToArray());
+            double[] result = series.Transform(new ValueToArray());
 
             // Assert
             Assert.AreEqual(series.Count(), result.Length);

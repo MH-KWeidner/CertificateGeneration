@@ -1,12 +1,15 @@
 ﻿using CalibrationCalculations.Models;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
-namespace CalibrationCalculations.IoC.DataTransforms
+namespace CalibrationCalculations.IoC.TransformMeasurementPoints
 {
     /// <summary>
-    /// Defines the <see cref="AppliedForceToArray" />
+    /// Defines the <see cref="ValueToArray" />
     /// </summary>
-    public class AppliedForceToArray : ITransformToDoubleArray
+    public class ValueToArray : ITransformMeasurementPointsToDoubleArray
     {
+        //TODO consider if this transform is needed.
+
         /// <summary>
         /// The ToArray
         /// </summary>
@@ -18,7 +21,7 @@ namespace CalibrationCalculations.IoC.DataTransforms
 
             // ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            return measurementPoints.Select(mp => mp.AppliedForce).ToArray();
+            return measurementPoints.Select(mp => mp.Value).ToArray();
         }
     }
 }

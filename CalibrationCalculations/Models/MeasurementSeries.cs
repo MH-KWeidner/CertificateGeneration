@@ -1,7 +1,7 @@
-﻿using CalibrationCalculations.IoC.DataTransforms;
-using CalibrationCalculations.IoC.ModifySeriesSize;
+﻿using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace CalibrationCalculations.Models
 {
@@ -185,9 +185,9 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The Transform
         /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
+        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] Transform(ITransformToDoubleArray transform)
+        public double[] Transform(ITransformMeasurementPointsToDoubleArray transform)
         {
             return transform.ToArray(measurementPoints);
         }

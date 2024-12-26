@@ -1,10 +1,10 @@
-﻿using CalibrationCalculations.IoC.DataTransforms;
-using CalibrationCalculations.IoC.ModifySeriesSize;
+﻿using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
 using CalibrationCalculations.StandardCalculations.Nominalization;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace CalibrationCalculations.Models
 {
@@ -22,29 +22,38 @@ namespace CalibrationCalculations.Models
         /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
-        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
-        public MeasurementApplication(double[] appliedForce, params double[][] rawData)
+        /// <param name="rawMeasurements">The rawMeasurements<see cref="double[][]"/></param>
+        public MeasurementApplication(double[] appliedForce, params double[][] rawMeasurements)
         {
             //TODO add error handling
 
             seriesList = [];
 
-            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
+            seriesList.AddRange(rawMeasurements.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MeasurementApplication"/> class.
         /// </summary>
-        /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
+        /// <param name="appliedForce">The appliedForce<see cref="double[][]"/></param>
         /// <param name="actualForce">The actualForce<see cref="double[][]"/></param>
-        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
-        public MeasurementApplication(double[] appliedForce, double[][] actualForce, double[][] rawData)
+        /// <param name="rawMeasurements">The rawMeasurements<see cref="double[][]"/></param>
+        public MeasurementApplication(double[] appliedForce, double[][] actualForce, double[][] rawMeasurements)
         {
             //TODO add error handling
 
             seriesList = [];
 
-            seriesList.AddRange(rawData.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
+            seriesList.AddRange(rawMeasurements.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce, data)));
+        }
+
+        public MeasurementApplication(double[][] appliedForce, double[][] rawMeasurements)
+        {
+            //TODO add error handling
+
+            seriesList = [];
+
+            seriesList.AddRange(rawMeasurements.Select((data, index) => MeasurementSeries.Create(index + 1, appliedForce[index], data)));
         }
 
         /// <summary>
@@ -106,10 +115,10 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The Transform
         /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
+        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
         /// <param name="seriesIndex">The seriesIndex<see cref="int"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] Transform(ITransformToDoubleArray transform, int seriesIndex)
+        public double[] Transform(ITransformMeasurementPointsToDoubleArray transform, int seriesIndex)
         {
             return seriesList[seriesIndex].Transform(transform);
         }
@@ -117,9 +126,9 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The Transform
         /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformToDoubleArray"/></param>
+        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
         /// <returns>The <see cref="double[][]"/></returns>
-        public double[][] Transform(ITransformToDoubleArray transform)
+        public double[][] Transform(ITransformMeasurementPointsToDoubleArray transform)
         {
             //TODO add null check and error handling
 
@@ -130,7 +139,7 @@ namespace CalibrationCalculations.Models
         /// The GetDegreeOfBestFittingPolynomial
         /// </summary>
         /// <param name="appliedForce">The appliedForce<see cref="double[]"/></param>
-        /// <param name="rawData">The rawData<see cref="double[][]"/></param>
+        /// <param name="rawData">The rawMeasurements<see cref="double[][]"/></param>
         /// <returns>The <see cref="int"/></returns>
         public int GetDegreeOfBestFittingPolynomial(double[] appliedForce, params double[][] rawData)
         {
@@ -159,6 +168,11 @@ namespace CalibrationCalculations.Models
             //TODO add error handling
 
             seriesList.ForEach(series => NormalizeMeasurementPoints.Nominalize(series));
+        }
+
+        public double[] StackMeasurementPoints(ITransformMeasurementPointsToDoubleArray transform)
+        {
+            return seriesList.SelectMany(series => series.Transform(transform)).ToArray();
         }
     }
 }
