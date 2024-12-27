@@ -4,9 +4,9 @@ using CalibrationCalculations.IoC.TransformMeasurementPoints;
 namespace CalibrationCalculations.IoC.TransformMeasurementPoints
 {
     /// <summary>
-    /// Defines the <see cref="ValueToArray" />
+    /// Defines the <see cref="MeasurementValuesToArray" />
     /// </summary>
-    public class ValueToArray : ITransformMeasurementPointsToDoubleArray
+    public class MeasurementValuesToArray : ITransformMeasurementPointsToArray
     {
         //TODO consider if this transform is needed.
 

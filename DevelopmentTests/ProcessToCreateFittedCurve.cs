@@ -26,10 +26,11 @@ public class ProcessToCreateFittedCurve
             InterpolationType = InterpolationTypes.MethodB,
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 50.0,
-            SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit
+            SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
+            TransientForceMeasurementsByIndex = [12]
         };
 
-        configuration.AddTransientForceMeasurementsByIndex(12);
+        
 
         MeasurementApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
@@ -45,8 +46,8 @@ public class ProcessToCreateFittedCurve
         application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;
-        double[] appliedForces = application.Transform(new NominalForceAppliedToArray(), REFERENCE_SERIES_FOR_FORCE);
-        double[][] valuesForAllSeries = application.Transform(new ValueToArray());
+        double[] appliedForces = application.TransformMeasurementPoints(new NominalAppliedForcesToArray(), REFERENCE_SERIES_FOR_FORCE);
+        double[][] valuesForAllSeries = application.TransformMeasurementPoints(new MeasurementValuesToArray());
 
         double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, valuesForAllSeries.Length);
 

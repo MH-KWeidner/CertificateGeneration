@@ -183,11 +183,11 @@ namespace CalibrationCalculations.Models
         }
 
         /// <summary>
-        /// The Transform
+        /// The TransformMeasurementPoints
         /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
+        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToArray"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] Transform(ITransformMeasurementPointsToDoubleArray transform)
+        public double[] Transform(ITransformMeasurementPointsToArray transform)
         {
             return transform.ToArray(measurementPoints);
         }

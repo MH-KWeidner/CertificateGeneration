@@ -9,7 +9,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
     public static class DetermineDegreeOfBestFittingPolynomial
     {
         /// <summary>
-        /// The Builder
+        /// The Build
         /// </summary>
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
         /// <param name="data">The data<see cref="double[][]"/></param>
@@ -32,7 +32,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 
             double previousResidualStandardDeviation = 0;
 
-            // A1.2 Builder the mean of the data
+            // A1.2 Build the mean of the data
             double[] meanData = ArrayHelper.CalculateMeanAcrossX(data);
 
             for (int i = 0; i < degreesOfFitDecending.Length; i++)
@@ -47,7 +47,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 
                 previousResidualStandardDeviation = currentResidualStandardDeviation;
 
-                // A1.3 Builder the residual standard deviation
+                // A1.3 Build the residual standard deviation
                 currentResidualStandardDeviation = Math.Sqrt(difference / (appliedForces.Length - degreesOfFitDecending[i] - 1));
 
                 if (i == 0)

@@ -109,30 +109,39 @@ namespace CalibrationCalculations.Models
             if (indexes == null)
                 return;
 
-            seriesList?.ForEach(series => series.RemoveValuesByIndex(indexes));
+            seriesList.ForEach(series => series.RemoveValuesByIndex(indexes));
         }
 
         /// <summary>
-        /// The Transform
+        /// The TransformMeasurementPoints
         /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
+        /// <param name="transformType">The transformType<see cref="ITransformMeasurementPointsToArray"/></param>
         /// <param name="seriesIndex">The seriesIndex<see cref="int"/></param>
         /// <returns>The <see cref="double[]"/></returns>
-        public double[] Transform(ITransformMeasurementPointsToDoubleArray transform, int seriesIndex)
-        {
-            return seriesList[seriesIndex].Transform(transform);
-        }
-
-        /// <summary>
-        /// The Transform
-        /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToDoubleArray"/></param>
-        /// <returns>The <see cref="double[][]"/></returns>
-        public double[][] Transform(ITransformMeasurementPointsToDoubleArray transform)
+        public double[] TransformMeasurementPoints(ITransformMeasurementPointsToArray transformType, int seriesIndex)
         {
             //TODO add null check and error handling
 
-            return seriesList.Select(series => series.Transform(transform)).ToArray();
+            return seriesList[seriesIndex].Transform(transformType);
+        }
+
+        /// <summary>
+        /// The TransformMeasurementPoints
+        /// </summary>
+        /// <param name="transformType">The transformType<see cref="ITransformMeasurementPointsToArray"/></param>
+        /// <returns>The <see cref="double[][]"/></returns>
+        public double[][] TransformMeasurementPoints(ITransformMeasurementPointsToArray transformType)
+        {
+            //TODO add null check and error handling
+
+            return seriesList.Select(series => series.Transform(transformType)).ToArray();
+        }
+
+        public double[] StackMeasurementPoints(ITransformMeasurementPointsToArray transformType)
+        {
+            //TODO add null check and error handling
+
+            return seriesList.SelectMany(series => series.Transform(transformType)).ToArray();
         }
 
         /// <summary>
@@ -168,11 +177,6 @@ namespace CalibrationCalculations.Models
             //TODO add error handling
 
             seriesList.ForEach(series => NormalizeMeasurementPoints.Nominalize(series));
-        }
-
-        public double[] StackMeasurementPoints(ITransformMeasurementPointsToDoubleArray transform)
-        {
-            return seriesList.SelectMany(series => series.Transform(transform)).ToArray();
         }
     }
 }

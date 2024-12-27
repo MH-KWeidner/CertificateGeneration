@@ -94,9 +94,9 @@
         OrderTagDescending = 5
     }
 
-    public enum MeasurementPointsToDoubleArrayTransformTypes
+    public enum MeasurementPointsToArrayTransformTypes
     {
-        NominalForceApplied = 0,
-        AdjustedValue = 1,
+        NominalAppliedForces = 0,
+        MeasurementValues = 1,
     } 
 }

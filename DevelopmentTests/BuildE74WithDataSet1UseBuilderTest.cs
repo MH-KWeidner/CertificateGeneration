@@ -1,20 +1,12 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.Generate;
-using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
-using CalibrationCalculations.MathLibrary;
-using CalibrationCalculations.Models;
-using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
-using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace DevelopmentTests;
 
 [TestClass]
-public class BuildE74WithDataSet1Test
+public class BuildE74WithDataSet1UseBuilderTest
 {
     [TestMethod]
     public void BuildE74()
@@ -32,14 +24,17 @@ public class BuildE74WithDataSet1Test
             ApplyTemperatureCorrection = false,
             SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
             PostInterpolationReorderType = MeasurementSeriesReorderTypes.NominalForceAscending,
-            TransientForceMeasurementsByIndex = [12]
+            TransientForceMeasurementsByIndex = [ 12 ]
         };
 
         // Act
         E74Result result = E74Builder.Build(configuration, MethodBNistTestData1.GetAppliedForce(),
             MethodBNistTestData1.GetRawDataSeries1(),
             MethodBNistTestData1.GetRawDataSeries2(),
-            MethodBNistTestData1.GetRawDataSeries3());  
+            MethodBNistTestData1.GetRawDataSeries3());
+
+        // TODO fix null warning
+        double[][] valuesForAllSeries = result.Values;
 
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
@@ -49,22 +44,21 @@ public class BuildE74WithDataSet1Test
         List<SingleRunPoint> LabSchedulePointsSeries2 = MethodBLabScheduleResultsTestData1Series2.dataList;
         List<SingleRunPoint> LabSchedulePointsSeries3 = MethodBLabScheduleResultsTestData1Series3.dataList;
 
-        double[][] values = result.Values;
-
-        Assert.AreEqual(values[0].Length, LabSchedulePointsSeries1.Count);
-        Assert.AreEqual(values[1].Length, LabSchedulePointsSeries2.Count);
-        Assert.AreEqual(values[2].Length, LabSchedulePointsSeries3.Count);
+        // Assert
+        Assert.AreEqual(valuesForAllSeries[0].Length, LabSchedulePointsSeries1.Count);
+        Assert.AreEqual(valuesForAllSeries[1].Length, LabSchedulePointsSeries2.Count);
+        Assert.AreEqual(valuesForAllSeries[2].Length, LabSchedulePointsSeries3.Count);
 
         const int ROUNDING_DIGITS = 8;
 
-        for (int i = 0; i < values[0].Length; i++)
-            Assert.AreEqual(Math.Round(values[0][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
+        for (int i = 0; i < valuesForAllSeries[0].Length; i++)
+            Assert.AreEqual(Math.Round(valuesForAllSeries[0][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
 
-        for (int i = 0; i < values[1].Length; i++)
-            Assert.AreEqual(Math.Round(values[1][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
+        for (int i = 0; i < valuesForAllSeries[1].Length; i++)
+            Assert.AreEqual(Math.Round(valuesForAllSeries[1][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
 
-        for (int i = 0; i < values[2].Length; i++)
-            Assert.AreEqual(Math.Round(values[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+        for (int i = 0; i < valuesForAllSeries[2].Length; i++)
+            Assert.AreEqual(Math.Round(valuesForAllSeries[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
 
         //double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, valuesForAllSeries.Length);
 

@@ -1,10 +1,12 @@
-﻿using CalibrationCalculations.Helpers;
+﻿using CalibrationCalculations.Common;
 using CalibrationCalculations.IoC.ModifySeriesSize;
 using CalibrationCalculations.IoC.ReorderSeries;
+using CalibrationCalculations.IoC.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
+using CalibrationCalculations.MathLibrary;
+
 
 namespace CalibrationCalculations.Generate
 {
@@ -16,28 +18,17 @@ namespace CalibrationCalculations.Generate
         private const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
 
         /// <summary>
-        /// The Builder
+        /// The Build
         /// </summary>
         /// <param name="configuration">The configuration<see cref="E74Configuration"/></param>
         /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
         /// <param name="measurementData">The measurementData<see cref="double[][]"/></param>
         /// <returns>The <see cref="E74Result"/></returns>
-        static public E74Result Builder(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
+        static public E74Result Build(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
         {
             E74Result result = new();
 
             MeasurementApplication application = new(appliedForces, measurementData);
-
-            // TODO where to put this...
-
-            //if (measurementPoints == null)
-            //    throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
-
-            //if (measurementPoints.Count == 0)
-            //    return measurementPoints;
-
-            //if (measurementPoints[0].AppliedForce != 0)
-            //    throw new ArgumentException("The measurement data must start with ZERO nominal force.", nameof(measurementPoints));
 
             application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
             
@@ -45,20 +36,9 @@ namespace CalibrationCalculations.Generate
 
             // TODO does this need to be an object/interface?
             application.ModifySeriesSize(new RemoveZeroValueForceItems());
-            
-            application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolatedReorderType));
 
-            double[] forces = application.Transform(new NominalForceAppliedToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
-
-            double[][] valuesForAllSeries = application.Transform(new ValueToArray());
-
-            int degreeOfBestFit = SelectBestDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, valuesForAllSeries);
-
-            //double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, data.Length);
-
-            //double[] stackedMeasurementData = ArrayHelper.StackArrays(data);
-
-            // result.ACoefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecending[i]);
+            if (configuration.PostInterpolationReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
+                application.ReorderSeriesData(ReorderFactory.Create(configuration.PostInterpolationReorderType));
 
             if (configuration.ApplyTemperatureCorrection)
                 application.ApplyTemperatureCorrection(
@@ -66,12 +46,28 @@ namespace CalibrationCalculations.Generate
                     standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
                     temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
 
-            if (configuration.ApplyNominalForceCorrection)
+            if (configuration.NominalizeActualForcesMeasured)
                 application.ApplyNominalForceCorrection();
 
-            result.NominalForces = application.Transform(new NominalForceAppliedToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            double[] forces = application.TransformMeasurementPoints(new NominalAppliedForcesToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
 
-            result.AdjustedMeasurements = application.Transform(new ValueToArray());
+            double[][] measurementValues = application.TransformMeasurementPoints(new MeasurementValuesToArray());
+
+            int degreeOfFit = SelectDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, measurementValues);
+            result.DegreeOfFit = degreeOfFit;
+
+            double[] stackedForces = application.StackMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces));
+
+            double[] stackedMeasurementValues = application.StackMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
+
+            double[] aCoffieients = StatisticsMath.FitPolynomialToLeastSquares(stackedForces, stackedMeasurementValues, degreeOfFit);
+            result.ACoefficients = aCoffieients;
+
+            result.FittedCurve = StatisticsMath.EvaluateCoefficients(result.ACoefficients, appliedForces);
+            
+            result.NominalForces = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+
+            result.Values = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
 
             return result;
         }

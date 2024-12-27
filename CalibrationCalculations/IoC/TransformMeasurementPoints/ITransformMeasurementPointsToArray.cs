@@ -3,9 +3,9 @@
 namespace CalibrationCalculations.IoC.TransformMeasurementPoints
 {
     /// <summary>
-    /// Defines the <see cref="ITransformMeasurementPointsToDoubleArray" />
+    /// Defines the <see cref="ITransformMeasurementPointsToArray" />
     /// </summary>
-    public interface ITransformMeasurementPointsToDoubleArray
+    public interface ITransformMeasurementPointsToArray
     {
         /// <summary>
         /// The ToArray

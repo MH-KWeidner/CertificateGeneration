@@ -3,9 +3,9 @@
 namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 {
     /// <summary>
-    /// Defines the <see cref="SelectBestDegreeOfFit" />
+    /// Defines the <see cref="SelectDegreeOfFit" />
     /// </summary>
-    static public class SelectBestDegreeOfFit
+    static public class SelectDegreeOfFit
     {
         /// <summary>
         /// The Select
@@ -24,7 +24,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
                 DegreeOfFitTypes.Four => 4,
                 DegreeOfFitTypes.Five => 5,
                 DegreeOfFitTypes.UseCalculatedDegreeOfBestFit => DetermineDegreeOfBestFittingPolynomial.Calculate(appliedForces, valuesForAllSeries),
-                _ => throw new ArgumentOutOfRangeException(nameof(degreeOfFitType), degreeOfFitType, "SelectBestDegreeOfFit Invalid DegreeOfFitType")
+                _ => throw new ArgumentOutOfRangeException(nameof(degreeOfFitType), degreeOfFitType, "SelectDegreeOfFit Invalid DegreeOfFitType")
             };
         }
     }

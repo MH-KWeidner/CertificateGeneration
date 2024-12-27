@@ -47,8 +47,8 @@ namespace DevelopmentTests
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);
 
-            ITransformMeasurementPointsToDoubleArray seriesValueTransform = new ValueToArray();
-            int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new NominalForceAppliedToArray()),
+            ITransformMeasurementPointsToArray seriesValueTransform = new MeasurementValuesToArray();
+            int bestFit = DetermineDegreeOfBestFittingPolynomial.Calculate(series1.Transform(new NominalAppliedForcesToArray()),
                     series1.Transform(seriesValueTransform),
                     series2.Transform(seriesValueTransform),
                     series3.Transform(seriesValueTransform)

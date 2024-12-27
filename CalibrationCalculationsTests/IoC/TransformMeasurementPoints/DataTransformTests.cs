@@ -21,7 +21,7 @@ namespace CalibrationCalculationsTests.IoC.TransformMeasurementPoints
             MeasurementSeries series = MeasurementSeries.Create(1, force, values);
 
             // Act
-            double[] result = series.Transform(new ValueToArray());
+            double[] result = series.Transform(new MeasurementValuesToArray());
 
             // Assert
             Assert.AreEqual(series.Count(), result.Length);

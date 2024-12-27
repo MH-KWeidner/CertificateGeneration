@@ -4,9 +4,9 @@ using CalibrationCalculations.IoC.TransformMeasurementPoints;
 namespace CalibrationCalculations.IoC.TransformMeasurementPoints
 {
     /// <summary>
-    /// Defines the <see cref="NominalForceAppliedToArray" />
+    /// Defines the <see cref="NominalAppliedForcesToArray" />
     /// </summary>
-    public class NominalForceAppliedToArray : ITransformMeasurementPointsToDoubleArray
+    public class NominalAppliedForcesToArray : ITransformMeasurementPointsToArray
     {
         /// <summary>
         /// The ToArray

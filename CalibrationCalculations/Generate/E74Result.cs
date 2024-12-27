@@ -21,8 +21,10 @@
         public double[]? NominalForces { get; set; }
 
         /// <summary>
-        /// Gets or sets the AdjustedMeasurements
+        /// Gets or sets the Values
         /// </summary>
-        public double[][]? AdjustedMeasurements { get; set; }
+        public double[][]? Values { get; set; }
+
+        public int DegreeOfFit { get; set; }
     }
 }

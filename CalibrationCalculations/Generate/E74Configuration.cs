@@ -10,7 +10,9 @@ namespace CalibrationCalculations.Generate
         /// <summary>
         /// Defines the transientForceMeasurementsByIndex
         /// </summary>
-        private readonly IList<int> transientForceMeasurementsByIndex = [];
+        
+        // TODO need to test for null array
+        public int[] TransientForceMeasurementsByIndex { get; set; }
 
         /// <summary>
         /// Gets or sets the InterpolationType
@@ -47,33 +49,17 @@ namespace CalibrationCalculations.Generate
         /// </summary>
         public DegreeOfFitTypes SelectedDegreeOfFit { get; set; }
 
-        /// <summary>
-        /// Gets or sets the DegreeOfBestFit
-        /// </summary>
-        public int DegreeOfBestFit { get; set; }
-
+        // TODO remove if not needed
         /// <summary>
         /// Gets or sets the InstrumentClassification
         /// </summary>
         public InstrumentClassifications InstrumentClassification { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether ApplyNominalForceCorrection
+        /// Gets or sets a value indicating whether to NominalizeActualForcesMeasured
         /// </summary>
-        public bool ApplyNominalForceCorrection { get; set; }
+        public bool NominalizeActualForcesMeasured { get; set; }
 
-        /// <summary>
-        /// Gets the TransientForceMeasurementsByIndex
-        /// </summary>
-        public IList<int> TransientForceMeasurementsByIndex => transientForceMeasurementsByIndex;
-
-        /// <summary>
-        /// The AddTransientForceMeasurementsByIndex
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        public void AddTransientForceMeasurementsByIndex(int index) => transientForceMeasurementsByIndex.Add(index);
-
-        public MeasurementSeriesReorderTypes InterpolatedReorderType { get; set; }
-
+        public MeasurementSeriesReorderTypes PostInterpolationReorderType { get; set; }
     }
 }

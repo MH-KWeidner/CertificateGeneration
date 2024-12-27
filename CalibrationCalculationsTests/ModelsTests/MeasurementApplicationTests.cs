@@ -26,7 +26,7 @@ public class MeasurementApplicationTests
 
         // Act
         MeasurementApplication application = new(forces, values);
-        double[] stacked = application.StackMeasurementPoints(new NominalForceAppliedToArray());
+        double[] stacked = application.StackMeasurementPoints(new NominalAppliedForcesToArray());
 
         // Assert
         Assert.AreEqual(10.0, stacked.Length);
@@ -62,7 +62,7 @@ public class MeasurementApplicationTests
 
         // Act
         MeasurementApplication application = new(forces, values);
-        double[] stacked = application.StackMeasurementPoints(new ValueToArray());
+        double[] stacked = application.StackMeasurementPoints(new MeasurementValuesToArray());
 
         // Assert
         Assert.AreEqual(10.0, stacked.Length);

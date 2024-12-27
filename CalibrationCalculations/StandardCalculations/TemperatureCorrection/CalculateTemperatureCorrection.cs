@@ -6,7 +6,7 @@
     public static class CalculateTemperatureCorrection
     {
         /// <summary>
-        /// The Builder
+        /// The Build
         /// </summary>
         /// <param name="ambientTemperature">The ambientTemperature<see cref="double"/></param>
         /// <param name="standardCalibrationTemperature">The standardCalibrationTemperature<see cref="double"/></param>
