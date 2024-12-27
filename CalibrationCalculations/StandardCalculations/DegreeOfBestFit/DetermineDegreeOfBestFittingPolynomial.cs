@@ -26,7 +26,7 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
 
             double[] stackedMeasurementData = ArrayHelper.StackArrays(data);
 
-            var degreesOfFitDecending = Enumerable.Range(MIN_DEGREE_OF_FIT, NUM_OF_DEGREES_OF_FIT).Reverse().ToArray();
+            var degreesOfFitDecendingOrder = Enumerable.Range(MIN_DEGREE_OF_FIT, NUM_OF_DEGREES_OF_FIT).Reverse().ToArray();
 
             double currentResidualStandardDeviation = 0;
 
@@ -35,10 +35,10 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
             // A1.2 Build the mean of the data
             double[] meanData = ArrayHelper.CalculateMeanAcrossX(data);
 
-            for (int i = 0; i < degreesOfFitDecending.Length; i++)
+            for (int i = 0; i < degreesOfFitDecendingOrder.Length; i++)
             {
                 // A1.3 Fit separate polynomials of degree 1, 2, 3, 4, and 5 to the mean data
-                double[] coefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecending[i]);
+                double[] coefficients = PolynomialMath.GetCoefficientsOfLeastSquaresFit(stackedAppliedForces, stackedMeasurementData, degreesOfFitDecendingOrder[i]);
 
                 double[] fittedCurve = appliedForces.Select(force => StatisticsMath.EvaluateCoefficients(coefficients, force)).ToArray();
 
@@ -48,14 +48,14 @@ namespace CalibrationCalculations.StandardCalculations.DegreeOfBestFit
                 previousResidualStandardDeviation = currentResidualStandardDeviation;
 
                 // A1.3 Build the residual standard deviation
-                currentResidualStandardDeviation = Math.Sqrt(difference / (appliedForces.Length - degreesOfFitDecending[i] - 1));
+                currentResidualStandardDeviation = Math.Sqrt(difference / (appliedForces.Length - degreesOfFitDecendingOrder[i] - 1));
 
                 if (i == 0)
                     continue;
 
                 // A1.5 Compute s4 /s5 and compare it to C(n1, 5)
-                if (currentResidualStandardDeviation / previousResidualStandardDeviation > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecending[i - 1]))
-                    return degreesOfFitDecending[i - 1];
+                if (currentResidualStandardDeviation / previousResidualStandardDeviation > StatisticsMath.CalculateCFactor(meanData.Length, degreesOfFitDecendingOrder[i - 1]))
+                    return degreesOfFitDecendingOrder[i - 1];
             }
 
             // TODO: how to handle case if best fit cannot be determined
