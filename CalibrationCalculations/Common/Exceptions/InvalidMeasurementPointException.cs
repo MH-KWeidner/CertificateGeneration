@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace CalibrationCalculations.Exceptions
+namespace CalibrationCalculations.Common.Exceptions
 {
     public class InvalidMeasurementPointException : Exception
     {

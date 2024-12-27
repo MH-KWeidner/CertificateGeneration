@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CalibrationCalculations.Exceptions
+namespace CalibrationCalculations.Common.Exceptions
 {
     public static class ExceptionMessages
     {

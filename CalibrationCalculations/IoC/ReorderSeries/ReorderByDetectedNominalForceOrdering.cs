@@ -1,8 +1,5 @@
-﻿using CalibrationCalculations.Exceptions;
+﻿using CalibrationCalculations.Common.Exceptions;
 using CalibrationCalculations.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CalibrationCalculations.IoC.ReorderSeries
 {

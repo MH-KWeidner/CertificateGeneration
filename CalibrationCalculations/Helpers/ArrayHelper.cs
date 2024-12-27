@@ -1,4 +1,4 @@
-﻿using CalibrationCalculations.Exceptions;
+﻿using CalibrationCalculations.Common.Exceptions;
 
 namespace CalibrationCalculations.Helpers
 {
