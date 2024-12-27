@@ -23,23 +23,25 @@ namespace CalibrationCalculations.GenerateE74
         /// The Build
         /// </summary>
         /// <param name="configuration">The configuration<see cref="E74Configuration"/></param>
-        /// <param name="appliedForces">The appliedForces<see cref="double[]"/></param>
+        /// <param name="nominalAppliedForces">The nominalAppliedForces<see cref="double[]"/></param>
         /// <param name="measurementData">The measurementData<see cref="double[][]"/></param>
         /// <returns>The <see cref="E74Result"/></returns>
-        static public E74Result Build(E74Configuration configuration, double[] appliedForces, params double[][] measurementData)
+        static public E74Result Build(E74Configuration configuration, double[] nominalAppliedForces, params double[][] measurementData)
         {
             E74Result result = new();
 
-            MeasurementApplication application = new(appliedForces, measurementData);
+            MeasurementApplication application = new(nominalAppliedForces, measurementData);
 
-            application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
+            #region Interpolation Sequence
+            application.InterpolateMeasurementSeries(InterpolatorFactory.Create(configuration.InterpolationType));
 
-            application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
+            application.RemoveMeasurementPointsByIndex(configuration.TransientNominalAppliedForcesByIndex); 
 
             application.ModifySeriesSize(ModifyMeasurementSeriesSizeFactory.Create(zeroReductionModifier));
 
-            if (configuration.PostInterpolationReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
-                application.ReorderSeriesData(ReorderFactory.Create(configuration.PostInterpolationReorderType));
+            if (configuration.InterpolationReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
+                application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolationReorderType));
+            #endregion
 
             if (configuration.ApplyTemperatureCorrection)
                 application.ApplyTemperatureCorrection(configuration.AmbientTemperature, configuration.StandardTemperatureOfCalibration, configuration.TemperatureCorrectionValuePer1Degree);

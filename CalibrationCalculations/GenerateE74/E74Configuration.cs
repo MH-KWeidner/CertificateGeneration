@@ -12,7 +12,7 @@ namespace CalibrationCalculations.GenerateE74
         /// </summary>
 
         // TODO need to test for null array
-        public int[] TransientForceMeasurementsByIndex { get; set; }
+        public int[] TransientNominalAppliedForcesByIndex { get; set; }
 
         /// <summary>
         /// Gets or sets the InterpolationType
@@ -54,6 +54,6 @@ namespace CalibrationCalculations.GenerateE74
         /// </summary>
         public bool NominalizeActualForcesMeasured { get; set; }
 
-        public MeasurementSeriesReorderTypes PostInterpolationReorderType { get; set; }
+        public MeasurementSeriesReorderTypes InterpolationReorderType { get; set; }
     }
 }

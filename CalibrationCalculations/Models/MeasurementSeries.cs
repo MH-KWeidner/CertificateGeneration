@@ -83,7 +83,7 @@ namespace CalibrationCalculations.Models
         }
 
         /// <summary>
-        /// The RemoveValuesByIndex
+        /// The RemoveMeasurementPointsByIndex
         /// </summary>
         /// <param name="indexes">The indexes<see cref="IList{int}?"/></param>
         public void RemoveValuesByIndex(IList<int>? indexes)

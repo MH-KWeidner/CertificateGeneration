@@ -27,7 +27,7 @@ public class ProcessToCreateFittedCurve
             TemperatureUnits = TemperatureUnits.Celsius,
             AmbientTemperature = 50.0,
             SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
-            TransientForceMeasurementsByIndex = [12]
+            TransientNominalAppliedForcesByIndex = [12]
         };
 
 
@@ -40,8 +40,8 @@ public class ProcessToCreateFittedCurve
 
         // Act
         //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
-        application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
-        application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
+        application.InterpolateMeasurementSeries(InterpolatorFactory.Create(configuration.InterpolationType));
+        application.RemoveMeasurementPointsByIndex(configuration.TransientNominalAppliedForcesByIndex);
         application.ModifySeriesSize(new RemoveZeroValuedNominalForces());
         application.ReorderSeriesData(new ReorderByNominalForceAscending());
 

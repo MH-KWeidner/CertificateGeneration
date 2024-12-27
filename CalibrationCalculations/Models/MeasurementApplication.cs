@@ -57,10 +57,10 @@ namespace CalibrationCalculations.Models
         }
 
         /// <summary>
-        /// The InterpolateSeriesData
+        /// The InterpolateMeasurementSeries
         /// </summary>
         /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
-        public void InterpolateSeriesData(IInterpolate interpolator)
+        public void InterpolateMeasurementSeries(IInterpolate interpolator)
         {
             //TODO add error handling
 
@@ -99,10 +99,10 @@ namespace CalibrationCalculations.Models
         }
 
         /// <summary>
-        /// The RemoveValuesByIndex
+        /// The RemoveMeasurementPointsByIndex
         /// </summary>
         /// <param name="indexes">The indexes<see cref="IList{int}"/></param>
-        public void RemoveValuesByIndex(IList<int> indexes)
+        public void RemoveMeasurementPointsByIndex(IList<int> indexes)
         {
             //TODO add error handling
 

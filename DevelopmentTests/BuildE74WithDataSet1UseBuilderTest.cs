@@ -23,8 +23,8 @@ public class BuildE74WithDataSet1UseBuilderTest
             AmbientTemperature = 0.0,
             ApplyTemperatureCorrection = false,
             SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
-            PostInterpolationReorderType = MeasurementSeriesReorderTypes.NominalForceAscending,
-            TransientForceMeasurementsByIndex = [12]
+            InterpolationReorderType = MeasurementSeriesReorderTypes.NominalForceAscending,
+            TransientNominalAppliedForcesByIndex = [12]
         };
 
         // Act
