@@ -1,7 +1,7 @@
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculationsTests.IoC.TransformMeasurementPoints
+namespace CalibrationCalculationsTests.FactoriesTransformMeasurementPoints
 {
     /// <summary>
     /// Defines the <see cref="DataTransformTests" />

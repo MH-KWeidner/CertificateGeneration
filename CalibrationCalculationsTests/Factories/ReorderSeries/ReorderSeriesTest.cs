@@ -3,7 +3,7 @@ using CalibrationCalculations.Common.Exceptions;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculationsTests.IoC.ReorderSeries;
+namespace CalibrationCalculationsTests.FactoriesReorderSeries;
 
 [TestClass]
 public class ReorderSeriesTest
