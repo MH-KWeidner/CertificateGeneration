@@ -1,7 +1,7 @@
 ﻿using CalibrationCalculations.Common.Exceptions;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderMeasurementSeries
 {
     /// <summary>
     /// Defines the <see cref="ReorderByNominalForceAscending" />

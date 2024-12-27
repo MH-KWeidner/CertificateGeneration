@@ -1,7 +1,7 @@
-﻿using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+﻿using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
+using CalibrationCalculations.StandardCalculations.Interpolation;
 
 namespace CalibrationCalculations.Models
 {
@@ -161,8 +161,8 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The Modify
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IModifySeriesSize"/></param>
-        public void Modify(IModifySeriesSize modifier)
+        /// <param name="modifier">The modifier<see cref="IModifyMeasurementSeriesSize"/></param>
+        public void Modify(IModifyMeasurementSeriesSize modifier)
         {
             //TODO add error handling - List may be null
 

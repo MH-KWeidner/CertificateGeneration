@@ -1,10 +1,10 @@
-﻿using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
-using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
-using CalibrationCalculations.StandardCalculations.Nominalization;
-using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+﻿using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
+using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.StandardCalculations.Nominalization;
+using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
 
 namespace CalibrationCalculations.Models
 {
@@ -73,8 +73,8 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The ModifySeriesSize
         /// </summary>
-        /// <param name="modifier">The correction<see cref="IModifySeriesSize"/></param>
-        public void ModifySeriesSize(IModifySeriesSize modifier)
+        /// <param name="modifier">The correction<see cref="IModifyMeasurementSeriesSize"/></param>
+        public void ModifySeriesSize(IModifyMeasurementSeriesSize modifier)
         {
             //TODO add error handling
 

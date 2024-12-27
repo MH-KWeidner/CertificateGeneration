@@ -1,7 +1,7 @@
 ﻿using CalibrationCalculations.Common.Exceptions;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderMeasurementSeries
 {
     internal class ReorderByOrderTagAscending : IReorderMeasurementSeries
     {

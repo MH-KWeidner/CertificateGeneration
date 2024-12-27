@@ -1,6 +1,6 @@
 using CalibrationCalculations.Common;
-using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.GenerateE74;
 using CalibrationCalculations.Helpers;
@@ -30,7 +30,7 @@ public class ProcessToCreateFittedCurve
             TransientForceMeasurementsByIndex = [12]
         };
 
-        
+
 
         MeasurementApplication application = new(
             MethodBNistTestData1.GetAppliedForce(),
@@ -42,7 +42,7 @@ public class ProcessToCreateFittedCurve
         //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
         application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
         application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
-        application.ModifySeriesSize(new RemoveZeroValueForceItems());
+        application.ModifySeriesSize(new RemoveZeroValuedNominalForces());
         application.ReorderSeriesData(new ReorderByNominalForceAscending());
 
         const int REFERENCE_SERIES_FOR_FORCE = 0;

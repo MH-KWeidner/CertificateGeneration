@@ -1,6 +1,6 @@
-﻿using CalibrationCalculations.Models;
-using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+﻿using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
+using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData2;
 
@@ -31,9 +31,9 @@ namespace DevelopmentTests
             MeasurementSeries.Interpolate(interpolator, series2);
             MeasurementSeries.Interpolate(interpolator, series3);
 
-            series1.Modify(new RemoveZeroValueForceItems());
-            series2.Modify(new RemoveZeroValueForceItems());
-            series3.Modify(new RemoveZeroValueForceItems());
+            series1.Modify(new RemoveZeroValuedNominalForces());
+            series2.Modify(new RemoveZeroValuedNominalForces());
+            series3.Modify(new RemoveZeroValuedNominalForces());
 
             series1.ReorderSeries(new ReorderByNominalForceAscending());
             series2.ReorderSeries(new ReorderByNominalForceAscending());

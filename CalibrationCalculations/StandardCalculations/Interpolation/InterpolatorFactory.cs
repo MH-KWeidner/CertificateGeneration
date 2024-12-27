@@ -1,10 +1,4 @@
 ﻿using CalibrationCalculations.Common;
-using CalibrationCalculations.StandardCalculations.Interpolation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalibrationCalculations.StandardCalculations.Interpolation
 {

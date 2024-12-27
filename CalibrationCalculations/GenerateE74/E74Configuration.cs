@@ -10,7 +10,7 @@ namespace CalibrationCalculations.GenerateE74
         /// <summary>
         /// Defines the transientForceMeasurementsByIndex
         /// </summary>
-        
+
         // TODO need to test for null array
         public int[] TransientForceMeasurementsByIndex { get; set; }
 

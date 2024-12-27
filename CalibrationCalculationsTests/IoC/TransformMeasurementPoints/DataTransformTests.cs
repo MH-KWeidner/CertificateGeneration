@@ -1,5 +1,5 @@
-using CalibrationCalculations.Models;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
+using CalibrationCalculations.Models;
 
 namespace CalibrationCalculationsTests.IoC.TransformMeasurementPoints
 {

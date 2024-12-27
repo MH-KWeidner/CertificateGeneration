@@ -1,7 +1,7 @@
-using CalibrationCalculations.Models;
 using CalibrationCalculations.Common;
 using CalibrationCalculations.Common.Exceptions;
-using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
+using CalibrationCalculations.Models;
 
 namespace CalibrationCalculationsTests.IoC.ReorderSeries;
 
@@ -95,7 +95,7 @@ public class ReorderSeriesTest
 
         // Assert.
         IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
-        
+
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(measurementPoints));
     }
@@ -185,7 +185,7 @@ public class ReorderSeriesTest
     public void ReorderByDetectedNominalForceOrdering_InputEmpyList_ReturnsEmptyList()
     {
         // Arrange
-        List<IMeasurementPoint> measurementPoints = []; 
+        List<IMeasurementPoint> measurementPoints = [];
 
         // Act
         IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);

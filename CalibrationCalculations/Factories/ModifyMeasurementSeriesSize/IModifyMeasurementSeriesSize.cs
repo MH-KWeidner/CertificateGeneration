@@ -1,11 +1,11 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.ModifySeriesSize
+namespace CalibrationCalculations.Factories.ModifyMeasurementSeriesSize
 {
     /// <summary>
     /// Classes that implement this interface will modify the size of a list of SeriesValues
     /// </summary>
-    public interface IModifySeriesSize
+    public interface IModifyMeasurementSeriesSize
     {
         /// <summary>
         /// SeriesValues

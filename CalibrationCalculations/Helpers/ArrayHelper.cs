@@ -32,7 +32,7 @@ namespace CalibrationCalculations.Helpers
             // TODO need error handling
 
             const int MINIMUM_NUMBER_OF_TIMES_TO_STACK = 1;
-            
+
             if (n < MINIMUM_NUMBER_OF_TIMES_TO_STACK)
                 throw new ArgumentException(ExceptionMessages.MINIMUM_ARRAY_STACKING_IS_ONE, nameof(n));
 

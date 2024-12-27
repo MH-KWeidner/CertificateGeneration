@@ -31,7 +31,7 @@ public class BuildE74WithDataSet1Test
         E74Result result = E74Builder.Build(configuration, MethodBNistTestData1.GetAppliedForce(),
             MethodBNistTestData1.GetRawDataSeries1(),
             MethodBNistTestData1.GetRawDataSeries2(),
-            MethodBNistTestData1.GetRawDataSeries3());  
+            MethodBNistTestData1.GetRawDataSeries3());
 
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;

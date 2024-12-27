@@ -1,7 +1,7 @@
 using CalibrationCalculations.Common;
+using CalibrationCalculations.GenerateE74;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
-using CalibrationCalculations.GenerateE74;
 
 namespace DevelopmentTests;
 
@@ -9,7 +9,7 @@ namespace DevelopmentTests;
 public class BuildE74WithDataSet1UseBuilderTest
 {
     [TestMethod]
-    public void BuildE74()
+    public void BuildE74UsingBuilder()
     {
         // Building this certificate:
         // CALIBRATION & ISSUE DATE: 07/01/2024
@@ -24,7 +24,7 @@ public class BuildE74WithDataSet1UseBuilderTest
             ApplyTemperatureCorrection = false,
             SelectedDegreeOfFit = DegreeOfFitTypes.UseCalculatedDegreeOfBestFit,
             PostInterpolationReorderType = MeasurementSeriesReorderTypes.NominalForceAscending,
-            TransientForceMeasurementsByIndex = [ 12 ]
+            TransientForceMeasurementsByIndex = [12]
         };
 
         // Act

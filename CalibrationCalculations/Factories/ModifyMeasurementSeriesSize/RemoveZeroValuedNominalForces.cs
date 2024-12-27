@@ -1,11 +1,11 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.ModifySeriesSize
+namespace CalibrationCalculations.Factories.ModifyMeasurementSeriesSize
 {
     /// <summary>
     /// Removes all SeriesValue items having zero force applied
     /// </summary>
-    public class RemoveZeroValueForceItems : IModifySeriesSize
+    public class RemoveZeroValuedNominalForces : IModifyMeasurementSeriesSize
     {
         /// <summary>
         /// Removes all SeriesValue items having zero force applied

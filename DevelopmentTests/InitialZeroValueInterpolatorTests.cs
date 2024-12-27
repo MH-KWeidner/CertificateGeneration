@@ -1,5 +1,5 @@
-﻿using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+﻿using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.InitialZeroDataSets;
@@ -27,7 +27,7 @@ namespace DevelopmentTests
             InitialZeroValueInterpolator interoplater = new InitialZeroValueInterpolator();
             interoplater.Interpolate(series);
 
-            IModifySeriesSize removeZeroValueForceItems = new RemoveZeroValueForceItems();
+            IModifyMeasurementSeriesSize removeZeroValueForceItems = new RemoveZeroValuedNominalForces();
             series.Modify(removeZeroValueForceItems);
 
             IReorderMeasurementSeries reorderByAppliedForceAscending = new ReorderByNominalForceAscending();

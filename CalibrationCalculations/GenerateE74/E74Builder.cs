@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Common;
-using CalibrationCalculations.Factories.ModifySeriesSize;
-using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
@@ -17,6 +17,8 @@ namespace CalibrationCalculations.GenerateE74
     {
         private const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
 
+        private readonly static ModifyMeasurementSeriesSizeTypes zeroReductionModifier = ModifyMeasurementSeriesSizeTypes.RemoveZeroValuedNominalForces;
+
         /// <summary>
         /// The Build
         /// </summary>
@@ -31,25 +33,21 @@ namespace CalibrationCalculations.GenerateE74
             MeasurementApplication application = new(appliedForces, measurementData);
 
             application.InterpolateSeriesData(InterpolatorFactory.Create(configuration.InterpolationType));
-            
+
             application.RemoveValuesByIndex(configuration.TransientForceMeasurementsByIndex);
 
-            // TODO does this need to be an object/interface?
-            application.ModifySeriesSize(new RemoveZeroValueForceItems());
+            application.ModifySeriesSize(ModifyMeasurementSeriesSizeFactory.Create(zeroReductionModifier));
 
             if (configuration.PostInterpolationReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
                 application.ReorderSeriesData(ReorderFactory.Create(configuration.PostInterpolationReorderType));
 
             if (configuration.ApplyTemperatureCorrection)
-                application.ApplyTemperatureCorrection(
-                    ambientTemperature: configuration.AmbientTemperature,
-                    standardCalibrationTemperature: configuration.StandardTemperatureOfCalibration,
-                    temperatureCorrectionValuePer1Degree: configuration.TemperatureCorrectionValuePer1Degree);
+                application.ApplyTemperatureCorrection(configuration.AmbientTemperature, configuration.StandardTemperatureOfCalibration, configuration.TemperatureCorrectionValuePer1Degree);
 
             if (configuration.NominalizeActualForcesMeasured)
                 application.ApplyNominalForceCorrection();
 
-            double[] nominalForces = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            double[] nominalForces = application.TransformMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
             result.NominalForces = nominalForces;
 
             double[][] measurementValues = application.TransformMeasurementPoints(new MeasurementValuesToArray());
@@ -58,15 +56,15 @@ namespace CalibrationCalculations.GenerateE74
             int degreeOfFit = SelectDegreeOfFit.Select(configuration.SelectedDegreeOfFit, nominalForces, measurementValues);
             result.DegreeOfFit = degreeOfFit;
 
-            double[] stackedForces = application.StackMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces));
+            double[] stackedForces = application.StackMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces));
 
-            double[] stackedMeasurementValues = application.StackMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
+            double[] stackedMeasurementValues = application.StackMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
 
             double[] aCoffieients = StatisticsMath.FitPolynomialToLeastSquares(stackedForces, stackedMeasurementValues, degreeOfFit);
             result.ACoefficients = aCoffieients;
 
             result.FittedCurve = StatisticsMath.EvaluateCoefficients(aCoffieients, nominalForces);
-            
+
             return result;
         }
     }
