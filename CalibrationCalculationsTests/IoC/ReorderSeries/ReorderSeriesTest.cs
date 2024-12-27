@@ -1,7 +1,7 @@
-using CalibrationCalculations.IoC.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.Common;
 using CalibrationCalculations.Common.Exceptions;
+using CalibrationCalculations.Factories.ReorderSeries;
 
 namespace CalibrationCalculationsTests.IoC.ReorderSeries;
 

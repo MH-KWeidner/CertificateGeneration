@@ -1,5 +1,4 @@
 using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.ReorderSeries;
 
 namespace CalibrationCalculationsTests.Helpers;
 

@@ -1,5 +1,5 @@
-using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
+using CalibrationCalculations.Factories.ModifySeriesSize;
+using CalibrationCalculations.Factories.ReorderSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.NISTDataSets;

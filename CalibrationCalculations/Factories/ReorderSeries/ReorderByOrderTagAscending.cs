@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderSeries
 {
     internal class ReorderByOrderTagAscending : IReorderSeries
     {
@@ -11,7 +11,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
 
             if (measurementPoints.Any(mp => mp.OrderTag == null))
                 throw new ArgumentException("The IMeasurementPoint list cannot contain null OrderTags.", nameof(measurementPoints));
-            
+
             return new List<IMeasurementPoint>(measurementPoints.OrderBy(mp => mp.OrderTag));
         }
     }

@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Common;
 
-namespace CalibrationCalculations.IoC.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderSeries
 {
     public static class ReorderFactory
     {

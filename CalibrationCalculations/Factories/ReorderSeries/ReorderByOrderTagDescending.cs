@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CalibrationCalculations.IoC.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderSeries
 {
     internal class ReorderByOrderTagDescending : IReorderSeries
     {

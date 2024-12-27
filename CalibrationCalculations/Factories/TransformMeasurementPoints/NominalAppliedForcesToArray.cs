@@ -1,7 +1,6 @@
 ﻿using CalibrationCalculations.Models;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
-namespace CalibrationCalculations.IoC.TransformMeasurementPoints
+namespace CalibrationCalculations.Factories.TransformMeasurementPoints
 {
     /// <summary>
     /// Defines the <see cref="NominalAppliedForcesToArray" />

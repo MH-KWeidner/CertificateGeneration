@@ -1,7 +1,8 @@
 ﻿using CalibrationCalculations.Common;
-using CalibrationCalculations.IoC.ReorderSeries;
+using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.TransformMeasurementPoints;
 
-namespace CalibrationCalculations.IoC.TransformMeasurementPoints
+namespace CalibrationCalculations.Factories.TransformMeasurementPoints
 {
     public static class MeasurementPointsToDoubleArrayFactory
     {

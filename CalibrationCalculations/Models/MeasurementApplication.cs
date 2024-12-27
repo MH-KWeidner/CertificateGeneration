@@ -1,10 +1,10 @@
-﻿using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
-using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
+﻿using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.StandardCalculations.TemperatureCorrection;
 using CalibrationCalculations.StandardCalculations.Nominalization;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
+using CalibrationCalculations.Factories.ModifySeriesSize;
+using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.TransformMeasurementPoints;
 
 namespace CalibrationCalculations.Models
 {

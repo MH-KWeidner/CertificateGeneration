@@ -1,7 +1,7 @@
 ﻿using CalibrationCalculations.Common.Exceptions;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.ReorderSeries
+namespace CalibrationCalculations.Factories.ReorderSeries
 {
     public class ReorderByDetectedNominalForceOrdering : IReorderSeries
     {
@@ -17,7 +17,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
             if (measurementPoints.Count < MINIMUM_NUMBER_OF_POINTS_REQUIRED_FOR_DETECTED_ORDERING)
                 return measurementPoints;
 
-            const int FIRST_ITEM_INDEX = 0;       
+            const int FIRST_ITEM_INDEX = 0;
             const double EXPECTED_ZERO_VALUE = 0.0;
 
             // By convention, the first item is of nominal force zero.
@@ -39,7 +39,7 @@ namespace CalibrationCalculations.IoC.ReorderSeries
 
                 if (measurementPoints[i - 1].AppliedForce < measurementPoints[i].AppliedForce)
                     currentList = ascendingPoints;
-                else if(measurementPoints[i - 1].AppliedForce > measurementPoints[i].AppliedForce)
+                else if (measurementPoints[i - 1].AppliedForce > measurementPoints[i].AppliedForce)
                     currentList = descendingPoints;
 
                 currentList.Add(measurementPoints[i]);

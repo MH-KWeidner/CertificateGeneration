@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.IoC.TransformMeasurementPoints
+namespace CalibrationCalculations.Factories.TransformMeasurementPoints
 {
     /// <summary>
     /// Defines the <see cref="ITransformMeasurementPointsToArray" />

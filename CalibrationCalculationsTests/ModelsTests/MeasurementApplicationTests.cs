@@ -1,4 +1,4 @@
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
+using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 
 namespace CalibrationCalculationsTests.ModelsTests;

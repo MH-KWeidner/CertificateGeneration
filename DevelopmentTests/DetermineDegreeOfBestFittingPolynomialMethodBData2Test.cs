@@ -1,10 +1,10 @@
-﻿using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
+﻿using CalibrationCalculations.Factories.ModifySeriesSize;
+using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using DevelopmentTests.TestData.MethodBTestData2;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
 
 namespace DevelopmentTests
 {

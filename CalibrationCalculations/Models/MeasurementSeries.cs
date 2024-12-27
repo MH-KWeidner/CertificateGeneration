@@ -1,7 +1,7 @@
-﻿using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
-using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
+﻿using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.Factories.ModifySeriesSize;
+using CalibrationCalculations.Factories.ReorderSeries;
+using CalibrationCalculations.Factories.TransformMeasurementPoints;
 
 namespace CalibrationCalculations.Models
 {

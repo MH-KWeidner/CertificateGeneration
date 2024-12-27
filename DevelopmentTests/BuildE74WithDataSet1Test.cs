@@ -1,15 +1,7 @@
 using CalibrationCalculations.Common;
-using CalibrationCalculations.Helpers;
-using CalibrationCalculations.IoC.ModifySeriesSize;
-using CalibrationCalculations.IoC.ReorderSeries;
-using CalibrationCalculations.MathLibrary;
-using CalibrationCalculations.Models;
-using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
-using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculations.GenerateE74;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
-using CalibrationCalculations.IoC.TransformMeasurementPoints;
-using CalibrationCalculations.GenerateE74;
 
 namespace DevelopmentTests;
 

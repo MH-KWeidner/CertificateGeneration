@@ -59,13 +59,5 @@ public class BuildE74WithDataSet1UseBuilderTest
 
         for (int i = 0; i < valuesForAllSeries[2].Length; i++)
             Assert.AreEqual(Math.Round(valuesForAllSeries[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
-
-        //double[] stackedAppliedForces = ArrayHelper.StackArrayNTimes(appliedForces, valuesForAllSeries.Length);
-
-        //double[] stackedMeasurementData = ArrayHelper.StackArrays(valuesForAllSeries);
-
-        //double[] aCoefficients = StatisticsMath.FitPolynomialToLeastSquares(stackedAppliedForces, stackedMeasurementData, configuration.DegreeOfFit);
-
-        //double[] fittedCurve = StatisticsMath.EvaluateCoefficients(aCoefficients, appliedForces);
     }
 }
