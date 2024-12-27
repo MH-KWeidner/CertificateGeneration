@@ -49,12 +49,6 @@ namespace CalibrationCalculations.GenerateE74
         /// </summary>
         public DegreeOfFitTypes SelectedDegreeOfFit { get; set; }
 
-        // TODO remove if not needed
-        /// <summary>
-        /// Gets or sets the InstrumentClassification
-        /// </summary>
-        public InstrumentClassifications InstrumentClassification { get; set; }
-
         /// <summary>
         /// Gets or sets a value indicating whether to NominalizeActualForcesMeasured
         /// </summary>

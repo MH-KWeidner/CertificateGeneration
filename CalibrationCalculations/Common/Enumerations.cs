@@ -68,23 +68,6 @@
         Fahrenheit = 1
     }
 
-    // TODO remove if not needed
-    /// <summary>
-    /// Defines the InstrumentClassifications
-    /// </summary>
-    public enum InstrumentClassifications
-    {
-        /// <summary>
-        /// Defines the A
-        /// </summary>
-        A = 0,
-
-        /// <summary>
-        /// Defines the AA
-        /// </summary>
-        AA = 1
-    }
-
     public enum MeasurementSeriesReorderTypes
     {
         DoNotReorder = 0,
