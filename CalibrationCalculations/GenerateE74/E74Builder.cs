@@ -6,9 +6,10 @@ using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 using CalibrationCalculations.MathLibrary;
+using CalibrationCalculations.GenerateE74;
 
 
-namespace CalibrationCalculations.Generate
+namespace CalibrationCalculations.GenerateE74
 {
     /// <summary>
     /// Defines the <see cref="E74Builder" />

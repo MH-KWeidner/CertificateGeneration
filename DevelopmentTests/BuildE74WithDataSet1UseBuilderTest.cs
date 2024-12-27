@@ -1,7 +1,7 @@
 using CalibrationCalculations.Common;
-using CalibrationCalculations.Generate;
 using DevelopmentTests.NISTDataSets;
 using DevelopmentTests.TestData.MethodBTestData1;
+using CalibrationCalculations.GenerateE74;
 
 namespace DevelopmentTests;
 

@@ -1,7 +1,7 @@
 using CalibrationCalculations.IoC.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 
-namespace CalibrationCalculationsTests;
+namespace CalibrationCalculationsTests.ModelsTests;
 
 [TestClass]
 public class MeasurementApplicationTests

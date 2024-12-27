@@ -1,6 +1,6 @@
 ﻿using CalibrationCalculations.Common;
 
-namespace CalibrationCalculations.Generate
+namespace CalibrationCalculations.GenerateE74
 {
     /// <summary>
     /// Defines the <see cref="E74Configuration" />

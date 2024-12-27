@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculations.Generate
+﻿namespace CalibrationCalculations.GenerateE74
 {
     /// <summary>
     /// Defines the <see cref="E74Result" />
