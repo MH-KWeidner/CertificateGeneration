@@ -68,6 +68,7 @@
         Fahrenheit = 1
     }
 
+    // TODO remove if not needed
     /// <summary>
     /// Defines the InstrumentClassifications
     /// </summary>

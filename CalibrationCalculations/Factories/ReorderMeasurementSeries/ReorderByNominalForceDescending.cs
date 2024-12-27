@@ -6,7 +6,7 @@ namespace CalibrationCalculations.Factories.ReorderSeries
     /// <summary>
     /// Defines the <see cref="ReorderByNominalForceDescending" />
     /// </summary>
-    public class ReorderByNominalForceDescending : IReorderSeries
+    public class ReorderByNominalForceDescending : IReorderMeasurementSeries
     {
         /// <summary>
         /// The Reorder

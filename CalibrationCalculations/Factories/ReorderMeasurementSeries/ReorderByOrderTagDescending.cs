@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CalibrationCalculations.Factories.ReorderSeries
 {
-    internal class ReorderByOrderTagDescending : IReorderSeries
+    internal class ReorderByOrderTagDescending : IReorderMeasurementSeries
     {
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {

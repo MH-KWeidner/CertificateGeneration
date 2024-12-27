@@ -42,7 +42,7 @@ namespace DevelopmentTests
             series2.Modify(modifier);
             series3.Modify(modifier);
 
-            IReorderSeries reorder = new ReorderByNominalForceAscending();
+            IReorderMeasurementSeries reorder = new ReorderByNominalForceAscending();
             series1.ReorderSeries(reorder);
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);

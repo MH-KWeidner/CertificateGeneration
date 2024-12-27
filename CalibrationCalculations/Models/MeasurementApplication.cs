@@ -87,8 +87,8 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The ReorderSeriesData
         /// </summary>
-        /// <param name="modifier">The correction<see cref="IReorderSeries"/></param>
-        public void ReorderSeriesData(IReorderSeries modifier)
+        /// <param name="modifier">The correction<see cref="IReorderMeasurementSeries"/></param>
+        public void ReorderSeriesData(IReorderMeasurementSeries modifier)
         {
             //TODO add error handling
 

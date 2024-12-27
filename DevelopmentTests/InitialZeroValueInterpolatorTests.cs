@@ -30,7 +30,7 @@ namespace DevelopmentTests
             IModifySeriesSize removeZeroValueForceItems = new RemoveZeroValueForceItems();
             series.Modify(removeZeroValueForceItems);
 
-            IReorderSeries reorderByAppliedForceAscending = new ReorderByNominalForceAscending();
+            IReorderMeasurementSeries reorderByAppliedForceAscending = new ReorderByNominalForceAscending();
             series.ReorderSeries(reorderByAppliedForceAscending);
 
             // Assert

@@ -3,7 +3,7 @@ using CalibrationCalculations.Models;
 
 namespace CalibrationCalculations.Factories.ReorderSeries
 {
-    internal class ReorderByOrderTagAscending : IReorderSeries
+    internal class ReorderByOrderTagAscending : IReorderMeasurementSeries
     {
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {

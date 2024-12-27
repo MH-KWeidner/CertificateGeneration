@@ -20,7 +20,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceAscending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceAscending);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -42,7 +42,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceDescending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceDescending);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -56,7 +56,7 @@ public class ReorderSeriesTest
     public void ReorderByNominalForceDescending_NullInput_ThrowsArgumentException()
     {
         // Arrange
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceDescending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceDescending);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
@@ -66,7 +66,7 @@ public class ReorderSeriesTest
     public void ReorderByNominalForceAscending_NullInput_ThrowsArgumentException()
     {
         // Arrange
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceAscending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.NominalForceAscending);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
@@ -77,7 +77,7 @@ public class ReorderSeriesTest
     public void ReorderByOrderTagAscending_InputNull_ThrowsArgumentException()
     {
         // Arrange
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
@@ -94,7 +94,7 @@ public class ReorderSeriesTest
         ];
 
         // Assert.
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
         
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(measurementPoints));
@@ -112,7 +112,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagAscending);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -133,7 +133,7 @@ public class ReorderSeriesTest
         ];
 
         // Assert.
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(measurementPoints));
@@ -143,7 +143,7 @@ public class ReorderSeriesTest
     public void ReorderByOrderTagDescending_InputNull_ThrowsArgumentException()
     {
         // Arrange
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
@@ -161,7 +161,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.OrderTagDescending);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -175,7 +175,7 @@ public class ReorderSeriesTest
     public void ReorderByDetectedNominalForceOrdering_NullInput_ThrowsException()
     {
         // Arrange.
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
 
         // Act and Assert
         var exception = Assert.ThrowsException<ArgumentException>(() => reorderSeries.Reorder(null));
@@ -188,7 +188,7 @@ public class ReorderSeriesTest
         List<IMeasurementPoint> measurementPoints = []; 
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -206,7 +206,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -226,7 +226,7 @@ public class ReorderSeriesTest
         ];
 
         // Assert
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
 
         // Act
         var exception = Assert.ThrowsException<InvalidMeasurementPointException>(() => reorderSeries.Reorder(measurementPoints));
@@ -244,7 +244,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -268,7 +268,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -297,7 +297,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -330,7 +330,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert
@@ -363,7 +363,7 @@ public class ReorderSeriesTest
         ];
 
         // Act
-        IReorderSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
+        IReorderMeasurementSeries reorderSeries = ReorderFactory.Create(MeasurementSeriesReorderTypes.DetectedNominalForceOrdering);
         List<IMeasurementPoint>? reorderedPoints = reorderSeries.Reorder(measurementPoints);
 
         // Assert

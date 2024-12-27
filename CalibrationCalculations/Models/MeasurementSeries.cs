@@ -172,8 +172,8 @@ namespace CalibrationCalculations.Models
         /// <summary>
         /// The Reorder
         /// </summary>
-        /// <param name="modifier">The modifier<see cref="IReorderSeries"/></param>
-        public void ReorderSeries(IReorderSeries modifier)
+        /// <param name="modifier">The modifier<see cref="IReorderMeasurementSeries"/></param>
+        public void ReorderSeries(IReorderMeasurementSeries modifier)
         {
             //TODO add error handling - List may be null
 

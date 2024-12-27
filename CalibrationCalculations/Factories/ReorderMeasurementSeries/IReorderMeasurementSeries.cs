@@ -3,9 +3,9 @@
 namespace CalibrationCalculations.Factories.ReorderSeries
 {
     /// <summary>
-    /// Defines the <see cref="IReorderSeries" />
+    /// Defines the <see cref="IReorderMeasurementSeries" />
     /// </summary>
-    public interface IReorderSeries
+    public interface IReorderMeasurementSeries
     {
         /// <summary>
         /// The Reorder

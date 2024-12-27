@@ -4,7 +4,7 @@ namespace CalibrationCalculations.Factories.ReorderSeries
 {
     public static class ReorderFactory
     {
-        public static IReorderSeries Create(MeasurementSeriesReorderTypes reorderType)
+        public static IReorderMeasurementSeries Create(MeasurementSeriesReorderTypes reorderType)
         {
             return reorderType switch
             {
