@@ -1,4 +1,5 @@
 ﻿using CalibrationCalculations.Models;
+using CalibrationCalculations.Common.Exceptions;
 
 namespace CalibrationCalculations.Factories.ReorderSeries
 {
@@ -15,7 +16,7 @@ namespace CalibrationCalculations.Factories.ReorderSeries
         public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints)
         {
             if (measurementPoints == null)
-                throw new ArgumentException("The IMeasurementPoint list cannot be null.", nameof(measurementPoints));
+                throw new ArgumentException(ExceptionMessages.IMEASUREMENT_POINT_LIST_CANNOT_BE_NULL, nameof(measurementPoints));
 
             return new List<IMeasurementPoint>(measurementPoints.OrderByDescending(mp => mp.AppliedForce));
         }
