@@ -49,11 +49,13 @@ namespace CalibrationCalculations.GenerateE74
             if (configuration.NominalizeActualForcesMeasured)
                 application.ApplyNominalForceCorrection();
 
-            double[] forces = application.TransformMeasurementPoints(new NominalAppliedForcesToArray(), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            double[] nominalForces = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+            result.NominalForces = nominalForces;
 
             double[][] measurementValues = application.TransformMeasurementPoints(new MeasurementValuesToArray());
+            result.Values = measurementValues;
 
-            int degreeOfFit = SelectDegreeOfFit.Select(configuration.SelectedDegreeOfFit, forces, measurementValues);
+            int degreeOfFit = SelectDegreeOfFit.Select(configuration.SelectedDegreeOfFit, nominalForces, measurementValues);
             result.DegreeOfFit = degreeOfFit;
 
             double[] stackedForces = application.StackMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces));
@@ -63,12 +65,8 @@ namespace CalibrationCalculations.GenerateE74
             double[] aCoffieients = StatisticsMath.FitPolynomialToLeastSquares(stackedForces, stackedMeasurementValues, degreeOfFit);
             result.ACoefficients = aCoffieients;
 
-            result.FittedCurve = StatisticsMath.EvaluateCoefficients(result.ACoefficients, appliedForces);
+            result.FittedCurve = StatisticsMath.EvaluateCoefficients(aCoffieients, nominalForces);
             
-            result.NominalForces = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
-
-            result.Values = application.TransformMeasurementPoints(MeasurementPointsToDoubleArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
-
             return result;
         }
     }
