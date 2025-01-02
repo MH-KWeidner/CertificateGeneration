@@ -1,9 +1,9 @@
-﻿namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData2
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData2
 {
     /// <summary>
-    /// Defines the <see cref="MethodBNistTestData2" />
+    /// Defines the <see cref="Data02_RawInput" />
     /// </summary>
-    internal class MethodBNistTestData2
+    internal class Data02_RawInput
     {
         // CALIBRATION & ISSUE DATE: 11/06/2024
         // REPORT NO.: 226367AK0624

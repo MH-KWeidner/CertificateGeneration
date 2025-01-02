@@ -1,9 +1,9 @@
 ﻿namespace CalibrationCalculationsCertificateTests.MiscTestDataSets
 {
     /// <summary>
-    /// Defines the <see cref="MHForceWebExampleTestData" />
+    /// Defines the <see cref="Misc01_MHForceWebExampleTestData" />
     /// </summary>
-    public static class MHForceWebExampleTestData
+    public static class Misc01_MHForceWebExampleTestData
     {
         // Test data from https://mhforce.com/interpolated-zero-reduction-methods/
 

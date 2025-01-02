@@ -4,7 +4,7 @@ using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.TestData.MethodBTestData4;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData4;
 
 namespace CalibrationCalculationsCertificateTests
 {

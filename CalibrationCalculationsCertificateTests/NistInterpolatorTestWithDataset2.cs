@@ -2,7 +2,7 @@
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.TestData.MethodBTestData2;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData2;
 
 namespace CalibrationCalculationsCertificateTests
 {
@@ -19,10 +19,10 @@ namespace CalibrationCalculationsCertificateTests
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = MethodBNistTestData2.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, MethodBNistTestData2.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, MethodBNistTestData2.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
+            double[] appliedForce = Data02_RawInput.GetAppliedForce();
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, Data02_RawInput.GetRawDataSeries1());
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, Data02_RawInput.GetRawDataSeries2());
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, Data02_RawInput.GetRawDataSeries3());
 
             // Act
 

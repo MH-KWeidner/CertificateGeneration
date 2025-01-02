@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData1
+namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
 {
     public class Cert1_MethodBInput : ILabScheduleInputData
     {

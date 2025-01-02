@@ -1,12 +1,12 @@
 ﻿using System.Globalization;
 using CalibrationCalculationsCertificateTests.NISTDataSets;
 
-namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData1
+namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
 {
     /// <summary>
-    /// Defines the <see cref="MethodBLabScheduleResultsTestData1Series1" />
+    /// Defines the <see cref="Data01_ResultSeries1" />
     /// </summary>
-    public static class MethodBLabScheduleResultsTestData1Series1
+    public static class Data01_ResultSeries1
     {
         // CALIBRATION & ISSUE DATE: 07/01/2024
         // REPORT NO.: U-7989G0124

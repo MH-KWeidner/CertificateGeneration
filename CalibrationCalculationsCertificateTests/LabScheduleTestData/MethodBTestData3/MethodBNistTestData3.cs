@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData3
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData3
 {
     /// <summary>
     /// Defines the <see cref="MethodBNistTestData3" />

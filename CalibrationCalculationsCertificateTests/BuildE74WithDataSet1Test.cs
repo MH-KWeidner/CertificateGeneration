@@ -1,7 +1,7 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.GenerateE74;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1;
 using CalibrationCalculationsCertificateTests.NISTDataSets;
-using CalibrationCalculationsCertificateTests.TestData.MethodBTestData1;
 
 namespace CalibrationCalculationsCertificateTests;
 
@@ -28,18 +28,18 @@ public class BuildE74WithDataSet1Test
         };
 
         // Act
-        E74Result result = E74Builder.Build(configuration, MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetRawDataSeries1(),
-            MethodBNistTestData1.GetRawDataSeries2(),
-            MethodBNistTestData1.GetRawDataSeries3());
+        E74Result result = E74Builder.Build(configuration, Data01_RawInput.GetAppliedForce(),
+            Data01_RawInput.GetRawDataSeries1(),
+            Data01_RawInput.GetRawDataSeries2(),
+            Data01_RawInput.GetRawDataSeries3());
 
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
         Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, result.DegreeOfFit);
 
-        List<SingleRunPoint> LabSchedulePointsSeries1 = MethodBLabScheduleResultsTestData1Series1.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries2 = MethodBLabScheduleResultsTestData1Series2.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries3 = MethodBLabScheduleResultsTestData1Series3.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries1 = Data01_ResultSeries1.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries2 = Data01_ResultSeries2.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries3 = Data01_ResultSeries3.dataList;
 
         double[][] values = result.Values;
 

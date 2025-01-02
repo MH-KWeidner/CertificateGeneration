@@ -7,7 +7,7 @@ using CalibrationCalculations.Helpers;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.TestData.MethodBTestData1;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1;
 
 namespace CalibrationCalculationsCertificateTests;
 
@@ -18,7 +18,7 @@ public class ProcessToCreateFittedCurve
     [TestMethod]
     public void ProcessToCreateFittedCurve_ValidInput_ReturnsExpectedInterpolatedValues()
     {
-        // Test the process to create a fitted curve using MethodBNistTestData1
+        // Test the process to create a fitted curve using Data01_Cert_U7989G0124_RawInput
 
         // Arrange
         E74Configuration configuration = new()
@@ -33,10 +33,10 @@ public class ProcessToCreateFittedCurve
 
 
         MeasurementApplication application = new(
-            MethodBNistTestData1.GetAppliedForce(),
-            MethodBNistTestData1.GetRawDataSeries1(),
-            MethodBNistTestData1.GetRawDataSeries2(),
-            MethodBNistTestData1.GetRawDataSeries3());
+            Data01_RawInput.GetAppliedForce(),
+            Data01_RawInput.GetRawDataSeries1(),
+            Data01_RawInput.GetRawDataSeries2(),
+            Data01_RawInput.GetRawDataSeries3());
 
         // Act
         //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
