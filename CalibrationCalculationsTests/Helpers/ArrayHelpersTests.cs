@@ -45,6 +45,28 @@ public class ArrayHelpersTests
     }
 
     [TestMethod]
+    public void CalculateSeriesMeanXDirection_ValidJaggedArrayInput_ReturnsExpectedResuls()
+    {
+        // Arrange
+        double[][] jaggedArray =
+        [
+            [1.0, 3.0],
+            [4.0, 5.0, 6.0],
+            [5.0, 8.0, 10.0],
+            [10.0, 12.0, 8.0, 14.0]
+        ];
+
+        // Act
+        double[] result = ArrayHelper.CalculateMeanAcrossX(jaggedArray);
+
+        // Assert
+        Assert.AreEqual(5.0, result[0]);
+        Assert.AreEqual(7.0, result[1]);
+        Assert.AreEqual(8.0, result[2]);
+        Assert.AreEqual(14.0, result[3]);
+    }
+
+    [TestMethod]
     public void StackArrays_ArrayOfDoubleInputs_ReturnsExpectedStackedArray()
     {
         // Arrange
@@ -68,5 +90,23 @@ public class ArrayHelpersTests
         var exception = Assert.ThrowsException<ArgumentException>(() => ArrayHelper.StackArrayNTimes(array, 0));
     }
 
+    [TestMethod]
+    public void CalculateLengthOfLongestArray_ValidInput_ReturnsExpectedArraySize()
+    {
+        // Arrange
+        double[][] doubles =
+        [
+            [1, 2],
+            [4, 5, 6],
+            [7],
+            [10, 11, 12, 13]
+        ];
+
+        // Act
+       int size = ArrayHelper.GetLengthOfLongestArray(doubles);
+
+        // Assert
+        Assert.AreEqual(4, size);
+    }
 }
 

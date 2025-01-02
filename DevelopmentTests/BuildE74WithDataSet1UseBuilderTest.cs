@@ -33,7 +33,7 @@ public class BuildE74WithDataSet1UseBuilderTest
             MethodBNistTestData1.GetRawDataSeries2(),
             MethodBNistTestData1.GetRawDataSeries3());
 
-        // TODO fix null warning
+        // TODO decide on handling null array
         double[][] valuesForAllSeries = result.Values;
 
         // Assert

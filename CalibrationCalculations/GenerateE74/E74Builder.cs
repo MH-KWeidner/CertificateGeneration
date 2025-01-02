@@ -52,7 +52,7 @@ namespace CalibrationCalculations.GenerateE74
             double[] nominalForces = application.TransformMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
             result.NominalForces = nominalForces;
 
-            double[][] measurementValues = application.TransformMeasurementPoints(new MeasurementValuesToArray());
+            double[][] measurementValues = application.TransformMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
             result.Values = measurementValues;
 
             int degreeOfFit = SelectDegreeOfFit.Select(configuration.SelectedDegreeOfFit, nominalForces, measurementValues);
@@ -62,9 +62,16 @@ namespace CalibrationCalculations.GenerateE74
 
             double[] stackedMeasurementValues = application.StackMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));
 
+            for(int i = 0; i < stackedMeasurementValues.Length; i++)
+            {
+                stackedMeasurementValues[i] = Math.Round(stackedMeasurementValues[i], 8);
+            }
+            
+            // TODO need to abstract this
             double[] aCoffieients = StatisticsMath.FitPolynomialToLeastSquares(stackedForces, stackedMeasurementValues, degreeOfFit);
             result.ACoefficients = aCoffieients;
 
+            // TODO need to abstract this
             result.FittedCurve = StatisticsMath.EvaluateCoefficients(aCoffieients, nominalForces);
 
             return result;

@@ -39,22 +39,39 @@ namespace CalibrationCalculations.Helpers
             return Enumerable.Repeat(array, n).SelectMany(a => a).ToArray();
         }
 
-        /// <summary>
-        /// The CalculateMeanAcrossX
-        /// </summary>
-        /// <param name="dataArrays">The dataArrays<see cref="double[][]"/></param>
-        /// <returns>The <see cref="double[]"/></returns>
-        public static double[] CalculateMeanAcrossX(double[][] dataArrays)
+        public static double[] CalculateMeanAcrossX(double[][] jaggedArrays)
         {
             // TODO Add error handling
 
-            const int RANGE_START = 0;
+            int length = GetLengthOfLongestArray(jaggedArrays);
 
-            const int ARRAY_FOR_LENGTH_REFERENCE = 0;
+            double[] calculatedMean = new double[length];
 
-            return Enumerable.Range(RANGE_START, dataArrays[ARRAY_FOR_LENGTH_REFERENCE].Length)
-                             .Select(i => dataArrays.Average(array => array[i]))
-                             .ToArray();
+            for (int i = 0; i < length; i++)
+            {
+                double sum = 0;
+                int count = 0;
+                foreach (double[] array in jaggedArrays)
+                {
+                    if (i >= array.Length)
+                        continue;
+
+                    sum += array[i];
+                    count++;
+                }
+                
+                calculatedMean[i] = sum / count;
+            }
+
+            return calculatedMean;
+        }
+
+
+
+        public static int GetLengthOfLongestArray(params double[][] arrays)
+        {
+            // TODO Add error handling
+            return arrays.Max(array => array.Length);
         }
     }
 }
