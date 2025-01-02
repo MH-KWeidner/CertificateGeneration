@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsTestsUsingCertData.NISTDataSets
+﻿namespace CalibrationCalculationsCertificateTests.NISTDataSets
 {
     /// <summary>
     /// Defines the <see cref="MHForceWebTestDataExample" />

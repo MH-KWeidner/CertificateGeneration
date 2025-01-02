@@ -2,9 +2,9 @@ using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsTestsUsingCertData.InitialZeroDataSets;
+using CalibrationCalculationsCertificateTests.InitialZeroDataSets;
 
-namespace CalibrationCalculationsTestsUsingCertData;
+namespace CalibrationCalculationsCertificateTests;
 
 [TestClass]
 public class InitialZeroInterpolatorTestWithDataset2

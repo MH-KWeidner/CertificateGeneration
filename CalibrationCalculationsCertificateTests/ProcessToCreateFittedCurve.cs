@@ -7,9 +7,9 @@ using CalibrationCalculations.Helpers;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1;
+using CalibrationCalculationsCertificateTests.TestData.MethodBTestData1;
 
-namespace CalibrationCalculationsTestsUsingCertData;
+namespace CalibrationCalculationsCertificateTests;
 
 [TestClass]
 public class ProcessToCreateFittedCurve

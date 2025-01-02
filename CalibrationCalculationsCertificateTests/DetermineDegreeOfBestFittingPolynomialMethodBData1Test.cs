@@ -1,18 +1,18 @@
-﻿using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
+using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData2;
+using CalibrationCalculationsCertificateTests.TestData.MethodBTestData1;
 
-namespace CalibrationCalculationsTestsUsingCertData
+namespace CalibrationCalculationsCertificateTests
 {
     /// <summary>
-    /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomialMethodBData2Test" />
+    /// Defines the <see cref="DetermineDegreeOfBestFittingPolynomialMethodBData1Test" />
     /// </summary>
     [TestClass]
-    public class DetermineDegreeOfBestFittingPolynomialMethodBData2Test
+    public class DetermineDegreeOfBestFittingPolynomialMethodBData1Test
     {
         /// <summary>
         /// The DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues
@@ -21,10 +21,10 @@ namespace CalibrationCalculationsTestsUsingCertData
         public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = MethodBNistTestData2.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, MethodBNistTestData2.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, MethodBNistTestData2.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData2.GetRawDataSeries3());
+            double[] appliedForce = MethodBNistTestData1.GetAppliedForce();
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, MethodBNistTestData1.GetRawDataSeries1());
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, MethodBNistTestData1.GetRawDataSeries2());
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData1.GetRawDataSeries3());
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.Create(CalibrationCalculations.Common.InterpolationTypes.MethodB);
@@ -55,7 +55,7 @@ namespace CalibrationCalculationsTestsUsingCertData
                 );
 
             // Assert
-            const int LABSCH_BEST_DEGREE_FIT = 3;
+            const int LABSCH_BEST_DEGREE_FIT = 4;
             Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, bestFit);
         }
     }

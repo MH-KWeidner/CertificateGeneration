@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsTestsUsingCertData.InitialZeroDataSets
+﻿namespace CalibrationCalculationsCertificateTests.InitialZeroDataSets
 {
     /// <summary>
     /// Defines the <see cref="MethodAInitialZeroTestData2" />

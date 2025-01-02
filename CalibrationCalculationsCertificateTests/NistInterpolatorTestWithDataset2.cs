@@ -2,9 +2,9 @@
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData2;
+using CalibrationCalculationsCertificateTests.TestData.MethodBTestData2;
 
-namespace CalibrationCalculationsTestsUsingCertData
+namespace CalibrationCalculationsCertificateTests
 {
     /// <summary>
     /// Defines the <see cref="NistInterpolatorTestWithDataset2" />

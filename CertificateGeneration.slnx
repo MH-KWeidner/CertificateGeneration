@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="CalibrationCalculations/CalibrationCalculations.csproj" Id="5af3bc30-1a34-4a8d-b68c-f7a9efadcd72" />
-  <Project Path="CalibrationCalculationsTestsUsingCertData/CalibrationCalculationsTestsUsingCertData.csproj" Id="5b619025-968a-4c7e-b368-d8461f1e6926" />
+  <Project Path="CalibrationCalculationsCertificateTests/CalibrationCalculationsCertificateTests.csproj" Id="31a34a73-cdfc-492b-a75a-6375f1e4a1a5" />
   <Project Path="CalibrationCalculationsUnitTests/CalibrationCalculationsUnitTests.csproj" Id="d19c19ba-ddcb-4500-93a3-83d592166f0d" />
 </Solution>

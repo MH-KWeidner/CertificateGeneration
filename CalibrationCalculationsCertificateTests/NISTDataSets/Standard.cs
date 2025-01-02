@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalibrationCalculationsTestsUsingCertData.NISTDataSets
+namespace CalibrationCalculationsCertificateTests.NISTDataSets
 {
     using System;
     using System.Collections.Generic;

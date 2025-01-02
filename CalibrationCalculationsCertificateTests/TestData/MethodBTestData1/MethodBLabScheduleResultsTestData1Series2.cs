@@ -1,17 +1,17 @@
 ﻿using System.Globalization;
-using CalibrationCalculationsTestsUsingCertData.NISTDataSets;
+using CalibrationCalculationsCertificateTests.NISTDataSets;
 
-namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
+namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData1
 {
     /// <summary>
-    /// Defines the <see cref="MethodBLabScheduleResultsTestData1Series3" />
+    /// Defines the <see cref="MethodBLabScheduleResultsTestData1Series2" />
     /// </summary>
-    public class MethodBLabScheduleResultsTestData1Series3
+    public class MethodBLabScheduleResultsTestData1Series2
     {
         // CALIBRATION & ISSUE DATE: 07/01/2024
         // REPORT NO.: U-7989G0124
 
-        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 3
+        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 2
 
         /// <summary>
         /// Defines the dataList
@@ -22,7 +22,7 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         {
             ForceApplied = 1000.00000000m,
             Value = -0.08157000m,
-            PreNormValue = -0.08158000m,
+            PreNormValue = -0.08157000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -68,7 +68,7 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 5000.00000000m,
-            Value = -0.40789818m,
+            Value = -0.40790727m,
             PreNormValue = -0.40791000m,
             Standard = new Standard
             {
@@ -115,8 +115,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 10000.00000000m,
-            Value = -0.81587636m,
-            PreNormValue = -0.81589000m,
+            Value = -0.81587455m,
+            PreNormValue = -0.81588000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -162,8 +162,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 15000.00000000m,
-            Value = -1.22394455m,
-            PreNormValue = -1.22396000m,
+            Value = -1.22394182m,
+            PreNormValue = -1.22395000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -209,8 +209,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 20000.00000000m,
-            Value = -1.63207273m,
-            PreNormValue = -1.63209000m,
+            Value = -1.63206909m,
+            PreNormValue = -1.63208000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -256,7 +256,7 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 25000.00000000m,
-            Value = -2.04026091m,
+            Value = -2.04026636m,
             PreNormValue = -2.04028000m,
             Standard = new Standard
             {
@@ -303,7 +303,7 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 30000.00000000m,
-            Value = -2.44850909m,
+            Value = -2.44851364m,
             PreNormValue = -2.44853000m,
             Standard = new Standard
             {
@@ -350,8 +350,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 35000.00000000m,
-            Value = -2.85678727m,
-            PreNormValue = -2.85681000m,
+            Value = -2.85680091m,
+            PreNormValue = -2.85682000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -397,7 +397,7 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 40000.00000000m,
-            Value = -3.26510545m,
+            Value = -3.26510818m,
             PreNormValue = -3.26513000m,
             Standard = new Standard
             {
@@ -444,8 +444,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 45000.00000000m,
-            Value = -3.67342364m,
-            PreNormValue = -3.67345000m,
+            Value = -3.67343545m,
+            PreNormValue = -3.67346000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -491,8 +491,8 @@ namespace CalibrationCalculationsTestsUsingCertData.TestData.MethodBTestData1
         new SingleRunPoint
         {
             ForceApplied = 50000.00000000m,
-            Value = -4.08168182m,
-            PreNormValue = -4.08171000m,
+            Value = -4.08172273m,
+            PreNormValue = -4.08175000m,
             Standard = new Standard
             {
                 StandardID = 11,
