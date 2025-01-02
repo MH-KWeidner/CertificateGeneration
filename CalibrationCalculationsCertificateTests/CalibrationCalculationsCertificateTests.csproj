@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="E74LabSchDataSets\**" />
+    <EmbeddedResource Remove="E74LabSchDataSets\**" />
+    <None Remove="E74LabSchDataSets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
@@ -22,11 +28,6 @@
 
   <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="E74LabSchDataSets\E74LabSchData1\" />
-    <Folder Include="E74LabSchDataSets\Models\" />
   </ItemGroup>
 
 </Project>
