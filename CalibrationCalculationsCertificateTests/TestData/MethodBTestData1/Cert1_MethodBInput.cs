@@ -1,16 +1,17 @@
-﻿using System;
+﻿using CalibrationCalculationsCertificateTests.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CalibrationCalculationsCertificateTests.LabScheduleTestData
+namespace CalibrationCalculationsCertificateTests.TestData.MethodBTestData1
 {
     public class Cert1_MethodBInput : ILabScheduleInputData
     {
         public double[] NominalForcesApplied => nominalForcesApplied;
 
-        private static readonly double[] nominalForcesApplied = 
+        private static readonly double[] nominalForcesApplied =
             [
                 0,
                 1000,
@@ -30,7 +31,7 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleTestData
 
         public double[][] MeasurementData => [measurementData1, measurementData2, measurementData3];
 
-        private static readonly double[] measurementData1 = 
+        private static readonly double[] measurementData1 =
         [
             -0.00001,
             -0.08158,
@@ -49,7 +50,7 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleTestData
         ];
 
         private static readonly double[] measurementData2 =
-        [        
+        [
                 0,
                 -0.08157,
                 -0.40791,
