@@ -41,32 +41,16 @@ namespace CalibrationCalculations.Helpers
 
         public static double[] CalculateMeanAcrossX(double[][] jaggedArrays)
         {
-            // TODO Add error handling
-
+            
+            
             int length = GetLengthOfLongestArray(jaggedArrays);
 
-            double[] calculatedMean = new double[length];
-
-            for (int i = 0; i < length; i++)
-            {
-                double sum = 0;
-                int count = 0;
-                foreach (double[] array in jaggedArrays)
-                {
-                    if (i >= array.Length)
-                        continue;
-
-                    sum += array[i];
-                    count++;
-                }
-                
-                calculatedMean[i] = sum / count;
-            }
-
-            return calculatedMean;
+            return Enumerable.Range(0, length)
+                             .Select(i => jaggedArrays
+                                 .Where(array => i < array.Length)
+                                 .Average(array => array[i]))
+                             .ToArray();
         }
-
-
 
         public static int GetLengthOfLongestArray(params double[][] arrays)
         {
