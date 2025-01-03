@@ -31,15 +31,11 @@ public class ProcessToCreateFittedCurve
         };
 
 
-
-        MeasurementApplication application = new(
-            Data01_RawInput.GetAppliedForce(),
-            Data01_RawInput.GetRawDataSeries1(),
-            Data01_RawInput.GetRawDataSeries2(),
-            Data01_RawInput.GetRawDataSeries3());
+        ILabScheduleRawInput rawInput = new LS01_RawInput();
+        MeasurementApplication application = new(rawInput.NominalForcesApplied, rawInput.MeasurementData);
+            
 
         // Act
-        //application.RemoveSeriesByIndex(configuration.ExcludedSeriesByIndex);
         application.InterpolateMeasurementSeries(InterpolatorFactory.Create(configuration.InterpolationType));
         application.RemoveMeasurementPointsByIndex(configuration.TransientNominalAppliedForcesByIndex);
         application.ModifySeriesSize(new RemoveZeroValuedNominalForces());

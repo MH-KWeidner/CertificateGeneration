@@ -1,13 +1,6 @@
-﻿using CalibrationCalculationsCertificateTests.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
 {
-    public class Data01_AdditionalResultData : ILabScheduleResultData
+    internal class LS01_AdditionalData : ILabScheduleAdditionalData
     {
         public double[][] MathNetACoefficients => [mathNetACoefficientsOrder1, mathNetACoefficientsOrder2, mathNetACoefficientsOrder3, mathNetACoefficientsOrder4, mathNetACoefficientsOrder5];
 

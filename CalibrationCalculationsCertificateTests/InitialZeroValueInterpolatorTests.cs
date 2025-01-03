@@ -2,7 +2,7 @@
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.InitialZeroDataSets;
+using CalibrationCalculationsCertificateTests.LabScheduleTestData.LS05_MethodA_Cert_103443AJ0824;
 
 namespace CalibrationCalculationsCertificateTests
 {

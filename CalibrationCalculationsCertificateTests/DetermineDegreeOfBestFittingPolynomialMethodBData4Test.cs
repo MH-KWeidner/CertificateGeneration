@@ -4,6 +4,7 @@ using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.DegreeOfBestFit;
 using CalibrationCalculations.StandardCalculations.Interpolation;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1;
 using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData4;
 
 namespace CalibrationCalculationsCertificateTests
@@ -20,11 +21,11 @@ namespace CalibrationCalculationsCertificateTests
         [TestMethod]
         public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
         {
-            // Arrange
-            double[] appliedForce = MethodBNistTestData4.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, MethodBNistTestData4.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, MethodBNistTestData4.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, MethodBNistTestData4.GetRawDataSeries3());
+            ILabScheduleRawInput rawInput = new LS04_RawInput();
+            double[] appliedForce = rawInput.NominalForcesApplied;
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, rawInput.MeasurementData[0]);
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, rawInput.MeasurementData[1]);
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, rawInput.MeasurementData[2]);
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.Create(CalibrationCalculations.Common.InterpolationTypes.MethodB);

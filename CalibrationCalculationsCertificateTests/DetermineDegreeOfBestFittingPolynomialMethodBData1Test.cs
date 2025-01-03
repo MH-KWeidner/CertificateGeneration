@@ -21,10 +21,11 @@ namespace CalibrationCalculationsCertificateTests
         public void DetermineDegreeOfBestFittingPolynomial_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = Data01_RawInput.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, Data01_RawInput.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, Data01_RawInput.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, Data01_RawInput.GetRawDataSeries3());
+            ILabScheduleRawInput rawInput = new LS01_RawInput();
+            double[] appliedForce = rawInput.NominalForcesApplied;
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, rawInput.MeasurementData[0]);
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, rawInput.MeasurementData[1]);
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, rawInput.MeasurementData[2]);
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.Create(CalibrationCalculations.Common.InterpolationTypes.MethodB);

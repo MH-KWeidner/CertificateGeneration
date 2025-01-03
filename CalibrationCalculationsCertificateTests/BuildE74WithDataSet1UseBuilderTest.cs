@@ -28,10 +28,8 @@ public class BuildE74WithDataSet1UseBuilderTest
         };
 
         // Act
-        E74Result result = E74Builder.Build(configuration, Data01_RawInput.GetAppliedForce(),
-            Data01_RawInput.GetRawDataSeries1(),
-            Data01_RawInput.GetRawDataSeries2(),
-            Data01_RawInput.GetRawDataSeries3());
+        ILabScheduleRawInput rawInput = new LS01_RawInput();
+        E74Result result = E74Builder.Build(configuration, rawInput.NominalForcesApplied, rawInput.MeasurementData);
 
         // TODO decide on handling null array
         double[][] valuesForAllSeries = result.Values;
@@ -40,9 +38,9 @@ public class BuildE74WithDataSet1UseBuilderTest
         const int LABSCH_BEST_DEGREE_FIT = 4;
         Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, result.DegreeOfFit);
 
-        List<SingleRunPoint> LabSchedulePointsSeries1 = Data01_ResultSeries1.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries2 = Data01_ResultSeries2.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries3 = Data01_ResultSeries3.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries1 = LS01_ResultSeries1.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries2 = LS01_ResultSeries2.dataList;
+        List<SingleRunPoint> LabSchedulePointsSeries3 = LS01_ResultSeries3.dataList;
 
         // Assert
         Assert.AreEqual(valuesForAllSeries[0].Length, LabSchedulePointsSeries1.Count);

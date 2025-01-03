@@ -20,10 +20,11 @@ namespace CalibrationCalculationsCertificateTests
         public void InterpolateSeries_ValidInput_ReturnsExpectedInterpolatedValues()
         {
             // Arrange
-            double[] appliedForce = Data01_RawInput.GetAppliedForce();
-            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, Data01_RawInput.GetRawDataSeries1());
-            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, Data01_RawInput.GetRawDataSeries2());
-            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, Data01_RawInput.GetRawDataSeries3());
+            ILabScheduleRawInput rawInput = new LS01_RawInput();
+            double[] appliedForce = rawInput.NominalForcesApplied;
+            MeasurementSeries series1 = MeasurementSeries.Create(1, appliedForce, rawInput.MeasurementData[0]);
+            MeasurementSeries series2 = MeasurementSeries.Create(2, appliedForce, rawInput.MeasurementData[1]);
+            MeasurementSeries series3 = MeasurementSeries.Create(3, appliedForce, rawInput.MeasurementData[2]);
 
             // Act
             IInterpolate interpolator = InterpolatorFactory.Create(CalibrationCalculations.Common.InterpolationTypes.MethodB);
@@ -46,9 +47,9 @@ namespace CalibrationCalculationsCertificateTests
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);
 
-            List<SingleRunPoint> LabSchedulePointsSeries1 = Data01_ResultSeries1.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries2 = Data01_ResultSeries2.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries3 = Data01_ResultSeries3.dataList;
+            List<SingleRunPoint> LabSchedulePointsSeries1 = LS01_ResultSeries1.dataList;
+            List<SingleRunPoint> LabSchedulePointsSeries2 = LS01_ResultSeries2.dataList;
+            List<SingleRunPoint> LabSchedulePointsSeries3 = LS01_ResultSeries3.dataList;
 
             // Assert
             Assert.AreEqual(series1.Count(), LabSchedulePointsSeries1.Count);

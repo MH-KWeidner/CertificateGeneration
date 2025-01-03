@@ -1,13 +1,13 @@
 ﻿namespace CalibrationCalculationsCertificateTests.Models
 {
     /// <summary>
-    /// Defines the <see cref="ILabScheduleResultData" />
+    /// Defines the <see cref="ILabScheduleAdditionalData" />
     /// </summary>
-    public interface ILabScheduleResultData
+    internal interface ILabScheduleAdditionalData
     {
         /// <summary>
         /// The ACoefficients as returned from the MathNet library
         /// </summary>
-        public double[][] MathNetACoefficients { get; }
+        internal double[][] MathNetACoefficients { get; }
     }
 }

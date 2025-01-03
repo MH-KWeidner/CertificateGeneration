@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.InitialZeroDataSets
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS05_MethodA_Cert_103443AJ0824
 {
     /// <summary>
     /// Defines the <see cref="MethodAInitialZeroTestData1" />

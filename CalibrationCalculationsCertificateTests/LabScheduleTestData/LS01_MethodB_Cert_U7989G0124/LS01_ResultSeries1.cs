@@ -4,22 +4,23 @@ using CalibrationCalculationsCertificateTests.NISTDataSets;
 namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
 {
     /// <summary>
-    /// Defines the <see cref="Data01_ResultSeries3" />
+    /// Defines the <see cref="LS01_ResultSeries1" />
     /// </summary>
-    public class Data01_ResultSeries3
+    internal static class LS01_ResultSeries1
     {
         // CALIBRATION & ISSUE DATE: 07/01/2024
         // REPORT NO.: U-7989G0124
+        // Degree of Fit: Best Fit from LabSch is 4
 
-        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 3
+        // METHOD B Nist DATASET 1 LAB VIEW RESULTS MeasurementSeries 1
 
         /// <summary>
         /// Defines the dataList
         /// </summary>
-        public static List<SingleRunPoint> dataList =
+        internal static List<SingleRunPoint> dataList =
         [
-            new SingleRunPoint
-        {
+             new SingleRunPoint
+            {
             ForceApplied = 1000.00000000m,
             Value = -0.08157000m,
             PreNormValue = -0.08158000m,
@@ -68,8 +69,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 5000.00000000m,
-            Value = -0.40789818m,
-            PreNormValue = -0.40791000m,
+            Value = -0.40788636m,
+            PreNormValue = -0.40790000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -115,8 +116,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 10000.00000000m,
-            Value = -0.81587636m,
-            PreNormValue = -0.81589000m,
+            Value = -0.81585273m,
+            PreNormValue = -0.81587000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -162,8 +163,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 15000.00000000m,
-            Value = -1.22394455m,
-            PreNormValue = -1.22396000m,
+            Value = -1.22390909m,
+            PreNormValue = -1.22393000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -209,8 +210,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 20000.00000000m,
-            Value = -1.63207273m,
-            PreNormValue = -1.63209000m,
+            Value = -1.63203545m,
+            PreNormValue = -1.63206000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -256,8 +257,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 25000.00000000m,
-            Value = -2.04026091m,
-            PreNormValue = -2.04028000m,
+            Value = -2.04022182m,
+            PreNormValue = -2.04025000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -303,8 +304,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 30000.00000000m,
-            Value = -2.44850909m,
-            PreNormValue = -2.44853000m,
+            Value = -2.44846818m,
+            PreNormValue = -2.44850000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -350,8 +351,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 35000.00000000m,
-            Value = -2.85678727m,
-            PreNormValue = -2.85681000m,
+            Value = -2.85675455m,
+            PreNormValue = -2.85679000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -397,8 +398,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 40000.00000000m,
-            Value = -3.26510545m,
-            PreNormValue = -3.26513000m,
+            Value = -3.26505091m,
+            PreNormValue = -3.26509000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -444,8 +445,8 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 45000.00000000m,
-            Value = -3.67342364m,
-            PreNormValue = -3.67345000m,
+            Value = -3.67338727m,
+            PreNormValue = -3.67343000m,
             Standard = new Standard
             {
                 StandardID = 11,
@@ -491,7 +492,7 @@ namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData
         new SingleRunPoint
         {
             ForceApplied = 50000.00000000m,
-            Value = -4.08168182m,
+            Value = -4.08166364m,
             PreNormValue = -4.08171000m,
             Standard = new Standard
             {
