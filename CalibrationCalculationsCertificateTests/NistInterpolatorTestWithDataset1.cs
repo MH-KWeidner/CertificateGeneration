@@ -2,8 +2,8 @@ using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1;
-using CalibrationCalculationsCertificateTests.NISTDataSets;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124;
+using CalibrationCalculationsCertificateTests.Models;
 
 namespace CalibrationCalculationsCertificateTests
 {

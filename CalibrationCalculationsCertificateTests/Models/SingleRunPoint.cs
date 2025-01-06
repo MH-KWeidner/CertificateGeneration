@@ -1,6 +1,6 @@
-﻿using CalibrationCalculationsCertificateTests.NISTDataSets;
+﻿using CalibrationCalculationsCertificateTests.Models;
 
-namespace CalibrationCalculationsCertificateTests.NISTDataSets
+namespace CalibrationCalculationsCertificateTests.Models
 {
     /// <summary>
     /// Defines the Direction

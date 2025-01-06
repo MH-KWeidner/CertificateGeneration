@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using CalibrationCalculationsCertificateTests.NISTDataSets;
+using CalibrationCalculationsCertificateTests.Models;
 
-namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
+namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124
 {
     /// <summary>
     /// Defines the <see cref="LS01_ResultSeries1" />

@@ -2,7 +2,7 @@ using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.InitialZeroDataSets;
+using CalibrationCalculationsCertificateTests.LS06_MethodA_Cert_C_10968LOK1424;
 
 namespace CalibrationCalculationsCertificateTests;
 

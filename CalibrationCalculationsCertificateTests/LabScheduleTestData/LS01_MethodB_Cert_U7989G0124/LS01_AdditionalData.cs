@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124
 {
     internal class LS01_AdditionalData : ILabScheduleAdditionalData
     {

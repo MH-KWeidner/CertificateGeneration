@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.InitialZeroDataSets
+﻿namespace CalibrationCalculationsCertificateTests.LS06_MethodA_Cert_C_10968LOK1424
 {
     /// <summary>
     /// Defines the <see cref="MethodAInitialZeroTestData2" />

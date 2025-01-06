@@ -7,11 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CalibrationCalculationsCertificateTests.NISTDataSets
+namespace CalibrationCalculationsCertificateTests.Models
 {
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Defines the <see cref="Standard" />
     /// </summary>

@@ -1,7 +1,7 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.GenerateE74;
-using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.MethodBTestData1;
-using CalibrationCalculationsCertificateTests.NISTDataSets;
+using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124;
+using CalibrationCalculationsCertificateTests.Models;
 
 namespace CalibrationCalculationsCertificateTests;
 

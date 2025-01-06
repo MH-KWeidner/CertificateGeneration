@@ -1,6 +1,4 @@
-﻿using CalibrationCalculationsCertificateTests.NISTDataSets;
-
-namespace CalibrationCalculationsCertificateTests.NISTDataSets
+﻿namespace CalibrationCalculationsCertificateTests.Models
 {
     /// <summary>
     /// Defines the UncertaintyType
