@@ -1,5 +1,6 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.GenerateE74;
+using CalibrationCalculationsCertificateTests.LabScheduleModels;
 using CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
 using static CalibrationCalculationsCertificateTests.LabScheduleModels.LabAnalysisSingleRunResult;
 
