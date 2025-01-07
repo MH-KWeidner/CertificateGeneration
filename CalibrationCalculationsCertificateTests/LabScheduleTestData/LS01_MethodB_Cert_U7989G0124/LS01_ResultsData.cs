@@ -17,140 +17,327 @@ public class LS01_ResultsData : ILabScheduleRunResults
             new LabAnalysisSingleRunResult
             {
                 LabObject = new LabAnalysisObject
-    {
-        TaskID = 58886,
-        DecimalPlaces = 0,
-        Method = "Method B",
-        InstrumentType = "Load Cell",
-        InstrumentCapacity = 50000.00000000m,
-        DataDirection = "Ascending",
-        MaxForceApplied = 50000.00000000m,
-        Readability = 0.00000001m,
-        NonRepeatabilityList = new List<decimal>(),
-        CompressionTensionType = "C",
-        UnitsOfForce = "lbf",
-        ReportNumber = "U-7989G0124",
-        AssignedAccuracyStr = "** Not Assigned",
-        ReadOnInstrument = new UnitsReadOnInstrument
-        {
-            UnitsReadOnInstrumentID = 25,
-            Description = "mV/V"
-        },
-        SecondaryStandardList = new List<SecondaryStandard>
-        {
-            new SecondaryStandard
-            {
-                SecondaryStandardID = 410993,
-                LabTaskID = 58886,
-                StandardID = 18
-            }
-        },
-        Indicators = new List<Indicator>
-        {
-            new Indicator
-            {
-                IndicatorID = 5163,
-                IndicatorSerialNumber = "61151",
-                IndicatorManufacturer = "MOREHOUSE",
-                CustomerID = 8240,
-                CustomerRefNo = "KLD77125000001",
-                IndicatorModelNo = "4215",
-                HasChanges = true,
-                ObjectStatus = ObjStatus.New
-            }
-        },
-        Data = new List<LabData>
-        {
-            new LabData
-            {
-                LabdataRunList = new List<LabdataRun>
+
                 {
-                    new LabdataRun
+                    TaskID = 58886,
+                    DecimalPlaces = 0,
+                    Method = "Method B",
+                    InstrumentType = "Load Cell",
+                    InstrumentCapacity = 50000.00000000m,
+                    DataDirection = "Ascending",
+                    MaxForceApplied = 50000.00000000m,
+                    Readability = 0.00000001m,
+                    NonRepeatabilityList = new List<decimal>(),
+                    CompressionTensionType = "C",
+                    UnitsOfForce = "lbf",
+                    ReportNumber = "U-7989G0124",
+                    AssignedAccuracyStr = "** Not Assigned",
+                    ReadOnInstrument = new UnitsReadOnInstrument
                     {
-                        RunNumber = 1,
-                        LabdataStandardList = new List<LabdataStandard>
+                        UnitsReadOnInstrumentID = 25,
+                        Description = "mV/V"
+                    },
+                    SecondaryStandardList = new List<SecondaryStandard>
+                    {
+                        new SecondaryStandard
                         {
-                            new LabdataStandard
+                            SecondaryStandardID = 410993,
+                            LabTaskID = 58886,
+                            StandardID = 18
+                        }
+                    },
+                    Indicators = new List<Indicator>
+                    {
+                        new Indicator
+                        {
+                            IndicatorID = 5163,
+                            IndicatorSerialNumber = "61151",
+                            IndicatorManufacturer = "MOREHOUSE",
+                            CustomerID = 8240,
+                            CustomerRefNo = "KLD77125000001",
+                            IndicatorModelNo = "4215",
+                            HasChanges = true,
+                            ObjectStatus = ObjStatus.New
+                        }
+                    },
+                    Data = new List<LabData>
+                    {
+                        new LabData
+                        {
+                            LabdataRunList = new List<LabdataRun>
                             {
-                                PrimaryStandardId = 11,
-                                NumExclusions = 1,
-                                ExclusionIndex = new List<int>
+                                new LabdataRun
                                 {
-                                    12
-                                },
-                                LabdataStandardResponseList = new List<LabdataStandardResponse>
-                                {
-                                    new LabdataStandardResponse
+                                    RunNumber = 1,
+                                    LabdataStandardList = new List<LabdataStandard>
                                     {
-                                        NumExclusions = 1,
-                                        ExclusionIndex = new List<int>
+                                        new LabdataStandard
                                         {
-                                            11
-                                        },
-                                        LabdataResponseList = new List<LabdataResponse>
+                                            PrimaryStandardId = 11,
+                                            NumExclusions = 1,
+                                            ExclusionIndex = new List<int>
+                                            {
+                                                12
+                                            },
+                                            LabdataStandardResponseList = new List<LabdataStandardResponse>
+                                            {
+                                                new LabdataStandardResponse
+                                                {
+                                                    NumExclusions = 1,
+                                                    ExclusionIndex = new List<int>
+                                                    {
+                                                        11
+                                                    },
+                                                    LabdataResponseList = new List<LabdataResponse>
+                                                    {
+                                                        new LabdataResponse
+                                                        {
+                                                            Value = -0.00001000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 1000.00000000m,
+                                                            Value = -0.08158000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 5000.00000000m,
+                                                            Value = -0.40790000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 10000.00000000m,
+                                                            Value = -0.81587000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 15000.00000000m,
+                                                            Value = -1.22393000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 20000.00000000m,
+                                                            Value = -1.63206000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 25000.00000000m,
+                                                            Value = -2.04025000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 30000.00000000m,
+                                                            Value = -2.44850000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 35000.00000000m,
+                                                            Value = -2.85679000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 40000.00000000m,
+                                                            Value = -3.26509000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 45000.00000000m,
+                                                            Value = -3.67343000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 50000.00000000m,
+                                                            Value = -4.08171000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            Value = -0.00005000m
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                new LabdataRun
+                                {
+                                    RunNumber = 2,
+                                    LabdataStandardList = new List<LabdataStandard>
+                                    {
+                                        new LabdataStandard
                                         {
-                                            new LabdataResponse
+                                            PrimaryStandardId = 11,
+                                            NumExclusions = 1,
+                                            ExclusionIndex = new List<int>
                                             {
-                                                Value = -0.00001000m
+                                                12
                                             },
-                                            new LabdataResponse
+                                            LabdataStandardResponseList = new List<LabdataStandardResponse>
                                             {
-                                                ForceApplied = 1000.00000000m,
-                                                Value = -0.08158000m
+                                                new LabdataStandardResponse
+                                                {
+                                                    NumExclusions = 1,
+                                                    ExclusionIndex = new List<int>
+                                                    {
+                                                        11
+                                                    },
+                                                    LabdataResponseList = new List<LabdataResponse>
+                                                    {
+                                                        new LabdataResponse(),
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 1000.00000000m,
+                                                            Value = -0.08157000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 5000.00000000m,
+                                                            Value = -0.40791000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 10000.00000000m,
+                                                            Value = -0.81588000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 15000.00000000m,
+                                                            Value = -1.22395000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 20000.00000000m,
+                                                            Value = -1.63208000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 25000.00000000m,
+                                                            Value = -2.04028000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 30000.00000000m,
+                                                            Value = -2.44853000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 35000.00000000m,
+                                                            Value = -2.85682000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 40000.00000000m,
+                                                            Value = -3.26513000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 45000.00000000m,
+                                                            Value = -3.67346000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 50000.00000000m,
+                                                            Value = -4.08175000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            Value = -0.00003000m
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                new LabdataRun
+                                {
+                                    RunNumber = 3,
+                                    LabdataStandardList = new List<LabdataStandard>
+                                    {
+                                        new LabdataStandard
+                                        {
+                                            PrimaryStandardId = 11,
+                                            NumExclusions = 1,
+                                            ExclusionIndex = new List<int>
+                                            {
+                                                12
                                             },
-                                            new LabdataResponse
+                                            LabdataStandardResponseList = new List<LabdataStandardResponse>
                                             {
-                                                ForceApplied = 5000.00000000m,
-                                                Value = -0.40790000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 10000.00000000m,
-                                                Value = -0.81587000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 15000.00000000m,
-                                                Value = -1.22393000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 20000.00000000m,
-                                                Value = -1.63206000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 25000.00000000m,
-                                                Value = -2.04025000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 30000.00000000m,
-                                                Value = -2.44850000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 35000.00000000m,
-                                                Value = -2.85679000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 40000.00000000m,
-                                                Value = -3.26509000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 45000.00000000m,
-                                                Value = -3.67343000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 50000.00000000m,
-                                                Value = -4.08171000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                Value = -0.00005000m
+                                                new LabdataStandardResponse
+                                                {
+                                                    NumExclusions = 1,
+                                                    ExclusionIndex = new List<int>
+                                                    {
+                                                        11
+                                                    },
+                                                    LabdataResponseList = new List<LabdataResponse>
+                                                    {
+                                                        new LabdataResponse
+                                                        {
+                                                            Value = -0.00001000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 1000.00000000m,
+                                                            Value = -0.08158000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 5000.00000000m,
+                                                            Value = -0.40791000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 10000.00000000m,
+                                                            Value = -0.81589000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 15000.00000000m,
+                                                            Value = -1.22396000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 20000.00000000m,
+                                                            Value = -1.63209000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 25000.00000000m,
+                                                            Value = -2.04028000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 30000.00000000m,
+                                                            Value = -2.44853000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 35000.00000000m,
+                                                            Value = -2.85681000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 40000.00000000m,
+                                                            Value = -3.26513000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 45000.00000000m,
+                                                            Value = -3.67345000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            ForceApplied = 50000.00000000m,
+                                                            Value = -4.08171000m
+                                                        },
+                                                        new LabdataResponse
+                                                        {
+                                                            Value = -0.00003000m
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -158,199 +345,13 @@ public class LS01_ResultsData : ILabScheduleRunResults
                             }
                         }
                     },
-                    new LabdataRun
-                    {
-                        RunNumber = 2,
-                        LabdataStandardList = new List<LabdataStandard>
-                        {
-                            new LabdataStandard
-                            {
-                                PrimaryStandardId = 11,
-                                NumExclusions = 1,
-                                ExclusionIndex = new List<int>
-                                {
-                                    12
-                                },
-                                LabdataStandardResponseList = new List<LabdataStandardResponse>
-                                {
-                                    new LabdataStandardResponse
-                                    {
-                                        NumExclusions = 1,
-                                        ExclusionIndex = new List<int>
-                                        {
-                                            11
-                                        },
-                                        LabdataResponseList = new List<LabdataResponse>
-                                        {
-                                            new LabdataResponse(),
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 1000.00000000m,
-                                                Value = -0.08157000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 5000.00000000m,
-                                                Value = -0.40791000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 10000.00000000m,
-                                                Value = -0.81588000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 15000.00000000m,
-                                                Value = -1.22395000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 20000.00000000m,
-                                                Value = -1.63208000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 25000.00000000m,
-                                                Value = -2.04028000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 30000.00000000m,
-                                                Value = -2.44853000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 35000.00000000m,
-                                                Value = -2.85682000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 40000.00000000m,
-                                                Value = -3.26513000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 45000.00000000m,
-                                                Value = -3.67346000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 50000.00000000m,
-                                                Value = -4.08175000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                Value = -0.00003000m
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    new LabdataRun
-                    {
-                        RunNumber = 3,
-                        LabdataStandardList = new List<LabdataStandard>
-                        {
-                            new LabdataStandard
-                            {
-                                PrimaryStandardId = 11,
-                                NumExclusions = 1,
-                                ExclusionIndex = new List<int>
-                                {
-                                    12
-                                },
-                                LabdataStandardResponseList = new List<LabdataStandardResponse>
-                                {
-                                    new LabdataStandardResponse
-                                    {
-                                        NumExclusions = 1,
-                                        ExclusionIndex = new List<int>
-                                        {
-                                            11
-                                        },
-                                        LabdataResponseList = new List<LabdataResponse>
-                                        {
-                                            new LabdataResponse
-                                            {
-                                                Value = -0.00001000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 1000.00000000m,
-                                                Value = -0.08158000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 5000.00000000m,
-                                                Value = -0.40791000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 10000.00000000m,
-                                                Value = -0.81589000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 15000.00000000m,
-                                                Value = -1.22396000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 20000.00000000m,
-                                                Value = -1.63209000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 25000.00000000m,
-                                                Value = -2.04028000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 30000.00000000m,
-                                                Value = -2.44853000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 35000.00000000m,
-                                                Value = -2.85681000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 40000.00000000m,
-                                                Value = -3.26513000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 45000.00000000m,
-                                                Value = -3.67345000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                ForceApplied = 50000.00000000m,
-                                                Value = -4.08171000m
-                                            },
-                                            new LabdataResponse
-                                            {
-                                                Value = -0.00003000m
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        AsReceivedAsReturned = AsReceivedAsReturned.AsReceivedAsReturned,
-        InstrumentItemID = 57775,
-        Capacity = 50000.00000000m,
-        SerialNumber = "U-7989",
-        InstrumentReadingPrecision = 8,
-        ExpandedUncertaintyPrecision = 3
-    },
+                    AsReceivedAsReturned = AsReceivedAsReturned.AsReceivedAsReturned,
+                    InstrumentItemID = 57775,
+                    Capacity = 50000.00000000m,
+                    SerialNumber = "U-7989",
+                    InstrumentReadingPrecision = 8,
+                    ExpandedUncertaintyPrecision = 3
+                },
                 Runs = new List<SingleRun>
                 {
                     new SingleRun
