@@ -1,8 +1,7 @@
 ﻿global using CalibrationCalculationsCertificateTests.LabScheduleModels;
 
-namespace CalibrationCalculationsCertificateTests
+namespace CalibrationCalculationsCertificateTests;
+
+internal class GlobalUsings
 {
-    internal class GlobalUsings
-    {
-    }
 }

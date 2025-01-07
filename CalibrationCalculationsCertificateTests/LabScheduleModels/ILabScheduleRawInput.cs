@@ -1,9 +1,8 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels
-{
-    internal interface ILabScheduleRawInput
-    {
-        double[] NominalForcesApplied { get; }
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
 
-        double[][] MeasurementData { get; }
-    }
+internal interface ILabScheduleRawInput
+{
+    double[] NominalForcesApplied { get; }
+
+    double[][] MeasurementData { get; }
 }

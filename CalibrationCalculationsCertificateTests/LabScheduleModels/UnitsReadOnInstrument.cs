@@ -1,10 +1,9 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
+
+public class UnitsReadOnInstrument
 {
-    public class UnitsReadOnInstrument
-    {
-        public long UnitsReadOnInstrumentID { get; set; }
-        public string Description { get; set; }
-        public bool HasChanges { get; set; }
-        public ObjStatus ObjectStatus { get; set; }
-    }
+    public long UnitsReadOnInstrumentID { get; set; }
+    public string Description { get; set; }
+    public bool HasChanges { get; set; }
+    public ObjStatus ObjectStatus { get; set; }
 }

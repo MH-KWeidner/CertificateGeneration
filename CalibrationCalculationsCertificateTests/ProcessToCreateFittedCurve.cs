@@ -7,7 +7,6 @@ using CalibrationCalculations.Helpers;
 using CalibrationCalculations.MathLibrary;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.LabScheduleModels;
 using CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
 
 namespace CalibrationCalculationsCertificateTests;

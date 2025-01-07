@@ -1,7 +1,6 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
+
+public interface ILabScheduleRunResults
 {
-    public interface ILabScheduleRunResults
-    {
-       List<LabAnalysisSingleRunResult> LabScheduleRunResults { get; }
-    }
+   List<LabAnalysisSingleRunResult> LabScheduleRunResults { get; }
 }
