@@ -1,25 +1,24 @@
 ﻿using CalibrationCalculations.Common;
 
-namespace CalibrationCalculations.Factories.TransformMeasurementPoints
+namespace CalibrationCalculations.Factories.TransformMeasurementPoints;
+
+/// <summary>
+/// Defines the <see cref="MeasurementPointsToArrayFactory" />
+/// </summary>
+public static class MeasurementPointsToArrayFactory
 {
     /// <summary>
-    /// Defines the <see cref="MeasurementPointsToArrayFactory" />
+    /// The Create
     /// </summary>
-    public static class MeasurementPointsToArrayFactory
+    /// <param name="transformType">The transformType<see cref="MeasurementPointsToArrayTransformTypes"/></param>
+    /// <returns>The <see cref="ITransformMeasurementPointsToArray"/></returns>
+    public static ITransformMeasurementPointsToArray Create(MeasurementPointsToArrayTransformTypes transformType)
     {
-        /// <summary>
-        /// The Create
-        /// </summary>
-        /// <param name="transformType">The transformType<see cref="MeasurementPointsToArrayTransformTypes"/></param>
-        /// <returns>The <see cref="ITransformMeasurementPointsToArray"/></returns>
-        public static ITransformMeasurementPointsToArray Create(MeasurementPointsToArrayTransformTypes transformType)
+        return transformType switch
         {
-            return transformType switch
-            {
-                MeasurementPointsToArrayTransformTypes.NominalAppliedForces => new NominalAppliedForcesToArray(),
-                MeasurementPointsToArrayTransformTypes.MeasurementValues => new MeasurementValuesToArray(),
-                _ => throw new NotImplementedException()
-            };
-        }
+            MeasurementPointsToArrayTransformTypes.NominalAppliedForces => new NominalAppliedForcesToArray(),
+            MeasurementPointsToArrayTransformTypes.MeasurementValues => new MeasurementValuesToArray(),
+            _ => throw new NotImplementedException()
+        };
     }
 }

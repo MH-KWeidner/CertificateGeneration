@@ -1,26 +1,25 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.TransformMeasurementPoints
+namespace CalibrationCalculations.Factories.TransformMeasurementPoints;
+
+/// <summary>
+/// Defines the <see cref="MeasurementValuesToArray" />
+/// </summary>
+public class MeasurementValuesToArray : ITransformMeasurementPointsToArray
 {
+    //TODO consider if this transform is needed.
+
     /// <summary>
-    /// Defines the <see cref="MeasurementValuesToArray" />
+    /// The ToArray
     /// </summary>
-    public class MeasurementValuesToArray : ITransformMeasurementPointsToArray
+    /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+    /// <returns>The <see cref="double[]"/></returns>
+    public double[] ToArray(List<IMeasurementPoint>? measurementPoints)
     {
-        //TODO consider if this transform is needed.
+        // TODO: fix this
 
-        /// <summary>
-        /// The ToArray
-        /// </summary>
-        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
-        /// <returns>The <see cref="double[]"/></returns>
-        public double[] ToArray(List<IMeasurementPoint>? measurementPoints)
-        {
-            // TODO: fix this
+        // ArgumentNullException.ThrowIfNull(measurementPoints);
 
-            // ArgumentNullException.ThrowIfNull(measurementPoints);
-
-            return measurementPoints.Select(mp => mp.Value).ToArray();
-        }
+        return measurementPoints.Select(mp => mp.Value).ToArray();
     }
 }

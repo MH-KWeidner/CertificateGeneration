@@ -1,132 +1,131 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.StandardCalculations.Interpolation
+namespace CalibrationCalculations.StandardCalculations.Interpolation;
+
+/// <summary>
+/// Defines the <see cref="NistInterpolator" />
+/// </summary>
+public class NistInterpolator : IInterpolate
 {
     /// <summary>
-    /// Defines the <see cref="NistInterpolator" />
+    /// The Interpolate
     /// </summary>
-    public class NistInterpolator : IInterpolate
+    /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+    public void Interpolate(MeasurementSeries series)
     {
-        /// <summary>
-        /// The Interpolate
-        /// </summary>
-        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
-        public void Interpolate(MeasurementSeries series)
+        if (series == null)
+            return;
+
+        // Get positions of zero force values in the series
+        IList<int> zeroForcePositions = GetZeroAppliedForcePositions(series);
+
+        //List<IMeasurementPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+
+        for (int i = 0; i < zeroForcePositions.Count; i++)
         {
-            if (series == null)
-                return;
+            // 2 zero-applied-force values are needed to calculate an interpolation value
+            if (i + 1 == zeroForcePositions.Count)
+                break;
 
-            // Get positions of zero force values in the series
-            IList<int> zeroForcePositions = GetZeroAppliedForcePositions(series);
+            int indexOfStartingZeroAppliedForce = zeroForcePositions[i];
 
-            //List<IMeasurementPoint> zeroAppliedForceItems = series.Query(new QueryZeroForceItems());
+            int indexOfEndingZeroAppliedForce = zeroForcePositions[i + 1];
 
-            for (int i = 0; i < zeroForcePositions.Count; i++)
+            // 2 consecutive zero values can not be used to calculate an interpolation value
+            if (indexOfEndingZeroAppliedForce - 1 == indexOfStartingZeroAppliedForce)
+                continue;
+
+            int numberItemsWithNonZeroForceApplied = indexOfEndingZeroAppliedForce - indexOfStartingZeroAppliedForce - 1;
+
+            int indexOfItemWithNonZeroForceApplied = indexOfStartingZeroAppliedForce + 1;
+
+            if (numberItemsWithNonZeroForceApplied == 1)
             {
-                // 2 zero-applied-force values are needed to calculate an interpolation value
-                if (i + 1 == zeroForcePositions.Count)
-                    break;
+                var interpolatedValue = InterpolateByZeroForceAverage(
+                    startZeroValue: series.GetRawValue(indexOfStartingZeroAppliedForce),
+                    endZeroValue: series.GetRawValue(indexOfEndingZeroAppliedForce),
+                    forceReading: series.GetRawValue(indexOfItemWithNonZeroForceApplied));
 
-                int indexOfStartingZeroAppliedForce = zeroForcePositions[i];
+                series.SetValue(indexOfItemWithNonZeroForceApplied, interpolatedValue);
 
-                int indexOfEndingZeroAppliedForce = zeroForcePositions[i + 1];
+                continue;
+            }
 
-                // 2 consecutive zero values can not be used to calculate an interpolation value
-                if (indexOfEndingZeroAppliedForce - 1 == indexOfStartingZeroAppliedForce)
-                    continue;
+            int OneBasedSeriesPositionForNonZeroForce = 1;
 
-                int numberItemsWithNonZeroForceApplied = indexOfEndingZeroAppliedForce - indexOfStartingZeroAppliedForce - 1;
+            for (int j = indexOfItemWithNonZeroForceApplied; j < indexOfEndingZeroAppliedForce; j++)
+            {
+                var interpolatedValue = CalculateNISInterpolatedValue(
+                     startZeroValue: series.GetRawValue(indexOfStartingZeroAppliedForce),
+                     endZeroValue: series.GetRawValue(indexOfEndingZeroAppliedForce),
+                     numberOfNonZeroForcePoints: numberItemsWithNonZeroForceApplied,
+                     forceReading: series.GetRawValue(j),
+                     OneBasedSeriesPositionForNonZeroForce: OneBasedSeriesPositionForNonZeroForce);
 
-                int indexOfItemWithNonZeroForceApplied = indexOfStartingZeroAppliedForce + 1;
+                series.SetValue(j, interpolatedValue);
 
-                if (numberItemsWithNonZeroForceApplied == 1)
-                {
-                    var interpolatedValue = InterpolateByZeroForceAverage(
-                        startZeroValue: series.GetRawValue(indexOfStartingZeroAppliedForce),
-                        endZeroValue: series.GetRawValue(indexOfEndingZeroAppliedForce),
-                        forceReading: series.GetRawValue(indexOfItemWithNonZeroForceApplied));
-
-                    series.SetValue(indexOfItemWithNonZeroForceApplied, interpolatedValue);
-
-                    continue;
-                }
-
-                int OneBasedSeriesPositionForNonZeroForce = 1;
-
-                for (int j = indexOfItemWithNonZeroForceApplied; j < indexOfEndingZeroAppliedForce; j++)
-                {
-                    var interpolatedValue = CalculateNISInterpolatedValue(
-                         startZeroValue: series.GetRawValue(indexOfStartingZeroAppliedForce),
-                         endZeroValue: series.GetRawValue(indexOfEndingZeroAppliedForce),
-                         numberOfNonZeroForcePoints: numberItemsWithNonZeroForceApplied,
-                         forceReading: series.GetRawValue(j),
-                         OneBasedSeriesPositionForNonZeroForce: OneBasedSeriesPositionForNonZeroForce);
-
-                    series.SetValue(j, interpolatedValue);
-
-                    OneBasedSeriesPositionForNonZeroForce++;
-                }
+                OneBasedSeriesPositionForNonZeroForce++;
             }
         }
+    }
 
-        /// <summary>
-        /// The CalculateNISInterpolatedValue
-        /// </summary>
-        /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
-        /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
-        /// <param name="numberOfNonZeroForcePoints">The numberOfNonZeroForcePoints<see cref="int"/></param>
-        /// <param name="forceReading">The forceReading<see cref="double"/></param>
-        /// <param name="OneBasedSeriesPositionForNonZeroForce">The OneBasedSeriesPositionForNonZeroForce<see cref="int"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionForNonZeroForce)
+    /// <summary>
+    /// The CalculateNISInterpolatedValue
+    /// </summary>
+    /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
+    /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
+    /// <param name="numberOfNonZeroForcePoints">The numberOfNonZeroForcePoints<see cref="int"/></param>
+    /// <param name="forceReading">The forceReading<see cref="double"/></param>
+    /// <param name="OneBasedSeriesPositionForNonZeroForce">The OneBasedSeriesPositionForNonZeroForce<see cref="int"/></param>
+    /// <returns>The <see cref="double"/></returns>
+    public static double CalculateNISInterpolatedValue(double startZeroValue, double endZeroValue, int numberOfNonZeroForcePoints, double forceReading, int OneBasedSeriesPositionForNonZeroForce)
+    {
+        //TODO better naming
+
+        try
         {
-            //TODO better naming
-
-            try
-            {
-                return forceReading - (startZeroValue + (endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1));
-            }
-            catch
-            {
-                //TODO add specific error handling
-                throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
-            }
+            return forceReading - (startZeroValue + (endZeroValue - startZeroValue) * (OneBasedSeriesPositionForNonZeroForce - 1) / (numberOfNonZeroForcePoints - 1));
         }
-
-        /// <summary>
-        /// The InterpolateByZeroForceAverage
-        /// </summary>
-        /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
-        /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
-        /// <param name="forceReading">The forceReading<see cref="double"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public static double InterpolateByZeroForceAverage(double startZeroValue, double endZeroValue, double forceReading)
+        catch
         {
-            //TODO better naming
-
-            try
-            {
-                return forceReading - (endZeroValue + startZeroValue) / 2;
-            }
-            catch
-            {
-                //TODO add specific error handling
-                throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
-            }
+            //TODO add specific error handling
+            throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
         }
+    }
 
-        /// <summary>
-        /// The GetZeroAppliedForcePositions
-        /// </summary>
-        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
-        /// <returns>The <see cref="IList{int}"/></returns>
-        public IList<int> GetZeroAppliedForcePositions(MeasurementSeries series)
+    /// <summary>
+    /// The InterpolateByZeroForceAverage
+    /// </summary>
+    /// <param name="startZeroValue">The startZeroValue<see cref="double"/></param>
+    /// <param name="endZeroValue">The endZeroValue<see cref="double"/></param>
+    /// <param name="forceReading">The forceReading<see cref="double"/></param>
+    /// <returns>The <see cref="double"/></returns>
+    public static double InterpolateByZeroForceAverage(double startZeroValue, double endZeroValue, double forceReading)
+    {
+        //TODO better naming
+
+        try
         {
-            // TODO add null check and error handling
-
-            return Enumerable.Range(0, series.Count())
-                    .Where(i => series.GetAppliedForce(i) == 0.0)
-                    .ToList();
+            return forceReading - (endZeroValue + startZeroValue) / 2;
         }
+        catch
+        {
+            //TODO add specific error handling
+            throw new Exception("Error in Statistics.CalculateNISInterpolatedValue");
+        }
+    }
+
+    /// <summary>
+    /// The GetZeroAppliedForcePositions
+    /// </summary>
+    /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+    /// <returns>The <see cref="IList{int}"/></returns>
+    public IList<int> GetZeroAppliedForcePositions(MeasurementSeries series)
+    {
+        // TODO add null check and error handling
+
+        return Enumerable.Range(0, series.Count())
+                .Where(i => series.GetAppliedForce(i) == 0.0)
+                .ToList();
     }
 }

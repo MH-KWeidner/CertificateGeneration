@@ -3,236 +3,235 @@ using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Factories.TransformMeasurementPoints;
 using CalibrationCalculations.StandardCalculations.Interpolation;
 
-namespace CalibrationCalculations.Models
+namespace CalibrationCalculations.Models;
+
+/// <summary>
+/// Defines the <see cref="MeasurementSeries" />
+/// </summary>
+public class MeasurementSeries
 {
     /// <summary>
-    /// Defines the <see cref="MeasurementSeries" />
+    /// Defines the id
     /// </summary>
-    public class MeasurementSeries
+    private readonly int id;
+
+    /// <summary>
+    /// Defines the measurementPoints
+    /// </summary>
+    private List<IMeasurementPoint> measurementPoints;
+
+    /// <summary>
+    /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
+    /// </summary>
+    /// <param name="seriesId">The id<see cref="int"/></param>
+    /// <param name="appliedForce">The nominalForces<see cref="double[]"/></param>
+    /// <param name="rawValue">The measurementData<see cref="double[]"/></param>
+    private MeasurementSeries(int seriesId, double[] appliedForce, double[] rawValue)
     {
-        /// <summary>
-        /// Defines the id
-        /// </summary>
-        private readonly int id;
+        id = seriesId;
 
-        /// <summary>
-        /// Defines the measurementPoints
-        /// </summary>
-        private List<IMeasurementPoint> measurementPoints;
+        measurementPoints = [];
 
-        /// <summary>
-        /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
-        /// </summary>
-        /// <param name="seriesId">The id<see cref="int"/></param>
-        /// <param name="appliedForce">The nominalForces<see cref="double[]"/></param>
-        /// <param name="rawValue">The measurementData<see cref="double[]"/></param>
-        private MeasurementSeries(int seriesId, double[] appliedForce, double[] rawValue)
-        {
-            id = seriesId;
+        measurementPoints.AddRange(appliedForce.Select((force, i) => new NominalMeasurementPoint(force, rawValue[i])));
+    }
 
-            measurementPoints = [];
+    /// <summary>
+    /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
+    /// </summary>
+    /// <param name="seriesId">The seriesId<see cref="int"/></param>
+    /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+    /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
+    /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
+    private MeasurementSeries(int seriesId, double[] nominalForces, double[] actualForces, double[] measurementData)
+    {
+        seriesId = id;
 
-            measurementPoints.AddRange(appliedForce.Select((force, i) => new NominalMeasurementPoint(force, rawValue[i])));
-        }
+        measurementPoints = [];
 
-        /// <summary>
-        /// Prevents a default instance of the <see cref="MeasurementSeries"/> class from being created.
-        /// </summary>
-        /// <param name="seriesId">The seriesId<see cref="int"/></param>
-        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
-        /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
-        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
-        private MeasurementSeries(int seriesId, double[] nominalForces, double[] actualForces, double[] measurementData)
-        {
-            seriesId = id;
+        measurementPoints.AddRange(nominalForces.Select((force, i) => new ActualMeasurementPoint(force, actualForces[i], measurementData[i])));
+    }
 
-            measurementPoints = [];
+    /// <summary>
+    /// Gets the Id
+    /// </summary>
+    public int Id => id;
 
-            measurementPoints.AddRange(nominalForces.Select((force, i) => new ActualMeasurementPoint(force, actualForces[i], measurementData[i])));
-        }
+    /// <summary>
+    /// The GetRawValue
+    /// </summary>
+    /// <param name="index">The index<see cref="int"/></param>
+    /// <returns>The <see cref="double"/></returns>
+    public double GetRawValue(int index)
+    {
+        // TODO add validation for index
+        //TODO add error handling
 
-        /// <summary>
-        /// Gets the Id
-        /// </summary>
-        public int Id => id;
+        return measurementPoints[index].RawValue;
+    }
 
-        /// <summary>
-        /// The GetRawValue
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public double GetRawValue(int index)
-        {
-            // TODO add validation for index
-            //TODO add error handling
+    /// <summary>
+    /// The SetValue
+    /// </summary>
+    /// <param name="index">The index<see cref="int"/></param>
+    /// <param name="value">The valueToAdd<see cref="double"/></param>
+    public void SetValue(int index, double value)
+    {
+        // TODO add validation for index
+        //TODO add error handling
 
-            return measurementPoints[index].RawValue;
-        }
+        measurementPoints[index].Value = value;
+    }
 
-        /// <summary>
-        /// The SetValue
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        /// <param name="value">The valueToAdd<see cref="double"/></param>
-        public void SetValue(int index, double value)
-        {
-            // TODO add validation for index
-            //TODO add error handling
+    /// <summary>
+    /// The RemoveMeasurementPointsByIndex
+    /// </summary>
+    /// <param name="indexes">The indexes<see cref="IList{int}?"/></param>
+    public void RemoveValuesByIndex(IList<int>? indexes)
+    {
+        //TODO add error handling
 
-            measurementPoints[index].Value = value;
-        }
+        if (indexes == null)
+            return;
 
-        /// <summary>
-        /// The RemoveMeasurementPointsByIndex
-        /// </summary>
-        /// <param name="indexes">The indexes<see cref="IList{int}?"/></param>
-        public void RemoveValuesByIndex(IList<int>? indexes)
-        {
-            //TODO add error handling
+        measurementPoints = measurementPoints.Where((dp, i) => !indexes.Contains(i)).ToList();
+    }
 
-            if (indexes == null)
-                return;
+    /// <summary>
+    /// The GetValue
+    /// </summary>
+    /// <param name="index">The index<see cref="int"/></param>
+    /// <returns>The <see cref="double"/></returns>
+    public double GetValue(int index)
+    {
+        // TODO add validation for index
+        //TODO add error handling
 
-            measurementPoints = measurementPoints.Where((dp, i) => !indexes.Contains(i)).ToList();
-        }
+        return measurementPoints[index].Value;
+    }
 
-        /// <summary>
-        /// The GetValue
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public double GetValue(int index)
-        {
-            // TODO add validation for index
-            //TODO add error handling
+    /// <summary>
+    /// The GetEnumerable
+    /// </summary>
+    /// <returns>The <see cref="IEnumerable{IMeasurementPoint}"/></returns>
+    public IEnumerable<IMeasurementPoint> GetEnumerable()
+    {
+        // TODO revisit this as it may expose the internal list
+        return measurementPoints;
+    }
 
-            return measurementPoints[index].Value;
-        }
+    /// <summary>
+    /// The IncreaseValuesByAdd
+    /// </summary>
+    /// <param name="valueToAdd">The valueToAdd<see cref="double"/></param>
+    public void IncreaseValuesByAdd(double valueToAdd)
+    {
+        if (valueToAdd == 0)
+            return;
 
-        /// <summary>
-        /// The GetEnumerable
-        /// </summary>
-        /// <returns>The <see cref="IEnumerable{IMeasurementPoint}"/></returns>
-        public IEnumerable<IMeasurementPoint> GetEnumerable()
-        {
-            // TODO revisit this as it may expose the internal list
-            return measurementPoints;
-        }
+        // TODO add error handling  
 
-        /// <summary>
-        /// The IncreaseValuesByAdd
-        /// </summary>
-        /// <param name="valueToAdd">The valueToAdd<see cref="double"/></param>
-        public void IncreaseValuesByAdd(double valueToAdd)
-        {
-            if (valueToAdd == 0)
-                return;
+        for (int i = 0; i < measurementPoints.Count; i++)
+            SetValue(i, GetValue(i) + valueToAdd);
+    }
 
-            // TODO add error handling  
+    /// <summary>
+    /// The GetAppliedForce
+    /// </summary>
+    /// <param name="index">The index<see cref="int"/></param>
+    /// <returns>The <see cref="double"/></returns>
+    public double GetAppliedForce(int index)
+    {
+        // TODO add validation for index
+        //TODO add error handling
 
-            for (int i = 0; i < measurementPoints.Count; i++)
-                SetValue(i, GetValue(i) + valueToAdd);
-        }
+        return measurementPoints[index].AppliedForce;
+    }
 
-        /// <summary>
-        /// The GetAppliedForce
-        /// </summary>
-        /// <param name="index">The index<see cref="int"/></param>
-        /// <returns>The <see cref="double"/></returns>
-        public double GetAppliedForce(int index)
-        {
-            // TODO add validation for index
-            //TODO add error handling
+    /// <summary>
+    /// Count
+    /// </summary>
+    /// <returns>The number of Data Points<see cref="int"/></returns>
+    public int Count()
+    {
+        //TODO add error handling - List may be null
 
-            return measurementPoints[index].AppliedForce;
-        }
+        return measurementPoints.Count;
+    }
 
-        /// <summary>
-        /// Count
-        /// </summary>
-        /// <returns>The number of Data Points<see cref="int"/></returns>
-        public int Count()
-        {
-            //TODO add error handling - List may be null
+    /// <summary>
+    /// The Modify
+    /// </summary>
+    /// <param name="modifier">The modifier<see cref="IModifyMeasurementSeriesSize"/></param>
+    public void Modify(IModifyMeasurementSeriesSize modifier)
+    {
+        //TODO add error handling - List may be null
 
-            return measurementPoints.Count;
-        }
+        measurementPoints = modifier.Modify(measurementPoints);
+    }
 
-        /// <summary>
-        /// The Modify
-        /// </summary>
-        /// <param name="modifier">The modifier<see cref="IModifyMeasurementSeriesSize"/></param>
-        public void Modify(IModifyMeasurementSeriesSize modifier)
-        {
-            //TODO add error handling - List may be null
+    /// <summary>
+    /// The Reorder
+    /// </summary>
+    /// <param name="modifier">The modifier<see cref="IReorderMeasurementSeries"/></param>
+    public void ReorderSeries(IReorderMeasurementSeries modifier)
+    {
+        //TODO add error handling - List may be null
 
-            measurementPoints = modifier.Modify(measurementPoints);
-        }
+        // TODO consider renaming method to Reorder  
 
-        /// <summary>
-        /// The Reorder
-        /// </summary>
-        /// <param name="modifier">The modifier<see cref="IReorderMeasurementSeries"/></param>
-        public void ReorderSeries(IReorderMeasurementSeries modifier)
-        {
-            //TODO add error handling - List may be null
+        measurementPoints = modifier.Reorder(measurementPoints);
+    }
 
-            // TODO consider renaming method to Reorder  
+    /// <summary>
+    /// The TransformMeasurementPoints
+    /// </summary>
+    /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToArray"/></param>
+    /// <returns>The <see cref="double[]"/></returns>
+    public double[] Transform(ITransformMeasurementPointsToArray transform)
+    {
+        return transform.ToArray(measurementPoints);
+    }
 
-            measurementPoints = modifier.Reorder(measurementPoints);
-        }
+    /// <summary>
+    /// The Interpolate
+    /// </summary>
+    /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
+    /// <param name="series">The series<see cref="MeasurementSeries"/></param>
+    public static void Interpolate(IInterpolate interpolator, MeasurementSeries series)
+    {
+        interpolator.Interpolate(series);
+    }
 
-        /// <summary>
-        /// The TransformMeasurementPoints
-        /// </summary>
-        /// <param name="transform">The transform<see cref="ITransformMeasurementPointsToArray"/></param>
-        /// <returns>The <see cref="double[]"/></returns>
-        public double[] Transform(ITransformMeasurementPointsToArray transform)
-        {
-            return transform.ToArray(measurementPoints);
-        }
+    /// <summary>
+    /// Creates a MeasurementSeries object populated with the provided data
+    /// </summary>
+    /// <param name="id">The id<see cref="int"/></param>
+    /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+    /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
+    /// <returns>The <see cref="MeasurementSeries"/></returns>
+    public static MeasurementSeries Create(int id, double[] nominalForces, double[] measurementData)
+    {
+        //TODO condider removing the Id property
 
-        /// <summary>
-        /// The Interpolate
-        /// </summary>
-        /// <param name="interpolator">The interpolator<see cref="IInterpolate"/></param>
-        /// <param name="series">The series<see cref="MeasurementSeries"/></param>
-        public static void Interpolate(IInterpolate interpolator, MeasurementSeries series)
-        {
-            interpolator.Interpolate(series);
-        }
+        // TODO consider removing this method in favor of a constructor
 
-        /// <summary>
-        /// Creates a MeasurementSeries object populated with the provided data
-        /// </summary>
-        /// <param name="id">The id<see cref="int"/></param>
-        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
-        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
-        /// <returns>The <see cref="MeasurementSeries"/></returns>
-        public static MeasurementSeries Create(int id, double[] nominalForces, double[] measurementData)
-        {
-            //TODO condider removing the Id property
+        return new MeasurementSeries(id, nominalForces, measurementData);
+    }
 
-            // TODO consider removing this method in favor of a constructor
+    /// <summary>
+    /// The Create
+    /// </summary>
+    /// <param name="id">The id<see cref="int"/></param>
+    /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
+    /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
+    /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
+    /// <returns>The <see cref="MeasurementSeries"/></returns>
+    public static MeasurementSeries Create(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
+    {
+        //TODO condider removing the Id property
 
-            return new MeasurementSeries(id, nominalForces, measurementData);
-        }
+        // TODO consider removing this method in favor of a constructor
 
-        /// <summary>
-        /// The Create
-        /// </summary>
-        /// <param name="id">The id<see cref="int"/></param>
-        /// <param name="nominalForces">The nominalForces<see cref="double[]"/></param>
-        /// <param name="actualForces">The actualForces<see cref="double[]"/></param>
-        /// <param name="measurementData">The measurementData<see cref="double[]"/></param>
-        /// <returns>The <see cref="MeasurementSeries"/></returns>
-        public static MeasurementSeries Create(int id, double[] nominalForces, double[] actualForces, double[] measurementData)
-        {
-            //TODO condider removing the Id property
-
-            // TODO consider removing this method in favor of a constructor
-
-            return new MeasurementSeries(id, nominalForces, actualForces, measurementData);
-        }
+        return new MeasurementSeries(id, nominalForces, actualForces, measurementData);
     }
 }

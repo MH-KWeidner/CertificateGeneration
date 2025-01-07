@@ -1,17 +1,16 @@
 ﻿using CalibrationCalculations.Models;
 
-namespace CalibrationCalculations.Factories.ReorderMeasurementSeries
+namespace CalibrationCalculations.Factories.ReorderMeasurementSeries;
+
+/// <summary>
+/// Defines the <see cref="IReorderMeasurementSeries" />
+/// </summary>
+public interface IReorderMeasurementSeries
 {
     /// <summary>
-    /// Defines the <see cref="IReorderMeasurementSeries" />
+    /// The Reorder
     /// </summary>
-    public interface IReorderMeasurementSeries
-    {
-        /// <summary>
-        /// The Reorder
-        /// </summary>
-        /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
-        /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
-        public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints);
-    }
+    /// <param name="measurementPoints">The measurementPoints<see cref="List{IMeasurementPoint}?"/></param>
+    /// <returns>The <see cref="List{IMeasurementPoint}?"/></returns>
+    public List<IMeasurementPoint>? Reorder(List<IMeasurementPoint>? measurementPoints);
 }
