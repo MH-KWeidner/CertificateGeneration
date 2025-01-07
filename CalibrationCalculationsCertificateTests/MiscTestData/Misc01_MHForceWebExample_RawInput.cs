@@ -1,4 +1,6 @@
-﻿namespace CalibrationCalculationsCertificateTests.MiscTestData
+﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
+
+namespace CalibrationCalculationsCertificateTests.MiscTestData
 {
     /// <summary>
     /// Defines the <see cref="Misc01_MHForceWebExample_RawInput" />

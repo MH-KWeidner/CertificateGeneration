@@ -1,7 +1,7 @@
 using CalibrationCalculations.Common;
 using CalibrationCalculations.GenerateE74;
-using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124;
-using CalibrationCalculationsCertificateTests.Models;
+using CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
+using static CalibrationCalculationsCertificateTests.LabScheduleModels.LabAnalysisSingleRunResult;
 
 namespace CalibrationCalculationsCertificateTests;
 
@@ -38,9 +38,10 @@ public class BuildE74WithDataSet1UseBuilderTest
         const int LABSCH_BEST_DEGREE_FIT = 4;
         Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, result.DegreeOfFit);
 
-        List<SingleRunPoint> LabSchedulePointsSeries1 = LS01_ResultSeries1.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries2 = LS01_ResultSeries2.dataList;
-        List<SingleRunPoint> LabSchedulePointsSeries3 = LS01_ResultSeries3.dataList;
+        List<LabAnalysisSingleRunResult> labSchResult = new LS01_ResultsData().LabScheduleRunResults;
+        List<SingleRunPoint> LabSchedulePointsSeries1 = labSchResult[0].Runs[0].NormalizedData;
+        List<SingleRunPoint> LabSchedulePointsSeries2 = labSchResult[0].Runs[1].NormalizedData;
+        List<SingleRunPoint> LabSchedulePointsSeries3 = labSchResult[0].Runs[2].NormalizedData;
 
         // Assert
         Assert.AreEqual(valuesForAllSeries[0].Length, LabSchedulePointsSeries1.Count);

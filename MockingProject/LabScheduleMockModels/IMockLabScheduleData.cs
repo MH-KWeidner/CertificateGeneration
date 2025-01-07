@@ -1,6 +1,4 @@
-﻿using CalibrationCalculationsCertificateTests.LabscheduleMockModels;
-
-namespace CalibrationCalculationsCertificateTests.LabScheduleMockModels
+﻿namespace MockingProject.LabScheduleMockModels
 {
     public interface IMockLabScheduleData
     {

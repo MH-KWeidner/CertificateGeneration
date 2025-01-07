@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.Models
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels
 {
     internal interface ILabScheduleRawInput
     {

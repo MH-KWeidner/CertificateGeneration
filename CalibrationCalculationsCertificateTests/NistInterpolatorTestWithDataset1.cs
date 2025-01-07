@@ -2,8 +2,8 @@ using CalibrationCalculations.Factories.ModifyMeasurementSeriesSize;
 using CalibrationCalculations.Factories.ReorderMeasurementSeries;
 using CalibrationCalculations.Models;
 using CalibrationCalculations.StandardCalculations.Interpolation;
-using CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124;
-using CalibrationCalculationsCertificateTests.Models;
+using CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
+using static CalibrationCalculationsCertificateTests.LabScheduleModels.LabAnalysisSingleRunResult;
 
 namespace CalibrationCalculationsCertificateTests
 {
@@ -47,9 +47,10 @@ namespace CalibrationCalculationsCertificateTests
             series2.ReorderSeries(reorder);
             series3.ReorderSeries(reorder);
 
-            List<SingleRunPoint> LabSchedulePointsSeries1 = LS01_ResultSeries1.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries2 = LS01_ResultSeries2.dataList;
-            List<SingleRunPoint> LabSchedulePointsSeries3 = LS01_ResultSeries3.dataList;
+            List<LabAnalysisSingleRunResult> labSchResult = new LS01_ResultsData().LabScheduleRunResults;
+            List<SingleRunPoint> LabSchedulePointsSeries1 = labSchResult[0].Runs[0].NormalizedData;
+            List<SingleRunPoint> LabSchedulePointsSeries2 = labSchResult[0].Runs[1].NormalizedData;
+            List<SingleRunPoint> LabSchedulePointsSeries3 = labSchResult[0].Runs[2].NormalizedData;
 
             // Assert
             Assert.AreEqual(series1.Count(), LabSchedulePointsSeries1.Count);

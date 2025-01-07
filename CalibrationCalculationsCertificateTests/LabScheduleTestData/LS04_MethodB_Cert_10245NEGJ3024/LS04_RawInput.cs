@@ -1,4 +1,6 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS04_MethodB_Cert_10245NEGJ3024
+﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
+
+namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS04_MethodB_Cert_10245NEGJ3024
 {
     /// <summary>
     /// Defines the <see cref="LS04_RawInput" />

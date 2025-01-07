@@ -1,4 +1,4 @@
-﻿namespace MockingProject.LabScheduleMockModels
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels
 {
     public class Indicator
     {

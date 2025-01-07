@@ -1,6 +1,6 @@
-﻿using CalibrationCalculationsCertificateTests.Models;
+﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
 
-namespace CalibrationCalculationsCertificateTests.LabScheduleCertificateTestData.LS01_MethodB_Cert_U7989G0124
+namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124
 {
     /// <summary>
     /// Defines the <see cref="LS01_RawInput" />

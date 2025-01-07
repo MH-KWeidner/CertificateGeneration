@@ -1,13 +1,7 @@
-﻿using CalibrationCalculationsCertificateTests.LabscheduleMockModels;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static CalibrationCalculationsCertificateTests.LabscheduleMockModels.LabAnalysisSingleRunResult;
+﻿using System.Globalization;
+using static MockingProject.LabScheduleMockModels.LabAnalysisSingleRunResult;
 
-namespace CalibrationCalculationsCertificateTests.LabScheduleMockModels
+namespace MockingProject.LabScheduleMockModels
 {
     public class TestData1 : IMockLabScheduleData
     {

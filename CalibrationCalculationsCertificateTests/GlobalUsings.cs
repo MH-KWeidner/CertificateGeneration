@@ -1,4 +1,4 @@
-﻿global using CalibrationCalculationsCertificateTests.Models;
+﻿global using CalibrationCalculationsCertificateTests.LabScheduleModels;
 
 namespace CalibrationCalculationsCertificateTests
 {

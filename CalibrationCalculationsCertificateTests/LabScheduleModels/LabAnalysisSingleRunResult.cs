@@ -1,4 +1,4 @@
-﻿namespace MockingProject.LabScheduleMockModels;
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
 
 public class LabAnalysisSingleRunResult
 {
@@ -313,6 +313,6 @@ public class LabAnalysisSingleRunResult
     }
 }
 
+    
 
-
-
+    

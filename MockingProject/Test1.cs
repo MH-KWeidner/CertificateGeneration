@@ -1,6 +1,6 @@
-﻿using CalibrationCalculationsCertificateTests.LabScheduleMockModels;
+﻿using MockingProject.LabScheduleMockModels;
 
-namespace CalibrationCalculationsCertificateTests
+namespace MockingProject
 {
     [TestClass]
     public sealed class Test1
@@ -8,7 +8,7 @@ namespace CalibrationCalculationsCertificateTests
         [TestMethod]
         public void TestMethod1()
         {
-            TestData1 test1 = new ();
+            TestData1 test1 = new();
             var data = test1.Get();
         }
     }
