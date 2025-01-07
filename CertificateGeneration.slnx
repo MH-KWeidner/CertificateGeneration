@@ -2,5 +2,4 @@
   <Project Path="CalibrationCalculations/CalibrationCalculations.csproj" Id="5af3bc30-1a34-4a8d-b68c-f7a9efadcd72" />
   <Project Path="CalibrationCalculationsCertificateTests/CalibrationCalculationsCertificateTests.csproj" Id="db679d04-939a-45c8-8b47-cd7bd1831fd8" />
   <Project Path="CalibrationCalculationsUnitTests/CalibrationCalculationsUnitTests.csproj" Id="d19c19ba-ddcb-4500-93a3-83d592166f0d" />
-  <Project Path="MockingProject/MockingProject.csproj" Id="06f29bea-c883-447b-bb7c-6f8ee7348f23" />
 </Solution>
