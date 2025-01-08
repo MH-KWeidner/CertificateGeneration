@@ -34,39 +34,43 @@ public class BuildE74WithDataSet1UseBuilderTest
         ILabScheduleRawInput rawInput = new LS01_RawInput();
         E74Result result = E74Builder.Build(configuration, rawInput.NominalForcesApplied, rawInput.MeasurementData);
 
-        // These values are post interpolation, zero reduction, and reordering
-
-        // TODO decide on handling null array
-        double[][] values = result.Values;
-
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
         Assert.AreEqual(LABSCH_BEST_DEGREE_FIT, result.DegreeOfFit);
 
-        ILabScheduleRunResultsList labSchResults = new LS01_ResultsData();
-        List <LabAnalysisSingleRunResult> zz = labSchResults.LabScheduleRunResults;
+        // These interpolatedValues are post interpolation, zero reduction, and reordering
 
-        List<LabAnalysisSingleRunResult> labSchResult = new LS01_ResultsData().LabScheduleRunResults;
+        // TODO decide on handling null array
+        double[][] interpolatedValues = result.Values;
+
+        ILabScheduleRunResultsList labSchResults = new LS01_ResultsData();
         
-        List<SingleRunPoint> LabSchedulePointsSeries1 = labSchResult[0].Runs[0].NormalizedData;
-        List<SingleRunPoint> LabSchedulePointsSeries2 = labSchResult[0].Runs[1].NormalizedData;
-        List<SingleRunPoint> LabSchedulePointsSeries3 = labSchResult[0].Runs[2].NormalizedData;
+        const int RESULTS_INDEX = 0;
+        List<SingleRun> singleRuns = labSchResults.LabScheduleRunResults[RESULTS_INDEX].Runs;
+
+        const int ARRAY_INDEX0 = 0;
+        const int ARRAY_INDEX1 = 1;
+        const int ARRAY_INDEX2 = 2;
+
+        List<SingleRunPoint> labSchNormalizedPoints1 = singleRuns[ARRAY_INDEX0].NormalizedData;
+        List<SingleRunPoint> labSchNormalizedPoints2 = singleRuns[ARRAY_INDEX1].NormalizedData;
+        List<SingleRunPoint> labSchNormalizedPoints3 = singleRuns[ARRAY_INDEX2].NormalizedData;
 
         // Assert
-        Assert.AreEqual(values[0].Length, LabSchedulePointsSeries1.Count);
-        Assert.AreEqual(values[1].Length, LabSchedulePointsSeries2.Count);
-        Assert.AreEqual(values[2].Length, LabSchedulePointsSeries3.Count);
+        Assert.AreEqual(interpolatedValues[ARRAY_INDEX0].Length, labSchNormalizedPoints1.Count);
+        Assert.AreEqual(interpolatedValues[ARRAY_INDEX1].Length, labSchNormalizedPoints2.Count);
+        Assert.AreEqual(interpolatedValues[ARRAY_INDEX2].Length, labSchNormalizedPoints3.Count);
 
         const int ROUNDING_DIGITS = 8;
 
-        for (int i = 0; i < values[0].Length; i++)
-            Assert.AreEqual(Math.Round(values[0][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
+        for (int i = 0; i < interpolatedValues[ARRAY_INDEX0].Length; i++)
+            Assert.AreEqual(Math.Round(interpolatedValues[0][i], ROUNDING_DIGITS), (double)labSchNormalizedPoints1[i].Value);
 
-        for (int i = 0; i < values[1].Length; i++)
-            Assert.AreEqual(Math.Round(values[1][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
+        for (int i = 0; i < interpolatedValues[ARRAY_INDEX1].Length; i++)
+            Assert.AreEqual(Math.Round(interpolatedValues[1][i], ROUNDING_DIGITS), (double)labSchNormalizedPoints2[i].Value);
 
-        for (int i = 0; i < values[2].Length; i++)
-            Assert.AreEqual(Math.Round(values[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+        for (int i = 0; i < interpolatedValues[2].Length; i++)
+            Assert.AreEqual(Math.Round(interpolatedValues[2][i], ROUNDING_DIGITS), (double)labSchNormalizedPoints3[i].Value);
 
         // Assert coefficients
         double[] aCoffecients = result.ACoefficients;
