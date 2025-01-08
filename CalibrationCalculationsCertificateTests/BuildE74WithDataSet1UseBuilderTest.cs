@@ -32,8 +32,10 @@ public class BuildE74WithDataSet1UseBuilderTest
         ILabScheduleRawInput rawInput = new LS01_RawInput();
         E74Result result = E74Builder.Build(configuration, rawInput.NominalForcesApplied, rawInput.MeasurementData);
 
+        // These values are post interpolation, zero reduction, and reordering
+
         // TODO decide on handling null array
-        double[][] valuesForAllSeries = result.Values;
+        double[][] values = result.Values;
 
         // Assert
         const int LABSCH_BEST_DEGREE_FIT = 4;
@@ -45,19 +47,25 @@ public class BuildE74WithDataSet1UseBuilderTest
         List<SingleRunPoint> LabSchedulePointsSeries3 = labSchResult[0].Runs[2].NormalizedData;
 
         // Assert
-        Assert.AreEqual(valuesForAllSeries[0].Length, LabSchedulePointsSeries1.Count);
-        Assert.AreEqual(valuesForAllSeries[1].Length, LabSchedulePointsSeries2.Count);
-        Assert.AreEqual(valuesForAllSeries[2].Length, LabSchedulePointsSeries3.Count);
+        Assert.AreEqual(values[0].Length, LabSchedulePointsSeries1.Count);
+        Assert.AreEqual(values[1].Length, LabSchedulePointsSeries2.Count);
+        Assert.AreEqual(values[2].Length, LabSchedulePointsSeries3.Count);
 
         const int ROUNDING_DIGITS = 8;
 
-        for (int i = 0; i < valuesForAllSeries[0].Length; i++)
-            Assert.AreEqual(Math.Round(valuesForAllSeries[0][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
+        for (int i = 0; i < values[0].Length; i++)
+            Assert.AreEqual(Math.Round(values[0][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries1[i].Value);
 
-        for (int i = 0; i < valuesForAllSeries[1].Length; i++)
-            Assert.AreEqual(Math.Round(valuesForAllSeries[1][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
+        for (int i = 0; i < values[1].Length; i++)
+            Assert.AreEqual(Math.Round(values[1][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries2[i].Value);
 
-        for (int i = 0; i < valuesForAllSeries[2].Length; i++)
-            Assert.AreEqual(Math.Round(valuesForAllSeries[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+        for (int i = 0; i < values[2].Length; i++)
+            Assert.AreEqual(Math.Round(values[2][i], ROUNDING_DIGITS), (double)LabSchedulePointsSeries3[i].Value);
+
+        // Assert coefficients
+        double[] aCoffecients = result.ACoefficients;
+
+        ILabScheduleAdditionalData additionalData = new LS01_AdditionalData();
+        double[] labSchACoefficients = additionalData.GetMathNetACoefficients(LABSCH_BEST_DEGREE_FIT);
     }
 }

@@ -11,7 +11,6 @@ internal class LS02_RawInput : ILabScheduleRawInput
     // REPORT NO.: 226367AK0624
     // Degree of Fit: Best Fit from LabSch is 3
 
-
     public double[] NominalForcesApplied => nominalForcesApplied;
 
     private static readonly double[] nominalForcesApplied =

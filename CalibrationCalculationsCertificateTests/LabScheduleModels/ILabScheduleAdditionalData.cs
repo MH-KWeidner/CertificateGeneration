@@ -5,8 +5,5 @@
 /// </summary>
 internal interface ILabScheduleAdditionalData
 {
-    /// <summary>
-    /// The ACoefficients as returned from the MathNet library
-    /// </summary>
-    internal double[][] MathNetACoefficients { get; }
+    internal double[] GetMathNetACoefficients(int degree);
 }

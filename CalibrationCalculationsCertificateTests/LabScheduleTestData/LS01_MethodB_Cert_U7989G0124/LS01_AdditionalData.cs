@@ -8,8 +8,6 @@ internal class LS01_AdditionalData : ILabScheduleAdditionalData
     // CALIBRATION & ISSUE DATE: 07/01/2024
     // REPORT NO.: U-7989G0124
 
-    public double[][] MathNetACoefficients => [mathNetACoefficientsOrder1, mathNetACoefficientsOrder2, mathNetACoefficientsOrder3, mathNetACoefficientsOrder4, mathNetACoefficientsOrder5];
-
     private static readonly double[] mathNetACoefficientsOrder1 =
     [
         0.00045062674071560949D,
@@ -49,4 +47,17 @@ internal class LS01_AdditionalData : ILabScheduleAdditionalData
         -5.5698075277555627E-22D,
         6.1721062273066225E-27D
     ];
+    
+    double[] ILabScheduleAdditionalData.GetMathNetACoefficients(int order)
+    {
+        return order switch
+        {
+            1 => mathNetACoefficientsOrder1,
+            2 => mathNetACoefficientsOrder2,
+            3 => mathNetACoefficientsOrder3,
+            4 => mathNetACoefficientsOrder4,
+            5 => mathNetACoefficientsOrder5,
+            _ => throw new NotImplementedException()
+        };
+    }
 }
