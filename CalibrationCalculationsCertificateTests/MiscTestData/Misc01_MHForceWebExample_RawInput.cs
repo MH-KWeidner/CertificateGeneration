@@ -1,4 +1,4 @@
-﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
+﻿using CalibrationCalculationsCertificateTests.LabScheduleTestData;
 
 namespace CalibrationCalculationsCertificateTests.MiscTestData;
 

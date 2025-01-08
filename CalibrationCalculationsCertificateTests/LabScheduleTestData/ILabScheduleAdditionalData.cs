@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleTestData;
 
 /// <summary>
 /// Defines the <see cref="ILabScheduleAdditionalData" />

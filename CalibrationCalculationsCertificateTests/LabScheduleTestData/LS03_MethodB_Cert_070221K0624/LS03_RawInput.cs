@@ -1,6 +1,4 @@
-﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
-
-namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS03_MethodB_Cert_070221K0624;
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS03_MethodB_Cert_070221K0624;
 
 /// <summary>
 /// Defines the <see cref="LS03_RawInput" />
