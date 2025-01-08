@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleResultModels;
 
 public class LabAnalysisSingleRunResult
 {
@@ -313,6 +313,6 @@ public class LabAnalysisSingleRunResult
     }
 }
 
-    
 
-    
+
+

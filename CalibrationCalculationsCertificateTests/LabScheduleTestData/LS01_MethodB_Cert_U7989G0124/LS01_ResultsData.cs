@@ -1,6 +1,6 @@
-﻿using CalibrationCalculationsCertificateTests.LabScheduleModels;
+﻿using CalibrationCalculationsCertificateTests.LabScheduleResultModels;
 using System.Globalization;
-using static CalibrationCalculationsCertificateTests.LabScheduleModels.LabAnalysisSingleRunResult;
+using static CalibrationCalculationsCertificateTests.LabScheduleResultModels.LabAnalysisSingleRunResult;
 
 namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
 

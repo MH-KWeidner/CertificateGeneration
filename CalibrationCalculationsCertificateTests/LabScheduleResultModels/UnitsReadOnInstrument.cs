@@ -1,4 +1,4 @@
-﻿namespace CalibrationCalculationsCertificateTests.LabScheduleModels;
+﻿namespace CalibrationCalculationsCertificateTests.LabScheduleResultModels;
 
 public class UnitsReadOnInstrument
 {
