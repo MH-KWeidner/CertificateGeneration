@@ -17,8 +17,6 @@ static public class E74Builder
 {
     private const int SERIES_TO_USE_TO_GET_FORCE_VALUES = 0;
 
-    private readonly static ModifyMeasurementSeriesSizeTypes zeroReductionModifier = ModifyMeasurementSeriesSizeTypes.RemoveZeroValuedNominalForces;
-
     /// <summary>
     /// The Build
     /// </summary>
@@ -37,10 +35,14 @@ static public class E74Builder
 
         application.RemoveMeasurementPointsByIndex(configuration.TransientNominalAppliedForcesByIndex); 
 
-        application.ModifySeriesSize(ModifyMeasurementSeriesSizeFactory.Create(zeroReductionModifier));
+        application.ModifySeriesSize(ModifyMeasurementSeriesSizeFactory.Create(ModifyMeasurementSeriesSizeTypes.RemoveZeroValuedNominalForces));
 
         if (configuration.InterpolationReorderType != MeasurementSeriesReorderTypes.DoNotReorder)
             application.ReorderSeriesData(ReorderFactory.Create(configuration.InterpolationReorderType));
+
+        result.InterpolatedNominalForces = application.TransformMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.NominalAppliedForces), SERIES_TO_USE_TO_GET_FORCE_VALUES);
+        
+        result.InterpolatedValues = application.TransformMeasurementPoints(MeasurementPointsToArrayFactory.Create(MeasurementPointsToArrayTransformTypes.MeasurementValues));    
         #endregion
 
         if (configuration.ApplyTemperatureCorrection)

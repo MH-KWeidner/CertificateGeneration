@@ -45,8 +45,8 @@ internal class LS01_AdditionalData : ILabScheduleAdditionalData
         -5.5698075277555627E-22D,
         6.1721062273066225E-27D
     ];
-    
-    double[] ILabScheduleAdditionalData.GetMathNetACoefficients(int order)
+
+   double[] ILabScheduleAdditionalData.GetRawMathNetACoefficients(int order)
     {
         return order switch
         {

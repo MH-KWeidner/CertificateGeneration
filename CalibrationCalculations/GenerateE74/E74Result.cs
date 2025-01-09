@@ -21,6 +21,16 @@ public class E74Result
     public double[]? NominalForces { get; set; }
 
     /// <summary>
+    /// NominalForces after interpolation, zero reduction, and reordering.
+    /// </summary>
+    public double[]? InterpolatedNominalForces { get; set; }
+
+    /// <summary>
+    /// Values after interpolation, zero reduction, and reordering, but before any additional adjustments.
+    /// </summary>
+    public double[][]? InterpolatedValues { get; set; }
+
+    /// <summary>
     /// Gets or sets the Values
     /// </summary>
     public double[][]? Values { get; set; }

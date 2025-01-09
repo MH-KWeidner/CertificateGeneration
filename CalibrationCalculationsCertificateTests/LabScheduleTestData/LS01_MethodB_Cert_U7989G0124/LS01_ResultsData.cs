@@ -4,7 +4,7 @@ using static CalibrationCalculationsCertificateTests.LabScheduleResultModels.Lab
 
 namespace CalibrationCalculationsCertificateTests.LabScheduleTestData.LS01_MethodB_Cert_U7989G0124;
 
-public class LS01_ResultsData : ILabScheduleRunResultsList
+public class LS01_ResultsData : ILabScheduleRunResultList
 {
     // Building this certificate:
     // CALIBRATION & ISSUE DATE: 07/01/2024

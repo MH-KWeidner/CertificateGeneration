@@ -2,7 +2,7 @@
 
 namespace CalibrationCalculationsCertificateTests.LabScheduleTestData;
 
-public interface ILabScheduleRunResultsList
+public interface ILabScheduleRunResultList
 {
     List<LabAnalysisSingleRunResult> LabScheduleRunResults { get; }
 }

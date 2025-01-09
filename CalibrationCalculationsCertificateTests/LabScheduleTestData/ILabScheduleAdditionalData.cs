@@ -5,5 +5,10 @@
 /// </summary>
 internal interface ILabScheduleAdditionalData
 {
-    internal double[] GetMathNetACoefficients(int degree);
+    /// <summary>
+    /// The "raw" coefficients values from LabSchedule, copied during execution/break points in the MathNet.Numerics polynomial fit. 
+    /// </summary>
+    /// <param name="degree"></param>
+    /// <returns></returns>
+    internal double[] GetRawMathNetACoefficients(int degree);
 }
